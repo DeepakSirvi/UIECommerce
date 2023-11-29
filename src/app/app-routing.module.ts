@@ -33,6 +33,7 @@ import { ShopProductLeftComponent } from './User/Shop/shop-product-left/shop-pro
 import { ShopProductFullComponent } from './User/Shop/shop-product-full/shop-product-full.component';
 import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop-product-vendor.component';
 import { ProductCategariesComponent } from './User/Pages/product-categaries/product-categaries.component';
+import { HomeComponent } from './User/home/home.component';
 
 
 
@@ -115,6 +116,11 @@ const routes: Routes = [
           path:"blog-catrgory-grid",
           component:BlogCatrgoryGridComponent, pathMatch:'full'
 
+       },
+       {
+        path:"home",
+        component:HomeComponent, pathMatch:'full'
+ 
        },
    
 {

@@ -44,6 +44,8 @@ import { ShopProductFullComponent } from './User/Shop/shop-product-full/shop-pro
 import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop-product-vendor.component';
 import { NavbarComponent } from './User/Component/navbar/navbar.component';
 import { ProductCategariesComponent } from './User/Pages/product-categaries/product-categaries.component';
+import { HomeComponent } from './User/home/home.component';
+
 
 
 @NgModule({
@@ -92,7 +94,8 @@ import { ProductCategariesComponent } from './User/Pages/product-categaries/prod
         ShopProductVendorComponent,
         NavbarComponent,
         ProductCategariesComponent,
-        
+        HomeComponent,
+       
   ],
   imports: [
     BrowserModule,
