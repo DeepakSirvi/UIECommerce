@@ -1,0 +1,8 @@
+li {
+    color: #6c757d;
+    padding: 5px 0 5px 15px;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    position: relative;
+    margin-left: 5px;
+}

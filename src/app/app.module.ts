@@ -45,6 +45,27 @@ import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop
 import { NavbarComponent } from './User/Component/navbar/navbar.component';
 import { ProductCategariesComponent } from './User/Pages/product-categaries/product-categaries.component';
 import { HomeComponent } from './User/home/home.component';
+import { AdminhomeComponent } from './Admin/Component/adminhome/adminhome.component';
+import { DashbordComponent } from './Admin/Component/dashbord/dashbord.component';
+import { ProductComponent } from './Admin/Component/product grid/product.component';
+import { OderdetailComponent } from './Admin/Component/oderdetails/oderdetail.component';
+import { SellerProfileComponent } from './Admin/Component/seller-profile/seller-profile.component';
+import { SellercardsComponent } from './Admin/Component/sellercards/sellercards.component';
+import { SellerlistComponent } from './Admin/Component/sellerlist/sellerlist.component';
+import { Addproductlist1Component } from './Admin/Component/addproductlist1/addproductlist1.component';
+import { Addproductlist2Component } from './Admin/Component/addproductlist2/addproductlist2.component';
+import { Addproducrtlist3Component } from './Admin/Component/addproducrtlist3/addproducrtlist3.component';
+import { Addproducrtlist4Component } from './Admin/Component/addproducrtlist4/addproducrtlist4.component';
+import { Transacation1Component } from './Admin/Component/transacation1/transacation1.component';
+import { Transacation2Component } from './Admin/Component/transacation2/transacation2.component';
+import { ReviewesComponent } from './Admin/Component/reviewes/reviewes.component';
+import { BrandsComponent } from './Admin/Component/brands/brands.component';
+import { Productsgrid2Component } from './Admin/Component/productsgrid2/productsgrid2.component';
+import { ProductslistComponent } from './Admin/Component/productslist/productslist.component';
+import { CategoriesComponent } from './Admin/Component/categories/categories.component';
+import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
+import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
+import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.component';
 
 
 
@@ -96,6 +117,8 @@ import { HomeComponent } from './User/home/home.component';
         ProductCategariesComponent,
         HomeComponent,
        
+    OrderlistComponent,
+    ResetPasswordComponent,LoginComponent, AdminhomeComponent, DashbordComponent, ProductComponent, OderdetailComponent, SellerProfileComponent, SellercardsComponent, SellerlistComponent, Addproductlist1Component, Addproductlist2Component, Addproducrtlist3Component, Addproducrtlist4Component, Transacation1Component, Transacation2Component, ReviewesComponent, BrandsComponent, Productsgrid2Component, ProductslistComponent, CategoriesComponent, Settingsample1Component, Settingsample2Component, 
   ],
   imports: [
     BrowserModule,
