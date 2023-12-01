@@ -28,8 +28,6 @@ import { ShopGridLeftComponent } from './User/Shop/shop-grid-left/shop-grid-left
 import { ShopListRightComponent } from './User/Shop/shop-list-right/shop-list-right.component';
 import { ShopListLeftComponent } from './User/Shop/shop-list-left/shop-list-left.component';
 import { ShopFullwidthComponent } from './User/Shop/shop-fullwidth/shop-fullwidth.component';
-import { ShopProductRightComponent } from './User/Shop/shop-product-right/shop-product-right.component';
-import { ShopProductLeftComponent } from './User/Shop/shop-product-left/shop-product-left.component';
 import { ShopProductFullComponent } from './User/Shop/shop-product-full/shop-product-full.component';
 import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop-product-vendor.component';
 import { ProductCategariesComponent } from './User/Pages/product-categaries/product-categaries.component';
@@ -55,283 +53,292 @@ import { ProductslistComponent } from './Admin/Component/productslist/productsli
 import { CategoriesComponent } from './Admin/Component/categories/categories.component';
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
+import { UserDashBoardComponent } from './User/Pages/user-dash-board/user-dash-board.component';
 
 
 
 
 const routes: Routes = [
 
-
-
   {
+    path: "",
+    component: UserDashBoardComponent,
+    children: [
+      {
+        path: "",
+        component: HomeComponent,
+      }]
+  },
+  
+  {
+
     path: "admin",
-    component:AdminhomeComponent,
-    children:[
-{
-  path:"",
-  component:DashbordComponent
-},
+    component: AdminhomeComponent,
+    children: [
+      {
+        path: "",
+        component: DashbordComponent
+      },
 
-{
-  path:"product",
-  component:ProductComponent
-},
-{
-  path:"orderdetail",
-  component:OderdetailComponent
-},{
-  path:"orderlist",
-  component:OrderlistComponent,
-  pathMatch:'full'
-},
-{
-  path:"sellerprofile",
-  component:SellerProfileComponent,
-  pathMatch:'full'
-},
-{
-  path:"sellercard",
-  component:SellercardsComponent,
-  pathMatch:'full'
-},
-{
-  path:"sellerlist",
-  component:SellerlistComponent,
-  pathMatch:'full'
-},
-{
-  path:"productlist1",
-  component:Addproductlist1Component,
-  pathMatch:'full'
-},
-{
-  path:"productlist2",
-  component:Addproductlist2Component,
-  pathMatch:'full'
-},
-{
-  path:"productlist3",
-  component:Addproducrtlist3Component,
-  pathMatch:'full'
-},
-{
-  path:"productlist4",
-  component:Addproducrtlist4Component,
-  pathMatch:'full'
-},
-{
-  path:"transaction1",
-  component:Transacation1Component,
-  pathMatch:'full'
-},
-{
-  path:"transaction2",
-  component:Transacation2Component,
-  pathMatch:'full'
-},
-{
-  path:"reviewes",
-  component:ReviewesComponent,
-  pathMatch:'full'
-},
-{
-  path:"brands",
-  component:BrandsComponent,
-  pathMatch:'full'
-},
-{
-  path:"productsgrid",
-  component:ProductComponent,
-  pathMatch:'full'
-},
-{
-  path:"productsgurid2",
-  component:Productsgrid2Component,
-  pathMatch:'full'
-},
-{
-  path:"productslist",
-  component:ProductslistComponent,
-  pathMatch:'full'
-},
-{
-  path:"categories",
-  component:CategoriesComponent,
-  pathMatch:'full'
-},
-{
-  path:"settingsample1",
-  component:Settingsample1Component,
-  pathMatch:'full'
-},
-{
-  path:"settingsample2",
-  component:Settingsample2Component,
-  pathMatch:'full'
-}
+
+      {
+        path: "product",
+        component: ProductComponent
+      },
+      {
+        path: "orderdetail",
+        component: OderdetailComponent
+      }, {
+        path: "orderlist",
+        component: OrderlistComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "sellerprofile",
+        component: SellerProfileComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "sellercard",
+        component: SellercardsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "sellerlist",
+        component: SellerlistComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "productlist1",
+        component: Addproductlist1Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "productlist2",
+        component: Addproductlist2Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "productlist3",
+        component: Addproducrtlist3Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "productlist4",
+        component: Addproducrtlist4Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "transaction1",
+        component: Transacation1Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "transaction2",
+        component: Transacation2Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "reviewes",
+        component: ReviewesComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "brands",
+        component: BrandsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "productsgrid",
+        component: ProductComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "productsgurid2",
+        component: Productsgrid2Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "productslist",
+        component: ProductslistComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "categories",
+        component: CategoriesComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: "settingsample1",
+        component: Settingsample1Component,
+        pathMatch: 'full'
+      },
+      {
+        path: "settingsample2",
+        component: Settingsample2Component,
+        pathMatch: 'full'
+      }
     ]
   },
   {
-    path:"user",
-    children:[
+    path: "user",
+    component: UserDashBoardComponent,
+    children: [
       {
-        path:"about",
-        component:AboutComponent
-      },
-      
-      {
-        path:"contactUs",
-        component:ContactUsComponent
+        path: "",
+        component: HomeComponent,
       },
       {
-        path:'termsAndCondition',
-        component:TermsAndConditionComponent
+        path: "home",
+        component: HomeComponent,
       },
       {
-        path:"wishlist",
-        component:WishlistComponent
+        path: "about",
+        component: AboutComponent
+      },
+
+      {
+        path: "contactUs",
+        component: ContactUsComponent
       },
       {
-        path:"cart",
-        component:ShopCartComponent
-       },
-       {
-        path:"shopcheckout",
-        component:ShopCheckoutComponent
-
-       },
-      {
-        path:"account",
-        component:AccountComponent
+        path: 'termsAndCondition',
+        component: TermsAndConditionComponent
       },
       {
-        path:"filter",
-        component:FilterComponent
-      }, 
+        path: "wishlist",
+        component: WishlistComponent
+      },
       {
-        path:"login",
-        component:LoginComponent
-    
-       },
-       {
-         path:"register",
-         component:RegisterComponent
-       },
-       {
-        path:"forgotpassword",
-        component:ForgotPasswordComponent
-       },
-       {
-         path:"purchaseguide",
-         component:PurchaseGuideComponent
+        path: "cart",
+        component: ShopCartComponent
+      },
+      {
+        path: "shopcheckout",
+        component: ShopCheckoutComponent
 
-       },
-       {
-        path:"privacypolicy",
-        component:PrivacyPolicyComponent
+      },
+      {
+        path: "account",
+        component: AccountComponent
+      },
+      {
+        path: "filter",
+        component: FilterComponent
+      },
+      {
+        path: "login",
+        component: LoginComponent
 
-       },
-       {
-           path:"product-categaries",
-           component:ProductCategariesComponent
-       },
-       {
-        path:"resetpassword",
-        component:ResetPasswordComponent
-       },
-       {
-        path:"termsofService",
-        component:TermsofServiceComponent
-       },
-       
-       {
-          path:"blog-catrgory-grid",
-          component:BlogCatrgoryGridComponent, pathMatch:'full'
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+      {
+        path: "forgotpassword",
+        component: ForgotPasswordComponent
+      },
+      {
+        path: "purchaseguide",
+        component: PurchaseGuideComponent
 
-       },
-       {
-        path:"home",
-        component:HomeComponent, pathMatch:'full'
- 
-       },
-   
-{
-  path:"no-sidebar",
-    component:NoSidebarComponent, pathMatch:'full'
+      },
+      {
+        path: "privacypolicy",
+        component: PrivacyPolicyComponent
 
-},
-    {
-      path:"vendor-dashboard",
-      component:VendorDashboardComponent, pathMatch:'full'
-    },
-    {
-      path:"vendor-details1",
-      component:VendorDetails1Component, pathMatch:'full'
-    },
-    
-    {
-      path:"vendor-guide",
-      component:VendorGuideComponent, pathMatch:'full'
-    },
-    {
-      path:"vendors-grid",
-      component:VendorsGridComponent, pathMatch:'full'
-    },
-    {
-      path:"vendors-list",
-      component:VendorsListComponent, pathMatch:'full'
-    },
-     {
-      path:"shop-grid-right",
-      component:ShopGridRightComponent, pathMatch:'full'
-     },
-     {
-      path:"shop-grid-left",
-      component:ShopGridLeftComponent, pathMatch:'full'
-     },
-     {
-      path:"shop-list-right",
-      component:ShopListRightComponent, pathMatch:'full'
-     },
-     {
-      path:"shop-list-left",
-      component:ShopListLeftComponent, pathMatch:'full'
-     },
-     {
-      path:"shop-fullwidth",
-      component:ShopFullwidthComponent, pathMatch:'full'
-     },
-     {
-      path:"shop-product-right",
-      component:ShopProductRightComponent
-     },
-     {
-       path:"shop-product-left",
-       component:ShopProductLeftComponent
-     },
-     {
-      path:"shop-product-full",
-      component:ShopProductFullComponent
-    },
-    {
-      path:"shop-product-vendor",
-      component:ShopProductVendorComponent
-    },
-    
+      },
+      {
+        path: "product-categaries",
+        component: ProductCategariesComponent
+      },
+      {
+        path: "resetpassword",
+        component: ResetPasswordComponent
+      },
+      {
+        path: "termsofService",
+        component: TermsofServiceComponent
+      },
+
+      {
+        path: "blog-catrgory-grid",
+        component: BlogCatrgoryGridComponent,
 
 
-       {
-        path:"reset-password",
-        component:ResetPasswordComponent
-       }
-        
+      },
+
+
+      {
+        path: "no-sidebar",
+        component: NoSidebarComponent, pathMatch: 'full'
+
+      },
+      {
+        path: "vendor-dashboard",
+        component: VendorDashboardComponent, pathMatch: 'full'
+      },
+      {
+        path: "vendor-details1",
+        component: VendorDetails1Component, pathMatch: 'full'
+      },
+
+      {
+        path: "vendor-guide",
+        component: VendorGuideComponent, pathMatch: 'full'
+      },
+      {
+        path: "vendors-grid",
+        component: VendorsGridComponent, pathMatch: 'full'
+      },
+      {
+        path: "vendors-list",
+        component: VendorsListComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-grid-right",
+        component: ShopGridRightComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-grid-left",
+        component: ShopGridLeftComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-list-right",
+        component: ShopListRightComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-list-left",
+        component: ShopListLeftComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-fullwidth",
+        component: ShopFullwidthComponent, pathMatch: 'full'
+      },
+      {
+        path: "shop-product-full",
+        component: ShopProductFullComponent
+      },
+      {
+        path: "shop-product-vendor",
+        component: ShopProductVendorComponent
+      },
+
+
+
+      {
+        path: "reset-password",
+        component: ResetPasswordComponent
+      }
+
 
     ]
   },
   {
-    path:"**",
-    component:PageNotFoundComponent
-  } , 
+    path: "**",
+    component: PageNotFoundComponent
+  },
 ];
 
 @NgModule({
