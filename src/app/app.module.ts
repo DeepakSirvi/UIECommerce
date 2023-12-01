@@ -38,8 +38,6 @@ import { ShopGridLeftComponent } from './User/Shop/shop-grid-left/shop-grid-left
 import { ShopListRightComponent } from './User/Shop/shop-list-right/shop-list-right.component';
 import { ShopListLeftComponent } from './User/Shop/shop-list-left/shop-list-left.component';
 import { ShopFullwidthComponent } from './User/Shop/shop-fullwidth/shop-fullwidth.component';
-import { ShopProductRightComponent } from './User/Shop/shop-product-right/shop-product-right.component';
-import { ShopProductLeftComponent } from './User/Shop/shop-product-left/shop-product-left.component';
 import { ShopProductFullComponent } from './User/Shop/shop-product-full/shop-product-full.component';
 import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop-product-vendor.component';
 import { NavbarComponent } from './User/Component/navbar/navbar.component';
@@ -110,8 +108,6 @@ import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
         ShopListRightComponent,
         ShopListLeftComponent,
         ShopFullwidthComponent,
-        ShopProductRightComponent,
-        ShopProductLeftComponent,
         ShopProductFullComponent,
         ShopProductVendorComponent,
         NavbarComponent,
