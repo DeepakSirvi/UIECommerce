@@ -55,6 +55,7 @@ import { ProductslistComponent } from './Admin/Component/productslist/productsli
 import { CategoriesComponent } from './Admin/Component/categories/categories.component';
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
+import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
 
 
 
@@ -168,6 +169,11 @@ const routes: Routes = [
   path:"settingsample2",
   component:Settingsample2Component,
   pathMatch:'full'
+},
+{
+  path:"navbar",
+  component:NavbarComponent,
+  
 }
     ]
   },

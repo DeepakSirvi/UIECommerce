@@ -66,6 +66,7 @@ import { CategoriesComponent } from './Admin/Component/categories/categories.com
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
 import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.component';
+import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
 
 
 
@@ -118,7 +119,7 @@ import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.compon
         HomeComponent,
        
     OrderlistComponent,
-    ResetPasswordComponent,LoginComponent, AdminhomeComponent, DashbordComponent, ProductComponent, OderdetailComponent, SellerProfileComponent, SellercardsComponent, SellerlistComponent, Addproductlist1Component, Addproductlist2Component, Addproducrtlist3Component, Addproducrtlist4Component, Transacation1Component, Transacation2Component, ReviewesComponent, BrandsComponent, Productsgrid2Component, ProductslistComponent, CategoriesComponent, Settingsample1Component, Settingsample2Component, 
+    ResetPasswordComponent,LoginComponent, AdminhomeComponent, DashbordComponent, ProductComponent, OderdetailComponent, SellerProfileComponent, SellercardsComponent, SellerlistComponent, Addproductlist1Component, Addproductlist2Component, Addproducrtlist3Component, Addproducrtlist4Component, Transacation1Component, Transacation2Component, ReviewesComponent, BrandsComponent, Productsgrid2Component, ProductslistComponent, CategoriesComponent, Settingsample1Component, Settingsample2Component, NavbarComponent, 
   ],
   imports: [
     BrowserModule,
