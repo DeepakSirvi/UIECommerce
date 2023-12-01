@@ -52,8 +52,10 @@ import { Productsgrid2Component } from './Admin/Component/productsgrid2/products
 import { ProductslistComponent } from './Admin/Component/productslist/productslist.component';
 import { CategoriesComponent } from './Admin/Component/categories/categories.component';
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
-import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
+import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component'
 import { UserDashBoardComponent } from './User/Pages/user-dash-board/user-dash-board.component';
+
+import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
 
 
 
@@ -79,8 +81,6 @@ const routes: Routes = [
         path: "",
         component: DashbordComponent
       },
-
-
       {
         path: "product",
         component: ProductComponent
@@ -180,6 +180,7 @@ const routes: Routes = [
       }
     ]
   },
+ 
   {
     path: "user",
     component: UserDashBoardComponent,
