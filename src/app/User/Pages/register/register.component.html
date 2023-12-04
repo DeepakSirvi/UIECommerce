@@ -1,4 +1,4 @@
-<main class="main pages">
+<!-- <main class="main pages">
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
@@ -21,21 +21,37 @@
                                     </div>
                                     <form method="post">
                                         <div class="form-group">
-                                            <input type="text" required="" name="username" placeholder="Username" />
+                                            <input type="text" required="" name="usermobile" placeholder="userMobile" />
                                         </div>
                                         <div class="form-group">
                                             <input type="text" required="" name="email" placeholder="Email" />
                                         </div>
-                                        <div class="payment_option mb-50">
-                                            <div class="custome-radio">
-                                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" checked="" />
-                                                <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">I am a customer</label>
-                                            </div>
-                                            <div class="custome-radio">
-                                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4" checked="" />
-                                                <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">I am a vendor</label>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="text" required="" name="firstName" placeholder="firstName" />
                                         </div>
+                                        <div class="form-group">
+                                            <input type="text" required="" name="lastName" placeholder="lastName" />
+                                        </div>
+                                        <div class="form-group">
+                                            <h1>Gender</h1>
+
+         
+                                   <label>
+                                  <input type="radio" name="gender" value="male">
+                                       Male
+                                    </label>
+
+                                       <label>
+                               <input type="radio" name="gender" value="female">
+                                       Female
+                                         </label>
+
+                                      <label>
+                                   <input type="radio" name="gender" value="other">
+                                     Other
+                                    </label>
+
+                                            </div>
                                         <div class="login_footer form-group mb-50">
                                             <div class="chek-form">
                                                 <div class="custome-checkbox">
@@ -74,4 +90,82 @@
             </div>
         </div>
     </div>
-</main>
+</main> -->
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">userMobile</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Email</label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example3cg">firstName</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example3cg">lastName</label>
+                  </div>
+                <div class="row">
+                <div class="col-md-6 mb-4">
+
+                    <h6 class="mb-2 pb-1">Gender: </h6>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                        value="option1" checked />
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                        value="option2" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                        value="option3" />
+                      <label class="form-check-label" for="otherGender">Other</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account ?<a routerLink="/user/login"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -56,6 +56,8 @@ import { Settingsample2Component } from './Admin/Component/settingsample2/settin
 import { UserDashBoardComponent } from './User/Pages/user-dash-board/user-dash-board.component';
 
 import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
+import { CategoryComponent } from './User/category/category.component';
+import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
 
 
 
@@ -228,8 +230,23 @@ const routes: Routes = [
         component: FilterComponent
       },
       {
+        path:"filter-product",
+        component:FilterComponent
+      },
+      {
+         path:"category",
+         component:CategoryComponent
+
+      },
+      
+      {
         path: "login",
         component: LoginComponent
+
+      },
+      {
+        path: "loginotp",
+        component: LoginOTPVerificationComponent
 
       },
       {

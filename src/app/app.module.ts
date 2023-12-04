@@ -15,7 +15,7 @@ import { FooterComponent } from './User/Component/footer/footer.component';
 import { AccountComponent } from './Shared/Component/account/account.component';
 import { ShopCheckoutComponent } from './User/Pages/shop-checkout/shop-checkout.component';
 import { FilterComponent } from './User/filter/filter.component';
-import { ByCategariesComponent } from './User/filter/by-categaries/by-categaries.component';
+
 import { ByVendorsComponent } from './User/filter/by-vendors/by-vendors.component';
 import { ByTagsComponent } from './User/filter/by-tags/by-tags.component';
 import { ByPriceComponent } from './User/filter/by-price/by-price.component';
@@ -64,6 +64,10 @@ import { CategoriesComponent } from './Admin/Component/categories/categories.com
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
 import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.component';
+import { CategoryComponent } from './User/category/category.component';
+import { FilterProductComponent } from './User/filter-product/filter-product.component';
+import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
+
 
 
 
@@ -84,7 +88,6 @@ import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.compon
     AccountComponent,
     ShopCheckoutComponent,
     FilterComponent,
-    ByCategariesComponent,
     ByVendorsComponent,
     ByTagsComponent,
     ByPriceComponent,
@@ -115,7 +118,32 @@ import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.compon
         HomeComponent,
        
     OrderlistComponent,
-    ResetPasswordComponent,LoginComponent, AdminhomeComponent, DashbordComponent, ProductComponent, OderdetailComponent, SellerProfileComponent, SellercardsComponent, SellerlistComponent, Addproductlist1Component, Addproductlist2Component, Addproducrtlist3Component, Addproducrtlist4Component, Transacation1Component, Transacation2Component, ReviewesComponent, BrandsComponent, Productsgrid2Component, ProductslistComponent, CategoriesComponent, Settingsample1Component, Settingsample2Component, NavbarComponent, 
+    ResetPasswordComponent,
+    LoginComponent,
+     AdminhomeComponent, 
+     DashbordComponent,
+      ProductComponent, 
+      OderdetailComponent, 
+      SellerProfileComponent, 
+      SellercardsComponent, 
+      SellerlistComponent,
+       Addproductlist1Component, 
+       Addproductlist2Component,
+        Addproducrtlist3Component, 
+        Addproducrtlist4Component, 
+        Transacation1Component,
+         Transacation2Component,
+          ReviewesComponent,
+           BrandsComponent, 
+           Productsgrid2Component,
+            ProductslistComponent,
+             CategoriesComponent,
+              Settingsample1Component,
+               Settingsample2Component, 
+               NavbarComponent, 
+               CategoryComponent, 
+               FilterProductComponent, 
+               LoginOTPVerificationComponent, 
   ],
   imports: [
     BrowserModule,
