@@ -64,7 +64,7 @@ import { CategoriesComponent } from './Admin/Component/categories/categories.com
 import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component';
 import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.component';
-import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
+
 
 
 
