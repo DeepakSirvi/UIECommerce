@@ -67,6 +67,7 @@ const routes: Routes = [
   {
     path: "",
     component: UserDashBoardComponent,
+    pathMatch:"full",
     children: [
       {
         path: "",
@@ -75,7 +76,6 @@ const routes: Routes = [
   },
   
   {
-
     path: "admin",
     component: AdminhomeComponent,
     children: [
@@ -349,8 +349,6 @@ const routes: Routes = [
         path: "reset-password",
         component: ResetPasswordComponent
       }
-
-
     ]
   },
   {
