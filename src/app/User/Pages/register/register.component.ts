@@ -30,8 +30,8 @@ export class RegisterComponent {
     this.registerService.addUser(this.user).subscribe((data: any) => {
       console.log(data);
       console.log("Add user of user service")
-      Swal.fire('Success', 'User is registered with id ' + data.userId, 'success')
-      this.route.navigate(['login'])
+      Swal.fire(data.message, 'success')
+      this.route.navigate(['user/login'])
 
     }
       ,

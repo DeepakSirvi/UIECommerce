@@ -22,23 +22,12 @@
                                         <h1 class="mb-5">Verify</h1>
                                         <p class="mb-30">Don't have an account? <a routerLink="/user/register">Create here</a></p>
                                     </div>
-                                    <form method="post">
+                                    <form (ngSubmit)="loginUser()" method="post">
                                         <div class="form-group">
-                                            <input type="text" required="" name="mobile No" placeholder="Mobile No *" />
+                                            <input type="text" required="" name="mobileNumber" placeholder="Mobile No *" [(ngModel)]="login.mobileNumber" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" required="" name="OTP" placeholder="OTP " />
-                                        </div>
-                                        <div class="login_footer form-group">
-                                            <div class="chek-form">
-                                                <input type="text" required="" name="mobile No" placeholder="Security code *" />
-                                            </div>
-                                            <span class="security-code">
-                                                <b class="text-new">8</b>
-                                                <b class="text-hot">6</b>
-                                                <b class="text-sale">7</b>
-                                                <b class="text-best">5</b>
-                                            </span>
+                                            <input type="text" required="" name="otp" placeholder="OTP " [(ngModel)]="login.otp"/>
                                         </div>
                                         <div class="login_footer form-group mb-50">
                                             <div class="chek-form">
@@ -50,7 +39,7 @@
                                              <a class="text-muted" [routerLink]="'/user/forgotpassword'" >ForgotPassword</a> 
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-heading btn-block hover-up" name="login">Log in</button>
+                                            <button type="submit" class="btn btn-heading btn-block hover-up">Log in</button>
                                         </div>
                                     </form>
                                 </div>

@@ -74,11 +74,7 @@ const routes: Routes = [
         component: HomeComponent,
       }]
   },
-  {
-    path: "login",
-    component: LoginComponent
 
-  },
   {
     path: "admin",
     component: AdminhomeComponent,
@@ -191,6 +187,11 @@ const routes: Routes = [
     path: "user",
     component: UserDashBoardComponent,
     children: [
+      {
+        path: "login",
+        component: LoginComponent
+    
+      },
       {
         path: "",
         component: HomeComponent,
