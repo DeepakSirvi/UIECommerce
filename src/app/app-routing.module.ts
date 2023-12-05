@@ -74,7 +74,11 @@ const routes: Routes = [
         component: HomeComponent,
       }]
   },
-  
+  {
+    path: "login",
+    component: LoginComponent
+
+  },
   {
     path: "admin",
     component: AdminhomeComponent,
@@ -238,12 +242,6 @@ const routes: Routes = [
          component:CategoryComponent
 
       },
-      
-      {
-        path: "login",
-        component: LoginComponent
-
-      },
       {
         path: "loginotp",
         component: LoginOTPVerificationComponent
@@ -342,9 +340,6 @@ const routes: Routes = [
         path: "shop-product-vendor",
         component: ShopProductVendorComponent
       },
-
-
-
       {
         path: "reset-password",
         component: ResetPasswordComponent

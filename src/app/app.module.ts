@@ -67,6 +67,8 @@ import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.compon
 import { CategoryComponent } from './User/category/category.component';
 import { FilterProductComponent } from './User/filter-product/filter-product.component';
 import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -147,7 +149,7 @@ import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verificati
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
