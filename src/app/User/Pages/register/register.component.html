@@ -116,6 +116,8 @@
                     <input type="text" [(ngModel)]="user.firstName" name="firstName" id="form3Example3cg"
                       class="form-control form-control-lg" />
                     <label class="form-label" for="form3Example3cg">FirstName</label>
+
+    
                   </div>
                   <div class="form-outline mb-4">
                     <input type="text" id="form3Example3cg" class="form-control form-control-lg" name="firstName"
@@ -157,24 +159,22 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                    <label class="form-check-label" for="form2Example3g">
-                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                    </label>
-                  </div>
 
-                  <div class="d-flex justify-content-center">
-                    <button type="submit"
-                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                  </div>
+                </div>
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a routerLink="/user/termsofService" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+                <p class="text-center text-muted mt-5 mb-0">Have already an account ?<a routerLink="/user/login"
+                    class="fw-bold text-body"><u>Login</u></a></p> 
+              </form>
 
-                  <p class="text-center text-muted mt-5 mb-0">Have already an account ?<a routerLink="/user/login"
-                      class="fw-bold text-body"><u>Login here</u></a></p>
-
-                </form>
-
-              </div>
             </div>
           </div>
         </div>
