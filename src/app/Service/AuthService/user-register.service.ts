@@ -15,7 +15,6 @@ export class UserRegisterService {
 
   // add user
   public addUser(user: User) {
-    console.log("calling add user from backend")
     return this.http.post(`${baseUrl}/auth/signup`, user);   // It return the observable object so we have to use subscribe
   }
 }
