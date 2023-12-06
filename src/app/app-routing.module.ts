@@ -58,6 +58,7 @@ import { UserDashBoardComponent } from './User/Pages/user-dash-board/user-dash-b
 import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
 import { CategoryComponent } from './User/category/category.component';
 import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
+import { SwitchpanelComponent } from './User/Pages/switchpanel/switchpanel.component';
 
 
 
@@ -74,7 +75,11 @@ const routes: Routes = [
         component: HomeComponent,
       }]
   },
+  {
+    path:"switchpanel",
+    component: SwitchpanelComponent
 
+  },
   {
     path: "admin",
     component: AdminhomeComponent,
@@ -192,6 +197,7 @@ const routes: Routes = [
         component: LoginComponent
     
       },
+      
       {
         path: "",
         component: HomeComponent,
@@ -346,6 +352,7 @@ const routes: Routes = [
         component: ResetPasswordComponent
       }
     ]
+    
   },
   {
     path: "**",

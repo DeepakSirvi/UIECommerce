@@ -69,6 +69,7 @@ import { FilterProductComponent } from './User/filter-product/filter-product.com
 import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { SwitchpanelComponent } from './User/Pages/switchpanel/switchpanel.component';
 
 
 
@@ -145,7 +146,7 @@ import {HttpClientModule} from '@angular/common/http';
                NavbarComponent, 
                CategoryComponent, 
                FilterProductComponent, 
-               LoginOTPVerificationComponent, 
+               LoginOTPVerificationComponent, SwitchpanelComponent, 
   ],
   imports: [
     BrowserModule,
