@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Model/user';
-import baseUrl from '../helper';
+import baseUrl from '../../Util/helper';
 import { HttpClient } from '@angular/common/http';
+import { AppRoutes } from 'src/app/Util/appRoutes';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserRegisterService {
 
   // add user
   public addUser(user: User) {
-    return this.http.post(`${baseUrl}/auth/signup`, user);   // It return the observable object so we have to use subscribe
+    return this.http.post(AppRoutes.CUSTOMER_SIGNUP, user);   
   }
 }
 

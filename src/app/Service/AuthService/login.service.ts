@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import baseUrl from '../helper';
 import { User } from 'src/app/Model/user';
 import { Subject } from 'rxjs';
+import { AppRoutes } from 'src/app/Util/appRoutes';
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +26,14 @@ export class LoginService {
   public loginStatusSubject=new Subject<boolean>();  // Event handling 
 
   public generateOtp(user:any){
-   return this.http.post(`${baseUrl}/auth/`,user);
+   return this.http.post(AppRoutes.GET_OTP,user);
   }
  
 
   // generate token
   public generateToken(loginData: any) {
     console.log("Generate token")
-    return this.http.post(`${baseUrl}/auth/login`, loginData);
+    return this.http.post(AppRoutes.USER_LOGIN, loginData);
   }
 
   // LoginUser : set token in localStorage
