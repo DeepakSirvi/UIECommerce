@@ -43,7 +43,7 @@ export class LoginOTPVerificationComponent {
         }
       }
       else{
-        this.route.navigate(['/switchPanel'])
+        this.route.navigate(['/switchpanel'])
       }
     },
       (error) => {

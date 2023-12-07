@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JavaScriptloaderService } from './java-scriptloader.service';
+import { JavaScriptloaderService } from './Components/User/Util/java-scriptloader.service';
 
 @Component({
   selector: 'app-root',
@@ -17,15 +17,5 @@ export class AppComponent  implements OnInit {
   ngOnInit(): void {
     this.loader.ScriptLoader("main.js")
   }
-   
-  switchPanel(role:string){
-    this.role=role;
-    if(this.role==="ADMIN"){
-      this.currentPanel="ADMIN"
-    }
-    else if(this.role==="CUSTOMER"){
-      this.currentPanel="CUSTOMER"
-    }
 
-  }
 }

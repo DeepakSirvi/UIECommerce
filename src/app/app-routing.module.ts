@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './Shared/Pages/page-not-found/page-not-found.component';
-import { AboutComponent } from './User/Pages/about/about.component';
-import { ContactUsComponent } from './User/Pages/contact-us/contact-us.component';
-import { TermsAndConditionComponent } from './User/Pages/terms-and-condition/terms-and-condition.component';
-import { WishlistComponent } from './User/Pages/wishlist/wishlist.component';
-import { ShopCartComponent } from './User/Pages/shop-cart/shop-cart.component';
+import { PageNotFoundComponent } from './Components/Shared/page-not-found/page-not-found.component';
+import { AboutComponent } from './Components/User/about/about.component';
+import { ContactUsComponent } from './Components/User/contact-us/contact-us.component';
+import { TermsAndConditionComponent } from './Components/User/terms-and-condition/terms-and-condition.component';
+import { WishlistComponent } from './Components/User/wishlist/wishlist.component';
+import { ShopCartComponent } from './Components/User/shop-cart/shop-cart.component';
 import { AccountComponent } from './Shared/Component/account/account.component';
-import { ShopCheckoutComponent } from './User/Pages/shop-checkout/shop-checkout.component';
+import { ShopCheckoutComponent } from './Components/User/shop-checkout/shop-checkout.component';
 import { FilterComponent } from './User/filter/filter.component';
-import { RegisterComponent } from './User/Pages/register/register.component';
-import { ForgotPasswordComponent } from './User/Pages/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './User/Pages/reset-password/reset-password.component';
-import { LoginComponent } from './User/Pages/login/login.component';
-import { PurchaseGuideComponent } from './User/Pages/purchase-guide/purchase-guide.component';
-import { PrivacyPolicyComponent } from './User/Pages/privacy-policy/privacy-policy.component';
-import { TermsofServiceComponent } from './User/Pages/termsof-service/termsof-service.component';
+import { RegisterComponent } from './Components/User/register/register.component';
+import { ForgotPasswordComponent } from './Components/User/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './Components/User/reset-password/reset-password.component';
+import { LoginComponent } from './Components/User/login/login.component';
+import { PurchaseGuideComponent } from './Components/User/purchase-guide/purchase-guide.component';
+import { PrivacyPolicyComponent } from './Components/User/privacy-policy/privacy-policy.component';
+import { TermsofServiceComponent } from './Components/User/termsof-service/termsof-service.component';
 import { BlogCatrgoryGridComponent } from './User/Blog/blog-catrgory-grid/blog-catrgory-grid.component';
 import { NoSidebarComponent } from './User/Blog/no-sidebar/no-sidebar.component';
-import { VendorDashboardComponent } from './User/Vendors/vendor-dashboard/vendor-dashboard.component';
-import { VendorDetails1Component } from './User/Vendors/vendor-details1/vendor-details1.component';
-import { VendorGuideComponent } from './User/Vendors/vendor-guide/vendor-guide.component';
-import { VendorsGridComponent } from './User/Vendors/vendors-grid/vendors-grid.component';
-import { VendorsListComponent } from './User/Vendors/vendors-list/vendors-list.component';
+import { VendorDashboardComponent } from './Components/Vendor/vendor-dashboard/vendor-dashboard.component';
+import { VendorDetails1Component } from './Components/Vendor/vendor-details1/vendor-details1.component';
+import { VendorGuideComponent } from './Components/Vendor/vendor-guide/vendor-guide.component';
+import { VendorsGridComponent } from './Components/Vendor/vendors-grid/vendors-grid.component';
+import { VendorsListComponent } from './Components/Vendor/vendors-list/vendors-list.component';
 import { ShopGridRightComponent } from './User/Shop/shop-grid-right/shop-grid-right.component';
 import { ShopGridLeftComponent } from './User/Shop/shop-grid-left/shop-grid-left.component';
 import { ShopListRightComponent } from './User/Shop/shop-list-right/shop-list-right.component';
@@ -30,35 +30,36 @@ import { ShopListLeftComponent } from './User/Shop/shop-list-left/shop-list-left
 import { ShopFullwidthComponent } from './User/Shop/shop-fullwidth/shop-fullwidth.component';
 import { ShopProductFullComponent } from './User/Shop/shop-product-full/shop-product-full.component';
 import { ShopProductVendorComponent } from './User/Shop/shop-product-vendor/shop-product-vendor.component';
-import { ProductCategariesComponent } from './User/Pages/product-categaries/product-categaries.component';
-import { HomeComponent } from './User/home/home.component';
-import { AdminhomeComponent } from './Admin/Component/adminhome/adminhome.component';
-import { DashbordComponent } from './Admin/Component/dashbord/dashbord.component';
-import { ProductComponent } from './Admin/Component/product grid/product.component';
-import { OderdetailComponent } from './Admin/Component/oderdetails/oderdetail.component';
-import { OrderlistComponent } from './Admin/Component/orderlist/orderlist.component';
-import { SellerProfileComponent } from './Admin/Component/seller-profile/seller-profile.component';
-import { SellercardsComponent } from './Admin/Component/sellercards/sellercards.component';
-import { SellerlistComponent } from './Admin/Component/sellerlist/sellerlist.component';
-import { Addproductlist1Component } from './Admin/Component/addproductlist1/addproductlist1.component';
-import { Addproductlist2Component } from './Admin/Component/addproductlist2/addproductlist2.component';
-import { Addproducrtlist3Component } from './Admin/Component/addproducrtlist3/addproducrtlist3.component';
-import { Addproducrtlist4Component } from './Admin/Component/addproducrtlist4/addproducrtlist4.component';
-import { Transacation1Component } from './Admin/Component/transacation1/transacation1.component';
-import { Transacation2Component } from './Admin/Component/transacation2/transacation2.component';
-import { ReviewesComponent } from './Admin/Component/reviewes/reviewes.component';
-import { BrandsComponent } from './Admin/Component/brands/brands.component';
-import { Productsgrid2Component } from './Admin/Component/productsgrid2/productsgrid2.component';
-import { ProductslistComponent } from './Admin/Component/productslist/productslist.component';
-import { CategoriesComponent } from './Admin/Component/categories/categories.component';
-import { Settingsample1Component } from './Admin/Component/settingsample1/settingsample1.component';
-import { Settingsample2Component } from './Admin/Component/settingsample2/settingsample2.component'
-import { UserDashBoardComponent } from './User/Pages/user-dash-board/user-dash-board.component';
+import { ProductCategariesComponent } from './Components/User/product-categaries/product-categaries.component';
+import { HomeComponent } from './Components/User/home/home.component';
+import { AdminhomeComponent } from './Components/Admin/adminhome/adminhome.component';
+import { DashbordComponent } from './Components/Admin/dashbord/dashbord.component';
+import { ProductComponent } from './Components/Admin/product grid/product.component';
+import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.component';
+import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.component';
+import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
+import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
+import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
+import { Addproductlist1Component } from './Components/Admin/addproductlist1/addproductlist1.component';
+import { Addproductlist2Component } from './Components/Admin/addproductlist2/addproductlist2.component';
+import { Addproducrtlist3Component } from './Components/Admin/addproducrtlist3/addproducrtlist3.component';
+import { Addproducrtlist4Component } from './Components/Admin/addproducrtlist4/addproducrtlist4.component';
+import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
+import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
+import { BrandsComponent } from './Components/Admin/brands/brands.component';
+import { ProductslistComponent } from './Components/Admin/productslist/productslist.component';
+import { CategoriesComponent } from './Components/Admin/categories/categories.component';
+import { Settingsample1Component } from './Components/Admin/settingsample1/settingsample1.component';
+import { Settingsample2Component } from './Components/Admin/settingsample2/settingsample2.component'
+import { UserDashBoardComponent } from './Components/User/user-dash-board/user-dash-board.component';
 
-import { NavbarComponent } from './Admin/Component/navbar/navbar.component';
+
+
 import { CategoryComponent } from './User/category/category.component';
-import { LoginOTPVerificationComponent } from './User/Pages/login-otp-verification/login-otp-verification.component';
-import { SwitchpanelComponent } from './User/Pages/switchpanel/switchpanel.component';
+import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
+import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
+import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
 
 
 
@@ -98,92 +99,92 @@ const routes: Routes = [
       }, {
         path: "orderlist",
         component: OrderlistComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "sellerprofile",
         component: SellerProfileComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "sellercard",
         component: SellercardsComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "sellerlist",
         component: SellerlistComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "productlist1",
         component: Addproductlist1Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "productlist2",
         component: Addproductlist2Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "productlist3",
         component: Addproducrtlist3Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "productlist4",
         component: Addproducrtlist4Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "transaction1",
         component: Transacation1Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "transaction2",
         component: Transacation2Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "reviewes",
         component: ReviewesComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "brands",
         component: BrandsComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "productsgrid",
         component: ProductComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "productsgurid2",
         component: Productsgrid2Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "productslist",
         component: ProductslistComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "categories",
         component: CategoriesComponent,
-        pathMatch: 'full'
+      
       },
       {
         path: "settingsample1",
         component: Settingsample1Component,
-        pathMatch: 'full'
+      
       },
       {
         path: "settingsample2",
         component: Settingsample2Component,
-        pathMatch: 'full'
+      
       }
     ]
   },
@@ -295,49 +296,45 @@ const routes: Routes = [
 
       {
         path: "no-sidebar",
-        component: NoSidebarComponent, pathMatch: 'full'
+        component: NoSidebarComponent, 
 
       },
       {
-        path: "vendor-dashboard",
-        component: VendorDashboardComponent, pathMatch: 'full'
-      },
-      {
         path: "vendor-details1",
-        component: VendorDetails1Component, pathMatch: 'full'
+        component: VendorDetails1Component, 
       },
 
       {
         path: "vendor-guide",
-        component: VendorGuideComponent, pathMatch: 'full'
+        component: VendorGuideComponent, 
       },
       {
         path: "vendors-grid",
-        component: VendorsGridComponent, pathMatch: 'full'
+        component: VendorsGridComponent, 
       },
       {
         path: "vendors-list",
-        component: VendorsListComponent, pathMatch: 'full'
+        component: VendorsListComponent, 
       },
       {
         path: "shop-grid-right",
-        component: ShopGridRightComponent, pathMatch: 'full'
+        component: ShopGridRightComponent, 
       },
       {
         path: "shop-grid-left",
-        component: ShopGridLeftComponent, pathMatch: 'full'
+        component: ShopGridLeftComponent, 
       },
       {
         path: "shop-list-right",
-        component: ShopListRightComponent, pathMatch: 'full'
+        component: ShopListRightComponent, 
       },
       {
         path: "shop-list-left",
-        component: ShopListLeftComponent, pathMatch: 'full'
+        component: ShopListLeftComponent, 
       },
       {
         path: "shop-fullwidth",
-        component: ShopFullwidthComponent, pathMatch: 'full'
+        component: ShopFullwidthComponent, 
       },
       {
         path: "shop-product-full",
@@ -353,6 +350,11 @@ const routes: Routes = [
       }
     ]
     
+  },
+
+  {
+    path:"vendor",
+    component: VendorDashboardComponent, 
   },
   {
     path: "**",

@@ -7,6 +7,7 @@
             </div>
         </div>
     </div>
+
     <div class="page-content pt-150 pb-150">
         <div class="container">
             <div class="row">
@@ -22,6 +23,7 @@
                                         <h1 class="mb-5">Login</h1>
                                         <p class="mb-30">Don't have an account? <a routerLink="/user/register">Create here</a></p>
                                     </div>
+                                  
                                     <form method="post" (ngSubmit)="getOtp()">
                                         <div class="form-group">
                                             <input type="text" name="userMobile" placeholder="Mobile No *" [(ngModel)]="otp.userMobile" />
@@ -29,6 +31,7 @@
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-heading btn-block hover-up">Get opt</button>
                                         </div>
+                                        <strong class="message">{{message}} </strong>
                                     </form>
                                 </div>
                             </div>
