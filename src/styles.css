@@ -2,5 +2,12 @@
 @import url('../node_modules/bootstrap/dist/css/bootstrap.css');
 @import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
 @import url('assets/css/main.css');
+/* @import url('node_modules/bootstrap/dist/css/bootstrap.min.css'); */
+/* @import url('node_modules/@ng-bootstrap/ng-bootstrap/styles/bootstrap.css'); */
+  
 
+.message{
+    color: red;
+    
 
+}
