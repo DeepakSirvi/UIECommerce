@@ -158,7 +158,7 @@ import { Productsgrid2Component } from './Components/Admin/productsgrid2/product
     AppRoutingModule,FormsModule,HttpClientModule,
     MatSnackBarModule,BrowserAnimationsModule,ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

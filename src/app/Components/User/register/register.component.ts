@@ -62,10 +62,18 @@ export class RegisterComponent {
   get gender(){
     return this.userForm.get('gender');
   }
-
+ 
+   public message:string='';
 
   userRegistration(data: FormGroup){
-     console.log(data);
+    //  console.log(data);
+     this.registerService.addUser(data.value).subscribe((data)=>{
+      this.route.navigate(['/user/login']);
+
+     },(error)=>{
+        this.message=error.error.message;
+     })
+
   }
 
 
