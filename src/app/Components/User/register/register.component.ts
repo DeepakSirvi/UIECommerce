@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Model/user';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
-import Swal from 'sweetalert2';
-import { FormGroup, Validators , FormControl} from '@angular/forms';
+import { FormGroup, Validators , FormControl,} from '@angular/forms';
 
 
 @Component({
@@ -11,23 +10,31 @@ import { FormGroup, Validators , FormControl} from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   
 
   constructor(private registerService:UserRegisterService,private route:Router){
+  }
+ 
+  ngOnInit(): void {
+    
   }
 
   userForm = new FormGroup({
       firstName: new FormControl('',
       [
         Validators.required,
-        Validators.pattern(/^[a-zA-Z ]*$/),
+        Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/),
         Validators.minLength(3),
         Validators.maxLength(30)
       ]
       ),
-      lastName:new FormControl(),
+      lastName:new FormControl('',
+      [
+        Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)
+      ] 
+      ),
       userEmail:new FormControl(
        '',[
         Validators.required,
@@ -43,8 +50,10 @@ export class RegisterComponent {
       ),
       gender:new FormControl(
         '',
-        Validators.required
-      )
+        Validators.required,
+      ),
+      agreeTerms: new FormControl(false, 
+      Validators.requiredTrue),
   })
   get firstName() {
     return this.userForm.get('firstName');
@@ -59,11 +68,17 @@ export class RegisterComponent {
   get userMobile() {
     return this.userForm.get('userMobile');
   }
-  get gender(){
+  get gender() {
     return this.userForm.get('gender');
   }
+
+  get agreeTerms() {
+    return this.userForm.get('agreeTerms');
+  }
+
  
    public message:string='';
+
 
   userRegistration(data: FormGroup){
     //  console.log(data);

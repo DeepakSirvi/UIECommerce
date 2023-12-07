@@ -32,13 +32,14 @@
                     </div>
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form3Example3cg">lastName</label>
-                      <input type="text" id="form3Example3cg" formControlName="lastName" class="form-control form-control-lg" name="firstName"
-                      />
+                      <input type="text" id="form3Example3cg" formControlName="lastName" class="form-control form-control-lg" name="firstName"/>
+                      <div *ngIf="lastName">
+                        <small class="form-text text-danger" *ngIf="lastName.errors?.['pattern']">This field contain alphabet</small>
+                      </div>
                     </div>
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form3Example1cg">userMobile</label>
-                      <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="userMobile" name="userMobile"
-                         />
+                      <input type="text" id="form3Example1cg" class="form-control form-control-lg" formControlName="userMobile" name="userMobile"/>
                          <div *ngIf="userMobile">
                           <small class="form-text text-danger" *ngIf="userMobile.errors?.['required'] && (userMobile.touched || userMobile.dirty)">This field is required</small>
                           <small class="form-text text-danger" *ngIf="userMobile.errors?.['pattern']" >Enter valid mobile number</small>
@@ -63,12 +64,16 @@
                           <label class="form-check-label" for="femaleGender">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" formControlName="gender"  name="gender" id="maleGender"
+
+                          <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="maleGender"
+\
                              value="MALE" />
                           <label class="form-check-label" for="maleGender">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" formControlName="gender"  name="gender" id="otherGender"
+
+                          <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="otherGender"
+
                              value="OTHER" />
                           <label class="form-check-label" for="otherGender">Other</label>
                         </div>
@@ -78,13 +83,19 @@
                       </div>
                     </div>
                     <div class="form-check d-flex justify-content-center mb-5">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                      <label class="form-check-label" for="form2Example3g">
+                      <input class="form-check-input me-2" type="checkbox" value="" formControlName="agreeTerms"  id="form2Example3cg" />
+                      <label class="form-check-label">
                         I agree all statements in <a routerLink="/user/termsofService" class="text-body"><u>Terms of
                             service</u></a>
                       </label>
                     </div>
+
+                    <div class="text-center" *ngIf="agreeTerms">
+                      <small class="form-text text-danger" *ngIf="agreeTerms.errors?.['required'] && (agreeTerms.touched||agreeTerms.dirty)">You must agree to the terms and conditions.</small> 
+                    </div>
+
                     <span class="message">{{message}}</span>
+
                     <div class="d-flex justify-content-center">
                       <button type="submit"
                         class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="userForm.invalid" >Register</button>

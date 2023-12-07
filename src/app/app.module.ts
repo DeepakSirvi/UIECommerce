@@ -69,7 +69,7 @@ import { LoginOTPVerificationComponent } from './Components/User/login-otp-verif
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
-import {MatSnackBarModule } from '@angular/material/snack-bar';
+// import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-admin.component';
 import { ReactiveFormsModule } from  '@angular/forms';
@@ -155,8 +155,7 @@ import { Productsgrid2Component } from './Components/Admin/productsgrid2/product
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,
-    MatSnackBarModule,BrowserAnimationsModule,ReactiveFormsModule,
+    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule,
   ],
   providers: [LoginComponent],
   bootstrap: [AppComponent]
