@@ -71,13 +71,24 @@ export class RegisterComponent implements OnInit {
   get gender() {
     return this.userForm.get('gender');
   }
+
   get agreeTerms() {
     return this.userForm.get('agreeTerms');
   }
 
+ 
+   public message:string='';
+
 
   userRegistration(data: FormGroup){
-     console.log(data);
+    //  console.log(data);
+     this.registerService.addUser(data.value).subscribe((data)=>{
+      this.route.navigate(['/user/login']);
+
+     },(error)=>{
+        this.message=error.error.message;
+     })
+
   }
 
 

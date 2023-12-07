@@ -64,17 +64,21 @@
                           <label class="form-check-label" for="femaleGender">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
+
                           <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="maleGender"
+\
                              value="MALE" />
                           <label class="form-check-label" for="maleGender">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
+
                           <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="otherGender"
+
                              value="OTHER" />
                           <label class="form-check-label" for="otherGender">Other</label>
                         </div>
                         <div *ngIf="gender">
-                          <small class="form-text text-danger" *ngIf="gender.errors?.['required'] && (gender.touched || gender.dirty)">This field is required</small>
+                          <small class="form-text text-danger" *ngIf="gender.errors?.['required']  && (gender.touched || gender.dirty)">This field is required</small>
                         </div>
                       </div>
                     </div>
@@ -85,9 +89,13 @@
                             service</u></a>
                       </label>
                     </div>
+
                     <div class="text-center" *ngIf="agreeTerms">
                       <small class="form-text text-danger" *ngIf="agreeTerms.errors?.['required'] && (agreeTerms.touched||agreeTerms.dirty)">You must agree to the terms and conditions.</small> 
                     </div>
+
+                    <span class="message">{{message}}</span>
+
                     <div class="d-flex justify-content-center">
                       <button type="submit"
                         class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="userForm.invalid" >Register</button>
