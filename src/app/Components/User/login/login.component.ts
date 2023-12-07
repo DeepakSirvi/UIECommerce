@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
-import Swal from 'sweetalert2';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, Validator , FormControl} from '@angular/forms';
 
 
