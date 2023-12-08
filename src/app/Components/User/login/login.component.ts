@@ -30,7 +30,7 @@ export class LoginComponent {
     this.otp.userMobile=mobile.value.userMobile;
     this.login.mobNew.next(mobile.value.userMobile);
     this.login.generateOtp(this.otp).subscribe((data: any) => {
-      this.route.navigate(['user/loginotp']);
+      this.route.navigate(['loginotp']);
       alert(data.otp);
     }, (error) => {
      this.message=error.error.message;
