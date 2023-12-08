@@ -60,6 +60,7 @@ import { CategoryComponent } from './User/category/category.component';
 import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
 import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
+import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 
 
 
@@ -85,6 +86,10 @@ const routes: Routes = [
     path: "admin",
     component: AdminhomeComponent,
     children: [
+      {
+        path: 'addCategory',
+        component:AddCategoryComponent
+      },
       {
         path: "",
         component: DashbordComponent

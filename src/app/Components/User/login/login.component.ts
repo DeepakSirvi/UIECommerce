@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
-import { FormGroup, Validator , FormControl} from '@angular/forms';
+import { FormGroup, Validator , FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,26 +13,32 @@ export class LoginComponent {
 
   constructor( private login: LoginService, private route: Router) { }
 
-  public otp: any = {
-    "userMobile": ""
+  loginForm = new FormGroup({
+    userMobile: new FormControl('',
+    [
+      Validators.required,
+      Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+    ] 
+    )
+  })
+
+  get userMobile() {
+    return this.loginForm.get('userMobile');
   }
-  public message='';
 
-  public getOtp() {
-
+  userLogin(mobile:FormGroup){
+    this.otp.userMobile=mobile.value.userMobile;
+    this.login.mobNew.next(mobile.value.userMobile);
     this.login.generateOtp(this.otp).subscribe((data: any) => {
       this.route.navigate(['user/loginotp']);
       alert(data.otp);
     }, (error) => {
-      // this.snack.open(error.error.message, '',
-      // {
-      //   duration: 5000,
-      //   horizontalPosition: 'right',
-      //   verticalPosition: 'top'
-
-      // });
-      // return;
      this.message=error.error.message;
     });
   }
+
+  public otp: any = {
+    "userMobile": ""
+  }
+  public message='';
 }

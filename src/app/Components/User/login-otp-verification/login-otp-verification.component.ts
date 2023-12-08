@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRole } from 'src/app/Model/user-role';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
@@ -16,21 +17,34 @@ export class LoginOTPVerificationComponent implements OnInit {
     private route: Router
   ) { }
 
+  mob:any=0;
 
   ngOnInit(): void {
-    // this.login.mobileNumber=this.otpComponent.otp.mobileNumber;
+    this.loginService.mobile.subscribe((data:any)=>{
+      this.mob=data;
+    })
   }
 
+  loginOtpForm = new FormGroup({
+    otpfill:new FormControl('',Validators.required)
+  })
+
+  get otpfill() {
+    return this.loginOtpForm.get('otpfill');
+  }
   public login: any = {
     "otp": "",
     "mobileNumber": ""
   }
+
 
   
 
 
 
   public loginUser() {
+    this.login.mobileNumber=this.mob;
+    this.login.otp=this.loginOtpForm.value.otpfill; 
     this.loginService.generateToken(this.login).subscribe((data: any) => {
       this.loginService.loginUser(data.token);
       this.loginService.setUser(data);
@@ -57,7 +71,8 @@ export class LoginOTPVerificationComponent implements OnInit {
       }
     },
       (error) => {
-
+        console.log(error);
+        
       })
   }
 }

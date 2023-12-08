@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/Model/user';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AppRoutes } from 'src/app/Util/appRoutes';
 
 @Injectable({
@@ -22,6 +22,10 @@ export class LoginService {
     gender: '',
     userRole:[]
   };
+
+  mobNew:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  mobile:Observable<any> = this.mobNew.asObservable();
+
 
   public loginStatusSubject=new Subject<boolean>();  // Event handling 
 
