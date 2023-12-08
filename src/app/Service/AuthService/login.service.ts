@@ -13,15 +13,7 @@ export class LoginService {
     private http:HttpClient
   ) { }
 
-  public user:User={
-    id:0,
-    firstName: '',
-    lastName: '',
-    userMobile: '',
-    userEmail: '',
-    gender: '',
-    userRole:[]
-  };
+  public user:User=new User();
 
   public loginStatusSubject=new Subject<boolean>();  // Event handling 
 
@@ -47,7 +39,7 @@ export class LoginService {
   //  isLogin user is logged in or not
   public isLoggedIn() {
     let tokenStr = localStorage.getItem('token');
-    return (tokenStr == undefined || tokenStr == '' || tokenStr == null) ? false : true;
+    return (tokenStr === undefined || tokenStr === '' || tokenStr === null) ? false : true;
   }
 
   // LogOut : remove token from storage

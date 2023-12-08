@@ -151,7 +151,8 @@ import { Productsgrid2Component } from './Components/Admin/productsgrid2/product
                CategoryComponent, 
                FilterProductComponent, 
                LoginOTPVerificationComponent, 
-               SwitchpanelComponent, NavbarAdminComponent, 
+               SwitchpanelComponent, 
+               NavbarAdminComponent, 
   ],
   imports: [
     BrowserModule,
