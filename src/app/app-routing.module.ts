@@ -60,6 +60,7 @@ import { CategoryComponent } from './User/category/category.component';
 import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
 import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
+import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
@@ -89,6 +90,10 @@ const routes: Routes = [
     component: AdminhomeComponent,
     canActivate:[adminGuard],
     children: [
+      {
+        path: 'addCategory',
+        component:AddCategoryComponent
+      },
       {
         path: "",
         component: DashbordComponent

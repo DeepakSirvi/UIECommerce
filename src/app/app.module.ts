@@ -74,6 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-admin.component';
 import { ReactiveFormsModule } from  '@angular/forms';
 import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
+import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 
 
 
@@ -151,8 +152,10 @@ import { Productsgrid2Component } from './Components/Admin/productsgrid2/product
                CategoryComponent, 
                FilterProductComponent, 
                LoginOTPVerificationComponent, 
-               SwitchpanelComponent, 
-               NavbarAdminComponent, 
+
+               SwitchpanelComponent, NavbarAdminComponent, AddCategoryComponent, 
+
+              
   ],
   imports: [
     BrowserModule,

@@ -24,12 +24,16 @@
                                         <p class="mb-30">Don't have an account? <a routerLink="/user/register">Create here</a></p>
                                     </div>
                                   
-                                    <form method="post" (ngSubmit)="getOtp()">
+                                    <form [formGroup]="loginForm" (ngSubmit)="userLogin(loginForm)">
                                         <div class="form-group">
-                                            <input type="text" name="userMobile" placeholder="Mobile No *" [(ngModel)]="otp.userMobile" />
-                                        </div>  
+                                            <input type="text" formControlName="userMobile" name="userMobile" placeholder="Mobile No *" />
+                                        </div>
+                                        <div *ngIf="userMobile">
+                                            <small class="form-text text-danger" *ngIf="userMobile.errors?.['required'] && (userMobile.touched || userMobile.dirty)">This field is required</small>
+                                            <small class="form-text text-danger" *ngIf="userMobile.errors?.['pattern']">This field contain only numric</small>
+                                        </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-heading btn-block hover-up">Get opt</button>
+                                            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-heading btn-block hover-up">Get opt</button>
                                         </div>
                                         <strong class="message">{{message}} </strong>
                                     </form>

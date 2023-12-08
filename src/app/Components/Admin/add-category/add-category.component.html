@@ -1,0 +1,27 @@
+<main class="main-wrap">
+    <app-navbar-admin></app-navbar-admin>
+    <div>
+        <h2 class="text-center">Add Category</h2>
+        <form (ngSubmit)="onSubmit()">
+          <div>
+            <label for="categoryName">Category Name:</label>
+            <input type="text" id="categoryName" [(ngModel)]="categoryName" name="categoryName" required>
+          </div>
+      
+          <div *ngFor="let subcategory of subcategories; let i = index; trackBy: trackByFn" class="subcategory-row">
+            <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
+            <input type="text" id="subcategory{{ i }}" [(ngModel)]="subcategories[i]" name="subcategory{{ i }}">
+            <button type="button" class="btn btn-outline-primary" (click)="deleteSubcategory(i)">Delete</button>
+          </div>
+      
+          <div class="subcategory-row">
+            <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
+          </div>
+      
+          <button type="submit" >Add</button>
+        </form>
+      </div>
+      
+      
+</main>
+
