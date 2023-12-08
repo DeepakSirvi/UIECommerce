@@ -161,7 +161,7 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule,
   ],
-  providers: [LoginComponent],
+  providers: [LoginComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

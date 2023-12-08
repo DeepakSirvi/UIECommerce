@@ -88,7 +88,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminhomeComponent,
-    canActivate:[adminGuard],
+    // canActivate:[adminGuard],
     children: [
       {
         path: 'addCategory',
@@ -201,7 +201,7 @@ const routes: Routes = [
   {
     path: "user",
     component: UserDashBoardComponent,
-    canActivate:[customerGuard],
+    // canActivate:[customerGuard],
 
     children: [
       {
@@ -365,7 +365,7 @@ const routes: Routes = [
   {
     path:"vendor",
     component: VendorDashboardComponent,
-    canActivate:[vendorGuard],
+    // canActivate:[vendorGuard],
 
   },
   {
