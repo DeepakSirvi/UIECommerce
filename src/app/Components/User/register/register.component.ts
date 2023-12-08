@@ -83,7 +83,7 @@ export class RegisterComponent implements OnInit {
   userRegistration(data: FormGroup){
     //  console.log(data);
      this.registerService.addUser(data.value).subscribe((data)=>{
-      this.route.navigate(['/user/login']);
+      this.route.navigate(['/login']);
 
      },(error)=>{
         this.message=error.error.message;

@@ -73,12 +73,62 @@ const routes: Routes = [
   {
     path: "",
     component: UserDashBoardComponent,
-    pathMatch:"full",
     children: [
       {
         path: "",
         component: HomeComponent,
-      }]
+      },
+      {
+        path: "home",
+        component: HomeComponent,
+      },
+      {
+        path: "login",
+       component: LoginComponent
+      }, 
+      {
+        path: "loginotp",
+        component: LoginOTPVerificationComponent
+
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+      {
+        path: "about",
+        component: AboutComponent
+      },
+      {
+        path: "contactUs",
+        component: ContactUsComponent
+      },
+      {
+        path: 'termsAndCondition',
+        component: TermsAndConditionComponent
+      },
+      {
+        path: "wishlist",
+        component: WishlistComponent
+      },
+      {
+        path: "cart",
+        component: ShopCartComponent
+      },
+      {
+        path: "privacypolicy",
+        component: PrivacyPolicyComponent
+      },
+      {
+        path: "purchaseguide",
+        component: PurchaseGuideComponent
+
+      },
+      {
+        path: "product-categaries",
+        component: ProductCategariesComponent
+      },
+    ]
   },
   {
     path:"switchpanel",
@@ -204,10 +254,7 @@ const routes: Routes = [
     // canActivate:[customerGuard],
 
     children: [
-      {
-        path: "login",
-        component: LoginComponent
-      },
+     
       
       {
         path: "",
@@ -217,27 +264,8 @@ const routes: Routes = [
         path: "home",
         component: HomeComponent,
       },
-      {
-        path: "about",
-        component: AboutComponent
-      },
-
-      {
-        path: "contactUs",
-        component: ContactUsComponent
-      },
-      {
-        path: 'termsAndCondition',
-        component: TermsAndConditionComponent
-      },
-      {
-        path: "wishlist",
-        component: WishlistComponent
-      },
-      {
-        path: "cart",
-        component: ShopCartComponent
-      },
+      
+  
       {
         path: "shopcheckout",
         component: ShopCheckoutComponent
@@ -261,28 +289,11 @@ const routes: Routes = [
 
       },
       {
-        path: "loginotp",
-        component: LoginOTPVerificationComponent
-
-      },
-      {
-        path: "register",
-        component: RegisterComponent
-      },
-      {
         path: "forgotpassword",
         component: ForgotPasswordComponent
       },
-      {
-        path: "purchaseguide",
-        component: PurchaseGuideComponent
-
-      },
-      {
-        path: "privacypolicy",
-        component: PrivacyPolicyComponent
-
-      },
+     
+     
       {
         path: "product-categaries",
         component: ProductCategariesComponent
@@ -354,10 +365,7 @@ const routes: Routes = [
         path: "shop-product-vendor",
         component: ShopProductVendorComponent
       },
-      {
-        path: "reset-password",
-        component: ResetPasswordComponent
-      }
+     
     ]
     
   },
