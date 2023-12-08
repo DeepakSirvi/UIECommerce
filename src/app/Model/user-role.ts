@@ -1,8 +1,8 @@
 import { Role } from "./role";
 import { User } from "./user";
 
-export interface UserRole {
-    id: number;
-  role: Role;
-  user: User;
+export class UserRole {
+  id: number = 0;
+  role: Role = new Role(); // Assuming Role has default initialization
+  user: User = new User(); 
 }

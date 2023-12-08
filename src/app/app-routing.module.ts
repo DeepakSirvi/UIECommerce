@@ -61,6 +61,9 @@ import { LoginOTPVerificationComponent } from './Components/User/login-otp-verif
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
 import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
+import { adminGuard } from './Util/Guard/admin.guard';
+import { customerGuard } from './Util/Guard/customer.guard';
+import { vendorGuard } from './Util/Guard/vendor.guard';
 
 
 
@@ -85,6 +88,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminhomeComponent,
+    canActivate:[adminGuard],
     children: [
       {
         path: 'addCategory',
@@ -197,6 +201,8 @@ const routes: Routes = [
   {
     path: "user",
     component: UserDashBoardComponent,
+    canActivate:[customerGuard],
+
     children: [
       {
         path: "login",
@@ -358,7 +364,9 @@ const routes: Routes = [
 
   {
     path:"vendor",
-    component: VendorDashboardComponent, 
+    component: VendorDashboardComponent,
+    canActivate:[vendorGuard],
+
   },
   {
     path: "**",

@@ -152,7 +152,10 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
                CategoryComponent, 
                FilterProductComponent, 
                LoginOTPVerificationComponent, 
+
                SwitchpanelComponent, NavbarAdminComponent, AddCategoryComponent, 
+
+              
   ],
   imports: [
     BrowserModule,
