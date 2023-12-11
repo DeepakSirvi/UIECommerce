@@ -40,10 +40,6 @@ import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.compo
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
-import { Addproductlist1Component } from './Components/Admin/addproductlist1/addproductlist1.component';
-import { Addproductlist2Component } from './Components/Admin/addproductlist2/addproductlist2.component';
-import { Addproducrtlist3Component } from './Components/Admin/addproducrtlist3/addproducrtlist3.component';
-import { Addproducrtlist4Component } from './Components/Admin/addproducrtlist4/addproducrtlist4.component';
 import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
@@ -64,6 +60,8 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
+import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
+import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
 
 
 
@@ -141,6 +139,14 @@ const routes: Routes = [
     // canActivate:[adminGuard],
     children: [
       {
+        path: 'add-product-goutam',
+        component: AddProductGoutamComponent
+      },
+      {
+        path: 'categoryManage',
+        component: CategoryManagementComponent
+      },
+      {
         path: 'addCategory',
         component:AddCategoryComponent
       },
@@ -173,26 +179,6 @@ const routes: Routes = [
       {
         path: "sellerlist",
         component: SellerlistComponent,
-      
-      },
-      {
-        path: "productlist1",
-        component: Addproductlist1Component,
-      
-      },
-      {
-        path: "productlist2",
-        component: Addproductlist2Component,
-      
-      },
-      {
-        path: "productlist3",
-        component: Addproducrtlist3Component,
-      
-      },
-      {
-        path: "productlist4",
-        component: Addproducrtlist4Component,
       
       },
       {
@@ -264,12 +250,9 @@ const routes: Routes = [
         path: "home",
         component: HomeComponent,
       },
-      
-  
       {
         path: "shopcheckout",
         component: ShopCheckoutComponent
-
       },
       {
         path: "account",
@@ -286,14 +269,11 @@ const routes: Routes = [
       {
          path:"category",
          component:CategoryComponent
-
       },
       {
         path: "forgotpassword",
         component: ForgotPasswordComponent
       },
-     
-     
       {
         path: "product-categaries",
         component: ProductCategariesComponent
@@ -310,11 +290,7 @@ const routes: Routes = [
       {
         path: "blog-catrgory-grid",
         component: BlogCatrgoryGridComponent,
-
-
       },
-
-
       {
         path: "no-sidebar",
         component: NoSidebarComponent, 
