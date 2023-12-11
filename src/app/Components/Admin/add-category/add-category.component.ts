@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { empty } from 'rxjs';
+import { Category } from 'src/app/Model/category';
+import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
+import { CategoryService } from 'src/app/Service/category.service';
 
 
 @Component({
@@ -9,33 +14,61 @@ import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 })
 export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
-   
   }
 
-  // constructor(private cat:CategoryRequest){}
+  msg:string='';
+  subMsg:string=''
+  category:CategoryRequest=new CategoryRequest();
+  constructor(private catService:CategoryService){}
 
-  categoryName: string = '';
-  subcategories: string[] = [''];
 
   onSubmit() {
-    // Handle the form submission logic here
-    // this.cat.categoryName=this.categoryName;
-    // this.cat.subCategory = this.subCategory
-    console.log('Category Name:', this.categoryName);
-    console.log('Subcategories:', this.subcategories);
+    if(this.category.categoryName!=null && this.category.categoryName!=undefined && this.category.categoryName!=''){
+      console.log(this.category.subCategory);
+      
+      if(this.checkDublicate(this.category.subCategory)){
+      this.catService.addCategory(this.category).subscribe((result)=>{
+      console.log(result);
+    },(error)=>{
+      this.msg=error.error.message;
+    })
   }
+  else 
+    this.subMsg="Dublicate subcategory not allowed"
+  }
+  else{
+      this.msg="This field required";
+    }
+  }  
 
   addSubcategory() {
-    this.subcategories.push('');
+    const newSubCategory: SubCategory = new SubCategory();
+    this.category.subCategory.push(newSubCategory);
   }
 
   deleteSubcategory(index: number) {
-    if (this.subcategories.length > 1) {
-      this.subcategories.splice(index, 1);
+    if (this.category.subCategory.length > 1) {
+      this.category.subCategory.splice(index, 1);
     }
   }
 
   trackByFn(index: any, item: any) {
     return index;
   }
+ 
+  checkDublicate(arr:any[]) {
+    let count=0;
+      for(let i=0;i<arr.length-1;i++){
+        if(arr[i].subCategory==arr[i+1].subCategory)
+        {
+          count++;
+        }
+      }
+      if(count!=0)
+        return false;
+      else
+        return true;
+  }
+
 }
+ 

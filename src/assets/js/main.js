@@ -730,3 +730,114 @@
     });
 })(jQuery);
 
+// 
+$(document).ready(function () {
+    var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn'),
+            allPrevBtn = $('.prevBtn');
+  
+    allWells.hide();
+  
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+                $item = $(this);
+  
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-primary').addClass('btn-default');
+            $item.addClass('btn-primary');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+    
+    allPrevBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+  
+            prevStepWizard.removeAttr('disabled').trigger('click');
+    });
+  
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+  
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i<curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+  
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+  
+    $('div.setup-panel div a.btn-primary').trigger('click');
+  });
+  
+
+  document.addEventListener("DOMContentLoaded", function(){
+    // make it as accordion for smaller screens
+    if (window.innerWidth < 992) {
+    
+      // close all inner dropdowns when parent is closed
+      document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+        everydropdown.addEventListener('hidden.bs.dropdown', function () {
+          // after dropdown is hidden, then find all submenus
+            this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+              // hide every submenu as well
+              everysubmenu.style.display = 'none';
+            });
+        })
+      });
+    
+      document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+        element.addEventListener('click', function (e) {
+            let nextEl = this.nextElementSibling;
+            if(nextEl && nextEl.classList.contains('submenu')) {	
+              // prevent opening link if link needs to open dropdown
+              e.preventDefault();
+              if(nextEl.style.display == 'block'){
+                nextEl.style.display = 'none';
+              } else {
+                nextEl.style.display = 'block';
+              }
+    
+            }
+        });
+      })
+    }
+    // end if innerWidth
+    }); 
+
+    
+
+    function addKeyValuePair() {
+        // Create a new key-value pair in the container
+        var keyValuePairsContainer = document.getElementById("keyValuePairsContainer");
+        var keyValuePair = document.createElement("div");
+        keyValuePair.className = "key-value-pair";
+        keyValuePair.style.display = "flex";
+
+        var keyInput = document.createElement("input");
+        keyInput.type = "text";
+        keyInput.className = "key-input";
+        keyInput.placeholder = "Key";
+
+        var valueInput = document.createElement("input");
+        valueInput.type = "text";
+        valueInput.className = "value-input";
+        valueInput.placeholder = "Value";
+
+        keyValuePair.appendChild(keyInput);
+        keyValuePair.appendChild(valueInput);
+        keyValuePairsContainer.appendChild(keyValuePair);
+    }

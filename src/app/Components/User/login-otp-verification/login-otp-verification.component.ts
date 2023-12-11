@@ -48,7 +48,7 @@ export class LoginOTPVerificationComponent implements OnInit {
     this.loginService.generateToken(this.login).subscribe((data: any) => {
       this.loginService.loginUser(data.token);
       this.loginService.setUser(data);
-     
+      
      
       let userRole: UserRole[] = this.loginService.getUserRole();
       console.log(userRole);
