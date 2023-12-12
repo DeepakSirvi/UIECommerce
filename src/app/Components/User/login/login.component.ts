@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { FormGroup, Validator , FormControl, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
+import Toast from 'src/app/Util/helper';
 
 
 @Component({
@@ -30,10 +32,18 @@ export class LoginComponent {
     this.otp.userMobile=mobile.value.userMobile;
     this.login.mobNew.next(mobile.value.userMobile);
     this.login.generateOtp(this.otp).subscribe((data: any) => {
-      this.route.navigate(['loginotp']);
-      alert(data.otp);
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Otp Generated <span style="color: red;">' + data.otp + '</span>',
+      }).then(e=>{
+        this.route.navigate(['loginotp']);
+      })    
     }, (error) => {
-     this.message=error.error.message;
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
     });
   }
 

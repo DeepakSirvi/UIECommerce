@@ -9,11 +9,11 @@ export class ProductRequest {
     brand: string = '';
     fullfillmentBy: string = '';
     shippingProvider: string = '';
-    deliveryCharge: number = 0;
-    productWeight: number = 0;
-    productLength: number = 0;
-    productWidth: number = 0;
-    productHeight: number = 0;
+    deliveryCharge: string='';
+    productWeight: string='';
+    productLength: string='';
+    productWidth: string='';
+    productHeight: string='';
     taxCode: string = '';
     countryOfOrigin: string = '';
     productType: string = '';

@@ -4,6 +4,6 @@ import { Product } from "./product";
 export class ProductDescription {
     id: number = 0;
     description: string = '';
-    mapProductDescriptions: MapProductDescription[] = [];
+    // mapProductDescriptions: MapProductDescription[] = [];
     product: Product = new Product();
 }
