@@ -1,24 +1,26 @@
 <main class="main-wrap">
-  <app-navbar-admin></app-navbar-admin>
-  <div>
-      <h2 class="text-center">Add Category</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div>
-          <label for="categoryName">Category Name:</label>
-          <input type="text"id="categoryName" [(ngModel)]="category.categoryName" placeholder="  *" name="categoryName" required>
-          <small class="form-text text-danger">{{msg}}</small>
-        </div>
-        <div *ngFor="let subcategory of category.subCategory; let i = index; trackBy: trackByFn" class="subcategory-row">
-          <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
-          <input type="text" id="subcategory{{ i }}" [(ngModel)]="category.subCategory[i].subCategory" name="subcategory{{ i }}">
-          <button type="button" class="btn btn-outline-primary" (click)="deleteSubcategory(i)">Delete</button>
-        </div>
-        <small class="form-text text-danger">{{subMsg}}</small>
-        <div class="subcategory-row">
-          <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
-        </div>
-    
-        <button type="submit" >Add</button>
-      </form>
-    </div>
+
+    <app-navbar-admin></app-navbar-admin>
+    <div>
+        <h2 class="text-center">Add Category</h2>
+        <form (ngSubmit)="onSubmit()">
+          <div>
+            <label for="categoryName">Category Name:</label>
+            <input type="text" id="categoryName" [(ngModel)]="category.categoryName" name="categoryName" required>
+          </div>
+      
+          <div *ngFor="let subcategory of category.subCategory; let i = index; trackBy: trackByFn" class="subcategory-row">
+            <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
+            <input type="text" id="subcategory{{ i }}" [(ngModel)]="category.subCategory[i].subCategory" name="subcategory{{ i }}">
+            <button type="button" class="btn btn-outline-primary" (click)="deleteSubcategory(i)">Delete</button>
+          </div>
+      
+          <div class="subcategory-row">
+            <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
+          </div>
+      
+          <button type="submit" >Add</button>
+        </form>
+      </div>
 </main>
+

@@ -19,8 +19,6 @@ export class NavbarComponent {
     this.login.loginStatusSubject.asObservable().subscribe(data=>{
       this.isUserActive=this.login.isLoggedIn();
       this.user=this.login.getUser();
-      console.log(this.isUserActive);
-      console.log(this.user);
     });
    
 

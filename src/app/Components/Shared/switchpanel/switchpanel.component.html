@@ -1,29 +1,24 @@
+<!-- component.html -->
 
-
-  <div class="dashboard-container">
-    <div class="dashboard-box">
-      <div class="dashboard-row">
-        <h2>Dashboard</h2>
-      </div>
-      <div class="row">
-      <div class="col-sm-6">
-        <a [routerLink]="'/admin'" class="user-button">Admin</a>
-      </div>
-      <div class="col-sm-6">
-        <a [routerLink]="'/user'" class="user-button">Customer</a>
-      </div>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Dashboard</h2>
     </div>
+    <div class="col-md-8">
       <div class="row">
-
-      <div class="col-sm-6">
-        <a [routerLink]="'/vendor'" class="user-button">Vendor</a>
+        <div class="col-md-6" *ngFor="let userRoles of userRole">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">{{ userRoles.role.roleName }}</h5>
+              <a routerLink="/{{ userRoles.role.roleName.toLowerCase() }}" class="btn btn-primary">Go to {{ userRoles.role.roleName }}</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <a class="user-button">Manager</a>
-      </div>
-    </div>
     </div>
   </div>
+</div>
 
 
 

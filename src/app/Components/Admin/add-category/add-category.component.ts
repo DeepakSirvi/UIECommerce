@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
+import { SubCategory } from 'src/app/Model/sub-category';
+import { CategoryRequest } from 'src/app/RequestPayload/category-request';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { empty } from 'rxjs';
 import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { CategoryService } from 'src/app/Service/category.service';
+
 
 
 @Component({
@@ -15,6 +20,14 @@ import { CategoryService } from 'src/app/Service/category.service';
 export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
+  category:CategoryRequest=new CategoryRequest();
+
+
+  onSubmit() {
+    // Handle the form submission logic here
+    console.log('Category Name:', this.category);
+    console.log('Subcategories:', this.category.subCategory);
+
 
   msg:string='';
   subMsg:string=''
@@ -35,6 +48,7 @@ export class AddCategoryComponent implements OnInit {
   }
   else 
     this.subMsg="Dublicate subcategory not allowed"
+
   }
   else{
       this.msg="This field required";
@@ -43,7 +57,9 @@ export class AddCategoryComponent implements OnInit {
 
   addSubcategory() {
     const newSubCategory: SubCategory = new SubCategory();
+
     this.category.subCategory.push(newSubCategory);
+
   }
 
   deleteSubcategory(index: number) {

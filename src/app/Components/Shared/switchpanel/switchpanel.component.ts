@@ -12,9 +12,12 @@ export class SwitchpanelComponent {
  constructor(private login:LoginService){
 
  }
+
+ isAdmin:boolean=false;
+
 userRole:UserRole[] | null =null;
 
-  ngOnit(){
+  ngOnInit(){
     this.userRole=this.login.getUserRole();
     console.log(this.userRole);
   }
