@@ -139,6 +139,7 @@ import { MatInputModule } from '@angular/material/input';
       SellerProfileComponent, 
       SellercardsComponent, 
       SellerlistComponent,
+
         Transacation1Component,
          Transacation2Component,
           ReviewesComponent,

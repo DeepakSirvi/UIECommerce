@@ -2,6 +2,7 @@ import { ProductDescriptionRequest } from "./product-description-request";
 import { SubCategoryRequest } from "./sub-category-request";
 
 export class ProductRequest {
+
     id: number = 0;
     productName: string = '';
     listingStatus: boolean = false;
@@ -19,3 +20,4 @@ export class ProductRequest {
     subCategory: SubCategoryRequest = new SubCategoryRequest();
     description: ProductDescriptionRequest = new ProductDescriptionRequest()
 }
+

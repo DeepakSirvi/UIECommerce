@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
+import { SubCategory } from 'src/app/Model/sub-category';
+import { CategoryRequest } from 'src/app/RequestPayload/category-request';
+
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { empty } from 'rxjs';
 import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { CategoryService } from 'src/app/Service/category.service';
+
 
 
 @Component({
@@ -15,6 +20,14 @@ import { CategoryService } from 'src/app/Service/category.service';
 export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
+  category:CategoryRequest=new CategoryRequest();
+
+
+  onSubmit() {
+    // Handle the form submission logic here
+    console.log('Category Name:', this.category);
+    console.log('Subcategories:', this.category.subCategory);
+
 
   msg: string = '';
   subMsg: string = ''
@@ -26,15 +39,21 @@ export class AddCategoryComponent implements OnInit {
     if (this.category.categoryName != null && this.category.categoryName != undefined && this.category.categoryName != '') {
       console.log(this.category.subCategory);
 
-      if (this.checkDublicate(this.category.subCategory)) {
-        this.catService.addCategory(this.category).subscribe((result) => {
-          console.log(result);
-        }, (error) => {
-          this.msg = error.error.message;
-        })
-      }
-      else
-        this.subMsg = "Dublicate subcategory not allowed"
+      
+      if(this.checkDublicate(this.category.subCategory)){
+      this.catService.addCategory(this.category).subscribe((result)=>{
+      console.log(result);
+    },(error)=>{
+      this.msg=error.error.message;
+    })
+  }
+  else 
+    this.subMsg="Dublicate subcategory not allowed"
+
+  }
+  else{
+      this.msg="This field required";
+
     }
     else {
       this.msg = "This field required";
@@ -43,7 +62,9 @@ export class AddCategoryComponent implements OnInit {
 
   addSubcategory() {
     const newSubCategory: SubCategory = new SubCategory();
+
     this.category.subCategory.push(newSubCategory);
+
   }
 
   deleteSubcategory(index: number) {

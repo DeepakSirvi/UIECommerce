@@ -22,6 +22,7 @@ export class LoginService {
   public loginStatusSubject=new Subject<boolean>();  // Event handling 
 
   public generateOtp(user:any){
+  
    return this.http.post(AppRoutes.GET_OTP,user);
   }
  

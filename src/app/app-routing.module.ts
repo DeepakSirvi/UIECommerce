@@ -40,7 +40,9 @@ import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.compo
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
+
 import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
@@ -60,8 +62,12 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
+
+import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
+
 
 
 
@@ -181,7 +187,9 @@ const routes: Routes = [
         component: SellerlistComponent,
       
       },
-      {
+
+       {
+
         path: "transaction1",
         component: Transacation1Component,
       
@@ -235,7 +243,7 @@ const routes: Routes = [
   },
  
   {
-    path: "user",
+    path: "customer",
     component: UserDashBoardComponent,
     // canActivate:[customerGuard],
 
