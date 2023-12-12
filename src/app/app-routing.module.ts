@@ -40,6 +40,9 @@ import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.compo
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
+
+import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
@@ -59,7 +62,12 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
+
 import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+
+import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
+import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
+
 
 
 
@@ -134,8 +142,16 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminhomeComponent,
-    canActivate:[adminGuard],
+    // canActivate:[adminGuard],
     children: [
+      {
+        path: 'add-product-goutam',
+        component: AddProductGoutamComponent
+      },
+      {
+        path: 'categoryManage',
+        component: CategoryManagementComponent
+      },
       {
         path: 'addCategory',
         component:AddCategoryComponent
@@ -171,7 +187,9 @@ const routes: Routes = [
         component: SellerlistComponent,
       
       },
+
        {
+
         path: "transaction1",
         component: Transacation1Component,
       
@@ -227,7 +245,7 @@ const routes: Routes = [
   {
     path: "customer",
     component: UserDashBoardComponent,
-    canActivate:[customerGuard],
+    // canActivate:[customerGuard],
 
     children: [
      
@@ -240,12 +258,9 @@ const routes: Routes = [
         path: "home",
         component: HomeComponent,
       },
-      
-  
       {
         path: "shopcheckout",
         component: ShopCheckoutComponent
-
       },
       {
         path: "account",
@@ -262,14 +277,11 @@ const routes: Routes = [
       {
          path:"category",
          component:CategoryComponent
-
       },
       {
         path: "forgotpassword",
         component: ForgotPasswordComponent
       },
-     
-     
       {
         path: "product-categaries",
         component: ProductCategariesComponent
@@ -286,11 +298,7 @@ const routes: Routes = [
       {
         path: "blog-catrgory-grid",
         component: BlogCatrgoryGridComponent,
-
-
       },
-
-
       {
         path: "no-sidebar",
         component: NoSidebarComponent, 
@@ -349,7 +357,7 @@ const routes: Routes = [
   {
     path:"vendor",
     component: VendorDashboardComponent,
-    canActivate:[vendorGuard],
+    // canActivate:[vendorGuard],
 
   },
   {

@@ -19,14 +19,14 @@ export class MyInterceptorInterceptor implements HttpInterceptor {
     const token = this.loginService.getToken();
     if (token != null) {
         authReq = authReq.clone({
-            setHeaders: { Authorization: `${token}` }
+            setParams: { Authorization: `${token}` }
         });
 
         console.log("In intercepter with token set");
     }
             
     console.log("In intercepter without token");
-    return next.handle(request);
+    return next.handle(authReq);
   }
 }
 

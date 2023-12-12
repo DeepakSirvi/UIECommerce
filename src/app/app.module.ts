@@ -53,6 +53,7 @@ import { Transacation1Component } from './Components/Admin/transacation1/transac
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { ProductslistComponent } from './Components/Admin/productslist/productslist.component';
 import { CategoriesComponent } from './Components/Admin/categories/categories.component';
@@ -71,6 +72,13 @@ import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-adm
 import { ReactiveFormsModule } from  '@angular/forms';
 import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
+import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-interceptor.interceptor';
+import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
+import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -131,12 +139,11 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
       SellerProfileComponent, 
       SellercardsComponent, 
       SellerlistComponent,
-    
+
         Transacation1Component,
          Transacation2Component,
           ReviewesComponent,
            BrandsComponent, 
-    
             ProductslistComponent,
              CategoriesComponent,
               Settingsample1Component,
@@ -145,16 +152,22 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
                CategoryComponent, 
                FilterProductComponent, 
                LoginOTPVerificationComponent, 
+               SwitchpanelComponent,
+                NavbarAdminComponent, 
+                AddCategoryComponent, 
+                CategoryManagementComponent, 
+                AddProductGoutamComponent,
+                
 
-               SwitchpanelComponent, NavbarAdminComponent, AddCategoryComponent, 
 
               
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,ReactiveFormsModule,
+    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [LoginComponent],
+  providers: [LoginComponent,authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
