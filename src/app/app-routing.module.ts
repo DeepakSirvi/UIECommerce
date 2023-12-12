@@ -63,7 +63,7 @@ import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
 
-import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
+
 
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
