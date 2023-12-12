@@ -841,3 +841,33 @@ $(document).ready(function () {
         keyValuePair.appendChild(valueInput);
         keyValuePairsContainer.appendChild(keyValuePair);
     }
+
+    function handleCategoryChange() {
+        var productCategory = document.getElementById('productCategory');
+        var subcategory = document.getElementById('subcategory');
+
+        // Hide subcategory dropdown if no category is selected
+        if (productCategory.value === '') {
+            subcategory.style.display = 'none';
+            return;
+        }
+
+        // Show subcategory dropdown and populate options based on the selected category
+        subcategory.style.display = 'block';
+        subcategory.options.length = 1; // Clear existing options
+
+        if (productCategory.value === '1') {
+            addOption(subcategory, '1_1', 'Sub-category 1');
+            addOption(subcategory, '1_2', 'Sub-category 2');
+        } else if (productCategory.value === '2') {
+            addOption(subcategory, '2_1', 'Sub-category 3');
+            addOption(subcategory, '2_2', 'Sub-category 4');
+        }
+    }
+
+    function addOption(selectElement, value, text) {
+        var option = document.createElement('option');
+        option.value = value;
+        option.text = text;
+        selectElement.add(option);
+    }

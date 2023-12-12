@@ -1,3 +1,4 @@
+
 import { MapProductDescriptionRequest } from "./map-product-description-request";
 import { ProductRequest } from "./product-request";
 
@@ -6,4 +7,5 @@ export class ProductDescriptionRequest {
   description: string = '';
   product: ProductRequest = new ProductRequest();
   mapProductDescriptions: MapProductDescriptionRequest[] = [];
+
 }
