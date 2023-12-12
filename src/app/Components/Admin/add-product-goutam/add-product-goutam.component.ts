@@ -4,6 +4,8 @@ import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { CategoryService } from 'src/app/Service/category.service';
+import { ProductsService } from 'src/app/Service/products.service';
+import Toast from 'src/app/Util/helper';
 @Component({
   selector: 'app-add-product-goutam',
   templateUrl: './add-product-goutam.component.html',
@@ -16,7 +18,7 @@ export class AddProductGoutamComponent implements OnInit {
   categories:Category[]=[];
   newCategory:Category = new Category();
   product:ProductRequest = new ProductRequest();
-  constructor(private catService:CategoryService) {}
+  constructor(private catService:CategoryService,private productService:ProductsService) {}
   ngOnInit(): void {
     this.catService.getCategories().subscribe((result:any)=>{
       this.categories = result.AllCategory;
@@ -105,12 +107,6 @@ export class AddProductGoutamComponent implements OnInit {
       Validators.pattern(/^[\w\s\d\-.,:;!@#$%^&*()_+={}\[\]|\\:;"'<>,.?\/]+$/i)
     ]
     ),
-    title: new FormControl('',
-    [
-      Validators.required,
-      Validators.pattern(/^[a-zA-Z\s.,!?'":;()-]+$/)
-    ]
-    ),
     category:new FormControl('',
     [
       Validators.required
@@ -163,9 +159,6 @@ export class AddProductGoutamComponent implements OnInit {
   get discription() {
     return this.productAddForm.get('discription');
   }
-  get title() {
-    return this.productAddForm.get('title');
-  }
   get category() {
     return this.productAddForm.get('category')
   }
@@ -175,7 +168,17 @@ export class AddProductGoutamComponent implements OnInit {
    
   
   productAdd() {
-    console.log(this.product);
+    this.productService.addProduct(this.product).subscribe((result:any)=>{
+      Toast.fire({
+        icon:'success',
+        title:result.response.message
+      })
+    },(error)=>{
+      Toast.fire({
+        icon:'error',
+        title:error.error.message
+      })
+    })
   }
 
   setCategory(data:any){

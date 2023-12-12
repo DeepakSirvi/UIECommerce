@@ -24,7 +24,7 @@ export class AddCategoryComponent implements OnInit {
   subMsg: string = '';
   constructor(private catService: CategoryService) { }
 
-
+  
   onSubmit() {
     if (this.category.categoryName != null && this.category.categoryName != undefined && this.category.categoryName != '') {
       console.log(this.category.subCategory);

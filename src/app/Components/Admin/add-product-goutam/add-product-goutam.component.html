@@ -26,7 +26,7 @@
                   <h3> Step 1</h3>
                   <div class="form-group mt-3">
                     <label class="control-label">Product Name</label>
-                    <input formControlName="productName" class="form-control" maxlength="100" type="text" placeholder="Enter product Name">
+                    <input formControlName="productName" [(ngModel)]="product.productName" class="form-control" maxlength="100" type="text" placeholder="Enter product Name">
                     <div *ngIf="productName">
                       <small class="text-form text-danger" *ngIf="productName.errors?.['required'] && (productName.touched || productName.dirty) " >This field is required</small>
                       <small class="form-text text-danger" *ngIf="productName.errors?.['pattern']">This field contain only alphabets</small>
@@ -34,7 +34,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Brand Name</label>
-                    <select maxlength="100" formControlName="brandName" class="form-control">
+                    <select maxlength="100" [(ngModel)]="product.brand" formControlName="brandName" class="form-control">
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <!-- Add more options as needed -->
@@ -45,7 +45,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Full Fillment By</label>
-                    <input maxlength="100" formControlName="fullfillmentName" type="text" class="form-control" placeholder="Enter full fillment name"/>
+                    <input maxlength="100" [(ngModel)]="product.fullfillmentBy" formControlName="fullfillmentName" type="text" class="form-control" placeholder="Enter full fillment name"/>
                     <div *ngIf="fullfillmentName">
                       <small class="form-text text-danger"  *ngIf="fullfillmentName.errors?.['required'] && (fullfillmentName.touched || fullfillmentName.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="fullfillmentName.errors?.['pattern']">This field contain alphabets only</small>
@@ -54,7 +54,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Shipping Provider</label>
-                    <input maxlength="100" formControlName="shippingProvider" type="text" class="form-control" placeholder="Shipping provider name"/>
+                    <input maxlength="100" [(ngModel)]="product.shippingProvider" formControlName="shippingProvider" type="text" class="form-control" placeholder="Shipping provider name"/>
                     <div *ngIf="shippingProvider">
                       <small class="form-text text-danger"  *ngIf="shippingProvider.errors?.['required'] && (shippingProvider.touched || shippingProvider.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="shippingProvider.errors?.['pattern']">This field contain alphabets only</small>
@@ -71,7 +71,7 @@
                   <h3> Step 2</h3>
                   <div class="form-group mt-3">
                     <label class="control-label">Delivery Charge</label>
-                    <input maxlength="200" formControlName="deliveryCharge" type="text"  class="form-control" placeholder="Enter delivery charges">
+                    <input maxlength="200" [(ngModel)]="product.deliveryCharge" formControlName="deliveryCharge" type="text"  class="form-control" placeholder="Enter delivery charges">
                     <div *ngIf="deliveryCharge">
                       <small class="form-text text-danger"  *ngIf="deliveryCharge.errors?.['required'] && (deliveryCharge.touched || deliveryCharge.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="deliveryCharge.errors?.['pattern']">Allow inputs like "10", "10.5", "100.25", etc., but not "abc" or "10.123"</small>
@@ -79,7 +79,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Product Weight</label>
-                    <input maxlength="200" formControlName="productWeight" type="text"  class="form-control" placeholder="Enter product weight">
+                    <input maxlength="200" [(ngModel)]="product.productWeight" formControlName="productWeight" type="text"  class="form-control" placeholder="Enter product weight">
                     <div *ngIf="productWeight">
                       <small class="form-text text-danger"  *ngIf="productWeight.errors?.['required'] && (productWeight.touched || productWeight.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="productWeight.errors?.['pattern']">Allow inputs like "10kg," "15.5 g," "20.00 ton," or simply "25" without a unit</small>
@@ -87,7 +87,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Product Length</label>
-                    <input maxlength="200" formControlName="productLength" type="text"  class="form-control" placeholder="Enter product length">
+                    <input maxlength="200" [(ngModel)]="product.productLength" formControlName="productLength" type="text"  class="form-control" placeholder="Enter product length">
                     <div *ngIf="productLength">
                       <small class="form-text text-danger"  *ngIf="productLength.errors?.['required'] && (productLength.touched || productLength.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="productLength.errors?.['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
@@ -95,7 +95,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Product Width</label>
-                    <input maxlength="200" formControlName="productWidth" type="text"  class="form-control" placeholder="Enter product width">
+                    <input maxlength="200" [(ngModel)]="product.productWidth" formControlName="productWidth" type="text"  class="form-control" placeholder="Enter product width">
                     <div *ngIf="productWidth">
                       <small class="form-text text-danger"  *ngIf="productWidth.errors?.['required'] && (productWidth.touched || productWidth.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="productWidth.errors?.['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
@@ -103,7 +103,7 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label">Product Height</label>
-                    <input maxlength="200" formControlName="productHeight" type="text"  class="form-control" placeholder="Enter product height">
+                    <input maxlength="200" [(ngModel)]="product.productHeight" formControlName="productHeight" type="text"  class="form-control" placeholder="Enter product height">
                     <div *ngIf="productHeight">
                       <small class="form-text text-danger"  *ngIf="productHeight.errors?.['required'] && (productHeight.touched || productHeight.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="productHeight.errors?.['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
@@ -121,7 +121,7 @@
                   <h3> Step 3</h3>
                   <div class="form-group mt-3">
                     <label class="control-label">Tax Code </label>
-                    <input maxlength="200" formControlName="taxCode" type="text"  class="form-control" placeholder="Enter tax code">
+                    <input maxlength="200" [(ngModel)]="product.taxCode" formControlName="taxCode" type="text"  class="form-control" placeholder="Enter tax code">
                     <div *ngIf="taxCode">
                       <small class="form-text text-danger"  *ngIf="taxCode.errors?.['required'] && (taxCode.touched || taxCode.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="taxCode.errors?.['pattern']">Allow inputs for this pattern include "abc123","_username","word123","start_with_characters"
@@ -130,7 +130,7 @@
                   </div>
                   <div class="form-group mt-3">
                     <label class="control-label">Country of origin</label>
-                    <input maxlength="200" formControlName="countryOrigin" type="text"  class="form-control" placeholder="Enter country of origin">
+                    <input maxlength="200" [(ngModel)]="product.countryOfOrigin" formControlName="countryOrigin" type="text"  class="form-control" placeholder="Enter country of origin">
                     <div *ngIf="countryOrigin">
                       <small class="form-text text-danger"  *ngIf="countryOrigin.errors?.['required'] && (countryOrigin.touched || countryOrigin.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="countryOrigin.errors?.['pattern']">Allow inputs for this pattern include "abcXYZ","SpecialChars!","OnlyLetters"
@@ -139,7 +139,7 @@
                   </div>
                   <div class="form-group mt-3">
                     <label class="control-label">Product Type</label>
-                    <input maxlength="200" formControlName="productType" type="text"  class="form-control" placeholder="Enter product type">
+                    <input maxlength="200" [(ngModel)]="product.productType" formControlName="productType" type="text"  class="form-control" placeholder="Enter product type">
                     <div *ngIf="productType">
                       <small class="form-text text-danger"  *ngIf="productType.errors?.['required'] && (productType.touched || productType.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="productType.errors?.['pattern']">Allow inputs for this pattern include "AlphaNumeric123","With Spaces and 56","OnlyLetters","123456789"</small>
@@ -154,9 +154,9 @@
                     <div *ngIf="category">
                       <small *ngIf="category.errors?.['required'] && (category.touched||category.dirty)" class="form-text text-danger">This field is required</small>
                     </div>
-                    <select id="subcategory" formControlName="subCategory" class="btn1 mt-3" style="display: none;">
+                    <select id="subcategory" [(ngModel)]="product.subCategory.id" formControlName="subCategory" class="btn1 mt-3" style="display: none;">
                         <option value="" disabled>Select a sub Category</option>
-                        <option *ngFor="let sub of newCategory.subCategory" [value]="sub.subCategory" >{{sub.subCategory}}</option>
+                        <option *ngFor="let sub of newCategory.subCategory" [value]="sub.id" >{{sub.subCategory}}</option>
                     </select>
                     <div *ngIf="subCategory">
                       <small *ngIf="subCategory.errors?.['required'] && (subCategory.touched||subCategory.dirty)" class="form-text text-danger">This field is required</small>
@@ -166,36 +166,19 @@
                   
                   <div class="form-group mt-3">
                     <label class="control-label">Discription</label>
-                    <textarea maxlength="10000" formControlName="discription" type="text"  class="form-control" placeholder="Enter product discription"></textarea>
+                    <textarea maxlength="10000" [(ngModel)]="product.description.description" formControlName="discription" type="text"  class="form-control" placeholder="Enter product discription"></textarea>
                     <div *ngIf="discription">
                       <small class="form-text text-danger"  *ngIf="discription.errors?.['required'] && (discription.touched || discription.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="discription.errors?.['pattern']">Allow inputs for this pattern include "Word 123 $%^&*","Special-Chars:;.,?!","123,456,789","With_Spaces (and) Symbols
                       </small>
                     </div>
                   </div>
-                  <div class="form-group mt-3">
-                  <div class="card">
-                    <div class="row">
-                      <label >Title:</label>
-                      <input type="text" formControlName="title" class="input-field" placeholder="Enter title name">
-                      <div *ngIf="title">
-                        <small class="form-text text-danger"  *ngIf="title.errors?.['required'] && (title.touched || title.dirty)">This field is required</small>
-                        <small class="form-text text-danger"  *ngIf="title.errors?.['pattern']">Allow inputs like that "The Quick Brown Fox Jumps Over the Lazy Dog!"</small>
-                      </div>
-                    </div>
-                    <div class="row" id="keyValuePairsContainer">
-                        <!-- Key-Value pairs will be added here dynamically -->
-                    </div>
-                    <button class="add-button" onclick="addKeyValuePair()">Add Key-Value Pair</button>
-                </div>
-              </div>
                   <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
                   <button class="btn btn-primary btn-lg pull-right newBot" [disabled]="productAddForm.invalid" type="submit">Submit</button>
                 </div>
               </div>
             </div>
           </form>
-          
         </div>
       
 </main>
