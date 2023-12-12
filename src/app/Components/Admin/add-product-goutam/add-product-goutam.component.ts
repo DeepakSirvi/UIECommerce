@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Category } from 'src/app/Model/category';
+import { SubCategory } from 'src/app/Model/sub-category';
+import { ProductRequest } from 'src/app/RequestPayload/product-request';
+import { CategoryService } from 'src/app/Service/category.service';
 @Component({
   selector: 'app-add-product-goutam',
   templateUrl: './add-product-goutam.component.html',
@@ -7,9 +11,17 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   
 
 })
-export class AddProductGoutamComponent {
+export class AddProductGoutamComponent implements OnInit {
 
-  constructor() {}
+  categories:Category[]=[];
+  newCategory:Category = new Category();
+  product:ProductRequest = new ProductRequest();
+  constructor(private catService:CategoryService) {}
+  ngOnInit(): void {
+    this.catService.getCategories().subscribe((result:any)=>{
+      this.categories = result.AllCategory;
+    });
+  }
 
   productAddForm = new FormGroup({
     productName:new FormControl('',
@@ -99,6 +111,16 @@ export class AddProductGoutamComponent {
       Validators.pattern(/^[a-zA-Z\s.,!?'":;()-]+$/)
     ]
     ),
+    category:new FormControl('',
+    [
+      Validators.required
+    ]
+    ),
+    subCategory: new FormControl('',
+    [
+      Validators.required
+    ] 
+    )
     
   })
 
@@ -144,9 +166,21 @@ export class AddProductGoutamComponent {
   get title() {
     return this.productAddForm.get('title');
   }
+  get category() {
+    return this.productAddForm.get('category')
+  }
+  get subCategory() {
+    return this.productAddForm.get('subCategory')
+  }
+   
+  
+  productAdd() {
+    console.log(this.product);
+  }
 
-  productAdd(productDetail: FormGroup) {
-    console.log(productDetail);
+  setCategory(data:any){
+    const selectedValue = (data.target as HTMLSelectElement).value;
+    this.newCategory = this.categories.find(category => category.categoryName === selectedValue) as Category;
   }
 
 }

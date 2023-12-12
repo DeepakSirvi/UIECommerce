@@ -16,30 +16,30 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  msg:string='';
-  subMsg:string=''
-  category:CategoryRequest=new CategoryRequest();
-  constructor(private catService:CategoryService){}
+  msg: string = '';
+  subMsg: string = ''
+  category: CategoryRequest = new CategoryRequest();
+  constructor(private catService: CategoryService) { }
 
 
   onSubmit() {
-    if(this.category.categoryName!=null && this.category.categoryName!=undefined && this.category.categoryName!=''){
+    if (this.category.categoryName != null && this.category.categoryName != undefined && this.category.categoryName != '') {
       console.log(this.category.subCategory);
-      
-      if(this.checkDublicate(this.category.subCategory)){
-      this.catService.addCategory(this.category).subscribe((result)=>{
-      console.log(result);
-    },(error)=>{
-      this.msg=error.error.message;
-    })
-  }
-  else 
-    this.subMsg="Dublicate subcategory not allowed"
-  }
-  else{
-      this.msg="This field required";
+
+      if (this.checkDublicate(this.category.subCategory)) {
+        this.catService.addCategory(this.category).subscribe((result) => {
+          console.log(result);
+        }, (error) => {
+          this.msg = error.error.message;
+        })
+      }
+      else
+        this.subMsg = "Dublicate subcategory not allowed"
     }
-  }  
+    else {
+      this.msg = "This field required";
+    }
+  }
 
   addSubcategory() {
     const newSubCategory: SubCategory = new SubCategory();
@@ -55,20 +55,18 @@ export class AddCategoryComponent implements OnInit {
   trackByFn(index: any, item: any) {
     return index;
   }
- 
-  checkDublicate(arr:any[]) {
-    let count=0;
-      for(let i=0;i<arr.length-1;i++){
-        if(arr[i].subCategory==arr[i+1].subCategory)
-        {
-          count++;
-        }
+
+  checkDublicate(arr: any[]) {
+    let count = 0;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i].subCategory == arr[i + 1].subCategory) {
+        count++;
       }
-      if(count!=0)
-        return false;
-      else
-        return true;
+    }
+    if (count != 0)
+      return false;
+    else
+      return true;
   }
 
 }
- 

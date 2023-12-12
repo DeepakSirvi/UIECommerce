@@ -8,6 +8,6 @@ export class AppRoutes{
    public static  GET_OTP:string = this.baseUrl + "/auth/" ;
    public static  CUSTOMER_SIGNUP:string = this.baseUrl + "/auth/signup" ;
    public static  USER_LOGIN:string = this.baseUrl + "/auth/login" ;
-   public static ADD_CATEGORY: string=this.baseUrl + "/category/admin";
-   public static ADD_PRODUCT:string = this.baseUrl + "";
+   public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
+   public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
 }
