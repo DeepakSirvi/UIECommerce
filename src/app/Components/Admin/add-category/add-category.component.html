@@ -5,12 +5,12 @@
         <form (ngSubmit)="onSubmit()">
           <div>
             <label for="categoryName">Category Name:</label>
-            <input type="text" id="categoryName" [(ngModel)]="categoryName" name="categoryName" required>
+            <input type="text" id="categoryName" [(ngModel)]="category.categoryName" name="categoryName" required>
           </div>
       
-          <div *ngFor="let subcategory of subcategories; let i = index; trackBy: trackByFn" class="subcategory-row">
+          <div *ngFor="let subcategory of category.subCategory; let i = index; trackBy: trackByFn" class="subcategory-row">
             <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
-            <input type="text" id="subcategory{{ i }}" [(ngModel)]="subcategories[i]" name="subcategory{{ i }}">
+            <input type="text" id="subcategory{{ i }}" [(ngModel)]="category.subCategory[i].subCategory" name="subcategory{{ i }}">
             <button type="button" class="btn btn-outline-primary" (click)="deleteSubcategory(i)">Delete</button>
           </div>
       
@@ -21,7 +21,5 @@
           <button type="submit" >Add</button>
         </form>
       </div>
-      
-      
 </main>
 

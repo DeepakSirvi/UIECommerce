@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SubCategory } from 'src/app/Model/sub-category';
+import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 
 
 @Component({
@@ -10,22 +12,25 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
    
   }
-  categoryName: string = '';
-  subcategories: string[] = [''];
+
+  category:CategoryRequest=new CategoryRequest();
+
 
   onSubmit() {
     // Handle the form submission logic here
-    console.log('Category Name:', this.categoryName);
-    console.log('Subcategories:', this.subcategories);
+    console.log('Category Name:', this.category);
+    console.log('Subcategories:', this.category.subCategory);
+
   }
 
   addSubcategory() {
-    this.subcategories.push('');
+    const newSubCategory: SubCategory = new SubCategory();
+  this.category.subCategory.push(newSubCategory);
   }
 
   deleteSubcategory(index: number) {
-    if (this.subcategories.length > 1) {
-      this.subcategories.splice(index, 1);
+    if (this.category.subCategory.length > 1) {
+      this.category.subCategory.splice(index, 1);
     }
   }
 

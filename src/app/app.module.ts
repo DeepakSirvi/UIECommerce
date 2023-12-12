@@ -49,10 +49,6 @@ import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.c
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
-import { Addproductlist1Component } from './Components/Admin/addproductlist1/addproductlist1.component';
-import { Addproductlist2Component } from './Components/Admin/addproductlist2/addproductlist2.component';
-import { Addproducrtlist3Component } from './Components/Admin/addproducrtlist3/addproducrtlist3.component';
-import { Addproducrtlist4Component } from './Components/Admin/addproducrtlist4/addproducrtlist4.component';
 import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
@@ -135,10 +131,7 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
       SellerProfileComponent, 
       SellercardsComponent, 
       SellerlistComponent,
-       Addproductlist1Component, 
-       Addproductlist2Component,
-        Addproducrtlist3Component, 
-        Addproducrtlist4Component, 
+    
         Transacation1Component,
          Transacation2Component,
           ReviewesComponent,

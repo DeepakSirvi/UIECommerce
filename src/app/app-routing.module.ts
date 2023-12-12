@@ -40,11 +40,6 @@ import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.compo
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
-import { Addproductlist1Component } from './Components/Admin/addproductlist1/addproductlist1.component';
-import { Addproductlist2Component } from './Components/Admin/addproductlist2/addproductlist2.component';
-import { Addproducrtlist3Component } from './Components/Admin/addproducrtlist3/addproducrtlist3.component';
-import { Addproducrtlist4Component } from './Components/Admin/addproducrtlist4/addproducrtlist4.component';
-import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
@@ -64,6 +59,7 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
+import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
 
 
 
@@ -175,27 +171,7 @@ const routes: Routes = [
         component: SellerlistComponent,
       
       },
-      {
-        path: "productlist1",
-        component: Addproductlist1Component,
-      
-      },
-      {
-        path: "productlist2",
-        component: Addproductlist2Component,
-      
-      },
-      {
-        path: "productlist3",
-        component: Addproducrtlist3Component,
-      
-      },
-      {
-        path: "productlist4",
-        component: Addproducrtlist4Component,
-      
-      },
-      {
+       {
         path: "transaction1",
         component: Transacation1Component,
       
@@ -249,7 +225,7 @@ const routes: Routes = [
   },
  
   {
-    path: "user",
+    path: "customer",
     component: UserDashBoardComponent,
     canActivate:[customerGuard],
 
