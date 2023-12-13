@@ -1,0 +1,25 @@
+<main class="main-wrap">
+
+    <app-navbar-admin></app-navbar-admin>
+    <div>
+        <h2 class="text-center">Add Varient</h2>
+        <form (ngSubmit)="onSubmit()">
+          <div>
+            <label for="categoryName">Varient Name:</label>
+            <input type="text" id="categoryName" [(ngModel)]="varientCategory.name" name="categoryName" required>
+          </div>
+      
+          <div *ngFor="let subVarient of varientCategory.categoryAttributes; let i = index; trackBy: trackByFn" class="subcategory-row">
+            <label for="varientAttribute{{ i }}">Varient Attribute {{ i + 1 }}:</label>
+            <input type="text" id="varientAttribute{{ i }}" [(ngModel)]="varientCategory.categoryAttributes[i].attributeName" name="varientAttribute{{ i }}">
+            <button type="button" class="btn btn-outline-primary" (click)="deleteVarientAttribute(i)">Delete</button>
+          </div>
+            {{msg}}
+          <div class="subcategory-row">
+            <button type="button" class="btn btn-outline-primary" (click)="addVarientAttribute()">Add Varient Sub Category</button>
+          </div>
+      
+          <button type="submit" >Add</button>
+        </form>
+      </div>
+</main>
