@@ -67,6 +67,9 @@ import { vendorGuard } from './Util/Guard/vendor.guard';
 
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
+import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
+import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
+import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 
 
@@ -155,6 +158,18 @@ const routes: Routes = [
       {
         path: 'addCategory',
         component:AddCategoryComponent
+      },
+      {
+        path: 'add-varient',
+        component: AddVarientComponent
+      },
+      {
+        path: 'addVarientCategory',
+        component: VarientCategoryComponent
+      },
+      {
+        path: 'varientmanage',
+        component: VarientManagementComponent
       },
       {
         path: "",

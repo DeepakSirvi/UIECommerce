@@ -79,6 +79,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
+import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
+import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
+import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 
 
@@ -156,7 +159,7 @@ import { MatInputModule } from '@angular/material/input';
                 NavbarAdminComponent, 
                 AddCategoryComponent, 
                 CategoryManagementComponent, 
-                AddProductGoutamComponent,
+                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent,
                 
 
 

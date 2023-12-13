@@ -37,12 +37,6 @@ export class LoginOTPVerificationComponent implements OnInit {
     "otp": "",
     "mobileNumber": ""
   }
-
-
-  
-
-
-
   public loginUser() {
     this.login.mobileNumber=this.mob;
     this.login.otp=this.loginOtpForm.value.otpfill; 

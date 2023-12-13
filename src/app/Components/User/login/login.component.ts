@@ -30,7 +30,7 @@ export class LoginComponent {
 
   userLogin(mobile:FormGroup){
     this.otp.userMobile=mobile.value.userMobile;
-    this.login.mobNew.next(mobile.value.userMobile);
+    this.login.mobNew.next(mobile.value.userMobile);   
     this.login.generateOtp(this.otp).subscribe((data: any) => {
 
       Toast.fire({

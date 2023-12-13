@@ -19,7 +19,7 @@ export class LoginService {
   mobile:Observable<any> = this.mobNew.asObservable();
 
 
-  public loginStatusSubject=new Subject<boolean>();  // Event handling 
+  public loginStatusSubject=new Subject<boolean>();  // Event handl6ing 
 
   public generateOtp(user:any){
   
