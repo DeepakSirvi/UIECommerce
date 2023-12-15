@@ -14,33 +14,51 @@
             <div class="col-lg-6">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form>
+                        <form (ngSubmit)="onSubmit()">
                             <div class="mb-4">
                                 <label for="product_name" class="form-label">Varient Name</label>
-                                <input type="text" placeholder="Type here" class="form-control" id="product_name" />
+                                <input type="text" name="varientName" [(ngModel)]="varientRequest.varientName" placeholder="Type here" class="form-control" id="product_name" />
                             </div>
-                           
+
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="mb-4">
                                         <label class="form-label">price</label>
                                         <div class="row gx-2">
-                                            <input placeholder="$" type="text" class="form-control" />
+                                            <input placeholder="$" type="text" [(ngModel)]="varientRequest.price" name="price" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Stock</label>
-                                <input type="text" placeholder="Enter stock detail" class="form-control" id="product_name" />
+                                <input type="text" [(ngModel)]="varientRequest.stock" placeholder="Enter stock detail" name="stock" class="form-control"
+                                    id="product_name" />
                             </div>
+                            <div class="subcategory-row">
+                                <button type="submit" class="btn btn-outline-primary" >Add</button>
+                              </div>
                         </form>
                     </div>
                 </div>
                 <!-- card end// -->
             </div>
-           
-              
-        </div>
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Media</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <img src="assets/imgs/theme/upload.svg" width="50px" alt="" />
+                            <input type="file" (change)="onFileSelected($event)" multiple />
+                        </div>
+                        <div *ngFor="let image of images">
+                            <img [src]="image.url" alt="Preview" style="max-width: 100px; max-height: 100px; margin: 5px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
     </section>
 </main>

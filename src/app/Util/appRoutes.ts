@@ -10,5 +10,6 @@ export class AppRoutes{
    public static  USER_LOGIN:string = this.baseUrl + "/auth/login" ;
    public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
-   public static ADD_VARIENT:string = this.baseUrl + "/varient/admin"
+   public static ADD_VARIENT:string = this.baseUrl + "/varient/admin";
+   public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient/";
 }

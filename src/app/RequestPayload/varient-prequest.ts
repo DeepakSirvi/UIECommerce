@@ -1,12 +1,11 @@
-import { ProductRequest } from "../RequestPayload/product-request";
-import { Product } from "./product";
+import { ProductRequest } from "./product-request";
 
-export class Varient {
+export class VarientPRequest {
     id: number=0;
     varientName: string='';
     price: number=0;
     stock: number=0;
-    product: Product=new Product();
+    product: ProductRequest=new ProductRequest();
     // status: Status;
     // categoryJoins: VarientCategoryJoinRequest[];
 }
