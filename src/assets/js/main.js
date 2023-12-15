@@ -871,3 +871,6 @@ $(document).ready(function () {
         option.text = text;
         selectElement.add(option);
     }
+
+    //image upload
+    
