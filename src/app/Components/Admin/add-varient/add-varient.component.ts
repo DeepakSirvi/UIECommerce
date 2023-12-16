@@ -2,7 +2,7 @@ import { HttpEventType, HttpHeaders, HttpResponseBase } from '@angular/common/ht
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { VarientPRequest } from 'src/app/RequestPayload/varient-prequest';
-import { VarientRequest } from 'src/app/RequestPayload/varient-request';
+import { VarientRequest } from 'src/app/RequestPayload/varient-category-request';
 import { VarientService } from 'src/app/Service/varient.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class AddVarientComponent {
   constructor(private varientService:VarientService) {}
    
   ngOnInit(): void {
-    this.varientRequest.product.id=102;
+    this.varientRequest.productId=102;
   }
 onFileSelected(event: any): void {
   if (event.target.files) {
