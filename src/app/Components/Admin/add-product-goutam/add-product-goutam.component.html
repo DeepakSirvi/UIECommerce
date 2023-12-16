@@ -166,7 +166,7 @@
                   
                   <div class="form-group mt-3">
                     <label class="control-label">Discription</label>
-                    <textarea maxlength="10000" [(ngModel)]="product.description.description" formControlName="discription" type="text"  class="form-control" placeholder="Enter product discription"></textarea>
+                    <ckeditor [editor]="Editor" name="content" data="Write Question Here" [(ngModel)]="product.description.description" formControlName="discription"></ckeditor>
                     <div *ngIf="discription">
                       <small class="form-text text-danger"  *ngIf="discription.errors?.['required'] && (discription.touched || discription.dirty)">This field is required</small>
                       <small class="form-text text-danger"  *ngIf="discription.errors?.['pattern']">Allow inputs for this pattern include "Word 123 $%^&*","Special-Chars:;.,?!","123,456,789","With_Spaces (and) Symbols

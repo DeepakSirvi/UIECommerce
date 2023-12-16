@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { VarientSubCategoryRequest } from 'src/app/RequestPayload/varient-attribute-request';
-import { VarientRequest } from 'src/app/RequestPayload/varient-request';
+import { VarientRequest } from 'src/app/RequestPayload/varient-category-request';
 import { VarientService } from 'src/app/Service/varient.service';
+import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-varient-category',
@@ -15,21 +17,30 @@ export class VarientCategoryComponent {
 
   msg: string = '';
   subMsg: string = '';
-  constructor(private varientService: VarientService) { }
+  constructor(private varientService: VarientService,private route:Router) { }
 
   
   onSubmit() {
     if (this.varientCategory.name != null && this.varientCategory.name != undefined && this.varientCategory.name != '') {
-      console.log(this.varientCategory.categoryAttributes);
+      // console.log(this.varientCategory.categoryAttributes);
       if (this.checkDublicate(this.varientCategory.categoryAttributes)) {
-        this.varientService.addVarientCategory(this.varientCategory).subscribe((result) => {
-          console.log(result);
+        this.varientService.addVarientCategory(this.varientCategory).subscribe((result:any) => {
+          
+          Toast.fire({
+            icon: 'success',
+            title: result.response.message,
+          }).then(e=>{
+            this.route.navigate(['/admin/varientmanage']);
+          })  
         }, (error) => {
-          this.msg = error.error.message;
+          Toast.fire({
+            icon: 'error',
+            title: error.error.message
+          })
         })
       }
       else
-        this.msg= "Dublicate subcategory not allowed"
+        this.msg= "Dublicate attribute not allowed"
     }
     else {
       this.msg = "This field required";
@@ -55,7 +66,9 @@ trackByFn(index: any, item: any) {
 checkDublicate(arr: any[]) {
   let count = 0;
   for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i].subCategory == arr[i + 1].subCategory) {
+    
+    if (arr[i].attributeName == arr[i + 1].attributeName) {
+      console.log(arr[i])
       count++;
     }
   }

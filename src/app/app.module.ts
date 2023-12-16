@@ -82,7 +82,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
 import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
-import { FileUploadModule } from 'ng2-file-upload';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -169,7 +169,7 @@ import { FileUploadModule } from 'ng2-file-upload';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
-    ReactiveFormsModule,FileUploadModule,
+    ReactiveFormsModule,CKEditorModule
   ],
   providers: [LoginComponent,authInterceptorProviders],
   bootstrap: [AppComponent]

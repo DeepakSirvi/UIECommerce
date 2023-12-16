@@ -13,14 +13,22 @@
                         <th scope="col">Category Id</th>
                         <th scope="col">Category</th>
                         <th scope="col">Sub-Category</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of categories">
-                        <th scope="row">{{item.id}}</th>
+                    <tr *ngFor="let item of categories;let i=index">
+                        <th scope="row">{{i+1}}</th>
                         <td>{{item.categoryName}}</td>
                         <td >
                             <div *ngFor="let items of item.subCategory">{{items.subCategory}}</div>
+                        </td>
+                        <td>
+                            <span>
+                                <a><img  src="../../../../assets/imgs/icons/edit1.png" width="30px" alt=""></a>
+                                <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt=""></a>
+                            </span>
+                            
                         </td>
                     </tr>
                 </tbody>

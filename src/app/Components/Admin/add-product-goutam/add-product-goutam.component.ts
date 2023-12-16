@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
@@ -18,6 +19,7 @@ export class AddProductGoutamComponent implements OnInit {
   categories:Category[]=[];
   newCategory:Category = new Category();
   product:ProductRequest = new ProductRequest();
+  public Editor =ClassicEditor;
   constructor(private catService:CategoryService,private productService:ProductsService) {}
   ngOnInit(): void {
     this.catService.getCategories().subscribe((result:any)=>{

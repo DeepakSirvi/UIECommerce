@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { empty } from 'rxjs';
 import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
+import { SubCategoryRequest } from 'src/app/RequestPayload/sub-category-request';
 import { CategoryService } from 'src/app/Service/category.service';
+import Toast from 'src/app/Util/helper';
 
 
 
@@ -22,17 +25,25 @@ export class AddCategoryComponent implements OnInit {
 
   msg: string = '';
   subMsg: string = '';
-  constructor(private catService: CategoryService) { }
+  constructor(private catService: CategoryService,private route:Router) { }
 
   
   onSubmit() {
     if (this.category.categoryName != null && this.category.categoryName != undefined && this.category.categoryName != '') {
-      console.log(this.category.subCategory);
+      console.log(this.category);
       if (this.checkDublicate(this.category.subCategory)) {
-        this.catService.addCategory(this.category).subscribe((result) => {
-          console.log(result);
+        this.catService.addCategory(this.category).subscribe((result:any) => {
+          Toast.fire({
+            icon: 'success',
+            title: result.message
+          }).then(e=>{
+            this.route.navigate(['admin/categoryManage']);
+          })   
         }, (error) => {
-          this.msg = error.error.message;
+          Toast.fire({
+            icon: 'error',
+            title: error.error.message
+          })
         })
       }
       else
@@ -44,7 +55,7 @@ export class AddCategoryComponent implements OnInit {
     }
   }
 addSubcategory() {
-  const newSubCategory: SubCategory = new SubCategory();
+  const newSubCategory: SubCategoryRequest = new SubCategoryRequest();
 
   this.category.subCategory.push(newSubCategory);
 
