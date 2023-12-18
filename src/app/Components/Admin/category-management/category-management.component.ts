@@ -18,7 +18,7 @@ export class CategoryManagementComponent implements OnInit {
 
   getCategories() {
     this.catgoryService.getCategories().subscribe((result:any)=>{
-     this.categories = result.AllCategory;
+     this.categories = result.AllCategory.content;
     })
   }
 
