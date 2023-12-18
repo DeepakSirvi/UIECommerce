@@ -3,9 +3,9 @@ import { SubCategoryRequest } from "./sub-category-request";
 
 export class ProductRequest {
 
-    id: number = 0;
+    id!: number ;
     productName: string = '';
-    listingStatus: boolean = false;
+    listingStatus!: boolean;
     brand: string = '';
     fullfillmentBy: string = '';
     shippingProvider: string = '';
@@ -17,7 +17,9 @@ export class ProductRequest {
     taxCode: string = '';
     countryOfOrigin: string = '';
     productType: string = '';
-    subCategory: SubCategoryRequest = new SubCategoryRequest();
-    description: ProductDescriptionRequest = new ProductDescriptionRequest()
+    subCategory!: SubCategoryRequest;
+    description!: ProductDescriptionRequest;
+
+  
 }
 

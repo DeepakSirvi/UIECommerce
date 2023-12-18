@@ -34,7 +34,7 @@ import { ProductCategariesComponent } from './Components/User/product-categaries
 import { HomeComponent } from './Components/User/home/home.component';
 import { AdminhomeComponent } from './Components/Admin/adminhome/adminhome.component';
 import { DashbordComponent } from './Components/Admin/dashbord/dashbord.component';
-import { ProductComponent } from './Components/Admin/product grid/product.component';
+
 import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.component';
 import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.component';
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
@@ -57,7 +57,7 @@ import { UserDashBoardComponent } from './Components/User/user-dash-board/user-d
 import { CategoryComponent } from './User/category/category.component';
 import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
-import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
+
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
@@ -175,10 +175,8 @@ const routes: Routes = [
         path: "",
         component: DashbordComponent
       },
-      {
-        path: "product",
-        component: ProductComponent
-      },
+    
+      
       {
         path: "orderdetail",
         component: OderdetailComponent
@@ -212,26 +210,14 @@ const routes: Routes = [
       {
         path: "transaction2",
         component: Transacation2Component,
-      
       },
       {
         path: "reviewes",
         component: ReviewesComponent,
-      
       },
       {
         path: "brands",
         component: BrandsComponent,
-      
-      },
-      {
-        path: "productsgrid",
-        component: ProductComponent,
-      
-      },
-      {
-        path: "productsgurid2",
-        component: Productsgrid2Component,
       
       },
       {
