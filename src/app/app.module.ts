@@ -83,6 +83,9 @@ import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.
 import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+
 
 
 
@@ -168,7 +171,9 @@ import { VarientCategoryComponent } from './Components/Admin/varient-category/va
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,CKEditorModule
+
   ],
   providers: [LoginComponent,authInterceptorProviders],
   bootstrap: [AppComponent]

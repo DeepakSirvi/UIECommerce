@@ -1,7 +1,7 @@
 import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppRoutes } from '../Util/appRoutes';
-import { VarientRequest } from '../RequestPayload/varient-request';
+import { VarientRequest } from '../RequestPayload/varient-category-request';
 import { Observable } from 'rxjs';
 
 @Injectable({

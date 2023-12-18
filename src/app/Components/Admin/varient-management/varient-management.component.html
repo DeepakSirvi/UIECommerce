@@ -13,6 +13,7 @@
                         <th scope="col">Varient Id</th>
                         <th scope="col">Varient</th>
                         <th scope="col">Varient Attribute</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,12 @@
                         <td>{{item.name}}</td>
                         <td >
                             <div *ngFor="let items of item.categoryAttributes">{{items.attributeName}}</div>
+                        </td>
+                        <td>
+                            <span>
+                                <a><img  src="../../../../assets/imgs/icons/edit1.png" width="30px" alt=""></a>
+                                <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt=""></a>
+                            </span>
                         </td>
                     </tr>
                 </tbody>

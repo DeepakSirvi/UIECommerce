@@ -5,7 +5,5 @@ export class VarientPRequest {
     varientName: string='';
     price: number=0;
     stock: number=0;
-    product: ProductRequest=new ProductRequest();
-    // status: Status;
-    // categoryJoins: VarientCategoryJoinRequest[];
+    productId:number=0;
 }
