@@ -173,6 +173,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
 
+
     ReactiveFormsModule,CKEditorModule,NgxPaginationModule
 
   ],

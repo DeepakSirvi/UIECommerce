@@ -10,15 +10,15 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Varient Id</th>
+                        <th scope="col">S.no</th>
                         <th scope="col">Varient</th>
                         <th scope="col">Varient Attribute</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of varient">
-                        <th scope="row">{{item.id}}</th>
+                    <tr *ngFor="let item of varient, let i=index">
+                        <th scope="row">{{i+1}}</th>
                         <td>{{item.name}}</td>
                         <td >
                             <div *ngFor="let items of item.categoryAttributes">{{items.attributeName}}</div>
