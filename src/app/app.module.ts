@@ -44,7 +44,6 @@ import { ProductCategariesComponent } from './Components/User/product-categaries
 import { HomeComponent } from './Components/User/home/home.component';
 import { AdminhomeComponent } from './Components/Admin/adminhome/adminhome.component';
 import { DashbordComponent } from './Components/Admin/dashbord/dashbord.component';
-import { ProductComponent } from './Components/Admin/product grid/product.component';
 import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.component';
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
@@ -70,7 +69,6 @@ import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpane
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-admin.component';
 import { ReactiveFormsModule } from  '@angular/forms';
-import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-interceptor.interceptor';
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
@@ -135,13 +133,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
         NavbarComponent,
         ProductCategariesComponent,
         HomeComponent,
-       Productsgrid2Component,
+       
     OrderlistComponent,
     ResetPasswordComponent,
     LoginComponent,
      AdminhomeComponent, 
      DashbordComponent,
-      ProductComponent, 
+    
       OderdetailComponent, 
       SellerProfileComponent, 
       SellercardsComponent, 

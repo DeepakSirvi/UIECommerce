@@ -14,4 +14,8 @@ export class ProductsService {
   addProduct(data:ProductRequest){
     return this.http.post(AppRoutes.ADD_PRODUCT,data);
   }
+
+  getAllProduct(productSearch:ProductRequest){
+    return this.http.post(AppRoutes.GET_ALL_PRODUCT,productSearch);
+  }
 }

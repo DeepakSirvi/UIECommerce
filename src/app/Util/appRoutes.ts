@@ -12,4 +12,5 @@ export class AppRoutes{
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
    public static ADD_VARIENT:string = this.baseUrl + "/varient/admin";
    public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient/";
+  static GET_ALL_PRODUCT: string=this.baseUrl+"/product/";
 }
