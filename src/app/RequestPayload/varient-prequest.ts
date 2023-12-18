@@ -1,3 +1,5 @@
+import { VarientAttribute } from "../Model/varient-attribute";
+import { VarientCategoryJoin } from "../Model/varient-category-join";
 import { ProductRequest } from "./product-request";
 
 export class VarientPRequest {
@@ -6,4 +8,5 @@ export class VarientPRequest {
     price: number=0;
     stock: number=0;
     productId:number=0;
+    categoryJoins: VarientCategoryJoin[]=[];
 }

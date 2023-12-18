@@ -171,9 +171,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
-
     ReactiveFormsModule,CKEditorModule
-
   ],
   providers: [LoginComponent,authInterceptorProviders],
   bootstrap: [AppComponent]

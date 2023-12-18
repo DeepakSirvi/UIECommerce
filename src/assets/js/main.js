@@ -523,7 +523,7 @@
         }
     });
 
-    $('.btn-close').on('click', function(e) {
+    $('.btn-close').on('click', function (e) {
         $('.zoomContainer').remove();
     });
 
@@ -733,17 +733,17 @@
 // 
 $(document).ready(function () {
     var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn'),
-            allPrevBtn = $('.prevBtn');
-  
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn'),
+        allPrevBtn = $('.prevBtn');
+
     allWells.hide();
-  
+
     navListItems.click(function (e) {
         e.preventDefault();
         var $target = $($(this).attr('href')),
-                $item = $(this);
-  
+            $item = $(this);
+
         if (!$item.hasClass('disabled')) {
             navListItems.removeClass('btn-primary').addClass('btn-default');
             $item.addClass('btn-primary');
@@ -752,125 +752,159 @@ $(document).ready(function () {
             $target.find('input:eq(0)').focus();
         }
     });
-    
-    allPrevBtn.click(function(){
+
+    allPrevBtn.click(function () {
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
-  
-            prevStepWizard.removeAttr('disabled').trigger('click');
+
+        prevStepWizard.removeAttr('disabled').trigger('click');
     });
-  
-    allNextBtn.click(function(){
+
+    allNextBtn.click(function () {
         var curStep = $(this).closest(".setup-content"),
             curStepBtn = curStep.attr("id"),
             nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
             curInputs = curStep.find("input[type='text'],input[type='url']"),
             isValid = true;
-  
+
         $(".form-group").removeClass("has-error");
-        for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
+        for (var i = 0; i < curInputs.length; i++) {
+            if (!curInputs[i].validity.valid) {
                 isValid = false;
                 $(curInputs[i]).closest(".form-group").addClass("has-error");
             }
         }
-  
+
         if (isValid)
             nextStepWizard.removeAttr('disabled').trigger('click');
     });
-  
-    $('div.setup-panel div a.btn-primary').trigger('click');
-  });
-  
 
-  document.addEventListener("DOMContentLoaded", function(){
+    $('div.setup-panel div a.btn-primary').trigger('click');
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
     // make it as accordion for smaller screens
     if (window.innerWidth < 992) {
-    
-      // close all inner dropdowns when parent is closed
-      document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
-        everydropdown.addEventListener('hidden.bs.dropdown', function () {
-          // after dropdown is hidden, then find all submenus
-            this.querySelectorAll('.submenu').forEach(function(everysubmenu){
-              // hide every submenu as well
-              everysubmenu.style.display = 'none';
+
+        // close all inner dropdowns when parent is closed
+        document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
+            everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                // after dropdown is hidden, then find all submenus
+                this.querySelectorAll('.submenu').forEach(function (everysubmenu) {
+                    // hide every submenu as well
+                    everysubmenu.style.display = 'none';
+                });
+            })
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                let nextEl = this.nextElementSibling;
+                if (nextEl && nextEl.classList.contains('submenu')) {
+                    // prevent opening link if link needs to open dropdown
+                    e.preventDefault();
+                    if (nextEl.style.display == 'block') {
+                        nextEl.style.display = 'none';
+                    } else {
+                        nextEl.style.display = 'block';
+                    }
+
+                }
             });
         })
-      });
-    
-      document.querySelectorAll('.dropdown-menu a').forEach(function(element){
-        element.addEventListener('click', function (e) {
-            let nextEl = this.nextElementSibling;
-            if(nextEl && nextEl.classList.contains('submenu')) {	
-              // prevent opening link if link needs to open dropdown
-              e.preventDefault();
-              if(nextEl.style.display == 'block'){
-                nextEl.style.display = 'none';
-              } else {
-                nextEl.style.display = 'block';
-              }
-    
-            }
-        });
-      })
     }
     // end if innerWidth
-    }); 
+});
 
-    
 
-    function addKeyValuePair() {
-        // Create a new key-value pair in the container
-        var keyValuePairsContainer = document.getElementById("keyValuePairsContainer");
-        var keyValuePair = document.createElement("div");
-        keyValuePair.className = "key-value-pair";
-        keyValuePair.style.display = "flex";
 
-        var keyInput = document.createElement("input");
-        keyInput.type = "text";
-        keyInput.className = "key-input";
-        keyInput.placeholder = "Key";
+function addKeyValuePair() {
+    // Create a new key-value pair in the container
+    var keyValuePairsContainer = document.getElementById("keyValuePairsContainer");
+    var keyValuePair = document.createElement("div");
+    keyValuePair.className = "key-value-pair";
+    keyValuePair.style.display = "flex";
 
-        var valueInput = document.createElement("input");
-        valueInput.type = "text";
-        valueInput.className = "value-input";
-        valueInput.placeholder = "Value";
+    var keyInput = document.createElement("input");
+    keyInput.type = "text";
+    keyInput.className = "key-input";
+    keyInput.placeholder = "Key";
 
-        keyValuePair.appendChild(keyInput);
-        keyValuePair.appendChild(valueInput);
-        keyValuePairsContainer.appendChild(keyValuePair);
+    var valueInput = document.createElement("input");
+    valueInput.type = "text";
+    valueInput.className = "value-input";
+    valueInput.placeholder = "Value";
+
+    keyValuePair.appendChild(keyInput);
+    keyValuePair.appendChild(valueInput);
+    keyValuePairsContainer.appendChild(keyValuePair);
+}
+
+function handleCategoryChange() {
+    var productCategory = document.getElementById('productCategory');
+    var subcategory = document.getElementById('subcategory');
+
+    // Hide subcategory dropdown if no category is selected
+    if (productCategory.value === '') {
+        subcategory.style.display = 'none';
+        return;
     }
 
-    function handleCategoryChange() {
-        var productCategory = document.getElementById('productCategory');
-        var subcategory = document.getElementById('subcategory');
+    // Show subcategory dropdown and populate options based on the selected category
+    subcategory.style.display = 'block';
+    subcategory.options.length = 1; // Clear existing options
 
-        // Hide subcategory dropdown if no category is selected
-        if (productCategory.value === '') {
-            subcategory.style.display = 'none';
-            return;
-        }
+}
 
-        // Show subcategory dropdown and populate options based on the selected category
-        subcategory.style.display = 'block';
-        subcategory.options.length = 1; // Clear existing options
+function addOption(selectElement, value, text) {
+    var option = document.createElement('option');
+    option.value = value;
+    option.text = text;
+    selectElement.add(option);
+}
+//
+function populateSubOptions() {
+    var mainOptions = document.getElementById("mainOptions");
+    var subOptionsContainer = document.getElementById("subOptionsContainer");
 
-        if (productCategory.value === '1') {
-            addOption(subcategory, '1_1', 'Sub-category 1');
-            addOption(subcategory, '1_2', 'Sub-category 2');
-        } else if (productCategory.value === '2') {
-            addOption(subcategory, '2_1', 'Sub-category 3');
-            addOption(subcategory, '2_2', 'Sub-category 4');
-        }
+    if (mainOptions.value !== "") {
+        // Show the sub-options container
+        subOptionsContainer.style.display = "block";
+
+    } else {
+        // Hide the sub-options container if no main option is selected
+        subOptionsContainer.style.display = "none";
     }
+}
 
-    function addOption(selectElement, value, text) {
-        var option = document.createElement('option');
-        option.value = value;
-        option.text = text;
-        selectElement.add(option);
-    }
+function addSubOption(value, text) {
+    var subOptions = document.getElementById("subOptions");
+    var option = document.createElement("option");
+    option.value = value;
+    option.text = text;
+    subOptions.add(option);
+}
 
-    //image upload
-    
+function storeSelectedValues() {
+    var mainOptions = document.getElementById("mainOptions");
+    var subOptions = document.getElementById("subOptions");
+    var selectedValuesList = document.getElementById("selectedValuesList");
+
+    // Store the selected values in key-value format
+    var keyValue = mainOptions.value + ": " + subOptions.value;
+
+    // Display the selected values with a delete button
+    var listItem = document.createElement("li");
+    listItem.textContent = keyValue;
+
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", function () {
+        selectedValuesList.removeChild(listItem);
+    });
+
+    listItem.appendChild(deleteButton);
+    selectedValuesList.appendChild(listItem);
+}

@@ -1,5 +1,6 @@
 import { ProductRequest } from "../RequestPayload/product-request";
 import { Product } from "./product";
+import { VarientCategoryJoin } from "./varient-category-join";
 
 export class Varient {
     id: number=0;
@@ -8,5 +9,5 @@ export class Varient {
     stock: number=0;
     product: Product=new Product();
     // status: Status;
-    // categoryJoins: VarientCategoryJoinRequest[];
+    categoryJoins: VarientCategoryJoin[]=[];
 }
