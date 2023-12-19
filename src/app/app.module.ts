@@ -21,7 +21,7 @@ import { ByPriceComponent } from './User/filter/by-price/by-price.component';
 import { RegisterComponent } from './Components/User/register/register.component';
 import { ForgotPasswordComponent } from './Components/User/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/User/reset-password/reset-password.component';
-import { LoginComponent } from './Components/User/login/login.component';
+import { LoginComponent } from './Components/Shared/login/login.component';
 import { PurchaseGuideComponent } from './Components/User/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './Components/User/privacy-policy/privacy-policy.component';
 import { TermsofServiceComponent } from './Components/User/termsof-service/termsof-service.component';
@@ -44,7 +44,6 @@ import { ProductCategariesComponent } from './Components/User/product-categaries
 import { HomeComponent } from './Components/User/home/home.component';
 import { AdminhomeComponent } from './Components/Admin/adminhome/adminhome.component';
 import { DashbordComponent } from './Components/Admin/dashbord/dashbord.component';
-import { ProductComponent } from './Components/Admin/product grid/product.component';
 import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.component';
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
@@ -62,7 +61,7 @@ import { Settingsample2Component } from './Components/Admin/settingsample2/setti
 import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.component';
 import { CategoryComponent } from './User/category/category.component';
 import { FilterProductComponent } from './User/filter-product/filter-product.component';
-import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
+import { LoginOTPVerificationComponent } from './Components/Shared/login-otp-verification/login-otp-verification.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
@@ -70,12 +69,11 @@ import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpane
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-admin.component';
 import { ReactiveFormsModule } from  '@angular/forms';
-import { Productsgrid2Component } from './Components/Admin/productsgrid2/productsgrid2.component';
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-interceptor.interceptor';
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
@@ -84,7 +82,13 @@ import { VarientManagementComponent } from './Components/Admin/varient-managemen
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -135,13 +139,13 @@ import { NotificationComponent } from './Components/Admin/notification/notificat
         NavbarComponent,
         ProductCategariesComponent,
         HomeComponent,
-       Productsgrid2Component,
+       
     OrderlistComponent,
     ResetPasswordComponent,
     LoginComponent,
      AdminhomeComponent, 
      DashbordComponent,
-      ProductComponent, 
+    
       OderdetailComponent, 
       SellerProfileComponent, 
       SellercardsComponent, 
@@ -174,7 +178,12 @@ import { NotificationComponent } from './Components/Admin/notification/notificat
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
 
 
+
     ReactiveFormsModule,CKEditorModule,
+
+   
+    MatChipsModule,MatIconModule,MatIconModule
+
 
   ],
   providers: [LoginComponent,authInterceptorProviders],

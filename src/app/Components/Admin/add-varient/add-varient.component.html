@@ -39,28 +39,38 @@
                             </div>
                             <div class="mb-4">
                                 <div class="mb-4">
-                                    <label for="mainOptions">Main Options:</label>
-                                    <select id="mainOptions" (change)="setCategory($event)">
+                                    <label for="mainOptions">Varient Category</label>
+                                    <select id="mainOptions" (change)="setCategory($event)" class="form-control">
                                         <option value="">Select...</option>
                                         <option *ngFor="let item of varientCategory" [value]="item.name">{{item.name}}
                                         </option>
                                     </select>
                                 </div>
 
-                                <div id="subOptionsContainer"  *ngIf="selectedValues.length > 0">
-                                    <label for="subOptions">Sub Options:</label>
-                                    <select id="subOptions" (change)="setAttribute($event)">
-                                        <option
-                                            *ngFor="let attribute of newVarientCategory.categoryAttributes"
+                                <div id="subOptionsContainer" *ngIf="selectedValues.length > 0">
+                                    <label for="subOptions">Varient Attribute</label>
+                                    <select id="subOptions" (change)="setAttribute($event)" class="form-control">
+                                        <option value="">Select...</option>
+                                        <option *ngFor="let attribute of newVarientCategory.categoryAttributes"
                                             [value]="attribute.attributeName">{{attribute.attributeName}}</option>
                                     </select>
                                 </div>
 
                                 <div id="selectedValuesContainer">
-                                    <p>Selected Values:</p>
-                                    <ul id="selectedValuesList">
-                                        <li *ngFor="let selectedValue of selectedValues;let i=index">{{selectedValue.category}}: {{selectedValue.attribute}}<i class="bi bi-x" (click)="deleteAttribute(i)"></i></li>
-                                    </ul>
+                                    <!-- <ul id="selectedValuesList">
+                                        <li *ngFor="let selectedValue of selectedValues;let i=index">
+                                            {{selectedValue.category}}: {{selectedValue.attribute}}<i class="bi bi-x"
+                                                (click)="deleteAttribute(i)"></i></li>
+                                    </ul> -->
+                                    <mat-chip-grid #chipGrid aria-label="">
+                                        <mat-chip-row *ngFor="let selectedValue of selectedValues;let i=index"
+                                        >
+                                            {{selectedValue.category}}/{{selectedValue.attribute}}
+                                            <button mat-icon-button (click)="deleteAttribute(i)">
+                                                <mat-icon >Cancel</mat-icon>
+                                            </button>
+                                        </mat-chip-row>
+                                    </mat-chip-grid>
                                 </div>
                             </div>
                             <div class="subcategory-row">
@@ -81,9 +91,10 @@
                             <img src="assets/imgs/theme/upload.svg" width="50px" alt="" />
                             <input type="file" (change)="onFileSelected($event)" multiple />
                         </div>
-                        <div *ngFor="let image of images">
+                        <div *ngFor="let image of images; let i=index">
                             <img [src]="image.url" alt="Preview"
                                 style="max-width: 100px; max-height: 100px; margin: 5px;" />
+                            <i class="bi bi-x" (click)="deleteImage(i)"></i>
                         </div>
                     </div>
                 </div>

@@ -18,12 +18,17 @@ export class LoginOTPVerificationComponent implements OnInit {
     private route: Router
   ) { }
 
-  mob:any=0;
-
   ngOnInit(): void {
     this.loginService.mobile.subscribe((data:any)=>{
-      this.mob=data;
+      this.login.mobileNumber=data;
+      console.log(data);
+      
     })
+  }
+
+  public login: any = {
+    "otp": "",
+    "mobileNumber": ""
   }
 
   loginOtpForm = new FormGroup({
@@ -33,12 +38,8 @@ export class LoginOTPVerificationComponent implements OnInit {
   get otpfill() {
     return this.loginOtpForm.get('otpfill');
   }
-  public login: any = {
-    "otp": "",
-    "mobileNumber": ""
-  }
+
   public loginUser() {
-    this.login.mobileNumber=this.mob;
     this.login.otp=this.loginOtpForm.value.otpfill; 
     this.loginService.generateToken(this.login).subscribe((data: any) => {
       this.loginService.loginUser(data.token);
@@ -53,7 +54,7 @@ export class LoginOTPVerificationComponent implements OnInit {
         })
 
         if (userRole[0].role.roleName === "CUSTOMER") {
-          this.route.navigate(['user'])
+          this.route.navigate(['customer'])
           this.loginService.loginStatusSubject.next(true)
         }
         else if (userRole[0].role.roleName === "ADMIN") {

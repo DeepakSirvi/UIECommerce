@@ -1,7 +1,7 @@
 import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppRoutes } from '../Util/appRoutes';
-import { VarientRequest } from '../RequestPayload/varient-category-request';
+import { VarientCategoryRequest } from '../RequestPayload/varient-category-request';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class VarientService {
 
   constructor(private http:HttpClient) { }
 
-  addVarientCategory(data:VarientRequest){
+  addVarientCategory(data:VarientCategoryRequest){
     return  this.http.post(AppRoutes.ADD_VARIENT,data);
   }
   getCategories(){
