@@ -82,9 +82,13 @@ import { VarientManagementComponent } from './Components/Admin/varient-managemen
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+import { NotificationComponent } from './Components/Admin/notification/notification.component';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -163,7 +167,7 @@ import { MatIconModule } from '@angular/material/icon';
                 NavbarAdminComponent, 
                 AddCategoryComponent, 
                 CategoryManagementComponent, 
-                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent,
+                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent, NotificationComponent,
                 
 
 
@@ -174,8 +178,12 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
 
 
-    ReactiveFormsModule,CKEditorModule,NgxPaginationModule,
+
+    ReactiveFormsModule,CKEditorModule,
+
+   
     MatChipsModule,MatIconModule,MatIconModule
+
 
   ],
   providers: [LoginComponent,authInterceptorProviders],
