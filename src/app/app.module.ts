@@ -21,7 +21,7 @@ import { ByPriceComponent } from './User/filter/by-price/by-price.component';
 import { RegisterComponent } from './Components/User/register/register.component';
 import { ForgotPasswordComponent } from './Components/User/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/User/reset-password/reset-password.component';
-import { LoginComponent } from './Components/User/login/login.component';
+import { LoginComponent } from './Components/Shared/login/login.component';
 import { PurchaseGuideComponent } from './Components/User/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './Components/User/privacy-policy/privacy-policy.component';
 import { TermsofServiceComponent } from './Components/User/termsof-service/termsof-service.component';
@@ -61,7 +61,7 @@ import { Settingsample2Component } from './Components/Admin/settingsample2/setti
 import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.component';
 import { CategoryComponent } from './User/category/category.component';
 import { FilterProductComponent } from './User/filter-product/filter-product.component';
-import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
+import { LoginOTPVerificationComponent } from './Components/Shared/login-otp-verification/login-otp-verification.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
@@ -73,7 +73,7 @@ import { AddCategoryComponent } from './Components/Admin/add-category/add-catego
 import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-interceptor.interceptor';
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
@@ -83,6 +83,8 @@ import { VarientCategoryComponent } from './Components/Admin/varient-category/va
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -172,7 +174,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
 
 
-    ReactiveFormsModule,CKEditorModule,NgxPaginationModule
+    ReactiveFormsModule,CKEditorModule,NgxPaginationModule,
+    MatChipsModule,MatIconModule,MatIconModule
 
   ],
   providers: [LoginComponent,authInterceptorProviders],

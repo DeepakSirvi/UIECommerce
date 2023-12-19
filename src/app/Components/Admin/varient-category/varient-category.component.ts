@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { VarientSubCategoryRequest } from 'src/app/RequestPayload/varient-attribute-request';
-import { VarientRequest } from 'src/app/RequestPayload/varient-category-request';
+import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
+import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
 import { VarientService } from 'src/app/Service/varient.service';
 import Toast from 'src/app/Util/helper';
 
@@ -13,7 +13,7 @@ import Toast from 'src/app/Util/helper';
 export class VarientCategoryComponent {
   ngOnInit(): void {
   }
-  varientCategory: VarientRequest = new VarientRequest();
+  varientCategory: VarientCategoryRequest = new VarientCategoryRequest();
 
   msg: string = '';
   subMsg: string = '';
@@ -48,7 +48,7 @@ export class VarientCategoryComponent {
     }
   }
   addVarientAttribute() {
-  const newVarientSubCategory: VarientSubCategoryRequest = new VarientSubCategoryRequest();
+  const newVarientSubCategory: VarientAttributeRequest = new VarientAttributeRequest();
   this.varientCategory.categoryAttributes.push(newVarientSubCategory);
 
 }
