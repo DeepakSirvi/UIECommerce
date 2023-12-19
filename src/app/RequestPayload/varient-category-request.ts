@@ -1,7 +1,8 @@
-import { VarientSubCategoryRequest } from "./varient-attribute-request";
+import { VarientAttributeRequest } from "./varient-attribute-request";
 
-export class VarientRequest {
-    id:number=0;
+
+export class VarientCategoryRequest {
+    id!:number;
     name:string='';
-    categoryAttributes:VarientSubCategoryRequest[]=[];
+    categoryAttributes:VarientAttributeRequest[]=[];
 }

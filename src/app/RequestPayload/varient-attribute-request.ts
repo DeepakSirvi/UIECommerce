@@ -1,5 +1,5 @@
-export class VarientSubCategoryRequest {
-    id:number=0;
+export class VarientAttributeRequest {
+    id!:number;
     attributeName:string='';
-    // varientCategory:VarientSubCategoryRequest = new VarientSubCategoryRequest()
+    
 }

@@ -12,7 +12,7 @@ import { FilterComponent } from './User/filter/filter.component';
 import { RegisterComponent } from './Components/User/register/register.component';
 import { ForgotPasswordComponent } from './Components/User/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Components/User/reset-password/reset-password.component';
-import { LoginComponent } from './Components/User/login/login.component';
+import { LoginComponent } from './Components/Shared/login/login.component';
 import { PurchaseGuideComponent } from './Components/User/purchase-guide/purchase-guide.component';
 import { PrivacyPolicyComponent } from './Components/User/privacy-policy/privacy-policy.component';
 import { TermsofServiceComponent } from './Components/User/termsof-service/termsof-service.component';
@@ -55,7 +55,7 @@ import { UserDashBoardComponent } from './Components/User/user-dash-board/user-d
 
 
 import { CategoryComponent } from './User/category/category.component';
-import { LoginOTPVerificationComponent } from './Components/User/login-otp-verification/login-otp-verification.component';
+import { LoginOTPVerificationComponent } from './Components/Shared/login-otp-verification/login-otp-verification.component';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
 
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';

@@ -1,5 +1,5 @@
 import { VarientAttribute } from "./varient-attribute";
 
 export class VarientCategoryJoin {
-    varientAttribute:VarientAttribute = new VarientAttribute();
+    varAttribute:VarientAttribute = new VarientAttribute();
 }

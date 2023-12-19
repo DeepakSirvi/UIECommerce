@@ -4,6 +4,8 @@ import { VarientService } from 'src/app/Service/varient.service';
 import { VarientPRequest } from 'src/app/RequestPayload/varient-prequest';
 import { VarientCategory } from 'src/app/Model/varient-category';
 import { VarientAttribute } from 'src/app/Model/varient-attribute';
+import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
+import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
 
 @Component({
   selector: 'app-add-varient',
@@ -15,7 +17,7 @@ export class AddVarientComponent {
   images: { url: string }[] = [];
   filess: File[] = [];
   varientRequest: VarientPRequest = new VarientPRequest();
-  selectedValues: { category: string, attribute: string }[] = [];
+  selectedValues: { category: string, attribute: string , attributeId: number}[] = [];
   newVarientCategory!:VarientCategory;
 
   constructor(private varientService: VarientService) {}
@@ -42,7 +44,13 @@ export class AddVarientComponent {
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
-
+     
+    for(const  selectValue of this.selectedValues){
+      const attribute:VarientCategoryJoinRequest=new VarientCategoryJoinRequest();
+          attribute.varAttribute.id=selectValue.attributeId;          
+          this.varientRequest.categoryJoins.push(attribute)
+    }
+    this.selectedValues=[];
     const formData: FormData = new FormData();
     formData.append('varientRequest', JSON.stringify(this.varientRequest));
     for (const image of this.filess) {
@@ -69,19 +77,32 @@ export class AddVarientComponent {
 
   setCategory(data: any) {
     const selectedValue = (data.target as HTMLSelectElement).value;
+   
+    if(this.selectedValues.some(selected => selected.category ===selectedValue))
+    {
+     
+        return;
+    }
     const attributeValues = this.varientCategory
       .find(category => category.name === selectedValue)?.categoryAttributes.map(attr => attr.attributeName) || [];
       this.newVarientCategory = this.varientCategory.find(category => category.name === selectedValue) as VarientCategory;
-      this.selectedValues[this.selectedValues.length] = { category: selectedValue, attribute: '' };
+      this.selectedValues[this.selectedValues.length] = { category: selectedValue, attribute: '',attributeId:0 };
     
   }
 
   setAttribute(data: any) {
     const selectedValue = (data.target as HTMLSelectElement).value;
     this.selectedValues[this.selectedValues.length-1].attribute = selectedValue;
+    this.selectedValues[this.selectedValues.length-1].attributeId = 1;
+    
   }
 
   deleteAttribute(i:any){
        this.selectedValues.splice(i,1);
   }
+
+  deleteImage(i:any){
+    this.filess.splice(i,1);
+    this.images.splice(i,1);
+}
 }

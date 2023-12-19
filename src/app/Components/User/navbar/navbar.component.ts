@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { LoginService } from 'src/app/Service/AuthService/login.service';
 export class NavbarComponent {
 
   
-  constructor(public login:LoginService){}
+  constructor(private login:LoginService,private route:Router){}
     isUserActive=false;
     user:any=null;
 
@@ -25,7 +26,7 @@ export class NavbarComponent {
    } 
   public logout(){
     this.login.logout();
-    window.location.reload();
-  }
+    this.route.navigate(['']);
+    }
   
 }
