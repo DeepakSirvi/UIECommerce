@@ -84,7 +84,7 @@ import { VarientManagementComponent } from './Components/Admin/varient-managemen
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NotificationComponent } from './Components/Admin/notification/notification.component';
 
 
 
@@ -163,7 +163,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
                 NavbarAdminComponent, 
                 AddCategoryComponent, 
                 CategoryManagementComponent, 
-                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent,
+                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent, NotificationComponent,
                 
 
 
@@ -174,7 +174,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
 
 
-    ReactiveFormsModule,CKEditorModule,NgxPaginationModule
+    ReactiveFormsModule,CKEditorModule,
 
   ],
   providers: [LoginComponent,authInterceptorProviders],

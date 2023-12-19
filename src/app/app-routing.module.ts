@@ -70,6 +70,7 @@ import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam
 import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
 import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
+import { NotificationComponent } from './Components/Admin/notification/notification.component';
 
 
 
@@ -147,6 +148,11 @@ const routes: Routes = [
     component: AdminhomeComponent,
     canActivate:[adminGuard],
     children: [
+      {
+        path: 'notification',
+        component: NotificationComponent
+      }
+      ,
       {
         path: 'add-product-goutam',
         component: AddProductGoutamComponent
