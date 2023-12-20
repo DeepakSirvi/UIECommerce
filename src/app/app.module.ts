@@ -85,7 +85,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
 
-import { NgxPaginationModule } from 'ngx-pagination';
 import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 

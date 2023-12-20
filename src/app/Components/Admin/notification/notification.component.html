@@ -9,17 +9,17 @@
             class="img-fluid new" alt="Phone image">
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-          <form>
+          <form (ngSubmit)="onSubmit()">
             <!-- Email input -->
             <div class="form-outline mb-4">
               <label class="form-label" for="form1Example13">Title</label>
-              <input type="email" id="form1Example13" class="form-control form-control-lg" />
+              <input type="email" [(ngModel)]="notification.title" id="form1Example13" class="form-control form-control-lg" />
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label" for="form1Example23">Discription</label>
-              <ckeditor [editor]="Editor" name="content" data="Write Question Here"></ckeditor>
+              <ckeditor [editor]="Editor" [(ngModel)]="notification.description" name="content" data="Write Question Here"></ckeditor>
             </div>
             <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>  
           </form>
