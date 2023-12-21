@@ -40,6 +40,7 @@ export class CategoryManagementComponent implements OnInit {
   }
 
   getAllCategories() {
+    alert(this.categorySearch)
     this.catgoryService.getCategoriesList(this.categorySearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
      this.categories = result.AllCategory.content;
      this.length=result.AllCategory.totalElements;
