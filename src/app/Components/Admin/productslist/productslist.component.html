@@ -44,13 +44,13 @@
             <!-- card-header end// -->
             <div class="card-body">
                 <article class="itemlist" *ngFor="let product of productList;let i=index">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center" >
                         <div class="col col-check flex-grow-0">
                             <div class="form-check">
                                 {{pageSize*pageIndex+1+i}}
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                        <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name" [routerLink]="'/admin/productDetails/'+product.id" >
                             <a class="itemside" >
                                 <div class="left">
                                     <img src="assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item" />

@@ -11,7 +11,6 @@ import { PageNotFoundComponent } from './Components/Shared/page-not-found/page-n
 import { AboutComponent } from './Components/User/about/about.component';
 import { SidebarComponent } from './Components/Admin/sidebar/sidebar.component';
 import { FooterComponent } from './Components/User/footer/footer.component';
-import { AccountComponent } from './Shared/Component/account/account.component';
 import { ShopCheckoutComponent } from './Components/User/shop-checkout/shop-checkout.component';
 import { FilterComponent } from './User/filter/filter.component';
 
@@ -84,6 +83,8 @@ import { NotificationComponent } from './Components/Admin/notification/notificat
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { AccountComponent } from './Components/Shared/account/account.component';
+import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 
 
 
@@ -167,7 +168,7 @@ import { MatIconModule } from '@angular/material/icon';
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent,
+    NotificationComponent, ProductDetailComponent,
 
 
 

@@ -48,8 +48,6 @@ export class ProductslistComponent implements OnInit{
      this.productService.getAllProduct(this.productSearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((data:any)=>{
        this.productList=data.AllProduct.content;
        this.length=data.AllProduct.totalElements;
-       console.log(this.productList);
-
     })
   }
 

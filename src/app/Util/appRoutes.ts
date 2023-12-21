@@ -11,9 +11,10 @@ export class AppRoutes{
    public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
    public static CATEGORY_LIST:string = this.baseUrl + "/category/admin/pages";
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
+   public static GET_PRODUCT:string = this.baseUrl + "/product/";
    public static ADD_VARIENT:string = this.baseUrl + "/varient/admin";
    public static VARIENT_LIST:string = this.baseUrl + "/varient/admin/page";
-
+   
    public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient/";
    public static GET_ALL_PRODUCT: string=this.baseUrl+"/product/";
    public static ADD_NOTIFICATION: string=this.baseUrl+"/notification/admin";
