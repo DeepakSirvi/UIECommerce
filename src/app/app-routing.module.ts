@@ -6,7 +6,6 @@ import { ContactUsComponent } from './Components/User/contact-us/contact-us.comp
 import { TermsAndConditionComponent } from './Components/User/terms-and-condition/terms-and-condition.component';
 import { WishlistComponent } from './Components/User/wishlist/wishlist.component';
 import { ShopCartComponent } from './Components/User/shop-cart/shop-cart.component';
-import { AccountComponent } from './Shared/Component/account/account.component';
 import { ShopCheckoutComponent } from './Components/User/shop-checkout/shop-checkout.component';
 import { FilterComponent } from './User/filter/filter.component';
 import { RegisterComponent } from './Components/User/register/register.component';
@@ -71,6 +70,8 @@ import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.
 import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
+import { AccountComponent } from './Components/Shared/account/account.component';
+import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 
 
 
@@ -153,6 +154,10 @@ const routes: Routes = [
         component: NotificationComponent
       }
       ,
+      {
+        path: "productDetails/:id",
+        component: ProductDetailComponent
+      },
       {
         path: 'add-product-goutam',
         component: AddProductGoutamComponent
@@ -348,10 +353,7 @@ const routes: Routes = [
         path: "shop-fullwidth",
         component: ShopFullwidthComponent, 
       },
-      {
-        path: "shop-product-full",
-        component: ShopProductFullComponent
-      },
+   
       {
         path: "shop-product-vendor",
         component: ShopProductVendorComponent

@@ -17,7 +17,7 @@ export class CategoryManagementComponent implements OnInit {
   constructor(private catgoryService:CategoryService){}
   
   categories:Category[]=[];
-  categorySearch:string=' ';
+  categorySearch:string='';
   sortDir:string="ASC";
 
   length!:number;
