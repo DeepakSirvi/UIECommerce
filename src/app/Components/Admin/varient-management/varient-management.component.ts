@@ -17,7 +17,7 @@ export class VarientManagementComponent {
   constructor(private varientService:VarientService){}
   
   varient:VarientCategory[]=[];
-  varientSearch:string=' ';
+  varientSearch:string='';
   sortDir:string="ASC";
 
   length!:number;
