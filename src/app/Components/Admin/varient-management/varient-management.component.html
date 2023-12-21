@@ -18,19 +18,24 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of varient, let i=index">
-                        <th scope="row">{{i+1}}</th>
+                        <th scope="row">{{pageSize*pageIndex+i+1}}</th>
                         <td>{{item.name}}</td>
                         <td >
                             <div *ngFor="let items of item.categoryAttributes">{{items.attributeName}}</div>
                         </td>
                         <td>
-                            <span>
-                                <a><img  src="../../../../assets/imgs/icons/edit1.png" width="30px" alt=""></a>
-                                <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt=""></a>
-                            </span>
+                            <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
+                                <a  class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a>
+                                <a  class="btn btn-sm font-sm btn-light rounded"> <i class="material-icons md-delete_forever"></i> Delete </a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <mat-paginator #paginator  class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+            [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+            [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+            [pageIndex]="pageIndex" aria-label="Select page">
+        </mat-paginator>
         </div>
 </main>

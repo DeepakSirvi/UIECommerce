@@ -52,8 +52,6 @@ import { Transacation1Component } from './Components/Admin/transacation1/transac
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
 import { ProductslistComponent } from './Components/Admin/productslist/productslist.component';
 import { CategoriesComponent } from './Components/Admin/categories/categories.component';
 import { Settingsample1Component } from './Components/Admin/settingsample1/settingsample1.component';
@@ -63,12 +61,11 @@ import { CategoryComponent } from './User/category/category.component';
 import { FilterProductComponent } from './User/filter-product/filter-product.component';
 import { LoginOTPVerificationComponent } from './Components/Shared/login-otp-verification/login-otp-verification.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
-// import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarAdminComponent } from './Components/Admin/navbar-admin/navbar-admin.component';
-import { ReactiveFormsModule } from  '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-interceptor.interceptor';
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
@@ -82,10 +79,10 @@ import { VarientManagementComponent } from './Components/Admin/varient-managemen
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
-
-import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -118,74 +115,74 @@ import { MatIconModule } from '@angular/material/icon';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     PurchaseGuideComponent,
-    PrivacyPolicyComponent, 
-    TermsofServiceComponent, 
-    ByVendorsComponent,  
-    BlogCatrgoryGridComponent,   
+    PrivacyPolicyComponent,
+    TermsofServiceComponent,
+    ByVendorsComponent,
+    BlogCatrgoryGridComponent,
     NoSidebarComponent,
-        VendorDashboardComponent,
-        VendorDetails1Component,
-        VendorGuideComponent,
-        VendorsGridComponent,
-        VendorsListComponent,
-        ShopGridRightComponent,
-        ShopGridLeftComponent,
-        ShopListRightComponent,
-        ShopListLeftComponent,
-        ShopFullwidthComponent,
-        ShopProductFullComponent,
-        ShopProductVendorComponent,
-        NavbarComponent,
-        ProductCategariesComponent,
-        HomeComponent,
-       
+    VendorDashboardComponent,
+    VendorDetails1Component,
+    VendorGuideComponent,
+    VendorsGridComponent,
+    VendorsListComponent,
+    ShopGridRightComponent,
+    ShopGridLeftComponent,
+    ShopListRightComponent,
+    ShopListLeftComponent,
+    ShopFullwidthComponent,
+    ShopProductFullComponent,
+    ShopProductVendorComponent,
+    NavbarComponent,
+    ProductCategariesComponent,
+    HomeComponent,
+
     OrderlistComponent,
     ResetPasswordComponent,
     LoginComponent,
-     AdminhomeComponent, 
-     DashbordComponent,
-    
-      OderdetailComponent, 
-      SellerProfileComponent, 
-      SellercardsComponent, 
-      SellerlistComponent,
+    AdminhomeComponent,
+    DashbordComponent,
 
-        Transacation1Component,
-         Transacation2Component,
-          ReviewesComponent,
-           BrandsComponent, 
-            ProductslistComponent,
-             CategoriesComponent,
-              Settingsample1Component,
-               Settingsample2Component, 
-               NavbarComponent, 
-               CategoryComponent, 
-               FilterProductComponent, 
-               LoginOTPVerificationComponent, 
-               SwitchpanelComponent,
-                NavbarAdminComponent, 
-                AddCategoryComponent, 
-                CategoryManagementComponent, 
-                AddProductGoutamComponent, AddVarientComponent, VarientManagementComponent, VarientCategoryComponent, NotificationComponent,
-                
+    OderdetailComponent,
+    SellerProfileComponent,
+    SellercardsComponent,
+    SellerlistComponent,
+
+    Transacation1Component,
+    Transacation2Component,
+    ReviewesComponent,
+    BrandsComponent,
+    ProductslistComponent,
+    CategoriesComponent,
+    Settingsample1Component,
+    Settingsample2Component,
+    NavbarComponent,
+    CategoryComponent,
+    FilterProductComponent,
+    LoginOTPVerificationComponent,
+    SwitchpanelComponent,
+    NavbarAdminComponent,
+    AddCategoryComponent,
+    CategoryManagementComponent,
+    AddProductGoutamComponent,
+    AddVarientComponent,
+    VarientManagementComponent,
+    VarientCategoryComponent, 
+    NotificationComponent,
 
 
-              
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,FormsModule,
+    AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, FormsModule,
+    ReactiveFormsModule, CKEditorModule,
+    MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule
 
-
-
-    ReactiveFormsModule,CKEditorModule,
-
-   
-    MatChipsModule,MatIconModule,MatIconModule
 
 
   ],
-  providers: [LoginComponent,authInterceptorProviders],
+  providers: [LoginComponent, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
