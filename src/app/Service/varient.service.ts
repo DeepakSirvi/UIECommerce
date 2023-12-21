@@ -18,6 +18,13 @@ export class VarientService {
     return this.http.get(AppRoutes.ADD_VARIENT);
   }
 
+  public getVarientList(varientSearch:string,pageIndex:number,pageSize:number,sortDir:string) {
+   
+    return this.http.get(AppRoutes.VARIENT_LIST+"?varientSearch="+`${varientSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`
+                        );
+  }
+
+
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
 

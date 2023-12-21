@@ -15,7 +15,7 @@ export class ProductsService {
     return this.http.post(AppRoutes.ADD_PRODUCT,data);
   }
 
-  getAllProduct(productSearch:ProductRequest){
-    return this.http.post(AppRoutes.GET_ALL_PRODUCT,productSearch);
+  getAllProduct(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_ALL_PRODUCT +"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
 }

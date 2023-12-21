@@ -19,7 +19,7 @@ export class NotificationComponent {
     this.notify.addNotification(this.notification).subscribe((result:any)=>{
       Toast.fire({
         icon:'success',
-        title:result.response.message
+        title:result.response
       })
     },(error)=>{
       Toast.fire({

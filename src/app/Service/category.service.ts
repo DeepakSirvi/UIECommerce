@@ -15,7 +15,11 @@ export class CategoryService {
     return this.http.post(AppRoutes.ADD_CATEGORY,data);
   }
 
-  public getCategories() {
+  public getCategoriesList(categorySearch:string,pageIndex:number,pageSize:number,sortDir:string) {
+    return this.http.get(AppRoutes.CATEGORY_LIST +"?categorySearch="+`${categorySearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
+  }
+
+  public getCategories(){
     return this.http.get(AppRoutes.ADD_CATEGORY);
   }
 

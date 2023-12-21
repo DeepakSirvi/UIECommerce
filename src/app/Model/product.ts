@@ -1,10 +1,12 @@
+import { Audit } from "./audit";
 import { ProductDescription } from "./product-description";
 import { SubCategory } from "./sub-category";
 
-export class Product {
+export class Product extends Audit {
             id: number = 0;
     productName: string = '';
-    listingStatus: boolean = false;
+    listingStatus: string='';
+    verified:string='';
     brand: string = '';
     fullfillmentBy: string = '';
     shippingProvider: string = '';
