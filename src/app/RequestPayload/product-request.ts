@@ -17,8 +17,8 @@ export class ProductRequest {
     taxCode: string = '';
     countryOfOrigin: string = '';
     productType: string = '';
-    subCategory!: SubCategoryRequest;
-    description!: ProductDescriptionRequest;
+    subCategory: SubCategoryRequest=new SubCategoryRequest();
+    description: ProductDescriptionRequest=new ProductDescriptionRequest();
 
   
 }
