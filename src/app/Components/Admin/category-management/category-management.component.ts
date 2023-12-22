@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Category } from 'src/app/Model/category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { CategoryService } from 'src/app/Service/category.service';
+import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-category-management',
@@ -14,7 +15,7 @@ export class CategoryManagementComponent implements OnInit {
     this.getAllCategories();
   }
 
-  constructor(private catgoryService:CategoryService){}
+  constructor(private categoryService:CategoryService){}
   
   categories:Category[]=[];
   categorySearch:string='';
@@ -40,10 +41,43 @@ export class CategoryManagementComponent implements OnInit {
   }
 
   getAllCategories() {
-    alert(this.categorySearch)
-    this.catgoryService.getCategoriesList(this.categorySearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
+    this.categoryService.getCategoriesList(this.categorySearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
      this.categories = result.AllCategory.content;
      this.length=result.AllCategory.totalElements;
+    })
+  }
+
+  deleteCategory(id:number){
+    this.categoryService.deleteCategoryById(id).subscribe((data:any)=>{
+      Toast.fire({
+        icon: 'success',
+        title: data.message,
+      }).then(e=>{
+        this.getAllCategories();
+      })  
+
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
+    })
+  }
+
+  deleteSubCategory(id:number){
+    this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
+      Toast.fire({
+        icon: 'success',
+        title: data.message,
+      }).then(e=>{
+        this.getAllCategories();
+      })  
+
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
     })
   }
 

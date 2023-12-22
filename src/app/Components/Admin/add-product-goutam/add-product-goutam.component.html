@@ -146,7 +146,7 @@
                     </div>
                   </div>
                   <div class="form-group mt-3" style="width: 30%;">
-                    <label for="productCategory" class="control-label nav-link">Select Product Category</label>
+                    <label for="productCategory" class="control-label nav-link">Select Category</label>
                     <select id="productCategory" [ngClass]="{'is-invalid':submitted && productAddForm.controls['category'].errors}" formControlName="category" class="btn1" onchange="handleCategoryChange()" (change)="setCategory($event)">  
                       <option value="" disabled>Select a category</option>
                         <option *ngFor="let item of categories"  [value]="item.categoryName" >{{item.categoryName}}</option>
@@ -154,7 +154,7 @@
                     <div *ngIf="submitted && productAddForm.controls['category'].errors">
                       <small *ngIf="submitted && productAddForm.controls['category'].errors['required']" class="form-text text-danger">This field is required</small>
                     </div>
-                    <select id="subcategory" [ngClass]="{'is-invalid':submitted && productAddForm.controls['subCategory'].errors}" formControlName="subCategory" class="btn1 mt-3" style="display: none;">
+                    <select id="subcategory" [ngClass]="{'is-invalid':submitted && productAddForm.controls['subCategory'].errors}" formControlName="subCategory" class="form-control btn1 mt-3" style="display: none;">
                         <option value="" disabled>Select a sub Category</option>
                         <option *ngFor="let sub of newCategory.subCategory" [value]="sub.id" >{{sub.subCategory}}</option>
                     </select>
