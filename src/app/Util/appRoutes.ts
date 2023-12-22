@@ -9,6 +9,7 @@ export class AppRoutes{
    public static  CUSTOMER_SIGNUP:string = this.baseUrl + "/auth/signup" ;
    public static  USER_LOGIN:string = this.baseUrl + "/auth/login" ;
    public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
+   public static ADD_SUBCATEGORY:string = this.baseUrl + "/category/admin/subcategory";
    public static CATEGORY_LIST:string = this.baseUrl + "/category/admin/pages";
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
    public static GET_PRODUCT:string = this.baseUrl + "/product/";

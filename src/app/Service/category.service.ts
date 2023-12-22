@@ -23,6 +23,11 @@ export class CategoryService {
     return this.http.get(AppRoutes.ADD_CATEGORY);
   }
 
-
-
+  public deleteCategoryById(id:number){
+    return this.http.delete(AppRoutes.ADD_CATEGORY+"/"+id);
+  }
+   
+  public deleteSubCategoryById(id:number){
+    return this.http.delete(AppRoutes.ADD_SUBCATEGORY+"/"+id);
+  }
 }
