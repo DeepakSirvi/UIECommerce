@@ -30,8 +30,8 @@ export class AddCategoryComponent implements OnInit {
   
   onSubmit() {
     if (this.category.categoryName != null && this.category.categoryName != undefined && this.category.categoryName != '') {
-      console.log(this.category);
-      if (this.checkDublicate(this.category.subCategory)) {
+      let index=this.checkDublicate(this.category.subCategory);
+      if (index===-2) {
         this.catService.addCategory(this.category).subscribe((result:any) => {
           Toast.fire({
             icon: 'success',
@@ -46,8 +46,11 @@ export class AddCategoryComponent implements OnInit {
           })
         })
       }
-      else
+      else if(index===-1){
         this.msg= "Dublicate subcategory not allowed"
+      }
+      else
+      this.msg = "This field required";
     }
     else {
       this.msg = "This field required";
@@ -73,14 +76,21 @@ trackByFn(index: any, item: any) {
 
 checkDublicate(arr: any[]) {
   let count = 0;
+  if(arr[0].subCategory===null || arr[0].subCategory===undefined || arr[0].subCategory===''){
+  return 0;
+  }
   for (let i = 0; i < arr.length - 1; i++) {
+    if(arr[i+1].subCategory===null || arr[i+1].subCategory===undefined || arr[i+1].subCategory==='')
+    {
+      return i;
+    }
     if (arr[i].subCategory == arr[i + 1].subCategory) {
       count++;
     }
   }
   if (count != 0)
-    return false;
+    return -1;
   else
-    return true;
+    return -2;
 }
 }

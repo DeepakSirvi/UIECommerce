@@ -14,7 +14,8 @@
             <input type="text" id="subcategory{{ i }}" [(ngModel)]="category.subCategory[i].subCategory" name="subcategory{{ i }}">
             <button type="button" class="btn btn-outline-primary" (click)="deleteSubcategory(i)">Delete</button>
           </div>
-            {{msg}}
+            
+            <span style="color: red;">{{msg}}</span>
           <div class="subcategory-row">
             <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
           </div>

@@ -22,20 +22,17 @@ export class LoginService {
   public loginStatusSubject=new Subject<boolean>();  // Event handl6ing 
 
   public generateOtp(user:any){
-  
    return this.http.post(AppRoutes.GET_OTP,user);
   }
  
 
   // generate token
   public generateToken(loginData: any) {
-    console.log("Generate token")
     return this.http.post(AppRoutes.USER_LOGIN, loginData);
   }
 
   // LoginUser : set token in localStorage
   public loginUser(token: any) {
-    console.log('Login user')
     localStorage.setItem('token', token);
     return true;
   }
@@ -49,7 +46,7 @@ export class LoginService {
 
   // LogOut : remove token from storage
   public logout() {
-    console.log("Log out user");
+    
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     return true;
@@ -58,7 +55,6 @@ export class LoginService {
 
   // get Token
   public getToken(){
-    console.log("Get token from local storage")
   return  localStorage.getItem('token');
   }
 
@@ -70,21 +66,18 @@ export class LoginService {
     this.user.userMobile=user.userMobile;
     this.user.userEmail=user.userEmail;
     this.user.userRole=user.userRole;
-    console.log("set user")
     localStorage.setItem('user',JSON.stringify(user));
   }
 
   //  Get userDetail
   public getUser()
   {
-    console.log("Get user from local stroage")
     let userStr= localStorage.getItem('user');
     if(userStr!=null)
     {
       return JSON.parse(userStr);
     }
     else{
-      console.log("Get user calling logout method")
       this.logout();
       return null;
     }
@@ -94,7 +87,6 @@ export class LoginService {
   // get User Role
   public getUserRole()
   {
-    console.log("Get user role for it")
     let user=this.getUser();
     return user.userRole;
   }

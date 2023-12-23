@@ -20,7 +20,7 @@ export class CategoryService {
   }
 
   public getCategories(){
-    return this.http.get(AppRoutes.ADD_CATEGORY);
+    return this.http.get(AppRoutes.GETALL_CATEGORY);
   }
 
   public deleteCategoryById(id:number){
