@@ -21,8 +21,6 @@ export class LoginOTPVerificationComponent implements OnInit {
   ngOnInit(): void {
     this.loginService.mobile.subscribe((data:any)=>{
       this.login.mobileNumber=data;
-      console.log(data);
-      
     })
   }
 
@@ -62,7 +60,6 @@ export class LoginOTPVerificationComponent implements OnInit {
           // alert(this.loginService.isLoggedIn())
           console.log("admin detected")
           this.route.navigate(['admin'])
-          console.log("calling logi status")
           this.loginService.loginStatusSubject.next(true)
         }
       }

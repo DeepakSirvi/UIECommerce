@@ -17,11 +17,11 @@ export const adminGuard: CanActivateFn = (route, state) => {
       {
         return true;     
       }
-    router.navigate(['user']);
+    router.navigate(['']);
    return false;
   }
   else{
-    router.navigate(['user']);
+    router.navigate(['']);
     return false
   }
 };

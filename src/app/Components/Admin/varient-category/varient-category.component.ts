@@ -22,8 +22,9 @@ export class VarientCategoryComponent {
   
   onSubmit() {
     if (this.varientCategory.name != null && this.varientCategory.name != undefined && this.varientCategory.name != '') {
-      // console.log(this.varientCategory.categoryAttributes);
-      if (this.checkDublicate(this.varientCategory.categoryAttributes)) {
+     
+      let index=this.checkDublicate(this.varientCategory.categoryAttributes);
+      if (index===-2) {
         this.varientService.addVarientCategory(this.varientCategory).subscribe((result:any) => {
           
           Toast.fire({
@@ -39,8 +40,11 @@ export class VarientCategoryComponent {
           })
         })
       }
+      else if(index===-1){
+        this.msg= "Dublicate subcategory not allowed"
+      }
       else
-        this.msg= "Dublicate attribute not allowed"
+      this.msg = "This field required";
     }
     else {
       this.msg = "This field required";
@@ -64,17 +68,22 @@ trackByFn(index: any, item: any) {
 }
 
 checkDublicate(arr: any[]) {
-  let count = 0;
+ let count = 0;
+  if(arr[0].attributeName===null || arr[0].attributeName===undefined || arr[0].attributeName===''){
+  return 0;
+  }
   for (let i = 0; i < arr.length - 1; i++) {
-    
+    if(arr[i+1].attributeName===null || arr[i+1].attributeName===undefined || arr[i+1].attributeName==='')
+    {
+      return i;
+    }
     if (arr[i].attributeName == arr[i + 1].attributeName) {
-      console.log(arr[i])
       count++;
     }
   }
   if (count != 0)
-    return false;
+    return -1;
   else
-    return true;
+    return -2;
 }
 }

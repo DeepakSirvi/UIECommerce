@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/Model/user';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import { FormGroup, Validators , FormControl,} from '@angular/forms';
+import Toast from 'src/app/Util/helper';
 
 
 @Component({
@@ -80,11 +81,15 @@ export class RegisterComponent implements OnInit {
    public message:string='';
 
 
-  userRegistration(data: FormGroup){
-    //  console.log(data);
-     this.registerService.addUser(data.value).subscribe((data)=>{
-      this.route.navigate(['/login']);
+  userRegistration(user: FormGroup){ 
+     this.registerService.addUser(user.value).subscribe((data:any)=>{
 
+      Toast.fire({
+        icon:'success',
+        title:data.message
+      }).then(e=>{
+        this.route.navigate(['/login']);
+      })     
      },(error)=>{
         this.message=error.error.message;
      })

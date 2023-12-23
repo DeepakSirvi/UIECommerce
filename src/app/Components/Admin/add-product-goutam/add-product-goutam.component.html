@@ -170,7 +170,7 @@
                 
                   
                   <div class="form-group mt-3">
-                    <label class="control-label">Discription</label>
+                    <label class="control-label">Description</label>
                     <ckeditor [editor]="Editor" [ngClass]="{'is-invalid':isFieldInvalid('discription') && productAddForm.controls['discription'].errors}" name="content" data="Write Question Here"  formControlName="discription"></ckeditor>
                     <div *ngIf="isFieldInvalid('discription') && productAddForm.controls['discription'].errors">
                       <small class="form-text text-danger"  *ngIf="productAddForm.controls['discription'].errors['required']">This field is required</small>

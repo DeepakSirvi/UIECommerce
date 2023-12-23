@@ -169,10 +169,6 @@ import { ProductDetailComponent } from './Components/Admin/product-detail/produc
     VarientManagementComponent,
     VarientCategoryComponent, 
     NotificationComponent, ProductDetailComponent,
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -183,7 +179,7 @@ import { ProductDetailComponent } from './Components/Admin/product-detail/produc
 
 
   ],
-  providers: [LoginComponent, authInterceptorProviders],
+  providers: [ authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

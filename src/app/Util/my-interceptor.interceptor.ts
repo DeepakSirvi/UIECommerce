@@ -15,17 +15,13 @@ export class MyInterceptorInterceptor implements HttpInterceptor {
 
     // add the jwt token from lcal storge to header
     let authReq = request;
-    console.log("In intercepter")
+
     const token = this.loginService.getToken();
     if (token != null) {
-        authReq = authReq.clone({
-            setParams: { Authorization: `${token}` }
-        });
-
-        console.log("In intercepter with token set");
+      authReq = authReq.clone({
+        setParams: { Authorization: `${token}` }
+      });
     }
-            
-    console.log("In intercepter without token");
     return next.handle(authReq);
   }
 }

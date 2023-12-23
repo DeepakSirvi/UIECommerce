@@ -72,6 +72,7 @@ import { VarientCategoryComponent } from './Components/Admin/varient-category/va
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
 import { AccountComponent } from './Components/Shared/account/account.component';
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
+import { otpVerifiedGuard } from './Util/Guard/otp-verified.guard';
 
 
 
@@ -93,12 +94,12 @@ const routes: Routes = [
       },
       {
         path: "login",
-       component: LoginComponent
+       component: LoginComponent,
       }, 
       {
         path: "loginotp",
-        component: LoginOTPVerificationComponent
-
+        component: LoginOTPVerificationComponent,
+        canActivate:[otpVerifiedGuard]
       },
       {
         path: "register",
