@@ -17,7 +17,7 @@ import Toast from 'src/app/Util/helper';
 
 })
 export class AddProductGoutamComponent implements OnInit {
-  file: File | null = null;
+  file!: File ;
   image: { url: string } | null = null;
   submitted=false
   productAddForm!:FormGroup
@@ -63,7 +63,7 @@ export class AddProductGoutamComponent implements OnInit {
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
-    this.productService.addProduct(data.value).subscribe((result:any)=>{
+    this.productService.addProduct(data.value,this.file).subscribe((result:any)=>{
       Toast.fire({
         icon: 'success',
         title: result.response.message

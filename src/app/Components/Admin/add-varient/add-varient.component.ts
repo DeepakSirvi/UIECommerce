@@ -47,8 +47,8 @@ export class AddVarientComponent {
      
     for(const  selectValue of this.selectedValues){
       const attribute:VarientCategoryJoinRequest=new VarientCategoryJoinRequest();
-          attribute.varAttribute.id=selectValue.attributeId;          
-          this.varientRequest.categoryJoins.push(attribute)
+      attribute.varAttribute.id=selectValue.attributeId;          
+      this.varientRequest.categoryJoins.push(attribute)
     }
     this.selectedValues=[];
     const formData: FormData = new FormData();
@@ -80,8 +80,7 @@ export class AddVarientComponent {
    
     if(this.selectedValues.some(selected => selected.category ===selectedValue))
     {
-     
-        return;
+     return;
     }
     const attributeValues = this.varientCategory
       .find(category => category.name === selectedValue)?.categoryAttributes.map(attr => attr.attributeName) || [];
@@ -98,7 +97,7 @@ export class AddVarientComponent {
   }
 
   deleteAttribute(i:any){
-       this.selectedValues.splice(i,1);
+    this.selectedValues.splice(i,1);
   }
 
   deleteImage(i:any){
