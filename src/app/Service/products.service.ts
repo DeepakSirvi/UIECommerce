@@ -43,7 +43,7 @@ export class ProductsService {
     return this.http.get(AppRoutes.GET_PRODUCT + id);
   }
 
-  getAllProductsDetail(){
-    return this.http.get(AppRoutes.GET_ALL_PRODUCTS_DETAIL);
+  getAllProductsDetail(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_ALL_PRODUCTS_DETAIL+"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
 }

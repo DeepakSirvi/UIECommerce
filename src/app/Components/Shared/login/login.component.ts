@@ -44,6 +44,7 @@ export class LoginComponent {
         icon: 'error',
         title: error.error.message
       })
+      this.route.navigate(['/register'])
     });
   }
 
