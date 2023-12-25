@@ -3,7 +3,7 @@ import { CategoryRequest } from "../RequestPayload/category-request";
 export class AppRoutes{
   
 
-  static baseUrl:string="http://192.168.1.12:9999/ecommerce";
+  static baseUrl:string="http://192.168.1.14:9999/ecommerce";
 
    public static  GET_OTP:string = this.baseUrl + "/auth/" ;
    public static  CUSTOMER_SIGNUP:string = this.baseUrl + "/auth/signup" ;

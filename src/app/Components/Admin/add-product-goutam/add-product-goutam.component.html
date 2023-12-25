@@ -176,6 +176,25 @@
                       <small class="form-text text-danger"  *ngIf="productAddForm.controls['discription'].errors['required']">This field is required</small>
                     </div>
                   </div>
+                  <div class="form-group mt-3">
+                    <div class="col-lg-4">
+                      <div class="card mb-4">
+                          <div class="card-header">
+                              <h4>Media</h4>
+                          </div>
+                          <div class="card-body">
+                              <div class="d-flex">
+                                  <img src="assets/imgs/theme/upload.svg" width="50px" alt="" />
+                                  <input type="file" (change)="onFileSelected($event)" />
+                              </div>
+                              <div>
+                                  <img [src]="image?.url" alt="Preview"
+                                      style="max-width: 100px; max-height: 100px; margin: 5px;" />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
                   <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
                   <button class="btn btn-primary btn-lg pull-right newBot">Submit</button>
                 </div>
