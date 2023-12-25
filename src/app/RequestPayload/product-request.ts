@@ -2,7 +2,6 @@ import { ProductDescriptionRequest } from "./product-description-request";
 import { SubCategoryRequest } from "./sub-category-request";
 
 export class ProductRequest {
-
     id!: number ;
     productName: string = '';
     listingStatus!: boolean;
@@ -14,12 +13,11 @@ export class ProductRequest {
     productLength: string='';
     productWidth: string='';
     productHeight: string='';
+    basicPrice!: number;
     taxCode: string = '';
     countryOfOrigin: string = '';
     productType: string = '';
     subCategory: SubCategoryRequest=new SubCategoryRequest();
-    description: ProductDescriptionRequest=new ProductDescriptionRequest();
-
-  
+    description: ProductDescriptionRequest=new ProductDescriptionRequest()
 }
 

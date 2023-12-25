@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../Model/product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductRequest } from '../RequestPayload/product-request';
 import { AppRoutes } from '../Util/appRoutes';
 
@@ -11,7 +11,7 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
   proReq:ProductRequest=new ProductRequest();
-  addProduct(data:any,){
+  addProduct(data:any,image:File){
     this.proReq.productName=data.productName;
     this.proReq.brand=data.brandName;
     this.proReq.fullfillmentBy=data.fullfillmentName;
@@ -26,7 +26,13 @@ export class ProductsService {
     this.proReq.productLength=data.productLength;
     this.proReq.shippingProvider=data.shippingProvider;
     this.proReq.subCategory.id=data.subCategory;
-    return this.http.post(AppRoutes.ADD_PRODUCT,this.proReq);
+    const headers = new HttpHeaders({
+      'enctype': 'multipart/form-data'
+    });
+    const formData: FormData = new FormData();
+    formData.append('productRequest', JSON.stringify(this.proReq));
+      formData.append('file', image);
+    return this.http.post(AppRoutes.ADD_PRODUCT,formData,{headers});
   }
 
   getAllProduct(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
@@ -35,5 +41,9 @@ export class ProductsService {
 
   getProductById(id:number){
     return this.http.get(AppRoutes.GET_PRODUCT + id);
+  }
+
+  getAllProductsDetail(){
+    return this.http.get(AppRoutes.GET_ALL_PRODUCTS_DETAIL);
   }
 }

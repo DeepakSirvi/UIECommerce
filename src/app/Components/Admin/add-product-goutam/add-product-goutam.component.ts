@@ -17,6 +17,8 @@ import Toast from 'src/app/Util/helper';
 
 })
 export class AddProductGoutamComponent implements OnInit {
+  file!: File ;
+  image: { url: string } | null = null;
   submitted=false
   productAddForm!:FormGroup
   categories:Category[]=[];
@@ -53,12 +55,15 @@ export class AddProductGoutamComponent implements OnInit {
     return constant ? constant.invalid && constant.touched:false;
   }
 
+  submitFormInvalid(){
+    
+  }
   onSubmit(data:FormGroup){
 
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
-    this.productService.addProduct(data.value).subscribe((result:any)=>{
+    this.productService.addProduct(data.value,this.file).subscribe((result:any)=>{
       Toast.fire({
         icon: 'success',
         title: result.response.message
@@ -76,4 +81,17 @@ export class AddProductGoutamComponent implements OnInit {
     this.newCategory = this.categories.find(category => category.categoryName === selectedValue) as Category;
   }
 
+  onFileSelected(event: any): void {
+    if (event.target.files && event.target.files.length == 1 ) {
+      const file = event.target.files[0]; 
+  
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.image = { url: e.target.result }; 
+        this.file = file; 
+      };
+  
+      reader.readAsDataURL(file);
+    }
+  }
 }
