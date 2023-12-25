@@ -53,14 +53,14 @@
                         <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name" [routerLink]="'/admin/productDetails/'+product.id" >
                             <a class="itemside" >
                                 <div class="left">
-                                    <img src="assets/imgs/items/1.jpg" class="img-sm img-thumbnail" alt="Item" />
+                                    <img [src]="imageUrl + product.productImage" class="img-sm img-thumbnail" alt="Item" />
                                 </div>
                                 <div class="info">
                                     <h6 class="mb-0">{{product.productName}}</h6>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-2 col-sm-2 col-4 col-price"><span>$34.50</span></div>
+                        <div class="col-lg-2 col-sm-2 col-4 col-price"><span>{{product.basicPrice}}</span></div>
                         <div class="col-lg-2 col-sm-2 col-4 col-status">
                             <mat-slide-toggle [checked]="product.listingStatus">Listing Status</mat-slide-toggle>
                         </div> 

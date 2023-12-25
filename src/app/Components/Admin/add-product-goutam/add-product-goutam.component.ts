@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { retry } from 'rxjs';
 import { Category } from 'src/app/Model/category';
@@ -25,7 +26,8 @@ export class AddProductGoutamComponent implements OnInit {
   newCategory:Category = new Category();
   product:ProductRequest = new ProductRequest();
   public Editor =ClassicEditor;
-  constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder) {}
+  constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder,private route:Router) {}
+ 
   ngOnInit(): void {
     this.productAddForm = this.formBuilder.group({
       productName:['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9 ]*$/)]],
@@ -67,7 +69,9 @@ export class AddProductGoutamComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: result.response.message
+        
       })
+      this.route.navigate(['/admin/productslist']);
     },(error)=>{
       Toast.fire({
         icon:'error',

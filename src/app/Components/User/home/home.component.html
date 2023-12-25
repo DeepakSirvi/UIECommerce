@@ -67,12 +67,16 @@
                     <div class="tab-content" id="myTabContent" >
                         <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                             <div class="row product-grid-4">
+
                                 <div class="col-lg-1-4 col-md-3 col-12 col-sm-6 " *ngFor="let item of products">
+
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="shop-product-right.html">
+
                                                     <img class="default-img" style="height: 250px;" [src]="imageUrl + item.productImage" alt="" />
+
                                                 </a>
                                             </div>
                                             <div class="product-action-1">
@@ -112,6 +116,11 @@
                                 </div>
                                 <!--end product card-->
                             </div>
+                            <mat-paginator #paginator  class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+                            [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+                            [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+                            [pageIndex]="pageIndex" aria-label="Select page">
+                        </mat-paginator>
                             <!--End product-grid-4-->
                         </div>
                         <!--En tab one-->
@@ -2784,9 +2793,9 @@
                 </section>
             </div>
             <div class="col-lg-1-5 primary-sidebar sticky-sidebar pt-30">
-                <div class="sidebar-widget widget-category-2 mb-30">
+                <!-- <div class="sidebar-widget widget-category-2 mb-30">
                   <app-category></app-category>   
-                </div>
+                </div> -->
                 <!-- Fillter By Price -->
                 <div class="sidebar-widget price_range range mb-30">
                       <app-filter-product></app-filter-product>

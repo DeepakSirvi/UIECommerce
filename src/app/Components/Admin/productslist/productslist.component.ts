@@ -4,6 +4,7 @@ import { ItemListPagination } from 'src/app/Model/item-list-pagination';
 import { Product } from 'src/app/Model/product';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { ProductsService } from 'src/app/Service/products.service';
+import { AppRoutes } from 'src/app/Util/appRoutes';
 
 @Component({
   selector: 'app-productslist',
@@ -13,14 +14,13 @@ import { ProductsService } from 'src/app/Service/products.service';
 export class ProductslistComponent implements OnInit{
 
   constructor(private productService:ProductsService){
-
   }
   ngOnInit(): void {
     this.getAllProducts();
   }
-
+  imageUrl = AppRoutes.imageUrl
   productList:Product[] = [];
-  productSearch:string=' ';
+  productSearch:string='';
 
   sortDir:string="ASC";
 

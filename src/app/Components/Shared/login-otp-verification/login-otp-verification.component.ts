@@ -76,8 +76,9 @@ export class LoginOTPVerificationComponent implements OnInit {
         Toast.fire({
           icon:'error',
           title:error.error.message
-        }
-        )
+          
+        })
+       
       })
   }
 }
