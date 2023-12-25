@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -58,6 +59,10 @@ export class AddProductGoutamComponent implements OnInit {
     
   }
   onSubmit(data:FormGroup){
+
+    const headers = new HttpHeaders({
+      'enctype': 'multipart/form-data'
+    });
     this.productService.addProduct(data.value).subscribe((result:any)=>{
       Toast.fire({
         icon: 'success',

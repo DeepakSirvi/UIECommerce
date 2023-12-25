@@ -19,7 +19,6 @@ export class VarientService {
   }
 
   public getVarientList(varientSearch:string,pageIndex:number,pageSize:number,sortDir:string) {
-   
     return this.http.get(AppRoutes.VARIENT_LIST+"?varientSearch="+`${varientSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`
                         );
   }
