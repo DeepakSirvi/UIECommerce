@@ -21,7 +21,7 @@ export class Product extends Audit {
     productType: string = '';
     subCategory: SubCategory = new SubCategory();
     description: ProductDescription = new ProductDescription()
-    productImage:ProductImage=new ProductImage();
+    productImage:string='';
 	
 	 basicPrice!:number;
 }
