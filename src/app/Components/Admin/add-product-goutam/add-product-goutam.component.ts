@@ -28,7 +28,7 @@ export class AddProductGoutamComponent implements OnInit {
   constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder) {}
   ngOnInit(): void {
     this.productAddForm = this.formBuilder.group({
-      productName:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/)]],
+      productName:['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9 ]*$/)]],
       brandName:['',Validators.required],
       shippingProvider:['',[Validators.required,Validators.maxLength(30),Validators.minLength(3)]], 
       fullfillmentName:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.maxLength(30),Validators.minLength(3)]],
