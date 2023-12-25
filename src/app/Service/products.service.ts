@@ -11,7 +11,7 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
   proReq:ProductRequest=new ProductRequest();
-  addProduct(data:any){
+  addProduct(data:any,){
     this.proReq.productName=data.productName;
     this.proReq.brand=data.brandName;
     this.proReq.fullfillmentBy=data.fullfillmentName;

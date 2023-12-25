@@ -3,7 +3,7 @@ import { CategoryRequest } from "../RequestPayload/category-request";
 export class AppRoutes{
   
 
-  static baseUrl:string="http://192.168.1.12:9999/ecommerce";
+  static baseUrl:string="http://localhost:9999/ecommerce";
 
    public static  GET_OTP:string = this.baseUrl + "/auth/" ;
    public static  CUSTOMER_SIGNUP:string = this.baseUrl + "/auth/signup" ;
@@ -16,7 +16,6 @@ export class AppRoutes{
    public static GET_PRODUCT:string = this.baseUrl + "/product/";
    public static ADD_VARIENT:string = this.baseUrl + "/varient/admin";
    public static VARIENT_LIST:string = this.baseUrl + "/varient/admin/page";
-   
    public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient/";
    public static GET_ALL_PRODUCT: string=this.baseUrl+"/product/";
    public static ADD_NOTIFICATION: string=this.baseUrl+"/notification/admin";
