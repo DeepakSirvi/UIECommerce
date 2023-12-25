@@ -1,5 +1,6 @@
 import { Audit } from "./audit";
 import { ProductDescription } from "./product-description";
+import { ProductImage } from "./product-image";
 import { SubCategory } from "./sub-category";
 
 export class Product extends Audit {
@@ -20,4 +21,7 @@ export class Product extends Audit {
     productType: string = '';
     subCategory: SubCategory = new SubCategory();
     description: ProductDescription = new ProductDescription()
+    productImage:ProductImage=new ProductImage();
+	
+	 basicPrice!:number;
 }
