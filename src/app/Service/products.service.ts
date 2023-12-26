@@ -3,6 +3,8 @@ import { Product } from '../Model/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductRequest } from '../RequestPayload/product-request';
 import { AppRoutes } from '../Util/appRoutes';
+import { StatusRequest } from '../RequestPayload/status-request';
+import { StatusBooleanRequest } from '../RequestPayload/status-boolean-request';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +47,9 @@ export class ProductsService {
 
   getAllProductsDetail(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
     return this.http.get(AppRoutes.GET_ALL_PRODUCTS_DETAIL+"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
+  }
+
+  updateStatus(status:StatusBooleanRequest){
+    return this.http.patch(AppRoutes.UPDATELISTINGSTATUS,status);
   }
 }

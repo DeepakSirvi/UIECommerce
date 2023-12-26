@@ -24,4 +24,6 @@ export class AppRoutes{
    public static GET_ALL_PRODUCT: string=this.baseUrl+"/product/admin";
    public static ADD_NOTIFICATION: string=this.baseUrl+"/notification/admin";
    public static GET_ALL_PRODUCTS_DETAIL:string = this.baseUrl+"/product/";
+   public static UPDATELISTINGSTATUS:string = this.baseUrl+"/product/admin";
+
 }

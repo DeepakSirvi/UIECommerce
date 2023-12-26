@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/Model/product';
 import { ProductsService } from 'src/app/Service/products.service';
 import Toast from 'src/app/Util/helper';
@@ -11,18 +11,21 @@ import Toast from 'src/app/Util/helper';
 })
 export class ProductDetailComponent implements OnInit {
  
-  productId:number=0;
+  productId!:number;
   product!:Product;
 
-  constructor(private route:ActivatedRoute,private productService:ProductsService){
+  constructor(private route:ActivatedRoute,private productService:ProductsService,private router:Router){
     this.productId= this.route.snapshot.params['id'];
   }
   ngOnInit(): void {
    this.productService.getProductById(this.productId).subscribe((data:any)=>{
     this.product=data.Product;
-
    },(error)=>{{
-
+    Toast.fire({
+      icon: 'error',
+      title: error.error.message
+    })
+    this.router.navigate(['/admin/productslist'])
    }}) 
 
 
