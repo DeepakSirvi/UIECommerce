@@ -172,7 +172,7 @@ const routes: Routes = [
         component:AddCategoryComponent
       },
       {
-        path: 'add-varient',
+        path: "add-varient/:id",
         component: AddVarientComponent
       },
       {
