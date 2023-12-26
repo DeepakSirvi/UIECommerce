@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { VarientCategory } from 'src/app/Model/varient-category';
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
 import { VarientService } from 'src/app/Service/varient.service';
+import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-varient-management',
@@ -44,6 +45,39 @@ export class VarientManagementComponent {
      console.log(this.varient);
      
      this.length=result.AllVarientCategory.totalElements;
+    })
+  }
+  deleteVarient(id:number){
+    alert();
+    this.varientService.deleteVarientById(id).subscribe((data:any)=>{
+      Toast.fire({
+        icon: 'success',
+        title: data.message,
+      }).then(e=>{
+        this.getAllVarient();
+      })  
+
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
+    })
+  }
+  deleteSubVarient(id:number){
+    this.varientService.deleteSubVarientById(id).subscribe((data:any)=>{
+      Toast.fire({
+        icon: 'success',
+        title: data.message,
+      }).then(e=>{
+        this.getAllVarient();
+      })  
+
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
     })
   }
 }

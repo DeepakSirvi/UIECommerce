@@ -28,13 +28,21 @@
                     <th scope="row">{{pageSize*pageIndex+i+1}}</th>
                     <td>{{item.name}}</td>
                     <td>
-                        <div *ngFor="let items of item.categoryAttributes">{{items.attributeName}}</div>
+                        <div *ngFor="let items of item.categoryAttributes">
+                            <div class="row">
+                                <div class="col-3">{{items.attributeName}}</div>
+                                    <div class="col-3"> <span>
+                                        <a><img src="../../../../assets/imgs/icons/edit1.png" width="20px"  alt=""></a>
+                                        <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="20px" alt="" (click)="deleteSubVarient(items.id)"></a></span>
+                                    </div>
+                            </div>
+                        </div>
                     </td>
 
                     <td>
                         <span>
                             <a><img src="../../../../assets/imgs/icons/edit1.png" width="30px" alt=""></a>
-                            <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt=""></a>
+                            <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt="" (click)="deleteVarient(item.id)"></a>
                         </span>
                     </td>
                 </tr>
