@@ -37,7 +37,15 @@ export class VarientService {
     return this.http.request(req);
   }
 
-  addVarient(formData:FormData,headers:HttpHeaders){
+  public addVarient(formData:FormData,headers:HttpHeaders){
     return this.http.post(AppRoutes.Add_PRODUCT_VARIENT,formData,{headers});
+  }
+
+  public deleteVarientById(id:number){
+    return this.http.delete(AppRoutes.ADD_VARIENT+"/"+id);
+  }
+   
+  public deleteSubVarientById(id:number){
+    return this.http.delete(AppRoutes.ADD_SUBVARIENT+"/"+id);
   }
 }

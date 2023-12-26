@@ -5,7 +5,7 @@ export class AppRoutes{
 
 
   
-  static baseUrl:string="http://localhost:9999/ecommerce";
+  static baseUrl:string="http://192.168.1.14:9999/ecommerce";
   static imageUrl:string = this.baseUrl+"/image/" 
 
    public static  GET_OTP:string = this.baseUrl + "/auth/" ;
@@ -18,6 +18,7 @@ export class AppRoutes{
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
    public static GET_PRODUCT:string = this.baseUrl + "/product/";
    public static ADD_VARIENT:string = this.baseUrl + "/varient/admin";
+   public static ADD_SUBVARIENT:string = this.baseUrl + "/varient/admin/varientAttribute"
    public static VARIENT_LIST:string = this.baseUrl + "/varient/admin/page";
    public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient/";
    public static GET_ALL_PRODUCT: string=this.baseUrl+"/product/admin";
