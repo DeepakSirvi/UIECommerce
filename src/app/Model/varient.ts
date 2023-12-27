@@ -4,7 +4,7 @@ import { ProductImage } from "./product-image";
 import { VarientCategoryJoin } from "./varient-category-join";
 
 export class Varient {
-    id: number=0;
+    id: string='';
     varientName: string='';
     price: number=0;
     stock: number=0;

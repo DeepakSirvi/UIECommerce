@@ -1,5 +1,5 @@
 export class MapProductDescriptionRequest {
-    id: number = 0;
+    id: string = '';
     title: string = '';
     details: Map<string, string> = new Map();
 }

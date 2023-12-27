@@ -4,7 +4,7 @@ import { ProductImage } from "./product-image";
 import { SubCategory } from "./sub-category";
 
 export class Product extends Audit {
-            id: number = 0;
+            id: string = '';
     productName: string = '';
     listingStatus: string='';
     verified:string='';

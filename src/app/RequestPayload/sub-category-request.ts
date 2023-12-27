@@ -2,7 +2,7 @@ import { CategoryRequest } from "./category-request";
 
 export class SubCategoryRequest {
 
-    id!: number;
+    id!: string;
   subCategory: string = '';
   
 }

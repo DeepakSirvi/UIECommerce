@@ -3,7 +3,7 @@ import { Status } from "./status";
 import { User } from "./user";
 
 export class Address {
-    id: number = 0;
+    id: string = '';
     name: string = '';
     mobile: string = '';
     pincode: number | null = null;

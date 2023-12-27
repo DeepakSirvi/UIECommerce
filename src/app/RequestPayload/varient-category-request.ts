@@ -2,7 +2,7 @@ import { VarientAttributeRequest } from "./varient-attribute-request";
 
 
 export class VarientCategoryRequest {
-    id!:number;
+    id!:string;
     name:string='';
     categoryAttributes:VarientAttributeRequest[]=[];
 }

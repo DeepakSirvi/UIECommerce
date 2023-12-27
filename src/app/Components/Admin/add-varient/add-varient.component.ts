@@ -19,7 +19,7 @@ export class AddVarientComponent {
   images: { url: string }[] = [];
   filess: File[] = [];
   varientRequest: VarientPRequest = new VarientPRequest();
-  selectedValues: { category: string, attribute: string , attributeId: number}[] = [];
+  selectedValues: { category: string, attribute: string , attributeId: string}[] = [];
   newVarientCategory!:VarientCategory;
 
   constructor(private varientService: VarientService,private route:ActivatedRoute,private router:Router) {}
@@ -97,14 +97,14 @@ export class AddVarientComponent {
     const attributeValues = this.varientCategory
       .find(category => category.name === selectedValue)?.categoryAttributes.map(attr => attr.attributeName) || [];
       this.newVarientCategory = this.varientCategory.find(category => category.name === selectedValue) as VarientCategory;
-      this.selectedValues[this.selectedValues.length] = { category: selectedValue, attribute: '',attributeId:0 };
+      this.selectedValues[this.selectedValues.length] = { category: selectedValue, attribute: '',attributeId:'' };
     
   }
 
   setAttribute(data: any) {
     const selectedValue = (data.target as HTMLSelectElement).value;
     this.selectedValues[this.selectedValues.length-1].attribute = selectedValue;
-    this.selectedValues[this.selectedValues.length-1].attributeId = 1;
+    this.selectedValues[this.selectedValues.length-1].attributeId = "1";
     
   }
 

@@ -1,4 +1,4 @@
 export class StatusRequest {
-    id!:number;
+    id!:string;
     status!:string;
 }

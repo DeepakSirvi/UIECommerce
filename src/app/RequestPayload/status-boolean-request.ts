@@ -1,5 +1,5 @@
 export class StatusBooleanRequest {
-    id!:number;
+    id!:string;
     status!:boolean;
 }
 

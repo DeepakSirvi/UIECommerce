@@ -1,5 +1,5 @@
 export class NotificationRequest {
-    id!:number;
+    id!:string;
     title:string='';
     description:string='';
 

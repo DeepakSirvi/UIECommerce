@@ -2,7 +2,7 @@ import { Status } from "./status";
 import { User } from "./user";
 
 export class BankAccount {
-    id: number = 0;
+    id: string = '';
   accountNumber: string = '';
   accountHolderName: string = '';
   bankName: string = '';
