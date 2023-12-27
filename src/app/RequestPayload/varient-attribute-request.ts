@@ -1,5 +1,5 @@
 export class VarientAttributeRequest {
-    id!:number;
+    id!:string;
     attributeName:string='';
     
 }

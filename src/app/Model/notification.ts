@@ -1,7 +1,7 @@
 import { User } from "./user";
 
 export class Notification {
-    id!:number;
+    id!:string;
     title:string='';
     description:string='';
     user:User = new User();

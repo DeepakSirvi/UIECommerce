@@ -47,7 +47,7 @@ export class CategoryManagementComponent implements OnInit {
     })
   }
 
-  deleteCategory(id:number){
+  deleteCategory(id:any){
     this.categoryService.deleteCategoryById(id).subscribe((data:any)=>{
       Toast.fire({
         icon: 'success',
@@ -64,7 +64,7 @@ export class CategoryManagementComponent implements OnInit {
     })
   }
 
-  deleteSubCategory(id:number){
+  deleteSubCategory(id:any){
     this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
       Toast.fire({
         icon: 'success',

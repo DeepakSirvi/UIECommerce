@@ -1,4 +1,4 @@
 export class ProductImageRequest {
-    id!:number;
+    id!:string;
     imageUrl:String='';
 }

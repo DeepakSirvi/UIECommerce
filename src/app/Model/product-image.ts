@@ -1,6 +1,6 @@
 export class ProductImage {
 
-    id!:number;
+    id!:string;
     imageUrl:String='';
 	
 }

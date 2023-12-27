@@ -19,7 +19,6 @@ export class ProductslistComponent implements OnInit {
   constructor(private productService: ProductsService, private router: Router,private route:ActivatedRoute) {
   }
   ngOnInit(): void {
-    alert()
     this.getAllProducts();
   }
   imageUrl = AppRoutes.imageUrl

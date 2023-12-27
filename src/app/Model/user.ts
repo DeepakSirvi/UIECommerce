@@ -2,7 +2,7 @@ import { UserRole } from "./user-role";
 
 export class User {
 
-  id: number = 0;
+  id: string = '';
   userMobile: string = '';
   userEmail: string = '';
   firstName: string = '';

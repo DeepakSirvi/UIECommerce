@@ -47,7 +47,7 @@ export class VarientManagementComponent {
      this.length=result.AllVarientCategory.totalElements;
     })
   }
-  deleteVarient(id:number){
+  deleteVarient(id:any){
     alert();
     this.varientService.deleteVarientById(id).subscribe((data:any)=>{
       Toast.fire({
@@ -64,7 +64,7 @@ export class VarientManagementComponent {
       })
     })
   }
-  deleteSubVarient(id:number){
+  deleteSubVarient(id:any){
     this.varientService.deleteSubVarientById(id).subscribe((data:any)=>{
       Toast.fire({
         icon: 'success',

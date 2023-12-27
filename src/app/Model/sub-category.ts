@@ -2,7 +2,7 @@ import { Category } from "./category";
 import { Product } from "./product";
 
 export class SubCategory {
-    id: number = 0;
+    id: string='';
     subCategory: string = '';
     // category: Category = new Category();
     // product: Product[] = [];
