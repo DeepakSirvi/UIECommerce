@@ -68,6 +68,14 @@
                         <div class="col-lg-2 col-sm-2 col-4 col-status">
                             <mat-slide-toggle [checked]="product.listingStatus" (change)="updateListingStatus($event,product.id)">Listing Status</mat-slide-toggle>
                         </div>
+                        <div class="col-lg-2 col-sm-2 col-4 col-status">
+                            <select class="form-select">
+                                <option selected>Status</option>
+                                <option>Active</option>
+                                <option>Disabled</option>
+                                <option>Show all</option>
+                            </select>
+                        </div>
                         <div class="col-lg-1 col-sm-2 col-4 col-date">
                             <span>{{product.createdAt | date:'yyyy-MM-dd'}}</span>
                         </div>
