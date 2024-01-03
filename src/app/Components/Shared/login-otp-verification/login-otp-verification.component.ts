@@ -56,8 +56,6 @@ export class LoginOTPVerificationComponent implements OnInit {
           this.loginService.loginStatusSubject.next(true)
         }
         else if (userRole[0].role.roleName === "ADMIN") {
-
-          // alert(this.loginService.isLoggedIn())
           console.log("admin detected")
           this.route.navigate(['admin'])
           this.loginService.loginStatusSubject.next(true)

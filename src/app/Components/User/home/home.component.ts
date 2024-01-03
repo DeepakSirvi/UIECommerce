@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit{
   }
  
   getAllProduct(){
-    this.productGet.getAllProductsDetail(this.productSearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
+    this.productGet.getAllProductsActive(this.productSearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
       this.products = result.AllProduct.content;
       this.length=result.AllProduct.totalElements;
     })
