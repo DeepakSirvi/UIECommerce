@@ -80,6 +80,10 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: "home/:id",
+        component: HomeComponent,
+      },
+      {
         path: "login",
        component: LoginComponent,
       }, 
@@ -259,6 +263,10 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        component: HomeComponent,
+      },
+      {
+        path: "home/:id",
         component: HomeComponent,
       },
       {

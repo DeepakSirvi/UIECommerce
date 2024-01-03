@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/Model/product';
 import { ProductsService } from 'src/app/Service/products.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
@@ -11,14 +12,11 @@ import { AppRoutes } from 'src/app/Util/appRoutes';
 })
 export class HomeComponent implements OnInit{
   products:Product[]=[];
-  constructor(private productGet:ProductsService){}
-  imageUrl = AppRoutes.imageUrl
-
-
+  constructor(private productService:ProductsService,private activeRoute:ActivatedRoute){}
+  imageUrl = AppRoutes.imageUrl;
   productSearch:string='';
-
   sortDir:string="ASC";
-
+  categoryId!:string;
   length!:number;
   pageSize = 20;
   pageIndex = 0;
@@ -38,14 +36,27 @@ export class HomeComponent implements OnInit{
     this.getAllProduct();
   }
   ngOnInit(): void {
-  this.getAllProduct();
+    this.activeRoute.params.subscribe((data:any)=>{
+      this.categoryId=data.id;
+      this.getProductCategory();
+    })
+    console.log(this.categoryId);
+    if(this.categoryId===undefined || this.categoryId ==='' || this.categoryId===null)
+    this.getAllProduct();
+    else
+    this.getProductCategory();
   }
  
   getAllProduct(){
-    this.productGet.getAllProductsActive(this.productSearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
+    this.productService.getAllProductsActive(this.productSearch,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
       this.products = result.AllProduct.content;
       this.length=result.AllProduct.totalElements;
     })
   }
-
+  getProductCategory(){
+    this.productService.getProductByCatId(this.categoryId,this.pageIndex,this.pageSize,this.sortDir).subscribe((result:any)=>{
+      this.products = result.AllProduct.content;
+      this.length=result.AllProduct.totalElements;
+    })
+  }
 }

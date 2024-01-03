@@ -4,6 +4,7 @@ import { Category } from 'src/app/Model/category';
 import { User } from 'src/app/Model/user';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { CategoryService } from 'src/app/Service/category.service';
+import { ProductsService } from 'src/app/Service/products.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 export class NavbarComponent {
 
 
-  constructor(private login: LoginService, private route: Router, private categoryService: CategoryService) { }
+  constructor(private login: LoginService,private productService:ProductsService, private route: Router, private categoryService: CategoryService) { }
   isUserActive = false;
   user: any = null;
   allcategory: Category[] = [];
@@ -36,8 +37,6 @@ export class NavbarComponent {
     //   this.isUserActive = this.login.isLoggedIn();
     //   this.user = this.login.getUser();
     // });
-
-
     this.categoryService.getCategories().subscribe((result: any) => {
       this.allcategory = result.AllCategory;
       const thirdOfLength = Math.ceil(this.allcategory.length / 3);
@@ -70,7 +69,7 @@ export class NavbarComponent {
   }
 
   getActiveProductByCat(id:any){
-
+    this.route.navigate(['/customer/home/'+id])   
   }
 
 }
