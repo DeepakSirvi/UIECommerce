@@ -57,9 +57,9 @@ export class AddProductGoutamComponent implements OnInit {
     return constant ? constant.invalid && constant.touched:false;
   }
 
-  submitFormInvalid(){
+  // submitFormInvalid(){
     
-  }
+  // }
   onSubmit(data:FormGroup){
 
     const headers = new HttpHeaders({

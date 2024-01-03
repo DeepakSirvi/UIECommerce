@@ -21,8 +21,10 @@ export class AppRoutes{
 
   //  Prodcut url
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
+
    public static GET_PRODUCT:string = this.baseUrl + "/product/permitAll";
    public static GET_ALL_PRODUCT: string=this.baseUrl+"/product/admin";
+
    public static UPDATELISTINGSTATUS:string = this.baseUrl+"/product/admin";
 
   //  varient category and attribute url
