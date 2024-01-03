@@ -908,3 +908,10 @@ function storeSelectedValues() {
     listItem.appendChild(deleteButton);
     selectedValuesList.appendChild(listItem);
 }
+function toggleForm() {
+    var form = document.getElementById("myForm");
+    // Toggle the 'disabled' property of form elements
+    for (var i = 0; i < form.elements.length; i++) {
+      form.elements[i].disabled = !form.elements[i].disabled;
+    }
+  }
