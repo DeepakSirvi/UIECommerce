@@ -1,0 +1,94 @@
+import { Attribute, Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from 'src/app/Model/product';
+import { ProductImage } from 'src/app/Model/product-image';
+import { Varient } from 'src/app/Model/varient';
+import { VarientAttribute } from 'src/app/Model/varient-attribute';
+import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
+import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
+import { ProductsService } from 'src/app/Service/products.service';
+import { VarientService } from 'src/app/Service/varient.service';
+import { AppRoutes } from 'src/app/Util/appRoutes';
+import Toast from 'src/app/Util/helper';
+
+@Component({
+  selector: 'app-product-disply',
+  templateUrl: './product-disply.component.html',
+  styleUrls: ['./product-disply.component.css']
+})
+export class ProductDisplyComponent {
+  productId!:number;
+  product!:Product;
+  varient!:Varient;
+  var:any;
+  imageUrl:string=AppRoutes.imageUrl;
+  borderindex=0;
+  constructor(private varientService:VarientService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+    this.productId= this.route.snapshot.params['id'];
+  }
+
+  ngOnInit(): void {
+   this.productService.getProductById(this.productId).subscribe((data:any)=>{
+    this.product=data.Product;
+    this.var=data.Var; 
+    this.varientService.getVarient(this.productId).subscribe((data:any)=>{
+      this.varient=data.varient
+      if(this.varient.productImage.length===0)
+      {
+        this.varient.productImage.push(new ProductImage(this.product.productImage));
+      }
+    })
+   },(error)=>{{
+    Toast.fire({
+      icon: 'error',
+      title: error.error.message
+    })
+    this.router.navigate(['/admin/productslist'])
+   }}) 
+  }
+
+ 
+
+  getVarDataArray(): { key: string, value: any[] }[] {
+    return this.var ? Object.keys(this.var).map(key => ({ key, value: this.var[key] })) : [];
+  }
+  borderActivated(index:number){
+    this.borderindex=index
+  }
+
+  findCommonAttributes(values: any): string {
+    if (this.varient.categoryJoins.some(varientAttribute => varientAttribute.varAttribute.id === values)) {
+      return 'highlighted';
+    } else {
+      return '';  // Return an appropriate value when the condition is not met
+    }
+  }
+
+  getVarient(id:any,varientCat:any){
+    const catJoin=this.varient.categoryJoins;
+    const attributeId:String[]=[];
+    for (const categoryJoin of this.varient.categoryJoins) {
+      if(categoryJoin.varAttribute.varientCategory.name === varientCat)
+      {
+        attributeId.push(id);
+      }
+      else
+      {
+        attributeId.push(categoryJoin.varAttribute.id);
+      } 
+    }
+    console.log(attributeId);
+     this.varientService.getVarientByJoin(attributeId,id,this.productId).subscribe((data:any)=>{
+      this.varient=data.varient
+      if(this.varient.productImage.length===0)
+      {
+        this.varient.productImage.push(new ProductImage(this.product.productImage));
+      }
+     },(error)=>{
+      Toast.fire({
+        icon:'error',
+        title:error.error.message
+      })
+     })
+  }
+}

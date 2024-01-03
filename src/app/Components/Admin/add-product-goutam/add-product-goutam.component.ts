@@ -69,7 +69,6 @@ export class AddProductGoutamComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: result.response.message
-        
       })
       this.route.navigate(['/admin/productslist']);
     },(error)=>{

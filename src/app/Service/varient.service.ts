@@ -24,21 +24,8 @@ export class VarientService {
   }
 
 
-  upload(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-
-    formData.append('file', file);
-
-    const req = new HttpRequest('POST', '', formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
-
-    return this.http.request(req);
-  }
-
   public addVarient(formData:FormData,headers:HttpHeaders){
-    return this.http.post(AppRoutes.Add_PRODUCT_VARIENT,formData,{headers});
+    return this.http.post(AppRoutes.Add_PRODUCT_VARIENT+"/",formData,{headers});
   }
 
   public deleteVarientById(id:number){
@@ -47,5 +34,13 @@ export class VarientService {
    
   public deleteSubVarientById(id:number){
     return this.http.delete(AppRoutes.ADD_SUBVARIENT+"/"+id);
+  }
+  public getVarient(id:number)
+  {
+    return this.http.get(AppRoutes.GET_ONE_ACTIVE_VARIENT+"/"+id);
+  }
+
+  getVarientByJoin(attributeId:any,id:any,productId:any){
+    return this.http.post(AppRoutes.GET_VAREINT_BY_JOIN+"/"+id+"/"+productId,attributeId);
   }
 }

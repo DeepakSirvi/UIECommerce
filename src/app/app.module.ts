@@ -76,7 +76,6 @@ import { MatInputModule } from '@angular/material/input';
 import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
 import { VarientManagementComponent } from './Components/Admin/varient-management/varient-management.component';
 import { VarientCategoryComponent } from './Components/Admin/varient-category/varient-category.component';
-
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NotificationComponent } from './Components/Admin/notification/notification.component';
@@ -85,6 +84,8 @@ import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { AccountComponent } from './Components/Shared/account/account.component';
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
+import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
+
 
 
 
@@ -168,7 +169,7 @@ import { ProductDetailComponent } from './Components/Admin/product-detail/produc
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent,
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent,
   ],
   imports: [
     BrowserModule,

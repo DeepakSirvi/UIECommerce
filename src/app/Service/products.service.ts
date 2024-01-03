@@ -42,11 +42,11 @@ export class ProductsService {
   }
 
   getProductById(id:number){
-    return this.http.get(AppRoutes.GET_PRODUCT + id);
+    return this.http.get(AppRoutes.GET_PRODUCT+ "/"+id);
   }
 
-  getAllProductsDetail(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
-    return this.http.get(AppRoutes.GET_ALL_PRODUCTS_DETAIL+"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
+  getAllProductsActive(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_PRODUCT+"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
 
   updateStatus(status:StatusBooleanRequest){

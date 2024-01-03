@@ -33,15 +33,12 @@ import { ProductCategariesComponent } from './Components/User/product-categaries
 import { HomeComponent } from './Components/User/home/home.component';
 import { AdminhomeComponent } from './Components/Admin/adminhome/adminhome.component';
 import { DashbordComponent } from './Components/Admin/dashbord/dashbord.component';
-
 import { OderdetailComponent } from './Components/Admin/oderdetails/oderdetail.component';
 import { OrderlistComponent } from './Components/Admin/orderlist/orderlist.component';
 import { SellerProfileComponent } from './Components/Admin/seller-profile/seller-profile.component';
 import { SellercardsComponent } from './Components/Admin/sellercards/sellercards.component';
 import { SellerlistComponent } from './Components/Admin/sellerlist/sellerlist.component';
-
 import { Transacation1Component } from './Components/Admin/transacation1/transacation1.component';
-
 import { Transacation2Component } from './Components/Admin/transacation2/transacation2.component';
 import { ReviewesComponent } from './Components/Admin/reviewes/reviewes.component';
 import { BrandsComponent } from './Components/Admin/brands/brands.component';
@@ -50,20 +47,13 @@ import { CategoriesComponent } from './Components/Admin/categories/categories.co
 import { Settingsample1Component } from './Components/Admin/settingsample1/settingsample1.component';
 import { Settingsample2Component } from './Components/Admin/settingsample2/settingsample2.component'
 import { UserDashBoardComponent } from './Components/User/user-dash-board/user-dash-board.component';
-
-
-
 import { CategoryComponent } from './User/category/category.component';
 import { LoginOTPVerificationComponent } from './Components/Shared/login-otp-verification/login-otp-verification.component';
 import { SwitchpanelComponent } from './Components/Shared/switchpanel/switchpanel.component';
-
 import { AddCategoryComponent } from './Components/Admin/add-category/add-category.component';
 import { adminGuard } from './Util/Guard/admin.guard';
 import { customerGuard } from './Util/Guard/customer.guard';
 import { vendorGuard } from './Util/Guard/vendor.guard';
-
-
-
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
 import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
@@ -73,10 +63,7 @@ import { NotificationComponent } from './Components/Admin/notification/notificat
 import { AccountComponent } from './Components/Shared/account/account.component';
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 import { otpVerifiedGuard } from './Util/Guard/otp-verified.guard';
-
-
-
-
+import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
 
 const routes: Routes = [
 
@@ -122,6 +109,11 @@ const routes: Routes = [
         component: WishlistComponent
       },
       {
+        path: "termsofService",
+        component: TermsofServiceComponent
+      },
+
+      {
         path: "cart",
         component: ShopCartComponent
       },
@@ -138,6 +130,10 @@ const routes: Routes = [
         path: "product-categaries",
         component: ProductCategariesComponent
       },
+      {
+        path:"productDisplay/:id",
+        component:ProductDisplyComponent
+      }
     ]
   },
   {
@@ -261,8 +257,6 @@ const routes: Routes = [
     canActivate:[customerGuard],
 
     children: [
-     
-      
       {
         path: "",
         component: HomeComponent,
@@ -270,6 +264,10 @@ const routes: Routes = [
       {
         path: "home",
         component: HomeComponent,
+      },
+      {
+        path:"productDisplay/:id",
+        component:ProductDisplyComponent
       },
       {
         path: "shopcheckout",
@@ -368,7 +366,6 @@ const routes: Routes = [
     path:"vendor",
     component: VendorDashboardComponent,
     canActivate:[vendorGuard],
-
   },
   {
     path: "**",

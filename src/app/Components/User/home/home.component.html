@@ -73,7 +73,7 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="shop-product-right.html">
+                                                <a [routerLink]="'/productDisplay/'+item.id">
 
                                                     <img class="default-img" style="height: 250px;" [src]="imageUrl + item.productImage" alt="" />
 
@@ -81,7 +81,6 @@
                                             </div>
                                             <div class="product-action-1">
                                                 <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                                 <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                             </div>
                                             <div class="product-badges product-badges-position product-badges-mrg">
@@ -90,9 +89,9 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop-grid-right.html">{{item.productType}}</a>
+                                                <a>{{item.productType}}</a>
                                             </div>
-                                            <h2><a href="shop-product-right.html">{{item.productName}}</a></h2>
+                                            <h2><a [routerLink]="'/productDisplay/'+item.id" >{{item.productName}}</a></h2>
                                             <div class="product-rate-cover">
                                                 <div class="product-rate d-inline-block">
                                                     <div class="product-rating" style="width: 90%"></div>
