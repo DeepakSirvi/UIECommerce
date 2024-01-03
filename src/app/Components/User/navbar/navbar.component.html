@@ -150,7 +150,7 @@
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
-                                    <li *ngFor="let item of firstThird" >
+                                    <li *ngFor="let item of firstThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
@@ -159,7 +159,7 @@
                                     </li> 
                                 </ul>
                                 <ul class="mid">
-                                    <li *ngFor="let item of secondThird" >
+                                    <li *ngFor="let item of secondThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
@@ -168,7 +168,7 @@
                                     </li> 
                                 </ul>
                                 <ul class="end">
-                                    <li *ngFor="let item of finalThird" >
+                                    <li *ngFor="let item of finalThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
