@@ -10,33 +10,15 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form action="#">
-                            <input type="text" placeholder="Search for items..." />
+                        <form (submit)="searchProduct()">
+                            <input type="text" placeholder="Search for items..." name="searchKey" [(ngModel)]="searchKey" />
+                            <button type="submit"><span class="material-symbols-outlined">
+                                query_stats
+                                </span></button>
                         </form>
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="search-location">
-                                <form action="#">
-                                    <select class="select-active">
-                                        <option>Your Location</option>
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>Arizona</option>
-                                        <option>Delaware</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>Hawaii</option>
-                                        <option>Indiana</option>
-                                        <option>Maryland</option>
-                                        <option>Nevada</option>
-                                        <option>New Jersey</option>
-                                        <option>New Mexico</option>
-                                        <option>New York</option>
-                                    </select>
-                                </form>
-                            </div>
-
                             <div class="header-action-icon-2">
                                 <a [routerLink]="'/wishlist'">
                                     <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-heart.svg" />
@@ -150,7 +132,7 @@
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
-                                    <li *ngFor="let item of firstThird" >
+                                    <li *ngFor="let item of firstThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
@@ -159,7 +141,7 @@
                                     </li> 
                                 </ul>
                                 <ul class="mid">
-                                    <li *ngFor="let item of secondThird" >
+                                    <li *ngFor="let item of secondThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
@@ -168,7 +150,7 @@
                                     </li> 
                                 </ul>
                                 <ul class="end">
-                                    <li *ngFor="let item of finalThird" >
+                                    <li *ngFor="let item of finalThird" (click)="getActiveProductByCat(item.id)" >
                                         <span class="material-symbols-outlined">
                                             category
                                             </span>
@@ -185,95 +167,16 @@
                                 <li>
                                     <a class="active" [routerLink]="'home'">Home</a>
                                 </li>
-                                <li class="position-static">
-                                    <a href="#">Mega menu <i class="fi-rs-angle-down"></i></a>
+                                <li class="position-static" *ngFor="let category of allcategory">
+                                    <a (click)="getActiveProductByCat(category.id)" >{{category.categoryName}} <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
-                                        
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Fruit & Vegetables</a>
+                                            <a class="menu-title" href="#">{{category.categoryName}}</a>
                                             <ul>
-                                                <li><a >Meat & Poultry</a></li>
-                                                <li><a>Fresh Vegetables</a></li>
-                                                <li><a>Herbs & Seasonings</a></li>
-                                                <li><a>Cuts & Sprouts</a></li>
-                                                <li><a>Exotic Fruits & Veggies</a></li>
-                                                <li><a>Packaged Produce</a></li>
+                                                <li *ngFor="let subCat of category.subCategory"><a (click)="getActiveProductBySubCategoty(subCat.id)">{{subCat.subCategory}}</a></li>
                                             </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Breakfast & Dairy</a>
-                                            <ul>
-                                                <li><a>Milks</a></li>
-                                                <li><a>Butter and Margarine</a></li>
-                                                <li><a>Eggs Substitutes</a></li>
-                                                <li><a>Marmalades</a></li>
-                                                <li><a>Sour Cream</a></li>
-                                                <li><a>Cheese</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">Meat & Seafood</a>
-                                            <ul>
-                                                <li><a >Breakfast Sausage</a></li>
-                                                <li><a >Dinner Sausage</a></li>
-                                                <li><a >Chicken</a></li>
-                                                <li><a >Sliced Deli Meat</a></li>
-                                                <li><a >Wild Caught Fillets</a></li>
-                                                <li><a >Crab and Shellfish</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="sub-mega-menu sub-mega-menu-width-34">
-                                            <div class="menu-banner-wrap">
-                                                <a href="shop-product-right.html"><img
-                                                        src="assets/imgs/banner/banner-menu.png" alt="Nest" /></a>
-                                                <div class="menu-banner-content">
-                                                    <h4>Hot deals</h4>
-                                                    <h3>
-                                                        Don't miss<br />
-                                                        Trending
-                                                    </h3>
-                                                    <div class="menu-banner-price">
-                                                        <span class="new-price text-success">Save to 50%</span>
-                                                    </div>
-                                                    <div class="menu-banner-btn">
-                                                        <a href="shop-product-right.html">Shop now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="menu-banner-discount">
-                                                    <h3>
-                                                        <span>25%</span>
-                                                        off
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        </li>   
                                     </ul>
-                                </li>
-                                <li>
-                                    <a routerLink="/about">About</a>
-                                </li>
-                                <li>
-                                    <a routerLink="shop-grid-right.html">Shop <i class="fi-rs-angle-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a routerLink="/customer/shop-grid-right">Shop Grid – Right Sidebar</a></li>
-                                        <li><a href="shop-grid-left.html">Shop Grid – Left Sidebar</a></li>
-                                        <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
-                                        <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
-                                        <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
-                                        <li><a href="shop-filter.html">Shop – Filter</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a routerLink="contactUs">Contact</a>
-                                </li>
-                                <li>
-                                    <a routerLink="purchaseguide">Purchase Guide</a>
-                                </li>
-                                <li>
-                                    <a routerLink="privacypolicy">Privacy Policy</a>
-                                </li>
-                                <li>
-                                    <a routerLink="termsofService">Terms of Service</a>
                                 </li>
                             </ul>
                         </nav>

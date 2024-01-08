@@ -5,6 +5,7 @@ import { ProductRequest } from '../RequestPayload/product-request';
 import { AppRoutes } from '../Util/appRoutes';
 import { StatusRequest } from '../RequestPayload/status-request';
 import { StatusBooleanRequest } from '../RequestPayload/status-boolean-request';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,14 @@ export class ProductsService {
 
   updateStatus(status:StatusBooleanRequest){
     return this.http.patch(AppRoutes.UPDATELISTINGSTATUS,status);
+  }
+
+  getProductByCatId(categoryId:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_PRODUCT+"/byCategory/"+categoryId+"?pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
+  }
+
+  
+  getProductBySubCatId(categoryId:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_PRODUCT+"/bySubCategory/"+categoryId+"?pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
 }
