@@ -31,17 +31,18 @@
                         <div *ngFor="let items of item.categoryAttributes">
                             <div class="row">
                                 <div class="col-3">{{items.attributeName}}</div>
-                                    <div class="col-3"> <span>
+                                    <!-- <div class="col-3"> 
+                                        <span>
                                         <a><img src="../../../../assets/imgs/icons/edit1.png" width="20px"  alt=""></a>
                                         <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="20px" alt="" (click)="deleteSubVarient(items.id)"></a></span>
-                                    </div>
+                                    </div> -->
                             </div>
                         </div>
                     </td>
 
                     <td>
                         <span>
-                            <a><img src="../../../../assets/imgs/icons/edit1.png" width="30px" alt=""></a>
+                            <a><img src="../../../../assets/imgs/icons/edit1.png" width="30px" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getVarientByIds(item.id)"></a>
                             <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt="" (click)="deleteVarient(item.id)"></a>
                         </span>
                     </td>
@@ -55,3 +56,40 @@
         </mat-paginator>
     </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-primary" id="exampleModalLabel">Update Varient</h1>
+          <img src="../../../../assets/imgs/icons/cross-removebg-preview.png" width="50px" data-bs-dismiss="modal" aria-label="Close">
+        </div>
+        <div class="modal-body">
+            <div>
+                <form>
+                    <div>
+                      <label for="categoryName">Varient Name:</label>
+                      <input type="text" id="categoryName"  name="categoryName" required>
+                    </div>
+                
+                    <!-- <div *ngFor="let subVarient of varientCategory.categoryAttributes; let i = index; trackBy: trackByFn" class="subcategory-row">
+                      <label for="varientAttribute{{ i }}">Varient Attribute {{ i + 1 }}:</label>
+                      <input type="text" id="varientAttribute{{ i }}" [(ngModel)]="varientCategory.categoryAttributes[i].attributeName" name="varientAttribute{{ i }}">
+                      <button type="button" class="btn btn-outline-primary" (click)="deleteVarientAttribute(i)">Delete</button>
+                    </div> -->
+                     <!-- <span style="color: red;"> {{msg}}</span> -->
+                    <div class="subcategory-row">
+                      <button type="button" class="btn btn-outline-primary" >Add Varient Sub Category</button>
+                    </div>
+                
+                    <button type="submit" >Add</button>
+                  </form>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

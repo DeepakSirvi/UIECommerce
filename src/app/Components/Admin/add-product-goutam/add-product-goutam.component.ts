@@ -30,7 +30,7 @@ export class AddProductGoutamComponent implements OnInit {
  
   ngOnInit(): void {
     this.productAddForm = this.formBuilder.group({
-      productName:['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9 ]*$/)]],
+      productName:['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9,' -]*$/)]],
       brandName:['',Validators.required],
       shippingProvider:['',[Validators.required,Validators.maxLength(30),Validators.minLength(3)]], 
       fullfillmentName:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.maxLength(30),Validators.minLength(3)]],
@@ -41,7 +41,7 @@ export class AddProductGoutamComponent implements OnInit {
       productHeight:['',[Validators.required,Validators.pattern(/^(\d+(\.\d{1,2})?)\s*(mm|cm|m|in|inch|foot)?$/i)]],
       taxCode:['',[Validators.required,Validators.pattern(/^([^\d]*)(\w+)$/i)]],
       countryOrigin:['',[Validators.required,Validators.pattern(/^([^\d]+)$/i)]],
-      productType:['',[Validators.required,Validators.pattern(/^([a-zA-Z0-9\s]+)$/i)]],
+      productType:['',[Validators.required,Validators.pattern(/^([a-zA-Z0-9,' -\s]+)$/i)]],
       discription:['',[Validators.required,Validators.pattern(/^[\w\s\d\-.,:;!@#$%^&*()_+={}\[\]|\\:;"'<>,.?\/]+$/i)]],
       category:['',Validators.required],
       subCategory:['',Validators.required],
@@ -97,4 +97,6 @@ export class AddProductGoutamComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+  
 }

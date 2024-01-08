@@ -18,5 +18,13 @@ export class UserRegisterService {
   public addUser(user: User) {
     return this.http.post(AppRoutes.CUSTOMER_SIGNUP, user);   
   }
+
+  public getUser(){
+    return this.http.get(AppRoutes.GET_USER);
+  }
+
+  public updateUser(user:User){
+    return this.http.put(AppRoutes.UPDATE_USER,user);
+  }
 }
 

@@ -23,11 +23,19 @@ export class CategoryService {
     return this.http.get(AppRoutes.GETALL_CATEGORY);
   }
 
+  public getCategoryByIds(id:string){
+    return this.http.get(AppRoutes.GET_SINGLE_CATEGORY+"/"+id);
+  }
+
   public deleteCategoryById(id:number){
     return this.http.delete(AppRoutes.ADD_CATEGORY+"/"+id);
   }
    
   public deleteSubCategoryById(id:number){
     return this.http.delete(AppRoutes.ADD_SUBCATEGORY+"/"+id);
+  }
+
+  public updateCategoryById(category:Category) {
+    return this.http.put(AppRoutes.UPDATE_CATEGORY_BY_ID,category);
   }
 }
