@@ -57,4 +57,9 @@ export class ProductsService {
   getProductByCatId(categoryId:string,pageIndex:number,pageSize:number,sortDir:string){
     return this.http.get(AppRoutes.GET_PRODUCT+"/byCategory/"+categoryId+"?pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
+
+  
+  getProductBySubCatId(categoryId:string,pageIndex:number,pageSize:number,sortDir:string){
+    return this.http.get(AppRoutes.GET_PRODUCT+"/bySubCategory/"+categoryId+"?pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
+  }
 }

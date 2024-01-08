@@ -64,6 +64,7 @@ import { AccountComponent } from './Components/Shared/account/account.component'
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 import { otpVerifiedGuard } from './Util/Guard/otp-verified.guard';
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
+import { loginGuardGuard } from './Util/Guard/login-guard.guard';
 
 const routes: Routes = [
 
@@ -86,6 +87,7 @@ const routes: Routes = [
       {
         path: "login",
        component: LoginComponent,
+       canActivate:[loginGuardGuard]
       }, 
       {
         path: "loginotp",
@@ -266,7 +268,7 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: "home/:id",
+        path: "home/:key/:id",
         component: HomeComponent,
       },
       {
