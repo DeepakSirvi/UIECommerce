@@ -35,12 +35,15 @@ export class VarientService {
   public deleteSubVarientById(id:number){
     return this.http.delete(AppRoutes.ADD_SUBVARIENT+"/"+id);
   }
-  public getVarient(id:number)
-  {
+  public getVarient(id:number){
     return this.http.get(AppRoutes.GET_ONE_ACTIVE_VARIENT+"/"+id);
   }
 
-  getVarientByJoin(attributeId:any,id:any,productId:any){
+  public getVarientById(id:string){
+    return this.http.get(AppRoutes.GET_VARIENT_BY_ID+"/"+id);
+  }
+
+  public getVarientByJoin(attributeId:any,id:any,productId:any){
     return this.http.post(AppRoutes.GET_VAREINT_BY_JOIN+"/"+id+"/"+productId,attributeId);
   }
 }
