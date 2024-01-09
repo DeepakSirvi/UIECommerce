@@ -3,7 +3,7 @@ import { CategoryRequest } from "../RequestPayload/category-request";
 export class AppRoutes{
   
   // base url
-  static baseUrl:string="http://192.168.1.14:9999/ecommerce";
+  static baseUrl:string="http://192.168.1.75:9999/ecommerce";
   
   // Image url
   static imageUrl:string = this.baseUrl+"/image/" 
