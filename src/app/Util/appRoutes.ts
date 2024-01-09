@@ -4,6 +4,7 @@ export class AppRoutes{
   
   // base url
   static baseUrl:string="http://localhost:9999/ecommerce";
+
   
   // Image url
   static imageUrl:string = this.baseUrl+"/image/" 
