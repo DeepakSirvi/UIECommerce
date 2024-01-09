@@ -3,7 +3,8 @@ import { CategoryRequest } from "../RequestPayload/category-request";
 export class AppRoutes{
   
   // base url
-  static baseUrl:string="http://192.168.1.75:9999/ecommerce";
+  static baseUrl:string="http://localhost:9999/ecommerce";
+
   
   // Image url
   static imageUrl:string = this.baseUrl+"/image/" 
@@ -12,12 +13,16 @@ export class AppRoutes{
    public static  GET_OTP:string = this.baseUrl + "/auth/" ;
    public static  CUSTOMER_SIGNUP:string = this.baseUrl + "/auth/signup" ;
    public static  USER_LOGIN:string = this.baseUrl + "/auth/login" ;
+   public static GET_USER:string = this.baseUrl + "/user/";
+   public static UPDATE_USER:string = this.baseUrl + "/user";
 
   //  category and subcategory url
    public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
    public static ADD_SUBCATEGORY:string = this.baseUrl + "/category/admin/subcategory";
    public static GETALL_CATEGORY :string = this.baseUrl + "/category/permitAll";
+   public static GET_SINGLE_CATEGORY:string = this.baseUrl + "/category/admin";
    public static CATEGORY_LIST:string = this.baseUrl + "/category/admin"; // with pagination
+   public static UPDATE_CATEGORY_BY_ID:string = this.baseUrl +"/category/admin"
 
   //  Prodcut url
    public static ADD_PRODUCT:string = this.baseUrl + "/product/admin";
@@ -37,6 +42,7 @@ export class AppRoutes{
   public static Add_PRODUCT_VARIENT:string=this.baseUrl +"/productVarient";
   public static GET_ONE_ACTIVE_VARIENT:string = this.baseUrl+"/productVarient/permitAll/varientByProduct";
   public static GET_VAREINT_BY_JOIN:string = this.baseUrl+"/productVarient/permitAll/catJoin";
+  public static GET_VARIENT_BY_ID:string = this.baseUrl+"/varientCategory/admin"
 
   //  Notification Url
   public static ADD_NOTIFICATION: string=this.baseUrl+"/notification/admin";

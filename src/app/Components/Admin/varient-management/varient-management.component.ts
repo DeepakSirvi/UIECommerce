@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Varient } from 'src/app/Model/varient';
 import { VarientCategory } from 'src/app/Model/varient-category';
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
 import { VarientService } from 'src/app/Service/varient.service';
@@ -16,10 +17,11 @@ export class VarientManagementComponent {
   }
 
   constructor(private varientService:VarientService){}
-  
+  singleVarient:VarientCategory = new VarientCategory();
   varient:VarientCategory[]=[];
   varientSearch:string='';
   sortDir:string="ASC";
+ 
 
   length!:number;
   pageSize = 5;
@@ -78,6 +80,12 @@ export class VarientManagementComponent {
         icon: 'error',
         title: error.error.message
       })
+    })
+  }
+
+  getVarientByIds(id:string){
+    this.varientService.getVarientById(id).subscribe((result:any)=>{
+      this.singleVarient = result;
     })
   }
 }

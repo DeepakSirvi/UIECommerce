@@ -1,3 +1,33 @@
-.newClass{
-    
-}
+/* Add appropriate styles for the message container */
+div.no-products-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8d7da; /* You can change this color to match your application's theme */
+    color: #721c24; /* You can change this color to match your application's theme */
+    border: 1px solid #f5c6cb; /* You can change this color to match your application's theme */
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Add styles for the text within the message container */
+  div.no-products-message p {
+    margin: 0;
+  }
+  
+  /* Optionally, add some animation to the message */
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  div.no-products-message.animate {
+    animation: fadeInOut 2s infinite;
+  }
+  
