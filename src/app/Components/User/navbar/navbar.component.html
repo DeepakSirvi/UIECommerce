@@ -27,12 +27,12 @@
                                 <a [routerLink]="'/wishlist'"><span class="lable">Wishlist</span></a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" [routerLink]="'/cart'">
+                                <a class="mini-cart-icon" [routerLink]="'/customer/cart'">
                                     <img alt="Nest" src="assets/imgs/theme/icons/icon-cart.svg" />
                                     <span class="pro-count blue">2</span>
                                 </a>
-                                <a [routerLink]="'/cart'"><span class="lable">Cart</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                <a [routerLink]="'/customer/cart'"><span class="lable">Cart</span></a>
+                                <!-- <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
                                         <li>
                                             <div class="shopping-cart-img">
@@ -71,8 +71,8 @@
 
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> -->
+                            </div> 
                             <div *ngIf="isUserActive" class="header-action-icon-2">
                                 <a [routerLink]="'/customer/account'">
                                     <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-user.svg" />

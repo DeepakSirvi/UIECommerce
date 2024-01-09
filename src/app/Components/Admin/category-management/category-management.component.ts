@@ -25,7 +25,7 @@ export class CategoryManagementComponent implements OnInit {
   
   categories:Category[]=[];
   categorySearch:string='';
-  sortDir:string="ASC";
+  sortDir:string="DESC";
 
   length!:number;
   pageSize = 5;

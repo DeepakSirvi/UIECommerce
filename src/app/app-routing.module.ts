@@ -120,6 +120,10 @@ const routes: Routes = [
       },
 
       {
+        path: "cart/:id/:quantity",
+        component: ShopCartComponent
+      },
+      {
         path: "cart",
         component: ShopCartComponent
       },
@@ -268,6 +272,14 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: "cart/:id/:quantity",
+        component: ShopCartComponent
+      },
+      {
+        path: "cart",
+        component: ShopCartComponent
+      },
+      {
         path: "home/:key/:id",
         component: HomeComponent,
       },
@@ -292,16 +304,8 @@ const routes: Routes = [
         component: FilterComponent
       },
       {
-        path:"filter-product",
-        component:FilterComponent
-      },
-      {
          path:"category",
          component:CategoryComponent
-      },
-      {
-        path: "forgotpassword",
-        component: ForgotPasswordComponent
       },
       {
         path: "product-categaries",

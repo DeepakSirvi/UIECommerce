@@ -47,5 +47,8 @@ export class AppRoutes{
   //  Notification Url
   public static ADD_NOTIFICATION: string=this.baseUrl+"/notification/admin";
 
+  // Add To cart
+  public static ADD_CART:string = this.baseUrl+"/cart/addTocart";
+  public static GET_CART:string = this.baseUrl+"/cart";
 
 }
