@@ -17,6 +17,7 @@ import Toast from 'src/app/Util/helper';
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  newProductLimit=5;
   constructor(private productService: ProductsService, private activeRoute: ActivatedRoute) { }
   imageUrl = AppRoutes.imageUrl;
   productSearch: string = '';

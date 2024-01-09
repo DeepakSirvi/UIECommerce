@@ -85,6 +85,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AccountComponent } from './Components/Shared/account/account.component';
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
+import { NewProductComponent } from './Components/User/new-product/new-product.component';
 
 
 
@@ -169,7 +170,7 @@ import { ProductDisplyComponent } from './Components/User/product-disply/product
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent, ProductDisplyComponent,
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,
   ],
   imports: [
     BrowserModule,

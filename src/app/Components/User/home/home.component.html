@@ -62,7 +62,7 @@
                                                 <a aria-label="Add To Wishlist" class="action-btn"
                                                     href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                                 <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+                                                    data-bs-target="#quickViewModal" [routerLink]="'/productDisplay/'+item.id"><i class="fi-rs-eye"></i></a>
                                             </div>
                                             <div class="product-badges product-badges-position product-badges-mrg">
                                                 <span class="hot">Hot</span>
@@ -88,10 +88,10 @@
                                                     <span>₹{{item.basicPrice}}</span>
                                                     <span class="old-price">₹{{item.basicPrice*2}}</span>
                                                 </div>
-                                                <div class="add-cart">
-                                                    <a class="add" href="shop-cart.html"><i
+                                                <!-- <div class="add-cart">
+                                                    <a class="add" [routerLink]="'/customer/cart/'+item.id + '/'+1"><i
                                                             class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -3269,39 +3269,15 @@
                 <!-- Product sidebar Widget -->
                 <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
                     <h5 class="section-title style-1 mb-30">New products</h5>
-                    <div class="single-post clearfix">
+                    <div class="single-post clearfix" *ngFor="let product of products | slice:0:newProductLimit">
                         <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-3.jpg" alt="#" />
+                            <img [src]='imageUrl+product.productImage' alt="#" />
                         </div>
                         <div class="content pt-10">
-                            <h5><a href="shop-product-detail.html">Chen Cardigan</a></h5>
-                            <p class="price mb-0 mt-5">$99.50</p>
+                            <h5><a [routerLink]="'/productDisplay/'+product.id">{{product.productName}}</a></h5>
+                            <p class="price mb-0 mt-5">{{product.basicPrice}}</p>
                             <div class="product-rate">
                                 <div class="product-rating" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-4.jpg" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <h6><a href="shop-product-detail.html">Chen Sweater</a></h6>
-                            <p class="price mb-0 mt-5">$89.50</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="assets/imgs/shop/thumbnail-5.jpg" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <h6><a href="shop-product-detail.html">Colorful Jacket</a></h6>
-                            <p class="price mb-0 mt-5">$25</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 60%"></div>
                             </div>
                         </div>
                     </div>
