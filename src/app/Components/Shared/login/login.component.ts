@@ -32,19 +32,18 @@ export class LoginComponent {
     this.otp.userMobile=mobile.value.userMobile;
     this.login.mobNew.next(mobile.value.userMobile);   
     this.login.generateOtp(this.otp).subscribe((data: any) => {
-
       Toast.fire({
         icon: 'success',
         title: 'Otp Generated <span style="color: red;">' + data.otp + '</span>',
       }).then(e=>{
-        this.route.navigate(['loginotp']);
+        this.route.navigate(['/customer/loginotp']);
       })    
     }, (error) => {
       Toast.fire({
         icon: 'error',
         title: error.error.message
       })
-      this.route.navigate(['/register'])
+      this.route.navigate(['/customer/register'])
     });
   }
 

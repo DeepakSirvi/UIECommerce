@@ -11,7 +11,7 @@ export const otpVerifiedGuard: CanActivateFn = (route, state) => {
   })
   if (mobileNumber === null || mobileNumber === undefined) {
 
-    router.navigate(['login']);
+    router.navigate(['customer/login']);
     return false;
   }
   return true;

@@ -20,16 +20,16 @@
                     <div class="header-action-right">
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
-                                <a [routerLink]="'/wishlist'">
+                                <a [routerLink]="'/customer/wishlist'">
                                     <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-heart.svg" />
-                                    <span class="pro-count blue">6</span>
+                                    <span class="pro-count blue">{{productToWishList}}</span>
                                 </a>
-                                <a [routerLink]="'/wishlist'"><span class="lable">Wishlist</span></a>
+                                <a [routerLink]="'/customer/wishlist'"><span class="lable">Wishlist</span></a>
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" [routerLink]="'/customer/cart'">
                                     <img alt="Nest" src="assets/imgs/theme/icons/icon-cart.svg" />
-                                    <span class="pro-count blue">2</span>
+                                    <span class="pro-count blue">{{productToCart}}</span>
                                 </a>
                                 <a [routerLink]="'/customer/cart'"><span class="lable">Cart</span></a>
                                 <!-- <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -86,7 +86,7 @@
                                                 Tracking</a></li>
                                         <li><a routerLink="/customer/account"><i class="fi fi-rs-label mr-10"></i>My
                                                 Voucher</a></li>
-                                        <li><a routerLink="/wishlist"><i class="fi fi-rs-heart mr-10"></i>My
+                                        <li><a routerLink="/customer/wishlist"><i class="fi fi-rs-heart mr-10"></i>My
                                                 Wishlist</a></li>
                                         <li><a routerLink="/customer/account"><i
                                                     class="fi fi-rs-settings-sliders mr-10"></i>Setting</a></li>
@@ -97,19 +97,18 @@
                             </div>
                             <!-- Login and registration  -->
                             <div class="header-action-icon-2" *ngIf="!isUserActive">
-                                <a routerLink="/login">
+                                <a routerLink="/customer/login">
                                     <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-login.png" />
                                 </a>
-                                <a routerLink="/login"><span class="lable">Login</span></a>
+                                <a routerLink="/customer/login"><span class="lable">Login</span></a>
                             </div>
 
                             <div class="header-action-icon-2" *ngIf="!isUserActive">
-                                <a routerLink="/register">
+                                <a routerLink="/customer/register">
                                     <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-signup.jpg" />
                                 </a>
-                                <a routerLink="/register"><span class="lable">Register</span></a>
+                                <a routerLink="/customer/register"><span class="lable">Register</span></a>
                             </div>
-
 
                         </div>
                     </div>
@@ -121,7 +120,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="index.html"><img src="assets/imgs/theme/logo.svg" alt="logo" /></a>
+                    <a [routerLink]="'/customer/home'"><img src="assets/imgs/theme/logo.svg" alt="logo" /></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     <div class="main-categori-wrap d-none d-lg-block">
@@ -132,29 +131,29 @@
                         <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
                             <div class="d-flex categori-dropdown-inner">
                                 <ul>
-                                    <li *ngFor="let item of firstThird" (click)="getActiveProductByCat(item.id)" >
-                                        <span class="material-symbols-outlined">
+                                    <li *ngFor="let item of firstThird"  >
+                                        <span class="material-symbols-outlined" [routerLink]="'/customer/home/cat/'+item.id">
                                             category
                                             </span>
-                                        <a (click)="getActiveProductByCat(item.id)" >{{item.categoryName}} 
+                                        <a [routerLink]="'/customer/home/cat/'+item.id" >{{item.categoryName}} 
                                             </a> 
                                     </li> 
                                 </ul>
                                 <ul class="mid">
-                                    <li *ngFor="let item of secondThird" (click)="getActiveProductByCat(item.id)" >
-                                        <span class="material-symbols-outlined">
+                                    <li *ngFor="let item of secondThird"  >
+                                        <span class="material-symbols-outlined" [routerLink]="'/customer/home/cat/'+item.id">
                                             category
                                             </span>
-                                        <a (click)="getActiveProductByCat(item.id)" >{{item.categoryName}}
+                                        <a [routerLink]="'/customer/home/cat/'+item.id" >{{item.categoryName}}
                                             </a> 
                                     </li> 
                                 </ul>
                                 <ul class="end">
-                                    <li *ngFor="let item of finalThird" (click)="getActiveProductByCat(item.id)" >
-                                        <span class="material-symbols-outlined">
+                                    <li *ngFor="let item of finalThird"  >
+                                        <span class="material-symbols-outlined" [routerLink]="'/customer/home/cat/'+item.id">
                                             category
                                             </span>
-                                        <a (click)="getActiveProductByCat(item.id)" >{{item.categoryName}}
+                                        <a [routerLink]="'/customer/home/cat/'+item.id" >{{item.categoryName}}
                                             </a> 
                                     </li> 
                                 </ul>
@@ -165,15 +164,15 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a class="active" [routerLink]="'home'">Home</a>
+                                    <a class="active" [routerLink]="'/customer/home'">Home</a>
                                 </li>
                                 <li class="position-static" *ngFor="let category of allcategory">
-                                    <a (click)="getActiveProductByCat(category.id)" >{{category.categoryName}} <i class="fi-rs-angle-down"></i></a>
+                                    <a [routerLink]="'/customer/home/cat/'+category.id" >{{category.categoryName}} <i class="fi-rs-angle-down"></i></a>
                                     <ul class="mega-menu">
                                         <li class="sub-mega-menu sub-mega-menu-width-22">
-                                            <a class="menu-title" href="#">{{category.categoryName}}</a>
-                                            <ul>
-                                                <li *ngFor="let subCat of category.subCategory"><a (click)="getActiveProductBySubCategoty(subCat.id)">{{subCat.subCategory}}</a></li>
+                                            <a class="menu-title" [routerLink]="'/customer/home/cat/'+category.id" >{{category.categoryName}}</a>
+                                            <ul class="horizontal-list">
+                                               <li *ngFor="let subCat of category.subCategory"><a [routerLink]="'/customer/home/subCat/'+subCat.id">{{subCat.subCategory}}</a></li>
                                             </ul>
                                         </li>   
                                     </ul>
@@ -196,55 +195,52 @@
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
                         <div class="header-action-icon-2">
-                            <a href="shop-wishlist.html">
-                                <img alt="Nest" src="assets/imgs/theme/icons/icon-heart.svg" />
-                                <span class="pro-count white">4</span>
+                            <a [routerLink]="'/customer/wishlist'">
+                                <img  alt="Nest" src="assets/imgs/theme/icons/icon-heart.svg" />
+                                <span class="pro-count white">{{productToWishList}}</span>
                             </a>
                         </div>
                         <div class="header-action-icon-2">
-                            <a class="mini-cart-icon" href="shop-cart.html">
+                            <a [routerLink]="'/customer/cart'">
                                 <img alt="Nest" src="assets/imgs/theme/icons/icon-cart.svg" />
-                                <span class="pro-count white">2</span>
+                                <span class="pro-count blue">{{productToCart}}</span>
                             </a>
-                            <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                        </div>
+                        <div *ngIf="isUserActive" class="header-action-icon-2">
+                            <a [routerLink]="'/customer/account'">
+                                <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-user.svg" />
+                            </a>
+                            <a  [routerLink]="'/customer/account'"><span class="lable">Account</span></a>
+                            <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                 <ul>
-                                    <li>
-                                        <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest"
-                                                    src="assets/imgs/shop/thumbnail-3.jpg" /></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
-                                            <h3><span>1 × </span>$800.00</h3>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest"
-                                                    src="assets/imgs/shop/thumbnail-4.jpg" /></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
-                                            <h3><span>1 × </span>$3500.00</h3>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                        </div>
-                                    </li>
+                                    <li><a routerLink="/customer/account"><i class="fi fi-rs-user mr-10"></i>My
+                                            Account</a></li>
+                                    <li><a routerLink="/customer/account"><i class="fi fi-rs-location-alt mr-10"></i>Order
+                                            Tracking</a></li>
+                                    <li><a routerLink="/customer/account"><i class="fi fi-rs-label mr-10"></i>My
+                                            Voucher</a></li>
+                                    <li><a routerLink="/customer/wishlist"><i class="fi fi-rs-heart mr-10"></i>My
+                                            Wishlist</a></li>
+                                    <li><a routerLink="/customer/account"><i
+                                                class="fi fi-rs-settings-sliders mr-10"></i>Setting</a></li>
+                                    <li><a (click)="logout()"><i class="fi fi-rs-sign-out mr-10"></i>Sign
+                                            out</a></li>
                                 </ul>
-                                <div class="shopping-cart-footer">
-                                    <div class="shopping-cart-total">
-                                        <h4>Total <span>$383.00</span></h4>
-                                    </div>
-                                    <div class="shopping-cart-button">
-                                        <a href="shop-cart.html">View cart</a>
-                                        <a href="shop-checkout.html">Checkout</a>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <!-- Login and registration  -->
+                        <div class="header-action-icon-2" *ngIf="!isUserActive">
+                            <a [routerLink]="'/customer/login'">
+                                <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-login.png" />
+                            </a>
+                            <a [routerLink]="'/customer/login'"><span class="lable">Login</span></a>
+                        </div>
+
+                        <div class="header-action-icon-2" *ngIf="!isUserActive">
+                            <a [routerLink]="'/customer/register'">
+                                <img class="svgInject" alt="Nest" src="assets/imgs/theme/icons/icon-signup.jpg" />
+                            </a>
+                            <a [routerLink]="'/customer/register'"><span class="lable">Register</span></a>
                         </div>
                     </div>
                 </div>

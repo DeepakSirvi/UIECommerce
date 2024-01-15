@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(
     private http:HttpClient
-  ) { }
+  ) {}
 
   public user:User=new User();
 

@@ -51,7 +51,7 @@
                                      <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a [routerLink]="'/productDisplay/'+item.id">
+                                                <a [routerLink]="'/customer/productDisplay/'+item.id">
 
                                                     <img class="default-img" style="height: 250px;"
                                                         [src]="imageUrl + item.productImage" alt="" />
@@ -60,9 +60,9 @@
                                             </div>
                                             <div class="product-action-1">
                                                 <a aria-label="Add To Wishlist" class="action-btn"
-                                                    href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                    ><i class="fi-rs-heart"></i></a>
                                                 <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#quickViewModal" [routerLink]="'/productDisplay/'+item.id"><i class="fi-rs-eye"></i></a>
+                                                    data-bs-target="#quickViewModal" [routerLink]="'/customer/productDisplay/'+item.id"><i class="fi-rs-eye"></i></a>
                                             </div>
                                             <div class="product-badges product-badges-position product-badges-mrg">
                                                 <span class="hot">Hot</span>
@@ -72,7 +72,7 @@
                                             <div class="product-category">
                                                 <a>{{item.productType}}</a>
                                             </div>
-                                            <h2><a [routerLink]="'/productDisplay/'+item.id">{{item.productName}}</a>
+                                            <h2><a [routerLink]="'/customer/productDisplay/'+item.id">{{item.productName}}</a>
                                             </h2>
                                             <div class="product-rate-cover">
                                                 <div class="product-rate d-inline-block">
@@ -3271,10 +3271,10 @@
                     <h5 class="section-title style-1 mb-30">New products</h5>
                     <div class="single-post clearfix" *ngFor="let product of products | slice:0:newProductLimit">
                         <div class="image">
-                            <img [src]='imageUrl+product.productImage' alt="#" />
+                            <img [routerLink]="'/customer/productDisplay/'+product.id" [src]='imageUrl+product.productImage' alt="#" />
                         </div>
                         <div class="content pt-10">
-                            <h5><a [routerLink]="'/productDisplay/'+product.id">{{product.productName}}</a></h5>
+                            <h5><a [routerLink]="'/customer/productDisplay/'+product.id">{{product.productName}}</a></h5>
                             <p class="price mb-0 mt-5">{{product.basicPrice}}</p>
                             <div class="product-rate">
                                 <div class="product-rating" style="width: 90%"></div>

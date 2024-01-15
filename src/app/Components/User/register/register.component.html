@@ -2,8 +2,8 @@
   <div class="page-header breadcrumb-wrap">
     <div class="container">
       <div class="breadcrumb">
-        <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-        <span></span> Pages <span></span> My Account
+        <a [routerLink]="'/customer/home'" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+        <span></span> User <span></span> Register
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
                 <div class="padding_eight_all bg-white">
                   <div class="heading_s1">
                     <h1 class="mb-5">Create an Account</h1>
-                    <p class="mb-30">Already have an account? <a routerLink="/login">Login</a></p>
+                    <p class="mb-30">Already have an account? <a [routerLink]="'/customer/login'">Login</a></p>
                   </div>
                   <form [formGroup]="userForm" (ngSubmit)="userRegistration(userForm)">
                     <div class="form-outline mb-4">
@@ -86,7 +86,7 @@
                     <div class="form-check d-flex justify-content-center mb-5">
                       <input class="form-check-input me-2" type="checkbox" value="" formControlName="agreeTerms"  id="form2Example3cg" />
                       <label class="form-check-label">
-                        I agree all statements in <a routerLink="/termsofService" class="text-body"><u>Terms of
+                        I agree all statements in <a [routerLink]="'/customer/termsofService'" class="text-body"><u>Terms of
                             service</u></a>
                       </label>
                     </div>
@@ -101,7 +101,7 @@
                       <button type="submit"
                         class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="userForm.invalid" >Register</button>
                     </div>
-                    <p class="text-center text-muted mt-5 mb-0">Have already an account ?<a routerLink="/login"
+                    <p class="text-center text-muted mt-5 mb-0">Have already an account ?<a [routerLink]="'/customer/login'"
                         class="fw-bold text-body"><u>Login</u></a></p>
                   </form>
 
