@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/app/Model/category';
 import { ItemListPagination } from 'src/app/Model/item-list-pagination';
 import { Product } from 'src/app/Model/product';
+import { AdminProductFilter } from 'src/app/RequestPayload/admin-product-filter';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { StatusBooleanRequest } from 'src/app/RequestPayload/status-boolean-request';
+import { CategoryService } from 'src/app/Service/category.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
 import Toast from 'src/app/Util/helper';
@@ -16,11 +19,16 @@ import Toast from 'src/app/Util/helper';
 })
 export class ProductslistComponent implements OnInit {
 
-  constructor(private productService: ProductsService, private router: Router,private route:ActivatedRoute) {
+  constructor(private productService: ProductsService,private categoryService:CategoryService , private router: Router,private route:ActivatedRoute) {
   }
+  allcategory: Category[] = [];
   ngOnInit(): void {
     this.getAllProducts();
+    this.categoryService.getCategories().subscribe((result: any) => {
+      this.allcategory = result.AllCategory;
+    })
   }
+  
   imageUrl = AppRoutes.imageUrl
   productList: Product[] = [];
   productSearch: string = '';
@@ -38,6 +46,16 @@ export class ProductslistComponent implements OnInit {
   showFirstLastButtons = true;
   disabled = false;
   pageEvent!: PageEvent;
+
+  productFilter:AdminProductFilter = new AdminProductFilter();
+
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
@@ -76,11 +94,16 @@ export class ProductslistComponent implements OnInit {
         })
       })
   }
-
-  // reloadComponent() {
-  //   const currentRoute = this.route.snapshot.routeConfig.path;
-  //   this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-  //     this.router.navigate([currentRoute]);
-  //   });
-  // }
+  getProductListByFilter(){
+    if(this.productFilter.catId ==='' && this.productFilter.dates ==='' && this.productFilter.listingStatus === '' && this.productFilter.status==='')
+    {
+      this.getAllProducts();
+    }
+    else{
+    this.productService.getAllProductFilter(this.productFilter, this.pageIndex, this.pageSize, this.sortDir).subscribe((data: any) => {
+      this.productList = data.AllProduct.content;
+      this.length = data.AllProduct.totalElements;
+    });
+  }
+  }
 }   

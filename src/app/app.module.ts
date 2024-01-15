@@ -177,9 +177,6 @@ import { NewProductComponent } from './Components/User/new-product/new-product.c
     AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, FormsModule,
     ReactiveFormsModule, CKEditorModule,
     MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule
-
-
-
   ],
   providers: [ authInterceptorProviders],
   bootstrap: [AppComponent]

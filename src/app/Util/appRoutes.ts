@@ -50,5 +50,7 @@ export class AppRoutes{
   // Add To cart
   public static ADD_CART:string = this.baseUrl+"/cart/addTocart";
   public static GET_CART:string = this.baseUrl+"/cart";
+  public static CART_WISH_COUNT:string = this.baseUrl+"/cart/customer/navbarCount";
+
 
 }

@@ -16,10 +16,10 @@ export const vendorGuard: CanActivateFn = (route, state) => {
       {
         return true;     
       }
-    router.navigate(['user']);
-   return false;
-  }
-  else{
-    router.navigate(['user']);
-    return false
+      router.navigate(['/customer/home']);
+      return false;
+     }
+     else{
+       router.navigate(['/customer/home']);
+       return false
   }};

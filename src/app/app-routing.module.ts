@@ -75,81 +75,12 @@ const routes: Routes = [
       {
         path: "",
         component: HomeComponent,
-      },
-      {
-        path: "home",
-        component: HomeComponent,
-      },
-      {
-        path: "home/:id",
-        component: HomeComponent,
-      },
-      {
-        path: "login",
-       component: LoginComponent,
-       canActivate:[loginGuardGuard]
       }, 
-      {
-        path: "loginotp",
-        component: LoginOTPVerificationComponent,
-        canActivate:[otpVerifiedGuard]
-      },
-      {
-        path: "register",
-        component: RegisterComponent
-      },
-      {
-        path: "about",
-        component: AboutComponent
-      },
-      {
-        path: "contactUs",
-        component: ContactUsComponent
-      },
-      {
-        path: 'termsAndCondition',
-        component: TermsAndConditionComponent
-      },
-      {
-        path: "wishlist",
-        component: WishlistComponent
-      },
-      {
-        path: "termsofService",
-        component: TermsofServiceComponent
-      },
-
-      {
-        path: "cart/:id/:quantity",
-        component: ShopCartComponent
-      },
-      {
-        path: "cart",
-        component: ShopCartComponent
-      },
-      {
-        path: "privacypolicy",
-        component: PrivacyPolicyComponent
-      },
-      {
-        path: "purchaseguide",
-        component: PurchaseGuideComponent
-
-      },
-      {
-        path: "product-categaries",
-        component: ProductCategariesComponent
-      },
-      {
-        path:"productDisplay/:id",
-        component:ProductDisplyComponent
-      }
     ]
   },
   {
     path:"switchpanel",
     component: SwitchpanelComponent
-
   },
   {
     path: "admin",
@@ -264,8 +195,6 @@ const routes: Routes = [
   {
     path: "customer",
     component: UserDashBoardComponent,
-    canActivate:[customerGuard],
-
     children: [
       {
         path: "",
@@ -371,6 +300,74 @@ const routes: Routes = [
         path: "shop-product-vendor",
         component: ShopProductVendorComponent
       },
+      {
+        path: "home",
+        component: HomeComponent,
+      },
+      {
+        path: "home/:id",
+        component: HomeComponent,
+      },
+      {
+        path: "login",
+       component: LoginComponent,
+       canActivate:[loginGuardGuard]
+      }, 
+      {
+        path: "loginotp",
+        component: LoginOTPVerificationComponent,
+        canActivate:[otpVerifiedGuard]
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+      {
+        path: "about",
+        component: AboutComponent
+      },
+      {
+        path: "contactUs",
+        component: ContactUsComponent
+      },
+      {
+        path: 'termsAndCondition',
+        component: TermsAndConditionComponent
+      },
+      {
+        path: "wishlist",
+        component: WishlistComponent
+      },
+      {
+        path: "termsofService",
+        component: TermsofServiceComponent
+      },
+
+      {
+        path: "cart/:id/:quantity",
+        component: ShopCartComponent
+      },
+      {
+        path: "cart",
+        component: ShopCartComponent
+      },
+      {
+        path: "privacypolicy",
+        component: PrivacyPolicyComponent
+      },
+      {
+        path: "purchaseguide",
+        component: PurchaseGuideComponent
+
+      },
+      {
+        path: "product-categaries",
+        component: ProductCategariesComponent
+      },
+      {
+        path:"productDisplay/:id",
+        component:ProductDisplyComponent
+      }
      
     ]
     

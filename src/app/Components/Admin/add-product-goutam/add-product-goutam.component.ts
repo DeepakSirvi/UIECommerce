@@ -35,6 +35,7 @@ export class AddProductGoutamComponent implements OnInit {
       shippingProvider:['',[Validators.required,Validators.maxLength(30),Validators.minLength(3)]], 
       fullfillmentName:['',[Validators.required,Validators.pattern(/^[a-zA-Z ]*$/),Validators.maxLength(30),Validators.minLength(3)]],
       deliveryCharge:['',[Validators.required,Validators.pattern(/^(\p{Sc}\s*)?(\d+(\.\d{1,2})?)?$/u)]],
+      basicPrice:['',[Validators.required,Validators.pattern(/^(\p{Sc}\s*)?(\d+(\.\d{1,2})?)?$/u)]],
       productWeight:['',[Validators.required,Validators.pattern(/^(\d+(\.\d{1,2})?)\s*(gram|kilogram|kg|g|ton|metric ton|t)?$/i)]],
       productLength:['',[Validators.required,Validators.pattern(/^(\d+(\.\d{1,2})?)\s*(mm|cm|m|in|inch|foot)?$/i)]],
       productWidth:['',[Validators.required,Validators.pattern(/^(\d+(\.\d{1,2})?)\s*(mm|cm|m|in|inch|foot)?$/i)]],

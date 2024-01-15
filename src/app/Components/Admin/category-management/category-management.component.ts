@@ -75,6 +75,7 @@ export class CategoryManagementComponent implements OnInit {
       })
     })
   }
+  
   addSubcategory() {
     const newSubCategory: SubCategory = new SubCategory();
     this.singleCategory.subCategory.push(newSubCategory);
@@ -91,7 +92,6 @@ export class CategoryManagementComponent implements OnInit {
   }
   
   deleteSubCategory(id:any,index:number){
-    alert(id)
     if(id=='')
       this.singleCategory.subCategory.splice(index,1);
     else{
@@ -114,7 +114,16 @@ export class CategoryManagementComponent implements OnInit {
 
   updateCategoryByIds(){
     this.categoryService.updateCategoryById(this.singleCategory).subscribe((result:any)=>{
-
+      if(result.success)
+      {
+        this.getAllCategories();
+      }
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      })
+      this.getAllCategories();
     })
   }
 

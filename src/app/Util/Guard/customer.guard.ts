@@ -16,11 +16,11 @@ export const customerGuard: CanActivateFn = (route, state) => {
       {
         return true;     
       }
-    router.navigate(['user']);
+    router.navigate(['/customer/home']);
    return false;
   }
   else{
-    router.navigate(['user']);
+    router.navigate(['/customer/home']);
     return false
   }
 };
