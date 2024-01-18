@@ -43,6 +43,10 @@ export class VarientCategoryComponent {
       else if(index===-1){
         this.msg= "Dublicate subcategory not allowed"
       }
+      else if(index===-3)
+      {
+        this.msg = "Please add atleast one Attribute"
+      }
       else
       this.msg = "This field required";
     }
@@ -69,6 +73,10 @@ trackByFn(index: any, item: any) {
 
 checkDublicate(arr: any[]) {
  let count = 0;
+ if(arr.length==0)
+    {
+      return -3;
+    }
   if(arr[0].attributeName===null || arr[0].attributeName===undefined || arr[0].attributeName===''){
   return 0;
   }
