@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/Model/product';
 import { ProductsService } from 'src/app/Service/products.service';
+import { WishlistService } from 'src/app/Service/wishlist.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
 import Toast from 'src/app/Util/helper';
 
@@ -18,7 +19,7 @@ import Toast from 'src/app/Util/helper';
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   newProductLimit=5;
-  constructor(private productService: ProductsService, private activeRoute: ActivatedRoute) { }
+  constructor(private productService: ProductsService, private activeRoute: ActivatedRoute,private wishlistService:WishlistService) { }
   imageUrl = AppRoutes.imageUrl;
   productSearch: string = '';
   sortDir: string = "ASC";
@@ -91,6 +92,14 @@ export class HomeComponent implements OnInit {
         title: error.error.message
       })
       this.getAllProduct();
+    })
+  }
+
+  addToWishList(id:any){
+    this.wishlistService.addToWishList(id).subscribe((data)=>{
+
+    },(error)=>{
+
     })
   }
 }

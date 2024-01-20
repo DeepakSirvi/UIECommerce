@@ -1,94 +1,103 @@
 <main class="main-wrap">
-    <app-navbar-admin></app-navbar-admin>
-    <div class="container">
-        <div class="row ">
-            <div class="col-8">
-                <button class="btn btn-outline-warning b" [routerLink]="'/admin/addCategory'">Add New Categories</button>
-            </div>
-            <div class="col-3 mt-30">
-            <span class="d-flex">
-                <input type="text" [(ngModel)]="categorySearch" name="categorySearch" class="form-control col-xs-2 mt-5" placeholder="Search...">
-                <button (click)="getAllCategories()" class="btn"><i class="bi bi-search"></i></button>
-            </span>
-            </div>
-        </div>
-        
-        <hr>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">S.no</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Sub-Category</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of categories;let i=index">
-                    <th scope="row">{{pageSize*pageIndex+i+1}}</th>
-                    <td>{{item.categoryName}}</td>
-                    <td>
-                        <div *ngFor="let items of item.subCategory;let i=index">
-                            <div class="row">
-                                <div class="col-12">{{items.subCategory}}</div>
-                            <!-- <div class="col-3"> <span>
+  <app-navbar-admin></app-navbar-admin>
+  <div class="container">
+    <div class="row ">
+      <div class="col-8">
+        <button class="btn btn-outline-warning b" [routerLink]="'/admin/addCategory'">Add New Categories</button>
+      </div>
+      <div class="col-3 mt-30">
+        <span class="d-flex">
+          <input type="text" [(ngModel)]="categorySearch" name="categorySearch" class="form-control col-xs-2 mt-5"
+            placeholder="Search...">
+          <button (click)="getAllCategories()" class="btn"><i class="bi bi-search"></i></button>
+        </span>
+      </div>
+    </div>
+
+    <hr>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">S.no</th>
+          <th scope="col">Category</th>
+          <th scope="col">Sub-Category</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of categories;let i=index">
+          <th scope="row">{{pageSize*pageIndex+i+1}}</th>
+          <td>{{item.categoryName}}</td>
+          <td>
+            <div *ngFor="let items of item.subCategory;let i=index">
+              <div class="row">
+                <div class="col-12">{{items.subCategory}}</div>
+                <!-- <div class="col-3"> <span>
                                 <a><img src="../../../../assets/imgs/icons/edit1.png" width="20px"  alt=""></a>
                                 <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="20px" alt="" (click)="deleteSubCategory(items.id)"></a>
                             </span></div> -->
-                            </div>
-                        </div>
-                        
-                    </td>
-                    <td>
-                        <span>
-                            <a><img src="../../../../assets/imgs/icons/edit1.png" width="30px" (click)="getCategoryById(item.id)" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal1"></a>
-                            <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt="" (click)="deleteCategory(item.id)"></a>
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
-            [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
-            [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
-            [pageIndex]="pageIndex" aria-label="Select page">
-        </mat-paginator>
-    </div>
+              </div>
+            </div>
+
+          </td>
+          <td>
+            <span>
+              <a><img src="../../../../assets/imgs/icons/edit1.png" width="30px" (click)="getCategoryById(item.id)"
+                  alt="" data-bs-toggle="modal" data-bs-target="#exampleModal1"></a>
+              <a><img class="btnd" src="../../../../assets/imgs/icons/del1.png" width="30px" alt=""
+                  (click)="deleteCategory(item.id)"></a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+      [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex" aria-label="Select page">
+    </mat-paginator>
+  </div>
 </main>
 <!-- Button trigger modal -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title text-primary" id="exampleModalLabel">Update Category</h1>
-          <img src="../../../../assets/imgs/icons/cross-removebg-preview.png" width="50px" data-bs-dismiss="modal" aria-label="Close">
-        </div>
-        <div class="modal-body">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-primary" id="exampleModalLabel">Update Category</h1>
+        <img src="../../../../assets/imgs/icons/cross-removebg-preview.png" width="50px" data-bs-dismiss="modal"
+          aria-label="Close">
+      </div>
+      <div class="modal-body">
+        <div>
+          <form>
             <div>
-                <form>
-                  <div>
-                    <label for="categoryName">Category Name:</label>
-                    <input type="text" id="categoryName" [(ngModel)]="singleCategory.categoryName" name="categoryName" required>
-                  </div>
-              
-                  <div *ngFor="let subcategory of singleCategory.subCategory; let i = index; trackBy: trackByFn" class="subcategory-row">
-                    <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
-                    <input type="text" id="subcategory{{ i }}" [(ngModel)]="singleCategory.subCategory[i].subCategory" name="subcategory{{ i }}">
-                    <button type="button" class="btn btn-outline-primary" (click)="deleteSubCategory(subcategory.id,i)">Delete</button>
-                  </div>
-                    
-                    <!-- <span style="color: red;">{{msg}}</span> -->
-                  <div class="subcategory-row">
-                    <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
-                  </div>
-                </form>
-              </div>
+              <label for="categoryName">Category Name:</label>
+              <input type="text" id="categoryName" [(ngModel)]="singleCategory.categoryName" name="categoryName"
+                required>
+            </div>
+
+            <div *ngFor="let subcategory of singleCategory.subCategory; let i = index; trackBy: trackByFn"
+              class="subcategory-row">
+              <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
+              <input type="text" id="subcategory{{ i }}" [(ngModel)]="singleCategory.subCategory[i].subCategory"
+                name="subcategory{{ i }}">
+              <button type="button" class="btn btn-outline-primary"
+                (click)="deleteSubCategory(subcategory.id,i)">Delete</button>
+            </div>
+
+            <!-- <span style="color: red;">{{msg}}</span> -->
+            <div class="subcategory-row">
+              <button type="button" class="btn btn-outline-primary" (click)="addSubcategory()">Add Subcategory</button>
+            </div>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"(click)="updateCategoryByIds()" >Save changes</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateCategoryByIds()">Save
+          changes</button>
       </div>
     </div>
   </div>
+</div>
