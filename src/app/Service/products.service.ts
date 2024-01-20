@@ -80,4 +80,9 @@ export class ProductsService {
   getProductBySubCatId(categoryId:string,pageIndex:number,pageSize:number,sortDir:string){
     return this.http.get(AppRoutes.GET_PRODUCT+"/bySubCategory/"+categoryId+"?pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
+
+  updateVerifiedStatus(status:any,id:any){
+   const statusRequest:StatusRequest = new StatusRequest(id,status);
+    return this.http.patch(AppRoutes.UPDATESTATUS,statusRequest);
+  }
 }

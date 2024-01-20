@@ -201,20 +201,30 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: "cart/:id/:quantity",
-        component: ShopCartComponent
-      },
-      {
-        path: "cart",
-        component: ShopCartComponent
+        path: "home",
+        component: HomeComponent,
       },
       {
         path: "home/:key/:id",
         component: HomeComponent,
       },
       {
-        path: "home",
+        path: "home/:id",
         component: HomeComponent,
+      },
+      {
+        path: "login",
+       component: LoginComponent,
+       canActivate:[loginGuardGuard]
+      }, 
+      {
+        path: "loginotp",
+        component: LoginOTPVerificationComponent,
+        canActivate:[otpVerifiedGuard]
+      },
+      {
+        path: "register",
+        component: RegisterComponent
       },
       {
         path:"productDisplay/:id",
@@ -259,23 +269,6 @@ const routes: Routes = [
 
       },
       {
-        path: "vendor-details1",
-        component: VendorDetails1Component, 
-      },
-
-      {
-        path: "vendor-guide",
-        component: VendorGuideComponent, 
-      },
-      {
-        path: "vendors-grid",
-        component: VendorsGridComponent, 
-      },
-      {
-        path: "vendors-list",
-        component: VendorsListComponent, 
-      },
-      {
         path: "shop-grid-right",
         component: ShopGridRightComponent, 
       },
@@ -295,33 +288,6 @@ const routes: Routes = [
         path: "shop-fullwidth",
         component: ShopFullwidthComponent, 
       },
-   
-      {
-        path: "shop-product-vendor",
-        component: ShopProductVendorComponent
-      },
-      {
-        path: "home",
-        component: HomeComponent,
-      },
-      {
-        path: "home/:id",
-        component: HomeComponent,
-      },
-      {
-        path: "login",
-       component: LoginComponent,
-       canActivate:[loginGuardGuard]
-      }, 
-      {
-        path: "loginotp",
-        component: LoginOTPVerificationComponent,
-        canActivate:[otpVerifiedGuard]
-      },
-      {
-        path: "register",
-        component: RegisterComponent
-      },
       {
         path: "about",
         component: AboutComponent
@@ -338,11 +304,6 @@ const routes: Routes = [
         path: "wishlist",
         component: WishlistComponent
       },
-      {
-        path: "termsofService",
-        component: TermsofServiceComponent
-      },
-
       {
         path: "cart/:id/:quantity",
         component: ShopCartComponent
@@ -377,6 +338,30 @@ const routes: Routes = [
     path:"vendor",
     component: VendorDashboardComponent,
     canActivate:[vendorGuard],
+    children:[
+      {
+        path: "vendor-details1",
+        component: VendorDetails1Component, 
+      },
+
+      {
+        path: "vendor-guide",
+        component: VendorGuideComponent, 
+      },
+      {
+        path: "vendors-grid",
+        component: VendorsGridComponent, 
+      },
+      {
+        path: "vendors-list",
+        component: VendorsListComponent, 
+      },
+      {
+        path: "shop-product-vendor",
+        component: ShopProductVendorComponent
+      },
+
+    ]
   },
   {
     path: "**",
