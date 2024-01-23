@@ -52,6 +52,39 @@
             </header>
             <!-- card-header end// -->
             <div class="card-body">
+                <article class="itemlist">
+                    <div class="row align-items-center">
+                        <div class="col col-check flex-grow-0">
+                            <div class="form-check">
+                                S.No.
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-4 col-8 flex-grow-1 col-name"
+                            >
+                            <a class="itemside">
+                                <div class="left">
+                                  <span>Product Image</span>
+                                </div>
+                                <div class="info">
+                                    <span>Product Name</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-price"><span>Price</span></div>
+                        <div class="col-lg-2 col-sm-2 col-4 col-status">
+                            Listing Status
+                        </div>
+                        <div class="col-lg-2 col-sm-2 col-4 col-status">
+                           <span>Verification</span>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-date">
+                            <span>Created At </span>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-date">
+                            <span>Vendor Name</span>
+                        </div>
+                    </div>
+                </article>
                 <article class="itemlist" *ngFor="let product of productList;let i=index">
                     <div class="row align-items-center">
                         <div class="col col-check flex-grow-0">
@@ -59,7 +92,7 @@
                                 {{pageSize*pageIndex+1+i}}
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name"
+                        <div class="col-lg-3 col-sm-4 col-8 flex-grow-1 col-name"
                             [routerLink]="'/admin/productDetails/'+product.id">
                             <a class="itemside">
                                 <div class="left">
@@ -71,7 +104,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-2 col-sm-2 col-4 col-price"><span>{{product.basicPrice}}</span></div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-price"><span>{{product.basicPrice}}</span></div>
                         <div class="col-lg-2 col-sm-2 col-4 col-status">
                             <mat-slide-toggle [checked]="product.listingStatus" (change)="updateListingStatus($event,product.id)">Listing Status</mat-slide-toggle>
                         </div>
@@ -87,6 +120,9 @@
                         </div>
                         <div class="col-lg-1 col-sm-2 col-4 col-date">
                             <span>{{product.createdAt | date:'yyyy-MM-dd'}}</span>
+                        </div>
+                        <div class="col-lg-1 col-sm-2 col-4 col-date">
+                            <span>{{product.vendor.firstName +" "+ product.vendor.lastName}}</span>
                         </div>
                     </div>
                 </article>
