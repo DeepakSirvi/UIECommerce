@@ -15,6 +15,9 @@ export class AppRoutes{
    public static  USER_LOGIN:string = this.baseUrl + "/auth/login" ;
    public static GET_USER:string = this.baseUrl + "/user/";
    public static UPDATE_USER:string = this.baseUrl + "/user";
+   public static  GETUSER_ADDRESS:string =this.baseUrl+"/address/GetAddressByUserId/"
+
+   public static  UPDATE_ADDRESS:string =this.baseUrl+"/address/update/"
 
   //  category and subcategory url
    public static ADD_CATEGORY:string = this.baseUrl + "/category/admin";
