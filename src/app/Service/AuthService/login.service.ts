@@ -90,4 +90,10 @@ export class LoginService {
     let user=this.getUser();
     return user.userRole;
   }
+
+  getUserId(){
+       let userStr= localStorage.getItem('user');
+        let user = JSON.parse(userStr!)
+      return user.id
+  }
 }
