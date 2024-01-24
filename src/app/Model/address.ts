@@ -6,7 +6,7 @@ export class Address {
     id: string = '';
     name: string = '';
     mobile: string = '';
-    pincode: number | null = null;
+    pincode: number  = 0;
     locality: string = '';
     city: string = '';
     state: string = '';
