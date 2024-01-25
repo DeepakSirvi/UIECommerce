@@ -63,6 +63,9 @@ export class AppRoutes{
 
   // Save For late
   public static ADD_SAVE_FOR_LATER:string = this.baseUrl+"/productsaveforlater/create";
+  public static GET_SAVE_FOR_LATER:string = this.baseUrl+"/productsaveforlater/allSaveForLaterUserId";
+  public static Delete_SAVE_FOR_LATER:string = this.baseUrl+"/productsaveforlater/delete";
+
 
 
 }
