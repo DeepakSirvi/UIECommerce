@@ -61,5 +61,8 @@ export class AppRoutes{
   public static CHECK_IN_WISHLIST:string = this.baseUrl+"/wishList";
   public static DELETE_WISHLIST:string = this.baseUrl+"/wishList/dislike";
 
+  // Save For late
+  public static ADD_SAVE_FOR_LATER:string = this.baseUrl+"/productsaveforlater/create";
+
 
 }
