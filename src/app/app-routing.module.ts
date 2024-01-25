@@ -65,6 +65,7 @@ import { ProductDetailComponent } from './Components/Admin/product-detail/produc
 import { otpVerifiedGuard } from './Util/Guard/otp-verified.guard';
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
 import { loginGuardGuard } from './Util/Guard/login-guard.guard';
+import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 
 const routes: Routes = [
 
@@ -288,6 +289,39 @@ const routes: Routes = [
         path: "shop-fullwidth",
         component: ShopFullwidthComponent, 
       },
+
+      {
+        path:"Add-Address",
+        component:AddAddressComponent,
+      },
+   
+      {
+        path: "shop-product-vendor",
+        component: ShopProductVendorComponent
+      },
+      {
+        path: "home",
+        component: HomeComponent,
+      },
+      {
+        path: "home/:id",
+        component: HomeComponent,
+      },
+      {
+        path: "login",
+       component: LoginComponent,
+       canActivate:[loginGuardGuard]
+      }, 
+      {
+        path: "loginotp",
+        component: LoginOTPVerificationComponent,
+        canActivate:[otpVerifiedGuard]
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+
       {
         path: "about",
         component: AboutComponent

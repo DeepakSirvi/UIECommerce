@@ -86,6 +86,7 @@ import { AccountComponent } from './Components/Shared/account/account.component'
 import { ProductDetailComponent } from './Components/Admin/product-detail/product-detail.component';
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
 import { NewProductComponent } from './Components/User/new-product/new-product.component';
+import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 
 
 
@@ -170,7 +171,7 @@ import { NewProductComponent } from './Components/User/new-product/new-product.c
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent
   ],
   imports: [
     BrowserModule,

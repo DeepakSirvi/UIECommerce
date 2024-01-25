@@ -1,0 +1,41 @@
+<div class="container">
+<div class="card">
+    <h2>Add Address</h2>
+
+    <form action="/submit_form" method="post">
+        <!-- Text input for Name -->
+        <label for="name"> Name:</label>
+        <input type="text" id="name" name="name" required [(ngModel)]="address.name">
+
+        <!-- Email input for Email -->
+        <label for="email">Pincode:</label>
+        <input type="text" id="name" name="name" required [(ngModel)]="address.pincode">
+
+
+        <!-- Textarea for Message -->
+        <label for="message">Mobile No</label>
+        <input type="text" id="name" name="name"  [(ngModel)]="address.mobile" required>
+
+        <label for="message">Alt. Mobile No</label>
+        <input type="text" id="name" name="name"  [(ngModel)]="address.alternateMobile"required>
+
+        <label for="message">City</label>
+        <input type="text" id="name" name="name" [(ngModel)]="address.city" required>
+
+        <label for="message">State</label>
+        <input type="text" id="name" name="name" [(ngModel)]="address.state" required>
+
+        <label for="message">Locality</label>
+        <input type="text" id="name" name="name"  [(ngModel)]="address.locality"required>
+
+        <label for="message">LandMark</label>
+        <input type="text" id="name" name="name" [(ngModel)]="address.landMark" required>
+
+        <label for="message">AddressType</label>
+        <input type="text" id="name" name="name"  [(ngModel)]="address.addressType"required>
+
+        <button type="submit" (click)="AddAddress()">Submit</button>
+    </form>
+</div>
+</div>
+

@@ -16,6 +16,7 @@ export class AppRoutes{
    public static GET_USER:string = this.baseUrl + "/user/";
    public static UPDATE_USER:string = this.baseUrl + "/user";
    public static  GETUSER_ADDRESS:string =this.baseUrl+"/address/GetAddressByUserId/"
+   public static  ADD_ADDRESS:string =this.baseUrl+"/address/create"
 
    public static  UPDATE_ADDRESS:string =this.baseUrl+"/address/update/"
 
