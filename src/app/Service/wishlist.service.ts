@@ -22,6 +22,6 @@ export class WishlistService {
   }
 
   getWishlist(){
-    return null;
+    return this.http.get(AppRoutes.CHECK_IN_WISHLIST+"/all");
   }
 }

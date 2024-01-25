@@ -7,6 +7,8 @@ import { CartService } from 'src/app/Service/cart.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
 import Toast from 'src/app/Util/helper';
 import { DashbordComponent } from '../../Admin/dashbord/dashbord.component';
+import Swal from 'sweetalert2';
+import { SaveforlaterService } from 'src/app/Service/saveforlater.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -15,7 +17,7 @@ import { DashbordComponent } from '../../Admin/dashbord/dashbord.component';
 })
 export class ShopCartComponent implements OnInit {
   constructor(private cartService: CartService, private activeRoute: ActivatedRoute,private route:Router
-   ,private location:Location) {
+   ,private location:Location,private saveForLaterService:SaveforlaterService) {
   }
   imageUrl = AppRoutes.imageUrl;
   productId!: number;
@@ -56,13 +58,43 @@ export class ShopCartComponent implements OnInit {
   }
 
   deleteCartItem(id: any) {
-    this.cartService.deleteCartItem(id).subscribe((data: any) => {
+
+    Swal.fire({
+      title: 'Remove',
+      text: 'Are you sure you want to remove',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, remove!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cartService.deleteCartItem(id).subscribe((data: any) => {
+          Toast.fire({
+            icon: 'success',
+            title: data.message,
+          })
+          this.getCart();
+        }, (error) => {
+          Toast.fire({
+            icon: 'error',
+            title: error.error.message
+          })
+        });
+      }
+    });   
+  }
+
+  saveForLater(id:any,cartId:any){
+    this.saveForLaterService.addToSaveForLater(id).subscribe((data:any)=>{
       Toast.fire({
         icon: 'success',
-        title: data.message,
+        title: data.response
       })
-      this.getCart();
-    }, (error) => {
+      this.cartService.deleteCartItem(cartId).subscribe((data:any)=>{
+        this.getCart();
+      })
+    },(error)=>{
       Toast.fire({
         icon: 'error',
         title: error.error.message
