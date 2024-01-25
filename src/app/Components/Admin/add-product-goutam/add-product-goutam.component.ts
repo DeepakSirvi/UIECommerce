@@ -46,6 +46,7 @@ export class AddProductGoutamComponent implements OnInit {
       discription:['',[Validators.required,Validators.pattern(/^[\w\s\d\-.,:;!@#$%^&*()_+={}\[\]|\\:;"'<>,.?\/]+$/i)]],
       category:['',Validators.required],
       subCategory:['',Validators.required],
+      productImage:['',Validators.required]
 
     })
     this.catService.getCategories().subscribe((result:any)=>{
@@ -56,6 +57,10 @@ export class AddProductGoutamComponent implements OnInit {
   isFieldInvalid(field:string):boolean{
     const constant = this.productAddForm.get(field);
     return constant ? constant.invalid && constant.touched:false;
+  }
+
+  getCountryList(){
+    
   }
 
   // submitFormInvalid(){

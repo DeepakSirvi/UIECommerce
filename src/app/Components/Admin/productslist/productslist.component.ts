@@ -106,4 +106,25 @@ export class ProductslistComponent implements OnInit {
     });
   }
   }
+
+  updateVerifiedStatus(event:any,id:any){
+    this.productService.updateVerifiedStatus((event.target as HTMLSelectElement).value,id).subscribe((data:any)=>{
+      Toast.fire({
+        icon: 'success',
+        title: data.response
+      }).then(e => {
+        this.getAllProducts();
+        // this.route.navigate(['/admin/productslist']);
+      })
+    },(error)=>{
+      Toast.fire({
+        icon: 'error',
+        title: error.error.message
+      }).then(e => {
+        this.getAllProducts();
+        // this.route.navigate(['/admin/productslist']);
+      })
+    })
+
+  }
 }   
