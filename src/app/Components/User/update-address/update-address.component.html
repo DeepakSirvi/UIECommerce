@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="card">
+        <h2>Update Address</h2>
+        <h3>{{address|json}} </h3>
+        <form action="/submit_form" method="post">
+            
+            <label for="name"> Name</label>
+            <input type="text" id="name" [(ngModel)]="address.name" name="name" required>
+    
+           
+            <label for="email">Pincode</label>
+            <input type="text" id="pincode"[(ngModel)]="address.pincode" name="pincode" required>
+    
+    
+           
+            <label for="message">Mobile No</label>
+            <input type="text" id="name"[(ngModel)]="address.mobile" name="mobile"  required>
+    
+            <label for="message">Alt. Mobile No</label>
+            <input type="text" id="name"[(ngModel)]="address.alternateMobile" name="alternateMobile" required>
+    
+            <label for="message">City</label>
+            <input type="text" id="name" [(ngModel)]="address.city" name="city" required>
+    
+            <label for="message">State</label>
+            <input type="text" id="name" [(ngModel)]="address.state"  name="state" required>
+    
+            <label for="message">Locality</label>
+            <input type="text" id="name" name="locality"  [(ngModel)]="address.locality"required>
+    
+            <label for="message">LandMark</label>
+            <input type="text" id="name" name="landMark" [(ngModel)]="address.landMark"  required>
+    
+            <label for="message">AddressType</label>
+            <input type="text" id="name" name="addressType" [(ngModel)]="address.addressType" required>
+    
+            <button type="submit" (click)="updateAddress()" >Submit</button>
+        </form>
+    </div>
+    </div>
+    
+    

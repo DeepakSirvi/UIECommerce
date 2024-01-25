@@ -14,12 +14,15 @@ export class AddressService {
 
     return this.http.get<any>(AppRoutes.GETUSER_ADDRESS + id);
   }
-  public updateAddress(){
-    return this.http.put(AppRoutes.UPDATE_ADDRESS,null);
+  public updateAddress(id:number,address:any){
+    return this.http.put(AppRoutes.UPDATE_ADDRESS+`${id}`,address);
   }
 
   public addAddress(address:Address){
     return this.http.post<any>(AppRoutes.ADD_ADDRESS,address);
     
+  }
+  public getAddressId(id:any){
+    return this.http.get(AppRoutes.GETBYID_ADDRESS +id);
   }
 } 

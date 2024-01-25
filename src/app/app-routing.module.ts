@@ -66,6 +66,7 @@ import { otpVerifiedGuard } from './Util/Guard/otp-verified.guard';
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
 import { loginGuardGuard } from './Util/Guard/login-guard.guard';
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
+import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
 
 const routes: Routes = [
 
@@ -299,6 +300,10 @@ const routes: Routes = [
       {
         path:"Add-Address",
         component:AddAddressComponent,
+      },
+      {
+        path:"update-Address/:id",
+        component:UpdateAddressComponent,
       },
    
       {
