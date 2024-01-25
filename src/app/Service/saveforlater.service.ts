@@ -13,4 +13,13 @@ export class SaveforlaterService {
     return this.http.post(AppRoutes.ADD_SAVE_FOR_LATER+"/"+id,{});
   }
 
+  
+  public getSaveForLater(){
+    return this.http.get(AppRoutes.GET_SAVE_FOR_LATER);
+  }
+
+  deleteSaveForLater(id:any){
+    return this.http.delete(AppRoutes.Delete_SAVE_FOR_LATER+"/"+id);
+  }
+
 }
