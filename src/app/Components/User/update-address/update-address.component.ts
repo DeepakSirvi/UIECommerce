@@ -1,46 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
-import Toast from 'src/app/Util/helper';
+import { PostService } from 'src/app/Service/post.service';
+
 @Component({
   selector: 'app-update-address',
   templateUrl: './update-address.component.html',
   styleUrls: ['./update-address.component.css']
 })
-export class UpdateAddressComponent  implements OnInit{
-  address :Address =new Address();
+export class UpdateAddressComponent implements OnInit {
+  address: Address = new Address();
   id: any;
-  
 
- 
-  constructor( private _address:AddressService,private route: ActivatedRoute){}
-  
+
+
+  constructor(private _address: AddressService, private route: ActivatedRoute,private post: PostService) { }
+
   ngOnInit(): void {
    
-    this.route.params.subscribe((params)=>{
-      this.address.id=params['id']
+    this.route.params.subscribe((params) => {
+      this.address.id = params['id']
       this.findDetailsById(this.address.id)
 
     })
-  
+
   }
- 
-  findDetailsById(id:any)
-  {
+
+  findDetailsById(id: any) {
     this._address.getAddressId(id).subscribe({
-      next:(data:any)=>{
+      next: (data: any) => {
         this.address = data
       },
-      error:(error:any)=>{
+      error: (error: any) => {
         console.log(error);
-        
+
 
       }
     })
   }
 
-  updateAddress(){
+  updateAddress() {
 
     if (this.address.name.trim() == '' || this.address.name == null) {
       return;
@@ -74,27 +75,26 @@ export class UpdateAddressComponent  implements OnInit{
       return;
 
     }
-    this._address.updateAddress(this.id,this.address).subscribe({
-  next:(data:any)=>{
-console.log(data);
-// Toast.mixin({
-//   toast:true,
-//   position:'top-right',
-//   timer:5000,
-//   timerProgressBar:true
-// })
-Toast.fire({
-  icon:'success',
-  text:'Update Address Succesfully'
-})
-// Swal.fire('Success', ' Update Address Succesfully', 'success');
+    this._address.updateAddress(this.id, this.address).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.post.showSuccess('Succesfully Updated','Success')
+        // Toast.mixin({
+        //   toast:true,
+        //   position:'top-right',
+        //   timer:5000,
+        //   timerProgressBar:true
+        // })
+        
 
-  },
-  error:(er:any)=>{
+        //Swal.fire('Success', ' Update Address Succesfully', 'success');
 
+      },
+      error: (er: any) => {
+        this.post.showerror('Error Updated','Error')
+      }
+    });
   }
-}); 
-}
 }
 
 

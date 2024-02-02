@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
+import { PostService } from 'src/app/Service/post.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,14 +12,19 @@ import Swal from 'sweetalert2';
 })
 export class AddAddressComponent implements OnInit {
   address: Address = new Address()
-  constructor(private addressservice: AddressService) { }
+  constructor(private addressservice: AddressService,private post: PostService) { }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    
+  }
 
 
   public AddAddress() {
-
+ console.log(
+  this.address
+ );
+ 
     if (this.address.name.trim() == '' || this.address.name == null) {
       return;
 
@@ -53,10 +60,10 @@ export class AddAddressComponent implements OnInit {
     this.addressservice.addAddress(this.address).subscribe({
       next: (data: any) => {
         console.log(data);
-        Swal.fire('Success', 'Add Address Succesfully', 'success');
+        this.post.showSuccess('Succesfully added','Success')
       },
       error: (er: any) => {
-        Swal.fire('Error', ' Add Address error', 'error');
+        this.post.showerror('Error Added','Error')
       }
     })
 
