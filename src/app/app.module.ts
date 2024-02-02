@@ -87,6 +87,8 @@ import { ProductDetailComponent } from './Components/Admin/product-detail/produc
 import { ProductDisplyComponent } from './Components/User/product-disply/product-disply.component';
 import { NewProductComponent } from './Components/User/new-product/new-product.component';
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
+import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -171,13 +173,17 @@ import { AddAddressComponent } from './Components/User/add-address/add-address.c
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent, UpdateAddressComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, FormsModule,
     ReactiveFormsModule, CKEditorModule,
-    MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule
+    MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule,
+    ToastrModule.forRoot({
+      maxOpened:1
+    })
   ],
   providers: [ authInterceptorProviders],
   bootstrap: [AppComponent]

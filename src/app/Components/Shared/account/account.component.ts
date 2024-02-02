@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { User } from 'src/app/Model/user';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
@@ -19,6 +20,7 @@ export class AccountComponent implements OnInit {
   user: User = new User();
   addresslist:Address[]=[]
   ngOnInit(): void {
+ 
     this.getUserDetails();
     this.getAddress();
   }
