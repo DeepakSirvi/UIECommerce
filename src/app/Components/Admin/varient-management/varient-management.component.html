@@ -56,8 +56,47 @@
         </mat-paginator>
     </div>
 </main>
-
 <!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-primary" id="exampleModalLabel">Update Varient</h1>
+        <img src="../../../../assets/imgs/icons/cross-removebg-preview.png" width="50px" data-bs-dismiss="modal" aria-label="Close">
+      </div>
+        <div class="modal-body">
+          <div>
+            <form>
+              <div>
+                <label for="categoryName">Varient Category Name:</label>
+                <input type="text" id="categoryName" [(ngModel)]="singleVarient.name" name="name"
+                  required>
+              </div>
+  
+              <div *ngFor="let subcategory of singleVarient.categoryAttributes; let i = index; trackBy: trackByFn"
+                class="subcategory-row">
+                <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
+                <input type="text" id="subcategory{{ i }}" [(ngModel)]="singleVarient.categoryAttributes[i].attributeName"
+                  name="subcategory{{ i }}">
+                <button type="button" class="btn btn-outline-primary"
+                  (click)="deleteSubVarient(subcategory.id,i)">Delete</button>
+              </div>
+  
+              <!-- <span style="color: red;">{{msg}}</span> -->
+              <div class="subcategory-row">
+                <button type="button" class="btn btn-outline-primary" (click)="addVarientAttribute()">Add Subcategory</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updatevarientCatByIds()">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -70,15 +109,15 @@
                 <form>
                     <div>
                       <label for="categoryName">Varient Name:</label>
-                      <input type="text" id="categoryName"  name="categoryName" required>
+                      <input type="text" id="categoryName"   [(ngModel)]="singleVarient.name" name="name" required>
                     </div>
                 
-                    <!-- <div *ngFor="let subVarient of varientCategory.categoryAttributes; let i = index; trackBy: trackByFn" class="subcategory-row">
+                    <div *ngFor="let subVarient of singleVarient.categoryAttributes; let i = index; trackBy: trackByFn" class="subcategory-row">
                       <label for="varientAttribute{{ i }}">Varient Attribute {{ i + 1 }}:</label>
-                      <input type="text" id="varientAttribute{{ i }}" [(ngModel)]="varientCategory.categoryAttributes[i].attributeName" name="varientAttribute{{ i }}">
+                      <input type="text" id="varientAttribute{{ i }}" [(ngModel)]="singleVarient.categoryAttributes[i].attributeName" name="varientAttribute{{ i }}">
                       <button type="button" class="btn btn-outline-primary" (click)="deleteVarientAttribute(i)">Delete</button>
-                    </div> -->
-                     <!-- <span style="color: red;"> {{msg}}</span> -->
+                    </div> 
+                      <span style="color: red;"> {{msg}}</span>
                     <div class="subcategory-row">
                       <button type="button" class="btn btn-outline-primary" >Add Varient Sub Category</button>
                     </div>
@@ -87,9 +126,9 @@
                   </form>
               </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer"> 
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->

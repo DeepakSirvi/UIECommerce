@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
 import { PostService } from 'src/app/Service/post.service';
+import { HelperService } from 'src/app/Util/helper.service';
 
 @Component({
   selector: 'app-update-address',
@@ -16,7 +17,7 @@ export class UpdateAddressComponent implements OnInit {
 
 
 
-  constructor(private _address: AddressService, private route: ActivatedRoute,private post: PostService) { }
+  constructor(private _address: AddressService, private route: ActivatedRoute,private helper:HelperService) { }
 
   ngOnInit(): void {
    
@@ -35,8 +36,6 @@ export class UpdateAddressComponent implements OnInit {
       },
       error: (error: any) => {
         console.log(error);
-
-
       }
     })
   }
@@ -78,7 +77,7 @@ export class UpdateAddressComponent implements OnInit {
     this._address.updateAddress(this.id, this.address).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.post.showSuccess('Succesfully Updated','Success')
+        this.helper.showSuccess('Succesfully Updated','Success')
         // Toast.mixin({
         //   toast:true,
         //   position:'top-right',
@@ -91,7 +90,7 @@ export class UpdateAddressComponent implements OnInit {
 
       },
       error: (er: any) => {
-        this.post.showerror('Error Updated','Error')
+        this.helper.showerror('Error Updated','Error')
       }
     });
   }

@@ -14,7 +14,7 @@ export class WishlistService {
   }
 
   isProductAddToWishList(id:any){
-    return this.http.get(AppRoutes.CHECK_IN_WISHLIST+"?varientId="+`${id}`);
+    return this.http.get(AppRoutes.CHECK_IN_WISHLIST+"/varientExist"+"?varientId="+`${id}`);
   }
   removeToWishList(id:any)
   {

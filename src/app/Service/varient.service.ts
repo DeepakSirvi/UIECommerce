@@ -12,11 +12,16 @@ export class VarientService {
 
   constructor(private http:HttpClient) { }
 
-  addVarientCategory(data:VarientCategoryRequest){
+  public addVarientCategory(data:VarientCategoryRequest){
     return  this.http.post(AppRoutes.ADD_VARIENT,data);
   }
-  getCategories(){
+  public  getCategories(){
     return this.http.get(AppRoutes.ADD_VARIENT);
+  }
+
+  public updateVarientCategoryById(varientCategory:any)
+  {
+    return this.http.put(AppRoutes.ADD_VARIENT,varientCategory);
   }
 
   public getVarientList(varientSearch:string,pageIndex:number,pageSize:number,sortDir:string) {
