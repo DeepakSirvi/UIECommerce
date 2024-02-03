@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
@@ -16,7 +16,7 @@ export class UpdateAddressComponent implements OnInit {
 
 
 
-  constructor(private _address: AddressService, private route: ActivatedRoute,private post: PostService) { }
+  constructor(private _address: AddressService, private route: ActivatedRoute,private post: PostService,private router:Router) { }
 
   ngOnInit(): void {
    
@@ -88,6 +88,7 @@ export class UpdateAddressComponent implements OnInit {
         
 
         //Swal.fire('Success', ' Update Address Succesfully', 'success');
+        this.router.navigate(['/customer/account'])
 
       },
       error: (er: any) => {
@@ -95,6 +96,7 @@ export class UpdateAddressComponent implements OnInit {
       }
     });
   }
+
 }
 
 

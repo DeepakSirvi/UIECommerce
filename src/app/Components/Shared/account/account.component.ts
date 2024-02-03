@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { User } from 'src/app/Model/user';
@@ -7,6 +7,7 @@ import { AddressService } from 'src/app/Service/AuthService/address.service';
 
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
+import { PostService } from 'src/app/Service/post.service';
 import Toast from 'src/app/Util/helper';
 import Swal from 'sweetalert2';
 
@@ -19,13 +20,17 @@ export class AccountComponent implements OnInit {
 
   user: User = new User();
   addresslist:Address[]=[]
+  addId:any;
+  // this.route.params.subscribe((params) => {
+  //   this.address.id = params['id']
   ngOnInit(): void {
  
+
     this.getUserDetails();
     this.getAddress();
   }
 
-  constructor(private userService: UserRegisterService, private login: LoginService, private route: Router, private address: AddressService) { }
+  constructor(private userService: UserRegisterService, private login: LoginService, private route: Router, private address: AddressService,private post: PostService,private _route:ActivatedRoute) { }
   getUserDetails() {
     this.userService.getUser().subscribe((result: any) => {
       this.user = result;
@@ -34,6 +39,7 @@ export class AccountComponent implements OnInit {
   updateUser() {
     this.userService.updateUser(this.user).subscribe((result: any) => {
       Toast.fire({
+        
         icon: 'success',
         title: result.message
       })
@@ -70,6 +76,23 @@ export class AccountComponent implements OnInit {
         this.addresslist=data;
       },
       error: (er: any) => {
+      }
+    })
+  }
+
+
+    
+  
+  deleteAddress(id:any){
+    // alert(id)
+    this.address.deleteAddress(id).subscribe({
+      next:(data:any)=>{
+        this.post.showSuccess('Address Deleted','Success')
+        this.getAddress();
+
+      },
+      error:(er:any)=>{
+        this.post.showerror('Deleted Error','Error')
       }
     })
   }

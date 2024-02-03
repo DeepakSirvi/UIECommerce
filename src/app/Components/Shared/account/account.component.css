@@ -1,3 +1,7 @@
 .disableCursor{
     cursor: not-allowed;
+
+}
+.btn-small{
+    margin-left: 20px;
 }

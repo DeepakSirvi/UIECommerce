@@ -18,6 +18,7 @@ export class AppRoutes{
    public static  GETUSER_ADDRESS:string =this.baseUrl+"/address/GetAddressByUserId/"
    public static  ADD_ADDRESS:string =this.baseUrl+"/address/create"
    public static  GETBYID_ADDRESS:string =this.baseUrl+"/address/"
+   public static  DELETE_ADDRESS:string =this.baseUrl+"/address/"
 
    public static  UPDATE_ADDRESS:string =this.baseUrl+"/address/update/"
 

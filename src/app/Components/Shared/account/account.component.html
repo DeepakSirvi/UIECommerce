@@ -22,8 +22,8 @@
                                                 class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#oers"
-                                            role="tab" aria-controls="orders" aria-selected="false"><i
+                                        <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#oers" role="tab"
+                                            aria-controls="orders" aria-selected="false"><i
                                                 class="fi-rs-shopping-bag mr-10"></i>Orders</a>
                                     </li>
                                     <li class="nav-item">
@@ -45,7 +45,7 @@
 
 
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                         <a class="nav-link" (click)="logout()"><i
                                                 class="fi-rs-sign-out mr-10"></i>Logout</a>
@@ -182,10 +182,15 @@
                                                     <p>New York</p>
 
                                                     <a class="btn-small" data-bs-toggle="tab" role="tab"
-                                                    id="update-address-tab" routerLink='/customer/update-Address/{{obj.id}}'  aria-controls="updateaddress"
-                                                    aria-selected="true">Edit</a>
+                                                        id="update-address-tab"
+                                                        routerLink='/customer/update-Address/{{obj.id}}'
+                                                        aria-controls="updateaddress" aria-selected="true">Edit</a>
 
+                                                    <a class="btn-small"  data-bs-toggle="tab" role="tab"
+                                                         id="update-address-tab" aria-controls="updateaddress"
+                                                        aria-selected="true" (click)="deleteAddress(obj.id)">Delete</a>
                                                 </div>
+                                                >
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -201,12 +206,13 @@
                                                     <p>Sarasota</p>
                                                     <a href="#" class="btn-small">Edit</a>
                                                 </div>
-                                               
+
                                             </div>
-                                          
+
                                         </div>
                                     </div>
-                                    <button mat-raised-button color="primary" [routerLink]="['/customer/Add-Address']" routerLinkActive="router-link-active" >Add New Address</button>
+                                    <button mat-raised-button color="primary" [routerLink]="['/customer/Add-Address']"
+                                        routerLinkActive="router-link-active">Add New Address</button>
                                 </div>
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel"
                                     aria-controls="account-detail" aria-labelledby="account-detail-tab">
@@ -287,9 +293,9 @@
                                 </div>
 
 
-                                
+
                                 <div class="tab-pane fade" id="updateaddress" role="tabpanel"
-                                    aria-labelledby="update-address-tab"  aria-controls="updateaddress">
+                                    aria-labelledby="update-address-tab" aria-controls="updateaddress">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>My Address</h5>
