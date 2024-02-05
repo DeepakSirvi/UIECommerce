@@ -7,6 +7,7 @@ import { AppRoutes } from 'src/app/Util/appRoutes';
   providedIn: 'root'
 })
 export class AddressService {
+  id: any;
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +25,8 @@ export class AddressService {
   }
   public getAddressId(id:any){
     return this.http.get(AppRoutes.GETBYID_ADDRESS +id);
+  }
+  public deleteAddress(id:any){
+    return this.http.delete(AppRoutes.DELETE_ADDRESS +id);
   }
 } 
