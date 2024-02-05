@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
@@ -10,62 +12,57 @@ import Swal from 'sweetalert2';
   templateUrl: './add-address.component.html',
   styleUrls: ['./add-address.component.css']
 })
+// id: string = '';
+// name: string = '';
+// mobile: string = '';
+// pincode: number  = 0;
+// locality: string = '';
+// city: string = '';
+// city: string = '';
+// landMark: string = '';
+// alternateMobile: string = '';
+// addressType: string = '';
 export class AddAddressComponent implements OnInit {
   address: Address = new Address()
-  constructor(private addressservice: AddressService,private post: PostService) { }
+  myForm: FormGroup;
+  constructor(private addressservice: AddressService, private post: PostService, private route: Router, private fs: FormBuilder) {
+    this.myForm = this.fs.group({
+      name: ['', Validators.required],
+      pincode: ['', Validators.required],
+      mobile: ['', Validators.required],
+      locality: ['', Validators.required],
+      landmark: ['', Validators.required],
+      city: ['', Validators.required],
+      alternateMobile: ['', Validators.required],
+      addressType: ['', Validators.required],
+      state: ['', Validators.required],
+    })
+
+  }
 
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {
+
   }
 
 
   public AddAddress() {
- console.log(
-  this.address
- );
- 
-    if (this.address.name.trim() == '' || this.address.name == null) {
-      return;
-
+    if(this.myForm.invalid){
+      return
     }
-    if (this.address.mobile.trim() == '' || this.address.mobile == null) {
-      return;
-
-    }
-    if (this.address.alternateMobile.trim() == '' || this.address.alternateMobile == null) {
-      return;
-
-    }
-    if (this.address.city.trim() == '' || this.address.city == null) {
-      return;
-
-    }
-    if (this.address.landMark.trim() == '' || this.address.landMark == null) {
-      return;
-
-    }
-    if (this.address.locality.trim() == '' || this.address.locality == null) {
-      return;
-
-    }
-    if (this.address.addressType.trim() == '' || this.address.addressType == null) {
-      return;
-
-    }
-    if (this.address.state.trim() == '' || this.address.state == null) {
-      return;
-
-    }
-    this.addressservice.addAddress(this.address).subscribe({
+   
+else{
+       this.addressservice.addAddress(this.address).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.post.showSuccess('Succesfully added','Success')
+        this.post.showSuccess('Succesfully added', 'Success')
+        this.route.navigate(['/customer/account'])
       },
       error: (er: any) => {
-        this.post.showerror('Error Added','Error')
+        this.post.showerror('Error Added', 'Error')
       }
     })
 
   }
+}
 }

@@ -157,7 +157,7 @@
                                                 <div class="card-header">
                                                     <h3 class="mb-0">Billing Address</h3>
                                                 </div>
-                                                <div class="card-body " *ngFor="let obj of addresslist">
+                                                <div class="card-body " *ngFor="let obj of addresslist let i =index">
                                                     <address>
                                                         {{obj.name}}<br />
                                                         {{obj.city}}<br />
@@ -188,7 +188,7 @@
 
                                                     <a class="btn-small"  data-bs-toggle="tab" role="tab"
                                                          id="update-address-tab" aria-controls="updateaddress"
-                                                        aria-selected="true" (click)="deleteAddress(obj.id)">Delete</a>
+                                                        aria-selected="true" (click)="deleteAddress(obj.id,i)">Delete</a>
                                                 </div>
                                                 >
                                             </div>
