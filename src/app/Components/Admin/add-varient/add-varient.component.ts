@@ -83,9 +83,6 @@ export class AddVarientComponent {
       this.varientCategory = result.AllVarientCategory;
     });
   }
-
-
-
   setCategory(data: any) {
     const selectedValue = (data.target as HTMLSelectElement).value;
 

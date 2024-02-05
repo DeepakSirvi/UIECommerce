@@ -1,168 +1,288 @@
 <main class="main-wrap">
-    <app-navbar-admin></app-navbar-admin>
-    <div class="container">
-        <div class="row">
-            <div class="col-8 mt-3">
-                <button class="btn btn-outline-warning b" [routerLink]="'/admin/add-varient/'+productId">Add New
-                    Varient</button>
-            </div>
-        </div>
-        <div class="col-xl-10 col-lg-12 m-auto">
-            <div class="product-detail accordion-detail">
-                <div class="row mb-50 mt-30">
-                    <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
+  <app-navbar-admin></app-navbar-admin>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mt-3">
+        <button class="btn btn-outline-warning b" [routerLink]="'/admin/add-varient/'+productId">Add New
+          Varient</button>
+      </div>
+    </div>
+    <div class="col-xl-10 col-lg-12 m-auto">
+      <div class="product-detail accordion-detail">
+        <div class="row mb-50 mt-30">
+          <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
 
-                    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <article class="itemlist">
+        <div class="row align-items-center">
+            <div class="col col-check flex-grow-0">
+                <div class="form-check">
+                    S.No
                 </div>
             </div>
+            <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name">
+                <a class="itemside">
+                    <div class="info">
+                        <h6 class="mb-0">Varient Name</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2 col-sm-2 col-4 col-price"><span>Price</span></div>
+            <div class="col-lg-2 col-sm-2 col-4 col-price"><span>Stock</span></div>
+            
+            <div class="col-lg-2 col-sm-2 col-4 col-status">
+              Status
+            </div>
+            <div class="col-lg-1 col-sm-2 col-4 col-date">
+              Added At
+            </div>
         </div>
+    </article>
+    <article class="itemlist" *ngFor="let varient of product.varient;let i=index">
+      <div class="row align-items-center">
+          <div class="col col-check flex-grow-0">
+              <div class="form-check">
+                  {{1+i}}
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-8 flex-grow-1 col-name"
+              [routerLink]="'/admin/productDetails/'+varient.id">
+              <a class="itemside">
+                  <div class="info">
+                      <h6 class="mb-0">{{varient.varientName}}</h6>
+                  </div>
+              </a>
+          </div>
+          <div class="col-lg-2 col-sm-2 col-4 col-price"><span>{{varient.price}}</span></div>
+          <div class="col-lg-2 col-sm-2 col-4 col-price"><span>{{varient.stock}}</span></div>
+          
+          <div class="col-lg-2 col-sm-2 col-4 col-status">
+              <select class="form-select" (change)="updateActiveVarient($event,varient.id)">
+                  <option *ngIf="varient.status==='ACTIVE'" value="ACTIVE">Active</option>
+                  <option *ngIf="varient.status==='DEACTIVE'" value="DEACTIVE">Deactive</option>
+                  <option *ngIf="varient.status!=='ACTIVE'" value="ACTIVE">Active</option>
+                  <option *ngIf="varient.status!=='DEACTIVE'" value="DEACTIVE">Deactive</option>
+              </select>
+          </div>
+          <div class="col-lg-1 col-sm-2 col-4 col-date">
+              <span>{{varient.createdAt | date:'yyyy-MM-dd'}}</span>
+          </div>
+      </div>
+  </article>
+</div>
+  <div class="container col-4">
+    <div class="col-lg-2 col-sm-2 col-4 col-status">
+      <mat-slide-toggle [checked]="on" onclick="toggleForm()">Edit Form</mat-slide-toggle>
     </div>
-    <div class="container col-4">
-      <div class="col-lg-2 col-sm-2 col-4 col-status">
-        <mat-slide-toggle [checked]="on" onclick="toggleForm()">Edit Form</mat-slide-toggle>
-    </div>
-    </div>
+  </div>
 
- <div class="container">
+  <div class="container">
     <h1 class="text-info">Update Product Details</h1>
     <form id="myForm" [formGroup]="productAddForm" (submit)="onSubmit(productAddForm)">
-        <div class="form-group mt-3">
-            <div class="col-lg-4">
-              <div class="card mb-4">
-                  <div class="card-header">
-                      <h4>Media</h4>
-                  </div>
-                  <div class="card-body">
-                      <div class="d-flex">
-                          <img src="assets/imgs/theme/upload.svg" width="50px" alt="" />
-                          <input type="file" (change)="onFileSelected($event)" />
-                      </div>
-                      <div>
-                          <img [src]="url" alt="Preview"
-                              style="max-width: 100px; max-height: 100px; margin: 5px;" />
-                      </div>
-                  </div>
+      <div class="form-group mt-3">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header">
+              <h4>Media</h4>
+            </div>
+            <div class="card-body">
+              <div class="d-flex">
+                <img src="assets/imgs/theme/upload.svg" width="50px" alt="" />
+                <input type="file" (change)="onFileSelected($event)" />
               </div>
-          </div>
-          </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="col-md-12">
-              <div class="form-group mt-3">
-                <label class="control-label">Product Name</label>
-                <input formControlName="productName" [ngClass]="{'is-invalid':isFieldInvalid('productName') && productAddForm.controls['productName'].errors}" class="form-control" maxlength="100" type="text" placeholder="Enter product Name">
-                  <div *ngIf="isFieldInvalid('productName') && productAddForm.controls['productName'].errors">
-                  <small class="form-text text-danger" *ngIf="productAddForm.controls['productName'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger" *ngIf="productAddForm.controls['productName'].errors['pattern']">This field contain only alphabets</small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Full Fillment By</label>
-                <input maxlength="100" [ngClass]="{'is-invalid':isFieldInvalid('fullfillmentBy') && productAddForm.controls['fullfillmentBy'].errors}" formControlName="fullfillmentBy" [value]="product.fullfillmentBy" type="text" class="form-control" placeholder="Enter full fillment name"/>
-                <div *ngIf="isFieldInvalid('fullfillmentName') && productAddForm.controls['fullfillmentBy'].errors">
-                  <small class="form-text text-danger" *ngIf="productAddForm.controls['fullfillmentBy'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger" *ngIf="productAddForm.controls['fullfillmentBy'].errors['pattern']">This field contain alphabets only</small>
-                  <small class="form-text text-danger" *ngIf="(productAddForm.controls['fullfillmentBy'].errors['minlength'] || productAddForm.controls['fullfillmentBy'].errors['maxlength']) && !productAddForm.controls['fullfillmentBy'].errors['pattern'] ">This field contain atleast 3 characters and max 30 characters</small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Shipping Provider</label>
-                <input maxlength="100" [value]="product.shippingProvider" [ngClass]="{'is-invalid':isFieldInvalid('shippingProvider') && productAddForm.controls['shippingProvider'].errors}" formControlName="shippingProvider" type="text" class="form-control" placeholder="Shipping provider name"/>
-                <div *ngIf="isFieldInvalid('shippingProvider') && productAddForm.controls['shippingProvider'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['shippingProvider'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['shippingProvider'].errors['pattern']">This field contain alphabets only</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['shippingProvider'].errors['minlength'] || productAddForm.controls['shippingProvider'].errors['maxlength']">This field contain atleast 3 characters and max 30 characters</small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Delivery Charge</label>
-                <input maxlength="200" [value]="product.deliveryCharge" [ngClass]="{'is-invalid':isFieldInvalid('deliveryCharge') && productAddForm.controls['deliveryCharge'].errors}" formControlName="deliveryCharge" type="text"  class="form-control" placeholder="Enter delivery charges">
-                <div *ngIf="isFieldInvalid('deliveryCharge') && productAddForm.controls['deliveryCharge'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['deliveryCharge'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['deliveryCharge'].errors['pattern']">Allow inputs like "10", "10.5", "100.25", etc., but not "abc" or "10.123"</small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Brand Name</label>
-                <select maxlength="100" formControlName="brand" [ngClass]="{'is-invalid':isFieldInvalid('brand') && productAddForm.controls['brand'].errors}" class="form-control" >
-                    <option [value]="product.brand" disabled>{{product.brand}}</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <!-- Add more options as needed -->
-                </select>
-                <div *ngIf="isFieldInvalid('brand') && productAddForm.controls['brand'].errors">
-                  <small class="form-text text-danger" *ngIf="productAddForm.controls['brand'].errors['required']">This field is required</small>
-                </div>
+              <div>
+                <img [src]="url" alt="Preview" style="max-width: 100px; max-height: 100px; margin: 5px;" />
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="col-md-12">
-              <div class="form-group mt-3">
-                <label class="control-label">Product Weight</label>
-                <input maxlength="200" [value]="product.productWeight" [ngClass]="{'is-invalid':isFieldInvalid('productWeight') && productAddForm.controls['productWeight'].errors}" formControlName="productWeight" type="text"  class="form-control" placeholder="Enter product weight">
-                <div *ngIf="isFieldInvalid('productWeight') && productAddForm.controls['productWeight'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productWeight'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productWeight'].errors['pattern']">Allow inputs like "10kg," "15.5 g," "20.00 ton," or simply "25" without a unit</small>
-                </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="col-md-12">
+            <div class="form-group mt-3">
+              <label class="control-label">Product Name</label>
+              <input formControlName="productName"
+                [ngClass]="{'is-invalid':isFieldInvalid('productName') && productAddForm.controls['productName'].errors}"
+                class="form-control" maxlength="100" type="text" placeholder="Enter product Name">
+              <div *ngIf="isFieldInvalid('productName') && productAddForm.controls['productName'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productName'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productName'].errors['pattern']">This field contain only
+                  alphabets</small>
               </div>
-              <div class="form-group">
-                <label class="control-label">Product Length</label>
-                <input maxlength="200" [value]="product.productLength" [ngClass]="{'is-invalid':isFieldInvalid('productLength') && productAddForm.controls['productLength'].errors}" formControlName="productLength" type="text"  class="form-control" placeholder="Enter product length">
-                <div *ngIf="isFieldInvalid('productLength') && productAddForm.controls['productLength'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productLength'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productLength'].errors['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Full Fillment By</label>
+              <input maxlength="100"
+                [ngClass]="{'is-invalid':isFieldInvalid('fullfillmentBy') && productAddForm.controls['fullfillmentBy'].errors}"
+                formControlName="fullfillmentBy" [value]="product.fullfillmentBy" type="text" class="form-control"
+                placeholder="Enter full fillment name" />
+              <div *ngIf="isFieldInvalid('fullfillmentName') && productAddForm.controls['fullfillmentBy'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['fullfillmentBy'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['fullfillmentBy'].errors['pattern']">This field contain alphabets
+                  only</small>
+                <small class="form-text text-danger"
+                  *ngIf="(productAddForm.controls['fullfillmentBy'].errors['minlength'] || productAddForm.controls['fullfillmentBy'].errors['maxlength']) && !productAddForm.controls['fullfillmentBy'].errors['pattern'] ">This
+                  field contain atleast 3 characters and max 30 characters</small>
               </div>
-              <div class="form-group">
-                <label class="control-label">Product Width</label>
-                <input maxlength="200" [value]="product.productWidth" [ngClass]="{'is-invalid':isFieldInvalid('productWidth') && productAddForm.controls['productWidth'].errors}" formControlName="productWidth" type="text"  class="form-control" placeholder="Enter product width">
-                <div *ngIf="isFieldInvalid('productWidth') && productAddForm.controls['productWidth'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productWidth'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productWidth'].errors['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Shipping Provider</label>
+              <input maxlength="100" [value]="product.shippingProvider"
+                [ngClass]="{'is-invalid':isFieldInvalid('shippingProvider') && productAddForm.controls['shippingProvider'].errors}"
+                formControlName="shippingProvider" type="text" class="form-control"
+                placeholder="Shipping provider name" />
+              <div *ngIf="isFieldInvalid('shippingProvider') && productAddForm.controls['shippingProvider'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['shippingProvider'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['shippingProvider'].errors['pattern']">This field contain alphabets
+                  only</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['shippingProvider'].errors['minlength'] || productAddForm.controls['shippingProvider'].errors['maxlength']">This
+                  field contain atleast 3 characters and max 30 characters</small>
               </div>
-              <div class="form-group">
-                <label class="control-label">Product Height</label>
-                <input maxlength="200" [value]="product.productHeight" [ngClass]="{'is-invalid':isFieldInvalid('productHeight') && productAddForm.controls['productHeight'].errors}" formControlName="productHeight" type="text"  class="form-control" placeholder="Enter product height">
-                <div *ngIf="isFieldInvalid('productHeight') && productAddForm.controls['productHeight'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productHeight'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productHeight'].errors['pattern']">Allow inputs like "10cm," "15.5 in," "20.00 m," "25 foot," or simply "30" without a unit</small>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Delivery Charge</label>
+              <input maxlength="200" [value]="product.deliveryCharge"
+                [ngClass]="{'is-invalid':isFieldInvalid('deliveryCharge') && productAddForm.controls['deliveryCharge'].errors}"
+                formControlName="deliveryCharge" type="text" class="form-control" placeholder="Enter delivery charges">
+              <div *ngIf="isFieldInvalid('deliveryCharge') && productAddForm.controls['deliveryCharge'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['deliveryCharge'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['deliveryCharge'].errors['pattern']">Allow inputs like "10", "10.5",
+                  "100.25", etc., but not "abc" or "10.123"</small>
               </div>
-              <div class="form-group">
-                <label class="control-label">Tax Code </label>
-                <input maxlength="200" [value]="product.taxCode" [ngClass]="{'is-invalid':isFieldInvalid('taxCode') && productAddForm.controls['taxCode'].errors}" formControlName="taxCode" type="text"  class="form-control" placeholder="Enter tax code">
-                <div *ngIf="isFieldInvalid('taxCode') && productAddForm.controls['taxCode'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['taxCode'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['taxCode'].errors['pattern']">Allow inputs for this pattern include "abc123","_username","word123","start_with_characters"
-                  </small>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Brand Name</label>
+              <select maxlength="100" formControlName="brand"
+                [ngClass]="{'is-invalid':isFieldInvalid('brand') && productAddForm.controls['brand'].errors}"
+                class="form-control">
+                <option [value]="product.brand" disabled>{{product.brand}}</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <!-- Add more options as needed -->
+              </select>
+              <div *ngIf="isFieldInvalid('brand') && productAddForm.controls['brand'].errors">
+                <small class="form-text text-danger" *ngIf="productAddForm.controls['brand'].errors['required']">This
+                  field is required</small>
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="col-md-12 ">
-              <div class="form-group mt-3">
-                <label class="control-label">Country of origin</label>
-                <input maxlength="200" [value]="product.countryOfOrigin" formControlName="countryOrigin" [ngClass]="{'is-invalid':isFieldInvalid('countryOrigin') && productAddForm.controls['countryOrigin'].errors}" type="text"  class="form-control" placeholder="Enter country of origin">
-                <div *ngIf="isFieldInvalid('countryOrigin') && productAddForm.controls['countryOrigin'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['countryOrigin'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['countryOrigin'].errors['pattern']">Allow inputs for this pattern include "abcXYZ","SpecialChars!","OnlyLetters"
-                  </small>
-                </div>
+        </div>
+        <div class="col-4">
+          <div class="col-md-12">
+            <div class="form-group mt-3">
+              <label class="control-label">Product Weight</label>
+              <input maxlength="200" [value]="product.productWeight"
+                [ngClass]="{'is-invalid':isFieldInvalid('productWeight') && productAddForm.controls['productWeight'].errors}"
+                formControlName="productWeight" type="text" class="form-control" placeholder="Enter product weight">
+              <div *ngIf="isFieldInvalid('productWeight') && productAddForm.controls['productWeight'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productWeight'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productWeight'].errors['pattern']">Allow inputs like "10kg," "15.5 g,"
+                  "20.00 ton," or simply "25" without a unit</small>
               </div>
-              <div class="form-group">
-                <label class="control-label">Product Type</label>
-                <input maxlength="200" [value]="product.productType" [ngClass]="{'is-invalid':isFieldInvalid('productType') && productAddForm.controls['productType'].errors}" formControlName="productType" type="text"  class="form-control" placeholder="Enter product type">
-                <div *ngIf="isFieldInvalid('productType') && productAddForm.controls['productType'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productType'].errors['required']">This field is required</small>
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['productType'].errors['pattern']">Allow inputs for this pattern include "AlphaNumeric123","With Spaces and 56","OnlyLetters","123456789"</small>
-                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Product Length</label>
+              <input maxlength="200" [value]="product.productLength"
+                [ngClass]="{'is-invalid':isFieldInvalid('productLength') && productAddForm.controls['productLength'].errors}"
+                formControlName="productLength" type="text" class="form-control" placeholder="Enter product length">
+              <div *ngIf="isFieldInvalid('productLength') && productAddForm.controls['productLength'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productLength'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productLength'].errors['pattern']">Allow inputs like "10cm," "15.5
+                  in," "20.00 m," "25 foot," or simply "30" without a unit</small>
               </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Product Width</label>
+              <input maxlength="200" [value]="product.productWidth"
+                [ngClass]="{'is-invalid':isFieldInvalid('productWidth') && productAddForm.controls['productWidth'].errors}"
+                formControlName="productWidth" type="text" class="form-control" placeholder="Enter product width">
+              <div *ngIf="isFieldInvalid('productWidth') && productAddForm.controls['productWidth'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productWidth'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productWidth'].errors['pattern']">Allow inputs like "10cm," "15.5 in,"
+                  "20.00 m," "25 foot," or simply "30" without a unit</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Product Height</label>
+              <input maxlength="200" [value]="product.productHeight"
+                [ngClass]="{'is-invalid':isFieldInvalid('productHeight') && productAddForm.controls['productHeight'].errors}"
+                formControlName="productHeight" type="text" class="form-control" placeholder="Enter product height">
+              <div *ngIf="isFieldInvalid('productHeight') && productAddForm.controls['productHeight'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productHeight'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productHeight'].errors['pattern']">Allow inputs like "10cm," "15.5
+                  in," "20.00 m," "25 foot," or simply "30" without a unit</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Tax Code </label>
+              <input maxlength="200" [value]="product.taxCode"
+                [ngClass]="{'is-invalid':isFieldInvalid('taxCode') && productAddForm.controls['taxCode'].errors}"
+                formControlName="taxCode" type="text" class="form-control" placeholder="Enter tax code">
+              <div *ngIf="isFieldInvalid('taxCode') && productAddForm.controls['taxCode'].errors">
+                <small class="form-text text-danger" *ngIf="productAddForm.controls['taxCode'].errors['required']">This
+                  field is required</small>
+                <small class="form-text text-danger" *ngIf="productAddForm.controls['taxCode'].errors['pattern']">Allow
+                  inputs for this pattern include "abc123","_username","word123","start_with_characters"
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="col-md-12 ">
+            <div class="form-group mt-3">
+              <label class="control-label">Country of origin</label>
+              <input maxlength="200" [value]="product.countryOfOrigin" formControlName="countryOrigin"
+                [ngClass]="{'is-invalid':isFieldInvalid('countryOrigin') && productAddForm.controls['countryOrigin'].errors}"
+                type="text" class="form-control" placeholder="Enter country of origin">
+              <div *ngIf="isFieldInvalid('countryOrigin') && productAddForm.controls['countryOrigin'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['countryOrigin'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['countryOrigin'].errors['pattern']">Allow inputs for this pattern
+                  include "abcXYZ","SpecialChars!","OnlyLetters"
+                </small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Product Type</label>
+              <input maxlength="200" [value]="product.productType"
+                [ngClass]="{'is-invalid':isFieldInvalid('productType') && productAddForm.controls['productType'].errors}"
+                formControlName="productType" type="text" class="form-control" placeholder="Enter product type">
+              <div *ngIf="isFieldInvalid('productType') && productAddForm.controls['productType'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productType'].errors['required']">This field is required</small>
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['productType'].errors['pattern']">Allow inputs for this pattern include
+                  "AlphaNumeric123","With Spaces and 56","OnlyLetters","123456789"</small>
+              </div>
+            </div>
+            <div class="form-group">
 
-                <!-- <label for="productCategory" class="control-label nav-link">Select Product Category</label>
+              <!-- <label for="productCategory" class="control-label nav-link">Select Product Category</label>
                 <select id="productCategory" [ngClass]="{'is-invalid':isFieldInvalid('category') && productAddForm.controls['category'].errors}" formControlName="category" class="form-control btn1" onchange="handleCategoryChange()" (change)="setCategory($event)">  
 
                   <option value="" disabled>Select a category</option>
@@ -172,25 +292,32 @@
                   <small *ngIf="isFieldInvalid('category') && productAddForm.controls['category'].errors['required']" class="form-text text-danger">This field is required</small>
                 </div> -->
 
-                <select id="subcategory" [ngClass]="{'is-invalid':isFieldInvalid('subCategory') && productAddForm.controls['subCategory'].errors}" formControlName="subCategory" class="form-control btn1 mt-3" style="display: none;">
+              <select id="subcategory"
+                [ngClass]="{'is-invalid':isFieldInvalid('subCategory') && productAddForm.controls['subCategory'].errors}"
+                formControlName="subCategory" class="form-control btn1 mt-3" style="display: none;">
 
-                    <option [value]="product.subCategory" disabled>{{product.subCategory}}</option>
-                </select>
-                <div *ngIf="isFieldInvalid('subcategory') && productAddForm.controls['subcategory'].errors">
-                  <small *ngIf="isFieldInvalid('subcategory') && productAddForm.controls['subcategory'].errors['required']" class="form-text text-danger">This field is required</small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label">Description</label>
-                <ckeditor [editor]="Editor"  [ngClass]="{'is-invalid':isFieldInvalid('discription') && productAddForm.controls['discription'].errors}" name="content" data="product.discription"  formControlName="discription"></ckeditor>
-                <div *ngIf="isFieldInvalid('discription') && productAddForm.controls['discription'].errors">
-                  <small class="form-text text-danger"  *ngIf="productAddForm.controls['discription'].errors['required']">This field is required</small>
-                </div>
+                <option [value]="product.subCategory" disabled>{{product.subCategory}}</option>
+              </select>
+              <div *ngIf="isFieldInvalid('subcategory') && productAddForm.controls['subcategory'].errors">
+                <small
+                  *ngIf="isFieldInvalid('subcategory') && productAddForm.controls['subcategory'].errors['required']"
+                  class="form-text text-danger">This field is required</small>
               </div>
             </div>
+            <div class="form-group">
+              <label class="control-label">Description</label>
+              <ckeditor [editor]="Editor"
+                [ngClass]="{'is-invalid':isFieldInvalid('discription') && productAddForm.controls['discription'].errors}"
+                name="content" data="product.discription" formControlName="discription"></ckeditor>
+              <div *ngIf="isFieldInvalid('discription') && productAddForm.controls['discription'].errors">
+                <small class="form-text text-danger"
+                  *ngIf="productAddForm.controls['discription'].errors['required']">This field is required</small>
+              </div>
+            </div>
+          </div>
 
         </div>
-            </div>
-      </form>
       </div>
+    </form>
+  </div>
 </main>
