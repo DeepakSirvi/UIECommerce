@@ -83,12 +83,14 @@ export class AccountComponent implements OnInit {
 
     
   
-  deleteAddress(id:any){
+  deleteAddress(id:any,index:number){
     // alert(id)
     this.address.deleteAddress(id).subscribe({
       next:(data:any)=>{
         this.post.showSuccess('Address Deleted','Success')
-        this.getAddress();
+        // this.getAddress();
+        this.addresslist.splice(index,1);
+        this.route.navigate(['/customer/account'])
 
       },
       error:(er:any)=>{

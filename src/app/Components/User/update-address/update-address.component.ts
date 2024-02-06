@@ -16,7 +16,7 @@ export class UpdateAddressComponent implements OnInit {
   id: any;
 
 
-  constructor(private _address: AddressService, private route: ActivatedRoute,private helper:HelperService,,private router:Router) { }
+  constructor(private _address: AddressService, private route: ActivatedRoute,private helper:HelperService,private router:Router) { }
 
 
   ngOnInit(): void {
