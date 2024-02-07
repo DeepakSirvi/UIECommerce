@@ -75,14 +75,14 @@
   
               <div *ngFor="let subcategory of singleVarient.categoryAttributes; let i = index; trackBy: trackByFn"
                 class="subcategory-row">
-                <label for="subcategory{{ i }}">Subcategory {{ i + 1 }}:</label>
+                <label for="subcategory{{ i }}">Attribute {{ i + 1 }}:</label>
                 <input type="text" id="subcategory{{ i }}" [(ngModel)]="singleVarient.categoryAttributes[i].attributeName"
                   name="subcategory{{ i }}">
                 <button type="button" class="btn btn-outline-primary"
                   (click)="deleteSubVarient(subcategory.id,i)">Delete</button>
               </div>
   
-              <!-- <span style="color: red;">{{msg}}</span> -->
+              <!-- <span style="color: red;">{{msg}}</span> -->0
               <div class="subcategory-row">
                 <button type="button" class="btn btn-outline-primary" (click)="addVarientAttribute()">Add Subcategory</button>
               </div>
