@@ -89,7 +89,7 @@ export class AccountComponent implements OnInit {
       next:(data:any)=>{
         this.post.showSuccess('Address Deleted','Success')
         // this.getAddress();
-        this.addresslist.splice(index,1);
+        this.addresslist.splice(index,2);
         this.route.navigate(['/customer/account'])
 
       },

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Address } from 'src/app/Model/address';
@@ -14,13 +15,27 @@ import { HelperService } from 'src/app/Util/helper.service';
 export class UpdateAddressComponent implements OnInit {
   address: Address = new Address();
   id: any;
+  myForm: FormGroup;
 
+  constructor(private _address: AddressService, private route: ActivatedRoute, private helper: HelperService, private router: Router, private fs: FormBuilder) {
+    this.myForm = this.fs.group({
+      name: ['', Validators.required],
+      pincode: ['', Validators.required],
+      mobile: ['', Validators.required],
+      locality: ['', Validators.required],
+      landmark: ['', Validators.required],
+      city: ['', Validators.required],
+      alternateMobile: ['', Validators.required],
+      addressType: ['', Validators.required],
+      state: ['', Validators.required],
 
-  constructor(private _address: AddressService, private route: ActivatedRoute,private helper:HelperService,private router:Router) { }
+    })
+
+  }
 
 
   ngOnInit(): void {
-   
+
     this.route.params.subscribe((params) => {
       this.address.id = params['id']
       this.findDetailsById(this.address.id)
@@ -42,60 +57,25 @@ export class UpdateAddressComponent implements OnInit {
 
   updateAddress() {
 
-    if (this.address.name.trim() == '' || this.address.name == null) {
-      return;
-
+    if (this.myForm.invalid) {
+      return
     }
-    if (this.address.mobile.trim() == '' || this.address.mobile == null) {
-      return;
 
+    else {
+
+      this._address.updateAddress(this.id, this.address).subscribe({
+        next: (data: any) => {
+          console.log(data);
+
+          this.router.navigate(['/customer/account'])
+
+        },
+        error: (er: any) => {
+          this.helper.showerror('Error Updated', 'Error')
+        }
+      });
     }
-    if (this.address.alternateMobile.trim() == '' || this.address.alternateMobile == null) {
-      return;
 
-    }
-    if (this.address.city.trim() == '' || this.address.city == null) {
-      return;
-
-    }
-    if (this.address.landMark.trim() == '' || this.address.landMark == null) {
-      return;
-
-    }
-    if (this.address.locality.trim() == '' || this.address.locality == null) {
-      return;
-
-    }
-    if (this.address.addressType.trim() == '' || this.address.addressType == null) {
-      return;
-
-    }
-    if (this.address.state.trim() == '' || this.address.state == null) {
-      return;
-
-    }
-    this._address.updateAddress(this.id, this.address).subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.helper.showSuccess('Succesfully Updated','Success')
-        // Toast.mixin({
-        //   toast:true,
-        //   position:'top-right',
-        //   timer:5000,
-        //   timerProgressBar:true
-        // })
-        
-
-        //Swal.fire('Success', ' Update Address Succesfully', 'success');
-        this.router.navigate(['/customer/account'])
-
-      },
-      error: (er: any) => {
-        this.helper.showerror('Error Updated','Error')
-      }
-    });
   }
-
 }
-
 
