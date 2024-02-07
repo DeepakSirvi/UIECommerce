@@ -16,20 +16,20 @@
                 Rquired</h6>
 
             <label for="email">Pincode:</label>
-            <input type="text" id="pincode" name="pincode" required [(ngModel)]="address.pincode" name="pincode "
+            <input type="number" id="pincode" name="pincode" required [(ngModel)]="address.pincode" name="pincode "
                 formControlName="pincode" matInput placeholder="Enter Here">
             <h6 *ngIf="myForm.get('pincode')!.hasError('required') && myForm.get('pincode')!.touched "
                 style="color: red;">Rquired</h6>
 
 
             <label for="message">Mobile No</label>
-            <input type="text" id="name" name="name" [(ngModel)]="address.mobile" formControlName="mobile" matInput
+            <input type="number" id="name" name="name" [(ngModel)]="address.mobile" formControlName="mobile" matInput
                 placeholder="Enter Here">
             <h6 *ngIf="myForm.get('mobile')!.hasError('required') && myForm.get('mobile')!.touched "
                 style="color: red;">Rquired</h6>
 
             <label for="message">Alt. Mobile No</label>
-            <input type="text" id="name" name="name" [(ngModel)]="address.alternateMobile"
+            <input type="number" id="name" name="name" [(ngModel)]="address.alternateMobile"
                 formControlName="alternateMobile" matInput placeholder="Enter Here">
             <h6 *ngIf="myForm.get('alternateMobile')!.hasError('required') && myForm.get('alternateMobile')!.touched "
                 style="color: red;">Rquired</h6>
