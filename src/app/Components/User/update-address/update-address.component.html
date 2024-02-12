@@ -51,9 +51,9 @@
            Requried </h6>
 
             <label for="message">LandMark</label>
-            <input type="text" id="name" name="landMark" [(ngModel)]="address.landMark"  formControlName="landMark">
+            <input type="text" id="name" name="landMark" [(ngModel)]="address.landMark"  formControlName="landmark">
 
-            <h6 *ngIf="myForm.get('landMark')!.hasError('required') && myForm.get('landMark')!.touched" style="color: red;">
+            <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched" style="color: red;">
                 Requried </h6>
 
             <label for="message">AddressType</label>

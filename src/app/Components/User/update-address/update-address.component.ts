@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { timer } from 'rxjs';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
 import { PostService } from 'src/app/Service/post.service';
@@ -60,13 +61,15 @@ export class UpdateAddressComponent implements OnInit {
     if (this.myForm.invalid) {
       return
     }
+    
 
     else {
 
       this._address.updateAddress(this.id, this.address).subscribe({
         next: (data: any) => {
           console.log(data);
-
+          this.helper.showSuccess('Success Updated', 'Success')
+           timer:5000;
           this.router.navigate(['/customer/account'])
 
         },

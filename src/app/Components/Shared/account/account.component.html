@@ -179,16 +179,18 @@
                                                         {{obj.state}}
                                                         {{obj.status}}
                                                     </address>
-                                                    <p>New York</p>
+                                                    <br>
+
 
                                                     <a class="btn-small" data-bs-toggle="tab" role="tab"
                                                         id="update-address-tab"
                                                         routerLink='/customer/update-Address/{{obj.id}}'
                                                         aria-controls="updateaddress" aria-selected="true">Edit</a>
 
-                                                    <a class="btn-small"  data-bs-toggle="tab" role="tab"
-                                                         id="update-address-tab" aria-controls="updateaddress"
-                                                        aria-selected="true" (click)="deleteAddress(obj.id,i)">Delete</a>
+                                                    <a class="btn-small" data-bs-toggle="tab" role="tab"
+                                                        id="update-address-tab" aria-controls="updateaddress"
+                                                        aria-selected="true"
+                                                        (click)="deleteAddress(obj.id,i)">Delete</a>
                                                 </div>
                                                 >
                                             </div>
@@ -203,7 +205,7 @@
                                                         4299 Express Lane<br />
                                                         Sarasota, <br />FL 34249 USA <br />Phone: 1.941.227.4444
                                                     </address>
-                                                    <p>Sarasota</p>
+
                                                     <a href="#" class="btn-small">Edit</a>
                                                 </div>
 
@@ -211,8 +213,11 @@
 
                                         </div>
                                     </div>
-                                    <button mat-raised-button color="primary" [routerLink]="['/customer/Add-Address']"
-                                        routerLinkActive="router-link-active">Add New Address</button>
+
+                                    <!-- <button   [routerLink]="['/customer/Add-Address']" >Add New Address</button> -->
+                                    <a class="btn-small" data-bs-toggle="tab" role="tab" id="update-address-tab"
+                                        routerLink='/customer/Add-Address' aria-controls="updateaddress"
+                                        aria-selected="true">Add New Address</a>
                                 </div>
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel"
                                     aria-controls="account-detail" aria-labelledby="account-detail-tab">
