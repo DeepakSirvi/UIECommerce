@@ -53,7 +53,7 @@ export class VarientManagementComponent {
     this.varientService.deleteVarientById(id).subscribe((data: any) => {
       Toast.fire({
         icon: 'success',
-        title: data.message,
+        title: data.response.message,
       }).then(e => {
         this.getAllVarient();
       })
@@ -72,7 +72,7 @@ export class VarientManagementComponent {
       this.varientService.deleteSubVarientById(id).subscribe((data: any) => {
         Toast.fire({
           icon: 'success',
-          title: data.message,
+          title: data.response.message,
         }).then(e => {
           this.singleVarient.categoryAttributes.splice(index, 1);
           this.getAllVarient();
@@ -109,6 +109,10 @@ export class VarientManagementComponent {
 
   updatevarientCatByIds() {
     this.varientService.updateVarientCategoryById(this.singleVarient).subscribe((result: any) => {
+      Toast.fire({
+        icon: 'success',
+        title: result.response.message,
+      })
       this.getAllVarient();
     }, (error) => {
       Toast.fire({

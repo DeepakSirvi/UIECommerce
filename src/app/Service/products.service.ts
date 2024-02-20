@@ -61,7 +61,6 @@ export class ProductsService {
   }
 
   getAllProductFilter(filter: AdminProductFilter, pageIndex: number, pageSize: number, sortDir: string): Observable<any> {
-   alert(filter.catId +"/"+ filter.dates +"/"+filter.listingStatus+"/"+filter.status)
     let params = new HttpParams()
       .set('catId', filter.catId.toString())
       .set('date', filter.dates)

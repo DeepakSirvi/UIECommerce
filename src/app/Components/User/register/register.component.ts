@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
         '',
         [
         Validators.required,
-        Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+        Validators.pattern(/^[0-9]{10}$/)
         ]
       ),
       gender:new FormControl(
@@ -93,10 +93,5 @@ export class RegisterComponent implements OnInit {
      },(error)=>{
         this.message=error.error.message;
      })
-
   }
-
-
-
-
 }
