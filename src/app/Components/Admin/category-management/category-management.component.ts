@@ -64,9 +64,7 @@ export class CategoryManagementComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: data.message,
-      }).then(e=>{
-        this.getAllCategories();
-      })  
+      })
 
     },(error)=>{
       Toast.fire({
@@ -101,7 +99,6 @@ export class CategoryManagementComponent implements OnInit {
         title: data.message,
       }).then(e=>{
         this.singleCategory.subCategory.splice(index, 1)
-        this.getAllCategories();
       })  
     },(error)=>{
       Toast.fire({

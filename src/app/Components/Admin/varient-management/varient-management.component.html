@@ -49,11 +49,14 @@
                 </tr>
             </tbody>
         </table>
-        <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+        <mat-paginator *ngIf="varient.length!=0" #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
             [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
             [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
             [pageIndex]="pageIndex" aria-label="Select page">
         </mat-paginator>
+        <div *ngIf="varient.length==0" class="no-products-message animate">
+          <p>Sorry, No Varient Added</p>
+        </div>
     </div>
 </main>
 <!-- Modal -->

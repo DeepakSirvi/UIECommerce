@@ -1,6 +1,6 @@
-<main class="main-wrap" *ngIf="allcategory.length!=0">
+<main class="main-wrap" >
     <app-navbar-admin></app-navbar-admin>
-    <section class="content-main">
+    <section class="content-main" *ngIf="allcategory.length!=0">
         <div class="content-header">
             <div class="col-5">
                 <h2 class="content-title card-title">Products List</h2><span>
@@ -128,11 +128,14 @@
                 </article>
             </div>
         </div>
-        <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+        <mat-paginator *ngIf="productList.length!=0" #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
             [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
             [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
             [pageIndex]="pageIndex" aria-label="Select page">
         </mat-paginator>
+        <div *ngIf="productList.length==0" class="no-products-message animate">
+            <p>Sorry, No Varient Added</p>
+          </div>
     </section>
     <!-- content-main end// -->
     <footer class="main-footer font-xs">

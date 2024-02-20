@@ -24,7 +24,7 @@
           <th scope="col">Action</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         <tr *ngFor="let item of categories;let i=index">
           <th scope="row">{{pageSize*pageIndex+i+1}}</th>
           <td>{{item.categoryName}}</td>
@@ -51,11 +51,14 @@
         </tr>
       </tbody>
     </table>
-    <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+    <mat-paginator *ngIf="categories.length!=0" #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
       [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
       [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
       [pageIndex]="pageIndex" aria-label="Select page">
     </mat-paginator>
+  </div>
+  <div *ngIf="categories.length==0" class="no-products-message animate">
+    <p>Sorry, No catrgory Added</p>
   </div>
 </main>
 <!-- Button trigger modal -->
@@ -100,4 +103,5 @@
       </div>
     </div>
   </div>
+ 
 </div>

@@ -49,7 +49,6 @@ export class LoginOTPVerificationComponent implements OnInit {
           icon:'success',
           title:'Login Successfully '
         })
-
         if (userRole[0].role.roleName === "CUSTOMER") {
           this.route.navigate(['customer'])
           this.loginService.loginStatusSubject.next(true)
@@ -57,6 +56,11 @@ export class LoginOTPVerificationComponent implements OnInit {
         else if (userRole[0].role.roleName === "ADMIN") {
           console.log("admin detected")
           this.route.navigate(['admin'])
+          this.loginService.loginStatusSubject.next(true)
+        }
+        else if (userRole[0].role.roleName === "VENDOR") {
+          console.log("vendor detected")
+          this.route.navigate(['vendor'])
           this.loginService.loginStatusSubject.next(true)
         }
       }
@@ -69,13 +73,10 @@ export class LoginOTPVerificationComponent implements OnInit {
       }
     },
       (error) => {
-        
         Toast.fire({
           icon:'error',
-          title:error.error.message
-          
+          title:error.error.message 
         })
-       
       })
   }
 }
