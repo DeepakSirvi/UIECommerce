@@ -67,6 +67,7 @@ import { ProductDisplyComponent } from './Components/User/product-disply/product
 import { loginGuardGuard } from './Util/Guard/login-guard.guard';
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
+import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
 
 const routes: Routes = [
 
@@ -170,6 +171,10 @@ const routes: Routes = [
         path: "brands",
         component: BrandsComponent,
       
+      },
+      {
+        path:"add-brand",
+        component: AddBrandComponent
       },
       {
         path: "productslist",
