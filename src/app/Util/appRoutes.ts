@@ -70,5 +70,10 @@ export class AppRoutes{
 
 // brand
 public static ADD_BRAND:string = this.baseUrl+"/brand/addBrand";
-
+public static  GET_ALL_BRAND: string = this.baseUrl+"/brand/AllBrand";
+public static  GET_BRAND_USERID: string = this.baseUrl+"/brand/brands";
+public static Delete_BRAND:string = this.baseUrl+"/brand/delete/";
 }
+
+
+
