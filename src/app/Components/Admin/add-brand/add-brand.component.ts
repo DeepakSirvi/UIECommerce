@@ -35,11 +35,13 @@ export class AddBrandComponent implements OnInit {
   public addBrand() {
 
     if (this.myForm.invalid) {
-      console.log(this.myForm.value);
+     
       
       return
     }
      else {
+
+
       this.brandservice.addBrand(this.brand,this.file).subscribe({
         next: (data: any) => {
           console.log(data);

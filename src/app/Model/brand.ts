@@ -13,6 +13,6 @@ export class Brand{
  id:string='';
  brandname:string='';
  status!:Status;
- brandImage!:File;
+ brandImage:any;
  brandDescription:string='';
 }
