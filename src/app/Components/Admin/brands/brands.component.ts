@@ -18,6 +18,7 @@ import { AppRoutes } from 'src/app/Util/appRoutes';
 
 export class BrandsComponent  implements OnInit{
 
+
 length = 50
   pageSize = 10;
   pageIndex = 0;
@@ -32,6 +33,7 @@ length = 50
   user:User =new User();
   brandlist:Brand[]=[]
   imageUrl= AppRoutes.imageUrl
+
   // brandlist = new Map<string, Object>();
   constructor( private brand:BrandService, private login:LoginService,private router:Router, private post: PostService){}
   ngOnInit(): void {
@@ -44,11 +46,6 @@ getAllBrand(){
   this.brand.getAllBrand(this.pageIndex,this.pageSize).subscribe({
     next:(data:any)=>{
       this.brandlist = data.AllBrand
-     
-      console.log(data);
-      console.log(this.brandlist);
-      
-      
     },error:(er:any)=>{
 
     }

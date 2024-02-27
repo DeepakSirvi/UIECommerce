@@ -73,6 +73,8 @@ public static ADD_BRAND:string = this.baseUrl+"/brand/addBrand";
 public static  GET_ALL_BRAND: string = this.baseUrl+"/brand/AllBrand";
 public static  GET_BRAND_USERID: string = this.baseUrl+"/brand/brands";
 public static Delete_BRAND:string = this.baseUrl+"/brand/delete/";
+ public static UPDATE_BRAND: string = this.baseUrl+"/brand/updateBrand";
+public static GETBYID_Brand: string = this.baseUrl+"/brand/brands/";
 }
 
 

@@ -53,11 +53,18 @@
                                             </div>
 
                                             <figcaption class="card-body text-center">
-                                                <h6 class="card-title m-0">{{item.brandname}}</h6>
+                                           
                                                 <a class="btn-small" data-bs-toggle="tab" role="tab"
                                                     id="update-address-tab" aria-controls="updateaddress"
                                                     aria-selected="true"
-                                                    (click)="deleteBrand(item.id,pageIndex)">Delete</a>
+                                                    (click)="deleteBrand(item.id,pageIndex)">Delete</a>     
+
+
+                                                    <a class="btn-small" [routerLink]="'/admin/brandupdate/'+item.id"  style="margin-left: 20px;" data-bs-toggle="tab" role="tab"
+                                                    id="update-address-tab" aria-controls="updateaddress"
+                                                    aria-selected="true"
+                                                    >Update</a>
+
 
                                             </figcaption>
                                         </figure>
