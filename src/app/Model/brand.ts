@@ -11,7 +11,7 @@ import { Status } from "./status";
 export class Brand{
   
  id:string='';
- brandname:string='';
+ brandName:string='';
  status!:Status;
  brandImage:any;
  brandDescription:string='';

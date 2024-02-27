@@ -68,6 +68,7 @@ import { loginGuardGuard } from './Util/Guard/login-guard.guard';
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
 import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
+import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
 
 const routes: Routes = [
 
@@ -146,6 +147,10 @@ const routes: Routes = [
         path: "sellercard",
         component: SellercardsComponent,
       
+      },
+      {
+        path:"brandupdate/:id",
+        component: UpdateBrandComponent
       },
       {
         path: "sellerlist",

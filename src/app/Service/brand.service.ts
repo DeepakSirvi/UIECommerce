@@ -8,6 +8,7 @@ import { PageEvent } from '@angular/material/paginator';
   providedIn: 'root'
 })
 export class BrandService {
+  params: any;
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +38,22 @@ export class BrandService {
 
   public deleteBrand(id:any){
     return this.http.delete(AppRoutes.Delete_BRAND +id);
+  }
+
+  public updateBrand (brand:any,file:any)
+  {
+   
+    let formData: FormData = new FormData
+    formData.append('brandRequest', JSON.stringify(brand))
+    formData.append('brandImage', file)
+
+              
+    return this.http.put(AppRoutes.UPDATE_BRAND, formData);
+
+  }
+
+  public getBrandId(id:any){
+    return this.http.get(AppRoutes.GETBYID_Brand +id);
   }
 
 

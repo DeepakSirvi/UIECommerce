@@ -53,6 +53,10 @@
                 placeholder="Enter Here">
             <h6 *ngIf="myForm.get('locality')!.hasError('required') && myForm.get('locality')!.touched "
                 style="color: red;">Rquired</h6>
+                <!-- <label>
+                    <input type="radio" name="gender" value="male">
+                    Male
+                  </label> -->
 
             <label for="message">LandMark</label>
             <input type="text" id="name" name="name" [(ngModel)]="address.landMark" formControlName="landmark" matInput
@@ -60,12 +64,29 @@
             <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched "
                 style="color: red;">Rquired</h6>
 
-            <label for="message">AddressType</label>
-            <input type="text" id="name" name="name" [(ngModel)]="address.addressType" formControlName="addressType"
-                matInput placeholder="Enter Here">
+            <!-- <label for="message">AddressType</label>
+            <input type="radio" name="gender" value="male" [(ngModel)]="address.addressType" formControlName="addressType">
             <h6 *ngIf="myForm.get('addressType')!.hasError('required') && myForm.get('addressType')!.touched "
-                style="color: red;">Rquired</h6>
-            <button type="submit" (click)="AddAddress()">Submit</button>
-        </form>
-    </div>
+                style="color: red;">Rquired</h6> -->
+                <div class="col-md-6 mb-4">
+                    <h3 class="mb-2 pb-1">Address Type</h3>
+                    <div class="form-check form-check-inline "style="margin-left: 20px;">
+                      <input class="form-check-input" [(ngModel)]="address.addressType" type="radio" formControlName="gender" name="gender" id="femaleGender" value="FEMALE"
+                         checked />
+                      <label class="form-check-label" for="femaleGender">Work</label>
+                    </div>
+                    <div class="form-check form-check-inline" style="margin-left: 20px;">
+
+
+                      <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="maleGender"
+                         value="MALE" />
+
+                      <label class="form-check-label" for="maleGender">Home</label>
+                    </div> 
+                  
+          
+         </div>
+     <button type="submit" (click)="AddAddress()">Submit</button>
+</form>
+
 </div>
