@@ -79,17 +79,17 @@ const routes: Routes = [
       {
         path: "",
         component: HomeComponent,
-      }, 
+      },
     ]
   },
   {
-    path:"switchpanel",
+    path: "switchpanel",
     component: SwitchpanelComponent
   },
   {
     path: "admin",
     component: AdminhomeComponent,
-    canActivate:[adminGuard],
+    canActivate: [adminGuard],
     children: [
       {
         path: 'notification',
@@ -110,7 +110,7 @@ const routes: Routes = [
       },
       {
         path: 'addCategory',
-        component:AddCategoryComponent
+        component: AddCategoryComponent
       },
       {
         path: "add-varient/:id",
@@ -128,41 +128,41 @@ const routes: Routes = [
         path: "",
         component: DashbordComponent
       },
-    
-      
+
+
       {
         path: "orderdetail",
         component: OderdetailComponent
       }, {
         path: "orderlist",
         component: OrderlistComponent,
-      
+
       },
       {
         path: "sellerprofile",
         component: SellerProfileComponent,
-      
+
       },
       {
         path: "sellercard",
         component: SellercardsComponent,
-      
+
       },
       {
-        path:"brandupdate/:id",
+        path: "brandupdate/:id",
         component: UpdateBrandComponent
       },
       {
         path: "sellerlist",
         component: SellerlistComponent,
-      
+
       },
 
-       {
+      {
 
         path: "transaction1",
         component: Transacation1Component,
-      
+
       },
       {
         path: "transaction2",
@@ -175,35 +175,35 @@ const routes: Routes = [
       {
         path: "brands",
         component: BrandsComponent,
-      
+
       },
       {
-        path:"add-brand",
-        component: AddBrandComponent
+        path: "add-brand",
+        component: AddBrandComponent,
       },
       {
         path: "productslist",
         component: ProductslistComponent,
-      
+
       },
       {
         path: "categories",
         component: CategoriesComponent,
-      
+
       },
       {
         path: "settingsample1",
         component: Settingsample1Component,
-      
+
       },
       {
         path: "settingsample2",
         component: Settingsample2Component,
-      
+
       }
     ]
   },
- 
+
   {
     path: "customer",
     component: UserDashBoardComponent,
@@ -226,21 +226,21 @@ const routes: Routes = [
       },
       {
         path: "login",
-       component: LoginComponent,
-       canActivate:[loginGuardGuard]
-      }, 
+        component: LoginComponent,
+        canActivate: [loginGuardGuard]
+      },
       {
         path: "loginotp",
         component: LoginOTPVerificationComponent,
-        canActivate:[otpVerifiedGuard]
+        canActivate: [otpVerifiedGuard]
       },
       {
         path: "register",
         component: RegisterComponent
       },
       {
-        path:"productDisplay/:id",
-        component:ProductDisplyComponent
+        path: "productDisplay/:id",
+        component: ProductDisplyComponent
       },
       {
         path: "shopcheckout",
@@ -255,8 +255,8 @@ const routes: Routes = [
         component: FilterComponent
       },
       {
-         path:"category",
-         component:CategoryComponent
+        path: "category",
+        component: CategoryComponent
       },
       {
         path: "product-categaries",
@@ -277,39 +277,39 @@ const routes: Routes = [
       },
       {
         path: "no-sidebar",
-        component: NoSidebarComponent, 
+        component: NoSidebarComponent,
 
       },
       {
         path: "shop-grid-right",
-        component: ShopGridRightComponent, 
+        component: ShopGridRightComponent,
       },
       {
         path: "shop-grid-left",
-        component: ShopGridLeftComponent, 
+        component: ShopGridLeftComponent,
       },
       {
         path: "shop-list-right",
-        component: ShopListRightComponent, 
+        component: ShopListRightComponent,
       },
       {
         path: "shop-list-left",
-        component: ShopListLeftComponent, 
+        component: ShopListLeftComponent,
       },
       {
         path: "shop-fullwidth",
-        component: ShopFullwidthComponent, 
+        component: ShopFullwidthComponent,
       },
 
       {
-        path:"Add-Address",
-        component:AddAddressComponent,
+        path: "Add-Address",
+        component: AddAddressComponent,
       },
       {
-        path:"update-Address/:id",
-        component:UpdateAddressComponent,
+        path: "update-Address/:id",
+        component: UpdateAddressComponent,
       },
-   
+
       {
         path: "shop-product-vendor",
         component: ShopProductVendorComponent
@@ -324,13 +324,13 @@ const routes: Routes = [
       },
       {
         path: "login",
-       component: LoginComponent,
-       canActivate:[loginGuardGuard]
-      }, 
+        component: LoginComponent,
+        canActivate: [loginGuardGuard]
+      },
       {
         path: "loginotp",
         component: LoginOTPVerificationComponent,
-        canActivate:[otpVerifiedGuard]
+        canActivate: [otpVerifiedGuard]
       },
       {
         path: "register",
@@ -375,35 +375,35 @@ const routes: Routes = [
         component: ProductCategariesComponent
       },
       {
-        path:"productDisplay/:id",
-        component:ProductDisplyComponent
+        path: "productDisplay/:id",
+        component: ProductDisplyComponent
       }
-     
+
     ]
-    
+
   },
 
   {
-    path:"vendor",
+    path: "vendor",
     component: VendorDashboardComponent,
-    canActivate:[vendorGuard],
-    children:[
+    canActivate: [vendorGuard],
+    children: [
       {
         path: "vendor-details1",
-        component: VendorDetails1Component, 
+        component: VendorDetails1Component,
       },
 
       {
         path: "vendor-guide",
-        component: VendorGuideComponent, 
+        component: VendorGuideComponent,
       },
       {
         path: "vendors-grid",
-        component: VendorsGridComponent, 
+        component: VendorsGridComponent,
       },
       {
         path: "vendors-list",
-        component: VendorsListComponent, 
+        component: VendorsListComponent,
       },
       {
         path: "shop-product-vendor",

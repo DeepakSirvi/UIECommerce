@@ -26,6 +26,7 @@ export class AddBrandComponent implements OnInit {
       brandImage: ['', Validators.required]
 
     })
+
   }
   ngOnInit(): void {
 

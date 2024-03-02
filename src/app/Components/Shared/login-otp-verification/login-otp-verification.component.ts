@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRole } from 'src/app/Model/user-role';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
+import { PostService } from 'src/app/Service/post.service';
 import Toast from 'src/app/Util/helper';
 // import { LoginComponent } from '../login/login.component';
 
@@ -15,7 +16,8 @@ export class LoginOTPVerificationComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private route: Router
+    private route: Router,
+    private post:PostService
   ) { }
 
   ngOnInit(): void {
@@ -45,10 +47,7 @@ export class LoginOTPVerificationComponent implements OnInit {
       let userRole: UserRole[] = this.loginService.getUserRole();
       console.log(userRole);
       if (userRole.length==1) {
-        Toast.fire({
-          icon:'success',
-          title:'Login Successfully '
-        })
+      this.post.showSuccess('Successfully Login','Success')
         if (userRole[0].role.roleName === "CUSTOMER") {
           this.route.navigate(['customer'])
           this.loginService.loginStatusSubject.next(true)
@@ -65,10 +64,7 @@ export class LoginOTPVerificationComponent implements OnInit {
         }
       }
       else{
-        Toast.fire({
-          icon:'success',
-          title:'Login Successfully '
-        })
+        this.post.showSuccess('Successfully Login','Success')
         this.route.navigate(['/switchpanel'])
       }
     },
