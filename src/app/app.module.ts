@@ -91,6 +91,9 @@ import { UpdateAddressComponent } from './Components/User/update-address/update-
 import { ToastrModule } from 'ngx-toastr';
 import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor.component';
 import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-vendor.component';
+import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
+import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
+
 
 
 
@@ -125,6 +128,7 @@ import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-
     PurchaseGuideComponent,
     PrivacyPolicyComponent,
     TermsofServiceComponent,
+    BrandsComponent,
     ByVendorsComponent,
     BlogCatrgoryGridComponent,
     NoSidebarComponent,
@@ -158,7 +162,6 @@ import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-
     Transacation1Component,
     Transacation2Component,
     ReviewesComponent,
-    BrandsComponent,
     ProductslistComponent,
     CategoriesComponent,
     Settingsample1Component,
@@ -175,7 +178,8 @@ import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent, UpdateAddressComponent, HomeVendorComponent, NavbarVendorComponent,
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent, UpdateAddressComponent, HomeVendorComponent, NavbarVendorComponent, AddBrandComponent, UpdateBrandComponent,
+
    
   ],
   imports: [
