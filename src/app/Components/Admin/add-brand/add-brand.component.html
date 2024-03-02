@@ -1,9 +1,9 @@
 <div class="container">
     <div class="card">
         <form [formGroup]="myForm">
-          
+        
             <label for="fname">Brand name:</label><br>
-            <input type="text"  name="brandName" placeholder="Enter Here" [(ngModel)]="brand.brandName"    formControlName="brandname"><br>
+            <input type="text"  name="brandName" placeholder="Enter Here"  [(ngModel)]="brand.brandName"    formControlName="brandname"><br>
              <h6 *ngIf="myForm.get('brandname')!.hasError('required') && myForm.get('brandname')!.touched " style="color: red;">
                 Rquired</h6>
 
@@ -22,10 +22,11 @@
                         <h6 *ngIf="myForm.get('brandImage')!.hasError('required') && myForm.get('brandImage')!.touched " style="color: red;">
                             Rquired</h6>
                     </div>
-                    <button   mat-raised-button color="accent" style="margin-left: 40%;" (click)="addBrand()">Submit</button>
+                    <button      mat-button color="primary"
+                    style="margin-left: 40%;" (click)="addBrand()">Submit</button>
                 </div>
         </form>
-        
+     
        
         {{brand |json}}
       

@@ -5,6 +5,7 @@ import { UserRegisterService } from 'src/app/Service/AuthService/user-register.s
 import { FormGroup, Validators , FormControl,} from '@angular/forms';
 import Toast from 'src/app/Util/helper';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
+import { PostService } from 'src/app/Service/post.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   
 
-  constructor(private registerService:UserRegisterService,private route:Router,private loginService:LoginService){
+  constructor(private registerService:UserRegisterService,private route:Router,private loginService:LoginService,private post:PostService){
   }
   userMobiles!:any;
   ngOnInit(): void {
@@ -84,14 +85,10 @@ export class RegisterComponent implements OnInit {
 
   userRegistration(user: FormGroup){ 
      this.registerService.addUser(user.value).subscribe((data:any)=>{
-      Toast.fire({
-        icon:'success',
-        title:data.message
-      }).then(e=>{
-        this.route.navigate(['/customer/login']);
-      })     
+     this.post.showSuccess('Success Registration','Success')
+     this.route.navigate(['/customer/login'])
      },(error)=>{
-        this.message=error.error.message;
+        this.post.showerror('Error Ragistration','Error')
      })
   }
 }

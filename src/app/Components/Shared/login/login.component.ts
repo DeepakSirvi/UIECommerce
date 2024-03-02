@@ -4,6 +4,7 @@ import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { FormGroup, Validator , FormControl, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
 import Toast from 'src/app/Util/helper';
+import { PostService } from 'src/app/Service/post.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import Toast from 'src/app/Util/helper';
 })
 export class LoginComponent {
 
-  constructor( private login: LoginService, private route: Router) { }
+  constructor( private login: LoginService, private route: Router,private post:PostService) { }
 
   loginForm = new FormGroup({
     userMobile: new FormControl('',
@@ -32,17 +33,11 @@ export class LoginComponent {
     this.otp.userMobile=mobile.value.userMobile;
     this.login.mobNew.next(mobile.value.userMobile);   
     this.login.generateOtp(this.otp).subscribe((data: any) => {
-      Toast.fire({
-        icon: 'success',
-        title: 'Otp Generated <span style="color: red;">' + data.otp + '</span>',
-      }).then(e=>{
-        this.route.navigate(['/customer/loginotp']);
-      })    
+    this.post.showSuccess(' Success LOgin','Otp Generated  '  +  data.otp ,5000)
+
+    this.route.navigate(['/customer/loginotp'])
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+     this.post.showerror('Login Error','Error')
       this.route.navigate(['/customer/register'])
     });
   }
