@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
 
 
     this.getUserDetails();
-    this.getAddress();
+    // this.getAddress();
   }
 
   constructor(private userService: UserRegisterService, private login: LoginService, private route: Router, private address: AddressService, private post: PostService, private _route: ActivatedRoute) { }
