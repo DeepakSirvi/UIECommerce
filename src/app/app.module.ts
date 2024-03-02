@@ -89,9 +89,10 @@ import { NewProductComponent } from './Components/User/new-product/new-product.c
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor.component';
+import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-vendor.component';
 import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
 import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
-
 
 
 
@@ -177,7 +178,8 @@ import { UpdateBrandComponent } from './Components/update-brand/update-brand.com
     AddVarientComponent,
     VarientManagementComponent,
     VarientCategoryComponent, 
-    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent, UpdateAddressComponent, AddBrandComponent, UpdateBrandComponent,
+    NotificationComponent, ProductDetailComponent, ProductDisplyComponent, NewProductComponent,AddAddressComponent, UpdateAddressComponent, HomeVendorComponent, NavbarVendorComponent, AddBrandComponent, UpdateBrandComponent,
+
    
   ],
   imports: [
