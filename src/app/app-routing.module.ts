@@ -67,6 +67,7 @@ import { ProductDisplyComponent } from './Components/User/product-disply/product
 import { loginGuardGuard } from './Util/Guard/login-guard.guard';
 import { AddAddressComponent } from './Components/User/add-address/add-address.component';
 import { UpdateAddressComponent } from './Components/User/update-address/update-address.component';
+import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor.component';
 
 const routes: Routes = [
 
@@ -169,17 +170,14 @@ const routes: Routes = [
       {
         path: "brands",
         component: BrandsComponent,
-      
       },
       {
         path: "productslist",
         component: ProductslistComponent,
-      
       },
       {
         path: "categories",
         component: CategoriesComponent,
-      
       },
       {
         path: "settingsample1",
@@ -375,9 +373,13 @@ const routes: Routes = [
 
   {
     path:"vendor",
-    component: VendorDashboardComponent,
+    component: HomeVendorComponent,
     canActivate:[vendorGuard],
     children:[
+      {
+        path:"",
+        component:VendorDashboardComponent
+      },
       {
         path: "vendor-details1",
         component: VendorDetails1Component, 
