@@ -7,21 +7,20 @@ import { AppRoutes } from '../Util/appRoutes';
 })
 export class WishlistService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  addToWishList(id:any){
-    return this.http.post(AppRoutes.ADD_WISHLIST+"?varientId="+`${id}`,{});
+  addToWishList(id: any) {
+    return this.http.post(AppRoutes.ADD_WISHLIST + "?varientId=" + `${id}`, {});
   }
 
-  isProductAddToWishList(id:any){
-    return this.http.get(AppRoutes.CHECK_IN_WISHLIST+"/varientExist"+"?varientId="+`${id}`);
+  isProductAddToWishList(id: any) {
+    return this.http.get(AppRoutes.CHECK_IN_WISHLIST + "/varientExist" + "?varientId=" + `${id}`);
   }
-  removeToWishList(id:any)
-  {
-    return this.http.delete(AppRoutes.DELETE_WISHLIST +"?varientId="+`${id}`);
+  removeToWishList(id: any) {
+    return this.http.delete(AppRoutes.DELETE_WISHLIST + "?varientId=" + `${id}`);
   }
 
-  getWishlist(){
-    return this.http.get(AppRoutes.CHECK_IN_WISHLIST+"/all");
+  getWishlist() {
+    return this.http.get(AppRoutes.CHECK_IN_WISHLIST + "/all");
   }
 }
