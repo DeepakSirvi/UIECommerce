@@ -244,7 +244,7 @@ const routes: Routes = [
         component:ProductDisplyComponent
       },
       {
-        path: "shopcheckout",
+        path: "shopCheckOut",
         component: ShopCheckoutComponent
       },
       {
