@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { HomeComponent } from '../home/home.component';
 import { CartService } from 'src/app/Service/cart.service';
 import { UserDashBoardComponent } from '../user-dash-board/user-dash-board.component';
+import { PostService } from 'src/app/Service/post.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ export class NavbarComponent {
 
 
   constructor(private login: LoginService,private productService:ProductsService, private route: Router, private categoryService: CategoryService,
-    private cartService:CartService,private activeRoute:ActivatedRoute,private userDashboard:UserDashBoardComponent) { }
+    private cartService:CartService,private activeRoute:ActivatedRoute,private userDashboard:UserDashBoardComponent, private post: PostService) { }
   isUserActive = false;
   user: any = null;
   allcategory: Category[] = [];
@@ -74,7 +75,7 @@ export class NavbarComponent {
         this.login.logout();
         this.baseRoute='';
         this.route.navigate(['']);
-        Swal.fire('Logged Out!', 'You have been logged out.', 'success');
+        this.post.showSuccess('Logout Succesfully','Success')
       }
     });
   }

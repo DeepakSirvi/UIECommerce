@@ -5,8 +5,8 @@
 
         <h2>Add Address</h2>
 
-
-        <form  [formGroup]="myForm">
+{{address | json}}
+        <form  [formGroup]="myForm"  (ngSubmit)="AddAddress()">
             <!-- Text input for Name -->
             <label for="name"> Name:</label>
 
@@ -71,22 +71,22 @@
                 <div class="col-md-6 mb-4">
                     <h3 class="mb-2 pb-1">Address Type</h3>
                     <div class="form-check form-check-inline "style="margin-left: 20px;">
-                      <input class="form-check-input" [(ngModel)]="address.addressType" type="radio" formControlName="gender" name="gender" id="femaleGender" value="FEMALE"
+                      <input class="form-check-input" [(ngModel)]="address.addressType" type="radio" formControlName="addressType" name="addressType" id="femaleGender" value="Work"
                          checked />
                       <label class="form-check-label" for="femaleGender">Work</label>
                     </div>
                     <div class="form-check form-check-inline" style="margin-left: 20px;">
 
 
-                      <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="maleGender"
-                         value="MALE" />
+                      <input class="form-check-input" type="radio" formControlName="addressType" name="addressType" id="maleGender"
+                         value="Home" />
 
                       <label class="form-check-label" for="maleGender">Home</label>
                     </div> 
                   
           
          </div>
-     <button type="submit" (click)="AddAddress()">Submit</button>
+     <button mat type="submit" >Submit</button>
 </form>
 
 </div>
