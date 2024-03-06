@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
 
 
     this.getUserDetails();
-    // this.getAddress();
+     this.getAddress();
   }
 
   constructor(private userService: UserRegisterService, private login: LoginService, private route: Router, private address: AddressService, private post: PostService, private _route: ActivatedRoute) { }
@@ -87,7 +87,7 @@ export class AccountComponent implements OnInit {
     this.address.deleteAddress(id).subscribe({
       next: (data: any) => {
         this.post.showSuccess('Address Deleted', 'Success')
-        // this.getAddress();
+       //  this.getAddress();
         this.addresslist.splice(index, 1);
         this.route.navigate(['/customer/account'])
 
