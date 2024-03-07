@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit {
      this.post.showSuccess('Success Registration','Success')
      this.route.navigate(['/customer/login'])
      },(error)=>{
-        this.post.showerror('Error Ragistration','Error')
+        this.post.showerror(error.error.message,'Error')
      })
   }
 }
