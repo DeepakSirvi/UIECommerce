@@ -387,15 +387,9 @@ const routes: Routes = [
 
   {
     path: "vendor",
-    component: VendorDashboardComponent,
+    component: HomeVendorComponent,
     canActivate: [vendorGuard],
     children: [
-
-    path:"vendor",
-    component: HomeVendorComponent,
-    canActivate:[vendorGuard],
-    children:[
-
       {
         path:"",
         component:VendorDashboardComponent
