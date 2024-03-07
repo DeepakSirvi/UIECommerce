@@ -70,7 +70,6 @@ import { MyInterceptorInterceptor, authInterceptorProviders } from './Util/my-in
 import { CategoryManagementComponent } from './Components/Admin/category-management/category-management.component';
 import { AddProductGoutamComponent } from './Components/Admin/add-product-goutam/add-product-goutam.component';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { AddVarientComponent } from './Components/Admin/add-varient/add-varient.component';
@@ -93,7 +92,7 @@ import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor
 import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-vendor.component';
 import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
 import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
-
+import{ MatButtonModule} from '@angular/material/button';
 
 
 
@@ -186,7 +185,7 @@ import { UpdateBrandComponent } from './Components/update-brand/update-brand.com
     BrowserModule,
     AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, FormsModule,
     ReactiveFormsModule, CKEditorModule,
-    MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule,
+    MatChipsModule, MatIconModule, MatIconModule, MatPaginatorModule,MatSlideToggleModule,MatButtonModule,
     ToastrModule.forRoot({
       maxOpened:1
     })
