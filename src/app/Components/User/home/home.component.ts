@@ -2,10 +2,11 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/Model/product';
+import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { WishlistService } from 'src/app/Service/wishlist.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ import Toast from 'src/app/Util/helper';
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   newProductLimit=5;
-  constructor(private productService: ProductsService, private activeRoute: ActivatedRoute,private wishlistService:WishlistService) { }
+  constructor(private productService: ProductsService,private post:PostService, private activeRoute: ActivatedRoute,private wishlistService:WishlistService) { }
   imageUrl = AppRoutes.imageUrl;
   productSearch: string = '';
   sortDir: string = "ASC";
@@ -75,10 +76,11 @@ export class HomeComponent implements OnInit {
       this.products = result.AllProduct.content;
       this.length = result.AllProduct.totalElements;
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.getAllProduct();
     })
   }
@@ -87,10 +89,11 @@ export class HomeComponent implements OnInit {
       this.products = result.AllProduct.content;
       this.length = result.AllProduct.totalElements;
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.getAllProduct();
     })
   }

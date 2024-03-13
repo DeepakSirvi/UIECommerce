@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
+import { PostService } from 'src/app/Service/post.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import Toast from 'src/app/Util/helper';
 
@@ -17,7 +18,7 @@ export class VarientCategoryComponent {
 
   msg: string = '';
   subMsg: string = '';
-  constructor(private varientService: VarientService,private route:Router) { }
+  constructor(private varientService: VarientService,private route:Router,private post:PostService) { }
 
   
   onSubmit() {
@@ -30,14 +31,15 @@ export class VarientCategoryComponent {
           Toast.fire({
             icon: 'success',
             title: result.response.message,
-          }).then(e=>{
+          }).then((e: any)=>{
             this.route.navigate(['/admin/varientmanage']);
           })  
         }, (error) => {
-          Toast.fire({
-            icon: 'error',
-            title: error.error.message
-          })
+          // Toast.fire({
+          //   icon: 'error',
+          //   title: error.error.message
+          // })
+          this.post.showerror(error.error.message,'Error')
         })
       }
       else if(index===-1){

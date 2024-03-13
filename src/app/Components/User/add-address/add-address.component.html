@@ -1,13 +1,13 @@
-<div class="container">
+<!-- <div class="container">
 
     <div class="card">
 
 
-        <h2>Add Address</h2>
+        <h2 style="text-align: center;">Add Address</h2>
 
-{{address | json}}
+
         <form  [formGroup]="myForm"  (ngSubmit)="AddAddress()">
-            <!-- Text input for Name -->
+           
             <label for="name"> Name:</label>
 
             <input type="text" id="name" name="name" [(ngModel)]="address.name" name="Name" matInput
@@ -53,10 +53,7 @@
                 placeholder="Enter Here">
             <h6 *ngIf="myForm.get('locality')!.hasError('required') && myForm.get('locality')!.touched "
                 style="color: red;">Rquired</h6>
-                <!-- <label>
-                    <input type="radio" name="gender" value="male">
-                    Male
-                  </label> -->
+              
 
             <label for="message">LandMark</label>
             <input type="text" id="name" name="name" [(ngModel)]="address.landMark" formControlName="landmark" matInput
@@ -64,10 +61,7 @@
             <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched "
                 style="color: red;">Rquired</h6>
 
-            <!-- <label for="message">AddressType</label>
-            <input type="radio" name="gender" value="male" [(ngModel)]="address.addressType" formControlName="addressType">
-            <h6 *ngIf="myForm.get('addressType')!.hasError('required') && myForm.get('addressType')!.touched "
-                style="color: red;">Rquired</h6> -->
+            
                 <div class="col-md-6 mb-4">
                     <h3 class="mb-2 pb-1">Address Type</h3>
                     <div class="form-check form-check-inline "style="margin-left: 20px;">
@@ -89,4 +83,94 @@
      <button mat type="submit" >Submit</button>
 </form>
 
+</div> -->
+
+
+<div class="container">
+    <h1 style="text-align: center;"> Add Address</h1>
+    <div class="row">
+      <form   class="col s12"   [formGroup]="myForm"  (ngSubmit)="AddAddress()">
+       
+        
+        <div class="row">
+          <div class="input-field col s12 m12 l6">
+            <input id="address" type="text" required class="validate" [(ngModel)]="address.name"  name="name" formControlName="name" title="Please enter a first Name between 3-25 characters" length="25">
+            <label for="first_name">Name</label>
+            <h6 *ngIf="myForm.get('name')!.hasError('required') && myForm.get('name')!.touched " style="color: red;">
+                Rquired</h6>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="address" type="number" required class="validate"   [(ngModel)]="address.pincode" formControlName="pincode"  name="pincode" title="Please enter a valid address">
+            <label for="address">Pincode</label>
+            <h6 *ngIf="myForm.get('pincode')!.hasError('required') && myForm.get('pincode')!.touched " style="color: red;">
+                Rquired</h6>
+          </div>
+        </div>
+        <div class="row">
+        
+          <div class="input-field col s12 m12 l6">
+            <input id="city" type="text" required class="validate" name="city" [(ngModel)]="address.city" formControlName="city" title="Please enter a valid City" >
+            <label for="city">City</label>
+            <h6 *ngIf="myForm.get('city')!.hasError('required') && myForm.get('city')!.touched " style="color: red;">
+                Rquired</h6>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="town" type="text" required class="validate" name="state" formControlName="state" [(ngModel)]="address.state"  title="Please enter a valid City/Town" >
+            <label for="town">State</label>
+            <h6 *ngIf="myForm.get('state')!.hasError('required') && myForm.get('state')!.touched " style="color: red;">
+              Rquired</h6>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s12 m12 l6">
+               
+                <input id="phone" type="tel"  name="phone" formControlName="phone" [(ngModel)]="address.mobile" required title="Please enter a valid phone number (e.g., (123) 456-7890)" class="validate">
+                 <label for="phone-number">Phone Number</label>
+                <h6 *ngIf="myForm.get('phone')!.hasError('required') && myForm.get('phone')!.touched " style="color: red;">
+                  Rquired</h6>
+              </div>
+          <div class="input-field col s12 m12 l6">
+           >
+            <input id="alternateMobile" type="tel"   name="alternateMobile" [(ngModel)]="address.alternateMobile" formControlName="alternateMobile"  required title="Please enter a valid phone number (e.g., (123) 456-7890)"  class="validate">
+            <label for="phone-number"> Alt-PhoneNumber</label> 
+            <h6 *ngIf="myForm.get('alternateMobile')!.hasError('required') && myForm.get('alternateMobile')!.touched " style="color: red;">
+              Rquired</h6>
+            
+          </div>
+           
+        </div>
+        <div class="input-field col s12 m12 l6">
+            <input id="first_name" type="text" required class="validate" name="locality"  [(ngModel)]="address.locality" formControlName="locality"  title="Please enter a first Name between 3-25 characters" length="25">
+            <label for="locality">Locality</label>
+            <h6 *ngIf="myForm.get('locality')!.hasError('required') && myForm.get('locality')!.touched " style="color: red;">
+              Rquired</h6>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="landMark" type="text" required class="validate" formControlName="landmark" [(ngModel)]="address.landMark"  name="landmark"  title="Please enter a LandMark between 3-25 characters" length="25">
+            <label for="landMark ">LandMark</label>
+            <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched "
+            style="color: red;">Rquired</h6>
+
+          </div>
+          <h3 class="mb-2 pb-1">Address Type</h3>
+          <div class="form-check form-check-inline "style="margin-left: 20px;">
+            <input class="form-check-input" [(ngModel)]="address.addressType" type="radio" formControlName="addressType" name="addressType" id="femaleGender" value="Work"
+               checked />
+            <label class="form-check-label" for="femaleGender">Work</label>
+          </div>
+          <div class="form-check form-check-inline" style="margin-left: 20px;">
+
+
+            <input class="form-check-input" type="radio" formControlName="addressType" name="addressType" id="maleGender"
+               value="Home" />
+
+            <label class="form-check-label" for="maleGender">Home</label>
+          </div> 
+        
+        <button class="waves-effect waves-light btn right" type="submit">Submit</button>
+      </form>
+    </div>
+  
 </div>
+  

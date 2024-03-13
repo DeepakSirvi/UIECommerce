@@ -80,7 +80,7 @@ export class ProductslistComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: data.response
-      }).then(e => {
+      }).then((e: any) => {
         this.getAllProducts();
         // this.route.navigate(['/admin/productslist']);
       })
@@ -88,7 +88,7 @@ export class ProductslistComponent implements OnInit {
         Toast.fire({
           icon: 'error',
           title: error.error.message
-        }).then(e => {
+        }).then((e: any) => {
           this.getAllProducts();
           // this.route.navigate(['/admin/productslist']);
         })
@@ -112,7 +112,7 @@ export class ProductslistComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: data.response
-      }).then(e => {
+      }).then((e: any) => {
         this.getAllProducts();
         // this.route.navigate(['/admin/productslist']);
       })
@@ -120,7 +120,7 @@ export class ProductslistComponent implements OnInit {
       Toast.fire({
         icon: 'error',
         title: error.error.message
-      }).then(e => {
+      }).then((e: any) => {
         this.getAllProducts();
         // this.route.navigate(['/admin/productslist']);
       })

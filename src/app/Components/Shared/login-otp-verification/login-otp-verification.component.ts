@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { UserRole } from 'src/app/Model/user-role';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { PostService } from 'src/app/Service/post.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 // import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -69,10 +69,11 @@ export class LoginOTPVerificationComponent implements OnInit {
       }
     },
       (error) => {
-        Toast.fire({
-          icon:'error',
-          title:error.error.message 
-        })
+        // Toast.fire({
+        //   icon:'error',
+        //   title:error.error.message 
+        // })
+        this.post.showerror(error.error.message,'Error')
       })
   }
 }

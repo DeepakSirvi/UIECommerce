@@ -75,7 +75,7 @@ export class AccountComponent implements OnInit {
         this.addresslist = data;
       },
       error: (er: any) => {
-      }
+      } 
     })
   }
 
@@ -86,14 +86,17 @@ export class AccountComponent implements OnInit {
     // alert(id)
     this.address.deleteAddress(id).subscribe({
       next: (data: any) => {
-        this.post.showSuccess('Address Deleted', 'Success')
-       //  this.getAddress();
+        this.post.showSuccess(data.response, 'Success')
+       
         this.addresslist.splice(index, 1);
+        this.getAddress(); 
+       
         this.route.navigate(['/customer/account'])
 
       },
       error: (er: any) => {
-        this.post.showerror('Deleted Error', 'Error')
+        this.post.showerror(er.error.message,'Error');
+        
       }
     })
   }

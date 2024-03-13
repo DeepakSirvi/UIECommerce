@@ -9,6 +9,7 @@ import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-categ
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import Toast from 'src/app/Util/helper';
 import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
+import { PostService } from 'src/app/Service/post.service';
 
 @Component({
   selector: 'app-add-varient',
@@ -23,7 +24,7 @@ export class AddVarientComponent {
   selectedValues: { category: string, attribute: string, attributeId: string }[] = [];
   newVarientCategory!: VarientCategory;
 
-  constructor(private varientService: VarientService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private varientService: VarientService, private route: ActivatedRoute,private post: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.varientRequest.productId = this.route.snapshot.params['id'];
@@ -70,10 +71,11 @@ export class AddVarientComponent {
         })
       },
       (error) => {
-        Toast.fire({
-          icon: 'error',
-          title: error.error.message
-        })
+        // Toast.fire({
+        //   icon: 'error',
+        //   title: error.error.message
+        // })
+        this.post.showerror(error.error.message,'Error')
       }
     );
   }

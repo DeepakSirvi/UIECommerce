@@ -5,11 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/Model/cart';
 import { CartService } from 'src/app/Service/cart.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { DashbordComponent } from '../../Admin/dashbord/dashbord.component';
 import Swal from 'sweetalert2';
 import { SaveforlaterService } from 'src/app/Service/saveforlater.service';
 import { SaveForLater } from 'src/app/Model/save-for-later';
+import { PostService } from 'src/app/Service/post.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -18,7 +19,7 @@ import { SaveForLater } from 'src/app/Model/save-for-later';
 })
 export class ShopCartComponent implements OnInit {
   constructor(private cartService: CartService, private activeRoute: ActivatedRoute,private route:Router
-   ,private location:Location,private saveForLaterService:SaveforlaterService) {
+   ,private location:Location,private saveForLaterService:SaveforlaterService,private post:PostService) {
   }
   imageUrl = AppRoutes.imageUrl;
   productId!: number;
@@ -83,16 +84,18 @@ export class ShopCartComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.cartService.deleteCartItem(id).subscribe((data: any) => {
-          Toast.fire({
-            icon: 'success',
-            title: data.message,
-          })
+          // Toast.fire({
+          //   icon: 'success',
+          //   title: data.message,
+          // })
+          this.post.showSuccess(data.message,'Success')
           this.getCart();
         }, (error) => {
-          Toast.fire({
-            icon: 'error',
-            title: error.error.message
-          })
+          // Toast.fire({
+          //   icon: 'error',
+          //   title: error.error.message
+          // })
+          this.post.showerror(error.error.message,'Error')
         });
       }
     });   
@@ -110,16 +113,18 @@ export class ShopCartComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.saveForLaterService.deleteSaveForLater(id).subscribe((data: any) => {
-          Toast.fire({
-            icon: 'success',
-            title: data.message,
-          })
+          // Toast.fire({
+          //   icon: 'success',
+          //   title: data.message,
+          // })
+          this.post.showSuccess(data.message,'Success')
           this.getSaveForLater();                       
         }, (error) => {
-          Toast.fire({
-            icon: 'error',
-            title: error.error.message
-          })
+          // Toast.fire({
+          //   icon: 'error',
+          //   title: error.error.message
+          // })
+          this.post.showerror(error.error.message,'Error')
         });
       }
     });   
@@ -127,19 +132,21 @@ export class ShopCartComponent implements OnInit {
 
   addSaveForLater(id:any,cartId:any){
     this.saveForLaterService.addToSaveForLater(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      })
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
       this.cartService.deleteCartItem(cartId).subscribe((data:any)=>{
         this.getCart();
       })
       this.getSaveForLater();
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     });
   }
 

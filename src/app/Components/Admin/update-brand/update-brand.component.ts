@@ -6,7 +6,7 @@ import { timer } from 'rxjs';
 import { Brand } from 'src/app/Model/brand';
 import { BrandService } from 'src/app/Service/brand.service';
 import { PostService } from 'src/app/Service/post.service';
-import { HelperService } from 'src/app/Util/helper.service';
+
 
 @Component({
   selector: 'app-update-brand',
@@ -19,7 +19,7 @@ export class UpdateBrandComponent implements OnInit {
   id: any
   file: any;
   myForm: any;
-  constructor(private _brand: BrandService, private fs: FormBuilder, private router: Router, private helper: HelperService, private post: PostService, private activatedRoute: ActivatedRoute) {
+  constructor(private _brand: BrandService, private fs: FormBuilder, private router: Router,  private post: PostService, private activatedRoute: ActivatedRoute) {
 
     //   this.myForm = this.fs.group({
     //     name: ['', Validators.required],
@@ -68,13 +68,13 @@ export class UpdateBrandComponent implements OnInit {
       this._brand.updateBrand( this.brand, this.file).subscribe({
         next: (data: any) => {
 
-          this.helper.showSuccess('Success Update', 'Success')
+          this.post.showSuccess('Success Update', 'Success')
           timer: 3000;
           this.router.navigate(['/admin/brands'])
 
         },
         error: (er: any) => {
-          this.helper.showerror('Error Updated', 'Error')
+          this.post.showerror('Error Updated', 'Error')
         }
       });
     }

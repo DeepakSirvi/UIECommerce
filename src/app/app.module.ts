@@ -91,7 +91,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor.component';
 import { NavbarVendorComponent } from './Components/Vendor/navbar-vendor/navbar-vendor.component';
 import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
-import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
+import { UpdateBrandComponent } from './Components/Admin/update-brand/update-brand.component';
 import{ MatButtonModule} from '@angular/material/button';
 
 

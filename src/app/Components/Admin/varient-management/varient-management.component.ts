@@ -5,6 +5,7 @@ import { VarientAttribute } from 'src/app/Model/varient-attribute';
 import { VarientCategory } from 'src/app/Model/varient-category';
 import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
+import { PostService } from 'src/app/Service/post.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import Toast from 'src/app/Util/helper';
 
@@ -18,7 +19,7 @@ export class VarientManagementComponent {
     this.getAllVarient();
   }
 
-  constructor(private varientService: VarientService) { }
+  constructor(private varientService: VarientService, private post:PostService) { }
   singleVarient: VarientCategory = new VarientCategory();
   varient: VarientCategory[] = [];
   varientSearch: string = '';
@@ -54,15 +55,17 @@ export class VarientManagementComponent {
       Toast.fire({
         icon: 'success',
         title: data.response.message,
-      }).then(e => {
+      }).then((e: any) => {
         this.getAllVarient();
       })
 
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+     // })
+
+     this,this.post.showerror(error.error.message,'Error')
     })
   }
   deleteSubVarient(id: any, index: any) {
@@ -73,15 +76,18 @@ export class VarientManagementComponent {
         Toast.fire({
           icon: 'success',
           title: data.response.message,
-        }).then(e => {
+        })
+        
+        .then((e: any) => {
           this.singleVarient.categoryAttributes.splice(index, 1);
           this.getAllVarient();
         })
       }, (error) => {
-        Toast.fire({
-          icon: 'error',
-          title: error.error.message
-        })
+        // Toast.fire({
+        //   icon: 'error',
+        //   title: error.error.message
+        // })
+        this.post.showerror(error.error.message,'Error')
       })
     }
   }
@@ -109,16 +115,18 @@ export class VarientManagementComponent {
 
   updatevarientCatByIds() {
     this.varientService.updateVarientCategoryById(this.singleVarient).subscribe((result: any) => {
-      Toast.fire({
-        icon: 'success',
-        title: result.response.message,
-      })
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: result.response.message,
+      // })
+      this.post.showSuccess(result.response.message,'Success')
       this.getAllVarient();
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.getAllVarient();
     })
   }
