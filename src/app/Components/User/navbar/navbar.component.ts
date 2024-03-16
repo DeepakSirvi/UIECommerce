@@ -20,7 +20,22 @@ export class NavbarComponent {
 
 
   constructor(private login: LoginService,private productService:ProductsService, private route: Router, private categoryService: CategoryService,
-    private cartService:CartService,private activeRoute:ActivatedRoute,private userDashboard:UserDashBoardComponent, private post: PostService) { }
+    private cartService:CartService,private activeRoute:ActivatedRoute,private userDashboard:UserDashBoardComponent, private post: PostService) {
+      this.login.loginStatusSubject.asObservable().subscribe(data=>{
+        this.isUserActive=this.login.isLoggedIn()
+      if(this.isUserActive)
+      {
+        this.getCountNavBar();
+      } 
+    });
+
+    this.cartService.navbarCount.subscribe(data=>{
+      if(this.isUserActive)
+      {
+        this.getCountNavBar();
+      }
+    });
+     }
   isUserActive = false;
   user: any = null;
   allcategory: Category[] = [];
@@ -37,17 +52,7 @@ export class NavbarComponent {
   ngOnInit() {
     this.isUserActive = this.login.isLoggedIn();
     this.user = this.login.getUser();
-    this.login.loginStatusSubject.asObservable().subscribe(data=>{
-      this.isUserActive=this.login.isLoggedIn()
-    });
-    if(this.isUserActive)
-    {
-      this.cartService.navbarCount.subscribe((data)=>{
-        if(data.count[0][1]!=null)
-        this.productToCart=data.count[0][1];
-        this.productToWishList=data.count[1][1];
-      })
-    } 
+    
       // this.baseRoute='/customer';
     this.categoryService.getCategories().subscribe((result: any) => {
       this.allcategory = result.AllCategory;
@@ -77,6 +82,14 @@ export class NavbarComponent {
         this.route.navigate(['']);
         this.post.showSuccess('Logout Succesfully','Success')
       }
+    });
+  }
+
+  getCountNavBar(){
+    this.cartService.navbarCount.subscribe((data)=>{
+      if(data.count[0][1]!=null)
+      this.productToCart=data.count[0][1];
+      this.productToWishList=data.count[1][1];
     });
   }
 
