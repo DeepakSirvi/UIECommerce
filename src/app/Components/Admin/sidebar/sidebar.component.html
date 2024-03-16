@@ -1,95 +1,87 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
-        <a class="brand-wrap">
-            <img src="assets/imgs/theme/logo.svg" class="logo" alt="Nest Dashboard" />
-        </a>
-        <div>
-            <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open">
-                
-            </i></button>
-        </div>
+        <a class="brand-wrap"><img src="assets/imgs/theme/logo.svg" class="logo" alt="Nest Dashboard" /></a>
+        <div> <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open"></i></button></div>
     </div>
-    <nav>
-        <ul class="menu-aside">
-            <li class="menu-item active" routerLink="/admin">
-                <a class="menu-link">
-                    <i class="icon material-icons md-home"></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+  
+            <ul class="menu-aside">
+                <li class="menu-item active" routerLink="/admin">
+                    <a class="menu-link">
+                        <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+          
             <li class="menu-item">
                 <a class="menu-link" [routerLink]="['/admin/productslist']"  >
                     <i class="icon material-icons md-local_offer"></i>
                     <span class="text"> Products </span>
                 </a>
-            </li>    <br> <br>      
-          
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/orderlist']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Order </span>
-                </a>
-            </li><br>
+            </li>      
+            
         
-           
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/sellerprofile']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Seller </span>
-                </a>
-            </li>
-            <!-- <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/add-product-goutam']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Add Products </span>
-                </a>
-            </li> -->
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/categoryManage']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Category Management </span>
-                </a>
-            </li>
-            <!-- <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/add-varient']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Add Varient </span>
-                </a>
-            </li> -->
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/varientmanage']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Varient Management </span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/transaction2']"  >
-                    <i class="icon material-icons md-local_offer"></i>
-                    <span class="text"> Transaction </span>
-                </a>
-            </li><br>
 
-        
-          
-            <li class="menu-item">
-                <a class="menu-link"  [routerLink]="['/admin/reviewes']" >
-                    <i class="icon material-icons md-comment"></i>
-                    <span class="text">Reviews</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a class="menu-link" [routerLink]="['/admin/brands']" > <i class="icon material-icons md-stars"></i> <span
-                        class="text">Brands</span> </a>
-            </li>
-            <li class="menu-item">
-                <a class="menu-link" disabled href="#">
-                    <i class="icon material-icons md-pie_chart"></i>
-                    <span class="text">Statistics</span>
-                </a>
-            </li>
-        </ul>
-        <hr />
-        <ul class="menu-aside">
+        <li class="menu-item">
+            <a class="menu-link" [routerLink]="['/admin/sellerprofile']"  >
+                <i class="icon material-icons md-local_offer"></i>
+                <span class="text"> Seller </span>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a class="menu-link" [routerLink]="['/admin/add-product-goutam']"  >
+                <i class="icon material-icons md-local_offer"></i>
+                <span class="text"> Add Products </span>
+            </a>
+        </li> 
+        <li class="menu-item">
+            <a class="menu-link" [routerLink]="['/admin/categoryManage']"  >
+                <i class="icon material-icons md-local_offer"></i>
+                <span class="text"> Category Management </span>
+            </a>
+        </li>
+         <li class="menu-item">
+            <a class="menu-link" [routerLink]="['/admin/add-varient']"  >
+                <i class="icon material-icons md-local_offer"></i>
+                <span class="text"> Add Varient </span>
+            </a>
+        </li> 
+         <li>
+        <a class="menu-link" [routerLink]="['/admin/varientmanage']"  >
+            <i class="icon material-icons md-local_offer"></i>
+            <span class="text"> Varient Management </span>
+        </a>
+    </li>
+
+    <li class="menu-item">
+        <a class="menu-link" [routerLink]="['/admin/transaction2']"  >
+            <i class="icon material-icons md-local_offer"></i>
+            <span class="text"> Transaction </span>
+        </a>
+    </li>
+
+
+  
+    <li class="menu-item">
+        <a class="menu-link"  [routerLink]="['/admin/reviewes']" >
+            <i class="icon material-icons md-comment"></i>
+            <span class="text">Reviews</span>
+        </a>
+    </li>
+
+
+    <li class="menu-item">
+        <a class="menu-link" [routerLink]="['/admin/brands']" > 
+            <i class="icon material-icons md-stars"></i>
+             <span class="text">Brands</span> </a>
+    </li>
+
+    <li class="menu-item">
+        <a class="menu-link" disabled href="#"> <i class="icon material-icons md-pie_chart"></i>
+            <span class="text">Statistics</span>
+        </a>
+    </li>
+           
             <li class="menu-item">
                 <a class="menu-link"  [routerLink]="['/admin/settingsample1']" >
                     <i class="icon material-icons md-comment"></i>
@@ -104,7 +96,10 @@
                 </a>
             </li>
         </ul>
-        <br />
-        <br />
-    </nav>
+
 </aside>
+
+
+
+
+
