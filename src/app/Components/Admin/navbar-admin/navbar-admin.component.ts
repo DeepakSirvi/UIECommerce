@@ -5,6 +5,7 @@ import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import Swal from 'sweetalert2';
 import Toast from 'src/app/Util/helper';
+import { PostService } from 'src/app/Service/post.service';
 
 @Component({
   selector: 'app-navbar-admin',
@@ -13,7 +14,7 @@ import Toast from 'src/app/Util/helper';
 })
 export class NavbarAdminComponent implements OnInit {
   user:User = new User();
-  constructor(private userService:UserRegisterService,private login:LoginService,private route:Router){}
+  constructor(private userService:UserRegisterService,private login:LoginService,private route:Router,private post:PostService){}
 
   ngOnInit(): void {
     this.getUserDetails()
@@ -26,15 +27,17 @@ export class NavbarAdminComponent implements OnInit {
 
   public updateUser(){
     this.userService.updateUser(this.user).subscribe((result:any)=>{
-      Toast.fire({
-        icon:'success',
-        title:result.message
-      })
+      // Toast.fire({
+      //   icon:'success',
+      //   title:result.message
+      // })
+      this.post.showSuccess(result.message,'Success')
     },(error)=>{
-      Toast.fire({
-        icon:'error',
-        title:error.error.message
-      })
+      // Toast.fire({
+      //   icon:'error',
+      //   title:error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
 

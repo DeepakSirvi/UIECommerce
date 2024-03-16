@@ -6,6 +6,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Product } from 'src/app/Model/product';
+import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
@@ -26,7 +27,7 @@ export class ProductDetailComponent implements OnInit {
   image1:string =''
   url:any
   on:boolean=false;
-  constructor( private formBuilder:FormBuilder,private varientService:VarientService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+  constructor( private formBuilder:FormBuilder,private varientService:VarientService,private route:ActivatedRoute,private productService:ProductsService,private router:Router,private post:PostService){
     this.productId= this.route.snapshot.params['id'];
   }
   ngOnInit(): void {
@@ -37,10 +38,11 @@ export class ProductDetailComponent implements OnInit {
       this.product=data.Product;    
   
      },(error)=>{{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.router.navigate(['/admin/productslist'])
      }}) 
       setTimeout(() => {
@@ -79,16 +81,18 @@ export class ProductDetailComponent implements OnInit {
       'enctype': 'multipart/form-data'
     });
     this.productService.addProduct(data.value,this.file).subscribe((result:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: result.response.message
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: result.response.message
         
-      })
+      // })
+      this.post.showSuccess(result.response.message,'Success')
     },(error)=>{
-      Toast.fire({
-        icon:'error',
-        title:error.error.message
-      })
+      // Toast.fire({
+      //   icon:'error',
+      //   title:error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   setCategory(data:any){
@@ -114,7 +118,7 @@ export class ProductDetailComponent implements OnInit {
       Toast.fire({
         icon: 'success',
         title: data.response
-      }).then(e => {
+      }).then((e: any) => {
         this.getProductbyId();
         // this.route.navigate(['/admin/productslist']);
       })
@@ -122,7 +126,7 @@ export class ProductDetailComponent implements OnInit {
       Toast.fire({
         icon: 'error',
         title: error.error.message
-      }).then(e => {
+      }).then((e: any) => {
         this.getProductbyId();
         // this.route.navigate(['/admin/productslist']);
       })

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Wishlist } from 'src/app/Model/wishlist';
+import { PostService } from 'src/app/Service/post.service';
 import { WishlistService } from 'src/app/Service/wishlist.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +17,7 @@ export class WishlistComponent implements OnInit {
     this.getWishList();
   }
   imageUrl = AppRoutes.imageUrl;
-  constructor(private wishlistService:WishlistService){}
+  constructor(private wishlistService:WishlistService,private post:PostService){}
   wishlist:Wishlist[]=[];
 
   getWishList(){
@@ -37,16 +38,18 @@ export class WishlistComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.wishlistService.removeToWishList(id).subscribe((data:any)=>{
-          Toast.fire({
-            icon: 'success',
-            title: data.response
-          })
+          // Toast.fire({
+          //   icon: 'success',
+          //   title: data.response
+          // })
+          this.post.showSuccess(data.response,'Success')
           this.getWishList();
         },(error)=>{
-          Toast.fire({
-            icon: 'error',
-            title: error.error.message
-          })
+          // Toast.fire({
+          //   icon: 'error',
+          //   title: error.error.message
+          // })
+          this,this.post.showerror(error.error.message,'Error')
         })
       }
     });
