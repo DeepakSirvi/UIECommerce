@@ -6,6 +6,8 @@ import { Varient } from 'src/app/Model/varient';
 import { VarientAttribute } from 'src/app/Model/varient-attribute';
 import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
 import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
+import { LoginService } from 'src/app/Service/AuthService/login.service';
+import { CartService } from 'src/app/Service/cart.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import { WishlistService } from 'src/app/Service/wishlist.service';
@@ -25,7 +27,7 @@ export class ProductDisplyComponent {
   imageUrl:string=AppRoutes.imageUrl;
   borderindex=0;
   isPresent=false;
-  constructor(private varientService:VarientService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+  constructor(private varientService:VarientService,private cart:CartService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
     this.productId= this.route.snapshot.params['id'];
   }
 
@@ -113,6 +115,7 @@ export class ProductDisplyComponent {
         title: data.response
       })
       this.getProduct();
+      this.cart.navbar.next(Math.random());
     },(error)=>{
       Toast.fire({
         icon: 'error',
