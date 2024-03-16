@@ -1,7 +1,7 @@
 
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Cart } from 'src/app/Model/cart';
 import { CartService } from 'src/app/Service/cart.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
@@ -30,6 +30,7 @@ export class ShopCartComponent implements OnInit {
   ngOnInit(): void {
     // alert(this.location.path())  // To read url of current location
      this.activeRoute.params.subscribe((data: any) => {
+      // alert(data.id)
       if (data.id === undefined || data.quantity === undefined) {
         this.getCart();
        
@@ -41,6 +42,8 @@ export class ShopCartComponent implements OnInit {
       }
     })
     this.getSaveForLater();
+    // alert("Deepak")
+    // this.route.navigate(['/customer/cart'])
   }
 
   getTotalCount(){
@@ -54,6 +57,7 @@ export class ShopCartComponent implements OnInit {
   {
     this.cartService.addToCart(id, 1).subscribe((data: any) => {
       this.getCart();
+      this.cartService.navbar.next(Math.random());
       this.saveForLaterService.deleteSaveForLater(saveId).subscribe(()=>{
         this.getSaveForLater();
       })   
@@ -69,6 +73,8 @@ export class ShopCartComponent implements OnInit {
   updateToCart(id: any, quantity: any) {
     this.cartService.addToCart(id, quantity).subscribe((data: any) => {
       this.getCart();
+      this.cartService.navbar.next(Math.random());
+
     })
   }
 
@@ -90,6 +96,8 @@ export class ShopCartComponent implements OnInit {
           // })
           this.post.showSuccess(data.message,'Success')
           this.getCart();
+          this.cartService.navbar.next(Math.random());
+
         }, (error) => {
           // Toast.fire({
           //   icon: 'error',
@@ -139,6 +147,8 @@ export class ShopCartComponent implements OnInit {
       this.post.showSuccess(data.response,'Success')
       this.cartService.deleteCartItem(cartId).subscribe((data:any)=>{
         this.getCart();
+        this.cartService.navbar.next(Math.random());
+
       })
       this.getSaveForLater();
     },(error)=>{

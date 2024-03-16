@@ -11,33 +11,12 @@ import { AppRoutes } from 'src/app/Util/appRoutes';
   styleUrls: ['./shop-checkout.component.css']
 })
 export class ShopCheckoutComponent implements OnInit {
-
-  constructor(private cartService: CartService, private activeRoute: ActivatedRoute, private route: Router
-    , private location: Location, private saveForLaterService: SaveforlaterService) {
-  }
-
-  imageUrl = AppRoutes.imageUrl;
-  productId!: number;
-  quantity!: number;
-  cart: Cart[] = [];
-  totalCount = 0;
-
+  
   ngOnInit(): void {
-
+    throw new Error('Method not implemented.');
   }
 
-  getCart() {
-    this.cartService.getCart().subscribe((data: any) => {
-      this.cart = data.cart;
-      this.getTotalCount();
-    });
-  }
 
-  getTotalCount() {
-    this.totalCount = 0;
-    this.cart.forEach(element => {
-      this.totalCount += element.quantity;
-    });
-  }
 
+ 
 }

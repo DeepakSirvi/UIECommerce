@@ -48,7 +48,6 @@ export class AddProductGoutamComponent implements OnInit {
       category:['',Validators.required],
       subCategory:['',Validators.required],
       productImage:['',Validators.required]
-
     })
     this.catService.getCategories().subscribe((result:any)=>{
       this.categories = result.AllCategory;
@@ -68,7 +67,6 @@ export class AddProductGoutamComponent implements OnInit {
     
   // }
   onSubmit(data:FormGroup){
-
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
@@ -76,11 +74,12 @@ export class AddProductGoutamComponent implements OnInit {
      
     this.post.showSuccess('Success','Success')
       this.route.navigate(['/admin/productslist']);
+
      },(error)=>{
     
     this.post.showerror(error.error.message,'Error')
      })
-    
+
   }
   setCategory(data:any){
     const selectedValue = (data.target as HTMLSelectElement).value;
@@ -90,16 +89,12 @@ export class AddProductGoutamComponent implements OnInit {
   onFileSelected(event: any): void {
     if (event.target.files && event.target.files.length == 1 ) {
       const file = event.target.files[0]; 
-  
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.image = { url: e.target.result }; 
         this.file = file; 
       };
-  
       reader.readAsDataURL(file);
     }
   }
-
-  
 }
