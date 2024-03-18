@@ -9,6 +9,7 @@ import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-categ
 
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { CartService } from 'src/app/Service/cart.service';
+import { PostService } from 'src/app/Service/post.service';
 
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
@@ -30,7 +31,7 @@ export class ProductDisplyComponent {
   borderindex=0;
   isPresent=false;
 
-  constructor(private varientService:VarientService,private cart:CartService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+  constructor(private post:PostService,private varientService:VarientService,private cart:CartService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
 
     this.productId= this.route.snapshot.params['id'];
   }
