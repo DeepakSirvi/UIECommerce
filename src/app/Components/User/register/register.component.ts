@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/Model/user';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import { FormGroup, Validators , FormControl,} from '@angular/forms';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { PostService } from 'src/app/Service/post.service';
 

@@ -9,12 +9,12 @@ export class PostService {
   constructor(private tost: ToastrService) { }
 
 
-  showSuccess(title: string, message: string, timer?: number) {
+  showSuccess(title: string, message: string, timer?: number):any {
     this.tost.success(message,title,{
         timeOut:timer?timer:3000, 
             })
   }
-   showerror(title: string, message: string, timer?: number) {   
+   showerror(title: string, message: string, timer?: number) :any {   
   this.tost.error(message,title,{
     timeOut:timer?timer:3000, 
   })

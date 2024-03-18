@@ -4,7 +4,7 @@ import { User } from 'src/app/Model/user';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import Swal from 'sweetalert2';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { PostService } from 'src/app/Service/post.service';
 
 @Component({
@@ -50,12 +50,15 @@ export class NavbarAdminComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, logout!'
-    }).then((result) => {
+    })
+  //  this.post.showerror('Are you sure Want to logout ?','Error')
+    .then((result: any) => {
       if (result.isConfirmed) {
         // Perform logout action here
         this.login.logout();
         this.route.navigate(['']);
-        Swal.fire('Logged Out!', 'You have been logged out.', 'success');
+        // Swal.fire('Logged Out!', 'You have been logged out.', 'success');
+        this.post.showSuccess( 'You have been logged out.', 'success')
       }
     });
 

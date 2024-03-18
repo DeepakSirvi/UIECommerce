@@ -7,7 +7,7 @@ import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribut
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
 import { PostService } from 'src/app/Service/post.service';
 import { VarientService } from 'src/app/Service/varient.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-varient-management',
@@ -52,10 +52,12 @@ export class VarientManagementComponent {
   }
   deleteVarient(id: any) {
     this.varientService.deleteVarientById(id).subscribe((data: any) => {
-      Toast.fire({
-        icon: 'success',
-        title: data.response.message,
-      }).then((e: any) => {
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response.message,
+      // })
+      this.post.showSuccess(data.response.message,'Success')
+      .then((e: any) => {
         this.getAllVarient();
       })
 
@@ -73,10 +75,11 @@ export class VarientManagementComponent {
       this.singleVarient.categoryAttributes.splice(index, 1);
     else {
       this.varientService.deleteSubVarientById(id).subscribe((data: any) => {
-        Toast.fire({
-          icon: 'success',
-          title: data.response.message,
-        })
+        // Toast.fire({
+        //   icon: 'success',
+        //   title: data.response.message,
+        // })
+        this.post.showSuccess(data.response.message,'Success')
         
         .then((e: any) => {
           this.singleVarient.categoryAttributes.splice(index, 1);

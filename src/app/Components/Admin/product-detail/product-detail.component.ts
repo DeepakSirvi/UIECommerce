@@ -10,7 +10,7 @@ import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -115,18 +115,22 @@ export class ProductDetailComponent implements OnInit {
 
   updateActiveVarient(event:any,id:any){
     this.varientService.updateActiveVarient((event.target as HTMLSelectElement).value,id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      }).then((e: any) => {
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
+      .then((e: any) => {
         this.getProductbyId();
         // this.route.navigate(['/admin/productslist']);
       })
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      }).then((e: any) => {
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
+      .then((e: any) => {
         this.getProductbyId();
         // this.route.navigate(['/admin/productslist']);
       })

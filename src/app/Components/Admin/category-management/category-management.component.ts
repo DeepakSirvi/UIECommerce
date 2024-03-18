@@ -6,7 +6,7 @@ import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { SubCategoryRequest } from 'src/app/RequestPayload/sub-category-request';
 import { CategoryService } from 'src/app/Service/category.service';
 import { PostService } from 'src/app/Service/post.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-category-management',
@@ -96,11 +96,13 @@ export class CategoryManagementComponent implements OnInit {
     if(id=='')
       this.singleCategory.subCategory.splice(index,1);
     else{
-    this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.message,
-      }).then((e: any)=>{
+     this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
+    //   Toast.fire({
+    //     icon: 'success',
+    //     title: data.message,
+    //   })
+    this.post.showSuccess(data.message,'Success')
+      .then((e: any)=>{
         this.singleCategory.subCategory.splice(index, 1)
       })  
     },(error)=>{

@@ -7,7 +7,7 @@ import { AddressService } from 'src/app/Service/AuthService/address.service';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import { PostService } from 'src/app/Service/post.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -37,16 +37,18 @@ export class AccountComponent implements OnInit {
   }
   updateUser() {
     this.userService.updateUser(this.user).subscribe((result: any) => {
-      Toast.fire({
+      // Toast.fire({
 
-        icon: 'success',
-        title: result.message
-      })
+      //   icon: 'success',
+      //   title: result.message
+      // })
+      this.post.showSuccess('Successfully Updated','Success')
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   public logout() {
@@ -86,7 +88,7 @@ export class AccountComponent implements OnInit {
     // alert(id)
     this.address.deleteAddress(id).subscribe({
       next: (data: any) => {
-        this.post.showSuccess(data.response, 'Success')
+        this.post.showSuccess('Successfully Deleted', 'Success')
        
         this.addresslist.splice(index, 1);
         this.getAddress(); 
