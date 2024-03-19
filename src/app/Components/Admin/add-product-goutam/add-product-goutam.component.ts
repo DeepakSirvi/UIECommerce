@@ -10,7 +10,7 @@ import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { CategoryService } from 'src/app/Service/category.service';
 import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 @Component({
   selector: 'app-add-product-goutam',
   templateUrl: './add-product-goutam.component.html',

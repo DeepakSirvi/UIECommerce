@@ -41,6 +41,7 @@ export class UpdateAddressComponent implements OnInit {
       this.address.id = params['id']
       this.findDetailsById(this.address.id)
 
+
     })
 
   }
@@ -59,6 +60,8 @@ export class UpdateAddressComponent implements OnInit {
   updateAddress() {
 
     if (this.myForm.invalid) {
+      console.log(this.address);
+      
       return
     }
     

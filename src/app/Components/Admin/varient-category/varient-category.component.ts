@@ -4,7 +4,7 @@ import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribut
 import { VarientCategoryRequest } from 'src/app/RequestPayload/varient-category-request';
 import { PostService } from 'src/app/Service/post.service';
 import { VarientService } from 'src/app/Service/varient.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-varient-category',
@@ -28,10 +28,12 @@ export class VarientCategoryComponent {
       if (index===-2) {
         this.varientService.addVarientCategory(this.varientCategory).subscribe((result:any) => {
           
-          Toast.fire({
-            icon: 'success',
-            title: result.response.message,
-          }).then((e: any)=>{
+          // Toast.fire({
+          //   icon: 'success',
+          //   title: result.response.message,
+          // })
+          this.post.showSuccess(result.response.message,'Success')
+          .then((e: any)=>{
             this.route.navigate(['/admin/varientmanage']);
           })  
         }, (error) => {

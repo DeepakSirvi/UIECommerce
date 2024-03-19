@@ -7,7 +7,7 @@ import { VarientAttribute } from 'src/app/Model/varient-attribute';
 import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
 import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
 import { PostService } from 'src/app/Service/post.service';
 
@@ -63,10 +63,12 @@ export class AddVarientComponent {
 
     this.varientService.addVarient(formData, headers).subscribe(
       (data: any) => {
-        Toast.fire({
-          icon: 'success',
-          title: data.response.message
-        }).then(e => {
+        // Toast.fire({
+        //   icon: 'success',
+        //   title: data.response.message
+        // })
+        this.post.showSuccess(data.response.message,'Success')
+        .then((e: any) => {
           this.router.navigate(['/admin/productDetails/' + this.varientRequest.productId]);
         })
       },
