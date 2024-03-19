@@ -8,6 +8,8 @@ import { BrandService } from 'src/app/Service/brand.service';
 import { PostService } from 'src/app/Service/post.service';
 
 
+
+
 @Component({
   selector: 'app-update-brand',
   templateUrl: './update-brand.component.html',
@@ -19,7 +21,9 @@ export class UpdateBrandComponent implements OnInit {
   id: any
   file: any;
   myForm: any;
-  constructor(private _brand: BrandService, private fs: FormBuilder, private router: Router,  private post: PostService, private activatedRoute: ActivatedRoute) {
+
+  constructor(private _brand: BrandService, private fs: FormBuilder, private router: Router, private post: PostService, private activatedRoute: ActivatedRoute) {
+
 
     //   this.myForm = this.fs.group({
     //     name: ['', Validators.required],
@@ -68,13 +72,15 @@ export class UpdateBrandComponent implements OnInit {
       this._brand.updateBrand( this.brand, this.file).subscribe({
         next: (data: any) => {
 
-          this.post.showSuccess('Success Update', 'Success')
+
           timer: 3000;
           this.router.navigate(['/admin/brands'])
 
         },
         error: (er: any) => {
+
           this.post.showerror('Error Updated', 'Error')
+
         }
       });
     }

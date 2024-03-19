@@ -12,7 +12,6 @@ export class CartService {
   
   navbar:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   navbarCount:Observable<any> = this.navbar.asObservable();
-
   public addToCart(varientId:any,quantity:any){
     return this.http.post(AppRoutes.ADD_CART+"/"+ varientId+"/"+quantity,{});
   }

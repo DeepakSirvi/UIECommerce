@@ -245,7 +245,7 @@ const routes: Routes = [
         component: ProductDisplyComponent
       },
       {
-        path: "shopcheckout",
+        path: "shopCheckOut",
         component: ShopCheckoutComponent
       },
       {
@@ -387,11 +387,9 @@ const routes: Routes = [
 
   {
     path: "vendor",
-    component: VendorDashboardComponent,
+    component: HomeVendorComponent,
     canActivate: [vendorGuard],
     children: [
-
-    
 
       {
         path:"",
