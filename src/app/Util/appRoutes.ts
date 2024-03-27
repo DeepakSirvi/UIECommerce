@@ -75,6 +75,7 @@ public static  GET_BRAND_USERID: string = this.baseUrl+"/brand/brands";
 public static Delete_BRAND:string = this.baseUrl+"/brand/delete/";
  public static UPDATE_BRAND: string = this.baseUrl+"/brand/updateBrand";
 public static GETBYID_Brand: string = this.baseUrl+"/brand/brands/";
+public static GETALLVERIFIEDBRAND =this.baseUrl+'/brand/AllVerifiedBrand'
 }
 
 

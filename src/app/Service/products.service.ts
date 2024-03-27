@@ -41,6 +41,7 @@ export class ProductsService {
   }
 
   getAllProduct(productSearch:string,pageIndex:number,pageSize:number,sortDir:string){
+    
     return this.http.get(AppRoutes.GET_ALL_PRODUCT +"?productSearch="+`${productSearch}`+"&pageIndex="+`${pageIndex}`+"&pageSize="+`${pageSize}`+"&sortDir="+`${sortDir}`);
   }
 

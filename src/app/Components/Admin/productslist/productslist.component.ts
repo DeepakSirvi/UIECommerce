@@ -67,7 +67,9 @@ export class ProductslistComponent implements OnInit {
 
 
   getAllProducts() {
+    
     this.productService.getAllProduct(this.productSearch, this.pageIndex, this.pageSize, this.sortDir).subscribe((data: any) => {
+      
       this.productList = data.AllProduct.content;
       this.length = data.AllProduct.totalElements;
     })
@@ -122,7 +124,7 @@ export class ProductslistComponent implements OnInit {
         title: error.error.message
       }).then(e => {
         this.getAllProducts();
-        // this.route.navigate(['/admin/productslist']);
+        
       })
     })
 

@@ -6,6 +6,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Product } from 'src/app/Model/product';
+import { BrandService } from 'src/app/Service/brand.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
@@ -31,6 +32,8 @@ export class ProductDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getProductbyId();
+    // this.getAllBrands();
+
   }
   getProductbyId(){
     this.productService.getProductById(this.productId).subscribe((data:any)=>{

@@ -7,6 +7,7 @@ import { retry } from 'rxjs';
 import { Category } from 'src/app/Model/category';
 import { SubCategory } from 'src/app/Model/sub-category';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
+import { BrandService } from 'src/app/Service/brand.service';
 import { CategoryService } from 'src/app/Service/category.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import Toast from 'src/app/Util/helper';
@@ -26,7 +27,7 @@ export class AddProductGoutamComponent implements OnInit {
   newCategory:Category = new Category();
   product:ProductRequest = new ProductRequest();
   public Editor =ClassicEditor;
-  constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder,private route:Router) {}
+  constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder,private route:Router,private brand:BrandService) {}
  
   ngOnInit(): void {
     this.productAddForm = this.formBuilder.group({
@@ -48,9 +49,12 @@ export class AddProductGoutamComponent implements OnInit {
       subCategory:['',Validators.required],
       productImage:['',Validators.required]
     })
+    this.getAllBrands();
     this.catService.getCategories().subscribe((result:any)=>{
       this.categories = result.AllCategory;
     });
+
+    
   }
 
   isFieldInvalid(field:string):boolean{
@@ -65,10 +69,20 @@ export class AddProductGoutamComponent implements OnInit {
   // submitFormInvalid(){
     
   // }
+  SelectedBrandName='';
+
+  selectBrand(brandName:any)
+  {
+    this.SelectedBrandName=brandName
+    console.log(this.SelectedBrandName);
+    
+  }
   onSubmit(data:FormGroup){
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
+    console.log(data.value);
+    
     this.productService.addProduct(data.value,this.file).subscribe((result:any)=>{
       Toast.fire({
         icon: 'success',
@@ -97,5 +111,19 @@ export class AddProductGoutamComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     }
+
+    
+  }
+
+brandsName:any[]=[];
+  getAllBrands()
+  {
+    this.brand.getAllVerifiedBrand().subscribe((data:any)=>
+    {
+      this.brandsName =data.response;
+      console.log(data.response);
+      
+    })
   }
 }
+

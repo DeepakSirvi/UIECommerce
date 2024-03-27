@@ -56,6 +56,10 @@ export class BrandService {
     return this.http.get(AppRoutes.GETBYID_Brand +id);
   }
 
+ public getAllVerifiedBrand() {
 
+     return this.http.get(AppRoutes.GETALLVERIFIEDBRAND);
+
+ }
 
 }

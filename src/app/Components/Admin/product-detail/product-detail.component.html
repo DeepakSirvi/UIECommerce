@@ -170,7 +170,8 @@
               <select maxlength="100" formControlName="brand"
                 [ngClass]="{'is-invalid':isFieldInvalid('brand') && productAddForm.controls['brand'].errors}"
                 class="form-control">
-                <option [value]="product.brand" disabled>{{product.brand}}</option>
+                 <option [value]="product.brand" disabled>{{product.brand}}</option> 
+                <!-- <option *ngFor="let product of products" [value]="product.brand">{{ product.brandName}}  </option> -->
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <!-- Add more options as needed -->
