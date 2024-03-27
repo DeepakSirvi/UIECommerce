@@ -29,7 +29,7 @@ export class AddAddressComponent implements OnInit {
     this.myForm = this.fs.group({
       name: ['', Validators.required],
       pincode: ['', Validators.required],
-      mobile: ['', Validators.required],
+      phone: ['', Validators.required],
       locality: ['', Validators.required],
       landmark: ['', Validators.required],
       city: ['', Validators.required],
@@ -47,6 +47,7 @@ export class AddAddressComponent implements OnInit {
 
 
   public AddAddress() {
+    this.myForm.markAllAsTouched();
     if(this.myForm.invalid){
       return
     } 

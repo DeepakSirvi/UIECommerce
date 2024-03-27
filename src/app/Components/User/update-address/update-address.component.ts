@@ -6,7 +6,7 @@ import { timer } from 'rxjs';
 import { Address } from 'src/app/Model/address';
 import { AddressService } from 'src/app/Service/AuthService/address.service';
 import { PostService } from 'src/app/Service/post.service';
-import { HelperService } from 'src/app/Util/helper.service';
+
 
 @Component({
   selector: 'app-update-address',
@@ -18,7 +18,7 @@ export class UpdateAddressComponent implements OnInit {
   id: any;
   myForm: FormGroup;
 
-  constructor(private _address: AddressService, private route: ActivatedRoute, private helper: HelperService, private router: Router, private fs: FormBuilder) {
+  constructor(private _address: AddressService, private route: ActivatedRoute, private post: PostService, private router: Router, private fs: FormBuilder) {
     this.myForm = this.fs.group({
       name: ['', Validators.required],
       pincode: ['', Validators.required],
@@ -41,6 +41,7 @@ export class UpdateAddressComponent implements OnInit {
       this.address.id = params['id']
       this.findDetailsById(this.address.id)
 
+
     })
 
   }
@@ -59,6 +60,8 @@ export class UpdateAddressComponent implements OnInit {
   updateAddress() {
 
     if (this.myForm.invalid) {
+      console.log(this.address);
+      
       return
     }
     
@@ -67,14 +70,14 @@ export class UpdateAddressComponent implements OnInit {
 
       this._address.updateAddress(this.id, this.address).subscribe({
         next: (data: any) => {
-          console.log(data);
-          this.helper.showSuccess('Success Updated', 'Success')
+        //  console.log(data);
+          this.post.showSuccess('Success Updated', 'Success')
            timer:5000;
           this.router.navigate(['/customer/account'])
 
         },
         error: (er: any) => {
-          this.helper.showerror('Error Updated', 'Error')
+          this.post.showerror('Error Updated', 'Error')
         }
       });
     }

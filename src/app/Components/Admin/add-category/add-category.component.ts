@@ -7,7 +7,8 @@ import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { SubCategoryRequest } from 'src/app/RequestPayload/sub-category-request';
 import { CategoryService } from 'src/app/Service/category.service';
-import Toast from 'src/app/Util/helper';
+import { PostService } from 'src/app/Service/post.service';
+//import Toast from 'src/app/Util/helper';
 
 
 
@@ -25,7 +26,7 @@ export class AddCategoryComponent implements OnInit {
 
   msg: string = '';
   subMsg: string = '';
-  constructor(private catService: CategoryService, private route: Router) { }
+  constructor(private catService: CategoryService, private route: Router,private post:PostService) { }
 
 
   onSubmit() {
@@ -34,17 +35,20 @@ export class AddCategoryComponent implements OnInit {
         let index = this.checkDublicate(this.category.subCategory);
         if (index === -2) {
           this.catService.addCategory(this.category).subscribe((result: any) => {
-            Toast.fire({
-              icon: 'success',
-              title: result.message
-            }).then(e => {
+            // Toast.fire({
+            //   icon: 'success',
+            //   title: result.message
+            // })
+            this.post.showSuccess(result.message,'Success')
+            .then((e: any) => {
               this.route.navigate(['admin/categoryManage']);
             })
           }, (error) => {
-            Toast.fire({
-              icon: 'error',
-              title: error.error.message
-            })
+            // Toast.fire({
+            //   icon: 'error',
+            //   title: error.error.message
+            // })
+            this.post.showerror(error.error.message,'Error')
           })
         }
         else if (index === -1) {

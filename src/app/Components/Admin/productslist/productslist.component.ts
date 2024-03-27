@@ -8,9 +8,10 @@ import { AdminProductFilter } from 'src/app/RequestPayload/admin-product-filter'
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { StatusBooleanRequest } from 'src/app/RequestPayload/status-boolean-request';
 import { CategoryService } from 'src/app/Service/category.service';
+import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-productslist',
@@ -19,7 +20,7 @@ import Toast from 'src/app/Util/helper';
 })
 export class ProductslistComponent implements OnInit {
 
-  constructor(private productService: ProductsService,private categoryService:CategoryService , private router: Router,private route:ActivatedRoute) {
+  constructor(private productService: ProductsService,private categoryService:CategoryService , private router: Router, private post: PostService,   private route:ActivatedRoute) {
   }
   allcategory: Category[] = [];
   ngOnInit(): void {
@@ -79,18 +80,23 @@ export class ProductslistComponent implements OnInit {
     this.updateStatus.status = event.checked;
     this.updateStatus.id = id;
     this.productService.updateStatus(this.updateStatus).subscribe((data: any) => {
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      }).then(e => {
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
+    
+      .then((e: any) => {
         this.getAllProducts();
         // this.route.navigate(['/admin/productslist']);
       })
     }, (error) => {
-        Toast.fire({
-          icon: 'error',
-          title: error.error.message
-        }).then(e => {
+        // Toast.fire({
+        //   icon: 'error',
+        //   title: error.error.message
+        // })
+        this.post.showerror(error.error.message,'Error')
+        .then((e: any) => {
           this.getAllProducts();
           // this.route.navigate(['/admin/productslist']);
         })
@@ -111,18 +117,22 @@ export class ProductslistComponent implements OnInit {
 
   updateVerifiedStatus(event:any,id:any){
     this.productService.updateVerifiedStatus((event.target as HTMLSelectElement).value,id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      }).then(e => {
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
+      .then((e: any) => {
         this.getAllProducts();
         // this.route.navigate(['/admin/productslist']);
       })
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      }).then(e => {
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
+      .then((e: any) => {
         this.getAllProducts();
         
       })

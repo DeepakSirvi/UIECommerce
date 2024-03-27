@@ -1,36 +1,81 @@
-<div class="container">
-    <div class="card">
+<!-- <div class="container" >
+   
+    <div class="card" >
+       <h3 class="datah"> Add Brand</h3>
         <form [formGroup]="myForm">
-        
-            <label for="fname">Brand name:</label><br>
-            <input type="text"  name="brandName" placeholder="Enter Here"  [(ngModel)]="brand.brandName"    formControlName="brandname"><br>
-             <h6 *ngIf="myForm.get('brandname')!.hasError('required') && myForm.get('brandname')!.touched " style="color: red;">
+
+            <label for="fname" >Brand name:</label>
+            <input type="text" name="brandName" placeholder="Enter Here" [(ngModel)]="brand.brandName"
+                formControlName="brandname"><br>
+            <h6 *ngIf="myForm.get('brandname')!.hasError('required') && myForm.get('brandname')!.touched "
+                style="color: red;">
+                Rquired
+            </h6>
+
+
+
+
+            <label for="lname">Brand Description</label>
+            <textarea required name="brandDescription" matInput placeholder="Enter here Desciption"
+                [(ngModel)]="brand.brandDescription" formControlName="brandDescription"></textarea>
+            <h6 *ngIf="myForm.get('brandDescription')!.hasError('required') && myForm.get('brandDescription')!.touched "
+                style="color: red;">
                 Rquired</h6>
 
-
-
-
-            <label for="lname">Brand Description</label>    
-            <textarea required name="brandDescription" matInput placeholder="Enter here Desciption"  [(ngModel)]="brand.brandDescription"  formControlName="brandDescription"></textarea>
-            <h6 *ngIf="myForm.get('brandDescription')!.hasError('required') && myForm.get('brandDescription')!.touched " style="color: red;">
-                Rquired</h6>
- 
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label class="col-form-label">Brand Image :<span class="text-danger"  ></span></label>
-                        <input type="file" formControlName="brandImage" name="brandImage" (change)="addImageFile($event)"  >
-                        <h6 *ngIf="myForm.get('brandImage')!.hasError('required') && myForm.get('brandImage')!.touched " style="color: red;">
-                            Rquired</h6>
-                    </div>
-                    <button      mat-button color="primary"
-                    style="margin-left: 40%;" (click)="addBrand()">Submit</button>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-form-label">Brand Image :<span class="text-danger"></span></label>
+                    <input type="file" formControlName="brandImage" name="brandImage" (change)="addImageFile($event)">
+                    <h6 *ngIf="myForm.get('brandImage')!.hasError('required') && myForm.get('brandImage')!.touched "
+                        style="color: red;">
+                        Rquired</h6>
                 </div>
+                <button mat-raised-button color="primary" style="margin-left: 40%;" (click)="addBrand()">Submit</button>
+            </div>
+
         </form>
-     
-       
-        {{brand |json}}
-      
-</div>
 
 
-                                        
+    </div>
+    {{brand |json}}
+
+     -->
+
+ 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Form</title>
+ 
+</head>
+<body>
+
+  <form [formGroup]="myForm">
+    <label class="col-form-label" for="brandName">Brand Name:</label>
+    <input type="text" id="brandName" name="brandname" required   formControlName="brandname" [(ngModel)]="brand.brandName">
+    <h6 *ngIf="myForm.get('brandname')!.hasError('required') && myForm.get('brandname')!.touched "
+    style="color: red;">Rquired</h6>
+
+    <label for="brandDescription">Brand Description:</label>
+    <textarea  type="text" id="brandDescription" name="brandDescription" formControlName="brandDescription" rows="4" required></textarea>
+    <h6 *ngIf="myForm.get('brandDescription')!.hasError('required') && myForm.get('brandDescription')!.touched "
+    style="color: red;">
+    Rquired</h6>
+
+    
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label class="col-form-label">Brand Image :<span class="text-danger"></span></label>
+            <input type="file" formControlName="brandImage" name="brandImage" (change)="addImageFile($event)">
+            <h6 *ngIf="myForm.get('brandImage')!.hasError('required') && myForm.get('brandImage')!.touched "
+                style="color: red;">
+                Rquired</h6>
+        </div>
+    </div>
+
+    <button type="submit"  (click)="addBrand()">Submit</button>
+  </form>
+
+</body>
+</html>

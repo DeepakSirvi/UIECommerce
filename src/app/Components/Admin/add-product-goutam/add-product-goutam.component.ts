@@ -9,8 +9,9 @@ import { SubCategory } from 'src/app/Model/sub-category';
 import { ProductRequest } from 'src/app/RequestPayload/product-request';
 import { BrandService } from 'src/app/Service/brand.service';
 import { CategoryService } from 'src/app/Service/category.service';
+import { PostService } from 'src/app/Service/post.service';
 import { ProductsService } from 'src/app/Service/products.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 @Component({
   selector: 'app-add-product-goutam',
   templateUrl: './add-product-goutam.component.html',
@@ -28,6 +29,7 @@ export class AddProductGoutamComponent implements OnInit {
   product:ProductRequest = new ProductRequest();
   public Editor =ClassicEditor;
   constructor(private catService:CategoryService,private productService:ProductsService,private formBuilder:FormBuilder,private route:Router,private brand:BrandService) {}
+
  
   ngOnInit(): void {
     this.productAddForm = this.formBuilder.group({
@@ -84,17 +86,15 @@ export class AddProductGoutamComponent implements OnInit {
     console.log(data.value);
     
     this.productService.addProduct(data.value,this.file).subscribe((result:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: result.response.message
-      })
+     
+    this.post.showSuccess('Success','Success')
       this.route.navigate(['/admin/productslist']);
-    },(error)=>{
-      Toast.fire({
-        icon:'error',
-        title:error.error.message
-      })
-    })
+
+     },(error)=>{
+    
+    this.post.showerror(error.error.message,'Error')
+     })
+
   }
   setCategory(data:any){
     const selectedValue = (data.target as HTMLSelectElement).value;

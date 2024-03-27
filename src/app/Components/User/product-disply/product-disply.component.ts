@@ -6,11 +6,16 @@ import { Varient } from 'src/app/Model/varient';
 import { VarientAttribute } from 'src/app/Model/varient-attribute';
 import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
 import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
+
+import { LoginService } from 'src/app/Service/AuthService/login.service';
+import { CartService } from 'src/app/Service/cart.service';
+import { PostService } from 'src/app/Service/post.service';
+
 import { ProductsService } from 'src/app/Service/products.service';
 import { VarientService } from 'src/app/Service/varient.service';
 import { WishlistService } from 'src/app/Service/wishlist.service';
 import { AppRoutes } from 'src/app/Util/appRoutes';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-product-disply',
@@ -25,7 +30,9 @@ export class ProductDisplyComponent {
   imageUrl:string=AppRoutes.imageUrl;
   borderindex=0;
   isPresent=false;
-  constructor(private varientService:VarientService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+
+  constructor(private post:PostService,private varientService:VarientService,private cart:CartService,private wishlistService:WishlistService,private route:ActivatedRoute,private productService:ProductsService,private router:Router){
+
     this.productId= this.route.snapshot.params['id'];
   }
 
@@ -42,10 +49,11 @@ export class ProductDisplyComponent {
         this.wishlistService.isProductAddToWishList(this.varient.id).subscribe((data:any)=>{
           this.isPresent=data.isPresent;
          },(error)=>{
-           Toast.fire({
-             icon: 'error',
-             title: error.error.message
-           })
+          //  Toast.fire({
+          //    icon: 'error',
+          //    title: error.error.message
+          //  })
+          this.post.showerror(error.error.message,'Error')
          });
         if(this.varient.productImage.length===0)
         {
@@ -53,10 +61,11 @@ export class ProductDisplyComponent {
         }
       })
      },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.router.navigate(['/admin/productslist'])
      }) 
   }
@@ -97,10 +106,11 @@ export class ProductDisplyComponent {
         this.varient.productImage.push(new ProductImage(this.product.productImage));
       }
      },(error)=>{
-      Toast.fire({
-        icon:'error',
-        title:error.error.message
-      })
+      // Toast.fire({
+      //   icon:'error',
+      //   title:error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
      })
   }
 
@@ -108,30 +118,36 @@ export class ProductDisplyComponent {
   addToWishList(id:any){
     if(!this.isPresent){
     this.wishlistService.addToWishList(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      })
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
       this.getProduct();
+      this.cart.navbar.next(Math.random());
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+
+      this.post.showerror(error.error.message,'Error')
     })
   }
   else{
     this.wishlistService.removeToWishList(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.response
-      })
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.response
+      // })
+      this.post.showSuccess(data.response,'Success')
       this.getProduct();
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   }

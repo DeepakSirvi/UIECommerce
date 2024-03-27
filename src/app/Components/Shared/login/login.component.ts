@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { FormGroup, Validator , FormControl, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { PostService } from 'src/app/Service/post.service';
 
 

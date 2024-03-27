@@ -7,7 +7,7 @@ import { AddressService } from 'src/app/Service/AuthService/address.service';
 import { LoginService } from 'src/app/Service/AuthService/login.service';
 import { UserRegisterService } from 'src/app/Service/AuthService/user-register.service';
 import { PostService } from 'src/app/Service/post.service';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
 
 
     this.getUserDetails();
-    // this.getAddress();
+     this.getAddress();
   }
 
   constructor(private userService: UserRegisterService, private login: LoginService, private route: Router, private address: AddressService, private post: PostService, private _route: ActivatedRoute) { }
@@ -37,16 +37,18 @@ export class AccountComponent implements OnInit {
   }
   updateUser() {
     this.userService.updateUser(this.user).subscribe((result: any) => {
-      Toast.fire({
+      // Toast.fire({
 
-        icon: 'success',
-        title: result.message
-      })
+      //   icon: 'success',
+      //   title: result.message
+      // })
+      this.post.showSuccess('Successfully Updated','Success')
     }, (error) => {
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   public logout() {
@@ -75,7 +77,7 @@ export class AccountComponent implements OnInit {
         this.addresslist = data;
       },
       error: (er: any) => {
-      }
+      } 
     })
   }
 
@@ -86,14 +88,17 @@ export class AccountComponent implements OnInit {
     // alert(id)
     this.address.deleteAddress(id).subscribe({
       next: (data: any) => {
-        this.post.showSuccess('Address Deleted', 'Success')
-        // this.getAddress();
+        this.post.showSuccess('Successfully Deleted', 'Success')
+       
         this.addresslist.splice(index, 1);
+        this.getAddress(); 
+       
         this.route.navigate(['/customer/account'])
 
       },
       error: (er: any) => {
-        this.post.showerror('Deleted Error', 'Error')
+        this.post.showerror(er.error.message,'Error');
+        
       }
     })
   }

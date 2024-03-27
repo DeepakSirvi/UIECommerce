@@ -5,7 +5,8 @@ import { SubCategory } from 'src/app/Model/sub-category';
 import { CategoryRequest } from 'src/app/RequestPayload/category-request';
 import { SubCategoryRequest } from 'src/app/RequestPayload/sub-category-request';
 import { CategoryService } from 'src/app/Service/category.service';
-import Toast from 'src/app/Util/helper';
+import { PostService } from 'src/app/Service/post.service';
+//import Toast from 'src/app/Util/helper';
 
 @Component({
   selector: 'app-category-management',
@@ -21,7 +22,7 @@ export class CategoryManagementComponent implements OnInit {
     this.getAllCategories();
   }
 
-  constructor(private categoryService:CategoryService){}
+  constructor(private categoryService:CategoryService,private post:PostService){}
   
   categories:Category[]=[];
   categorySearch:string='';
@@ -61,16 +62,18 @@ export class CategoryManagementComponent implements OnInit {
 
   deleteCategory(id:any){
     this.categoryService.deleteCategoryById(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.message,
-      })
+      // Toast.fire({
+      //   icon: 'success',
+      //   title: data.message,
+      // })
+      this,this.post.showSuccess(data.message,'Success')
 
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   
@@ -93,18 +96,21 @@ export class CategoryManagementComponent implements OnInit {
     if(id=='')
       this.singleCategory.subCategory.splice(index,1);
     else{
-    this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
-      Toast.fire({
-        icon: 'success',
-        title: data.message,
-      }).then(e=>{
+     this.categoryService.deleteSubCategoryById(id).subscribe((data:any)=>{
+    //   Toast.fire({
+    //     icon: 'success',
+    //     title: data.message,
+    //   })
+    this.post.showSuccess(data.message,'Success')
+      .then((e: any)=>{
         this.singleCategory.subCategory.splice(index, 1)
       })  
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
     })
   }
   }
@@ -116,10 +122,11 @@ export class CategoryManagementComponent implements OnInit {
         this.getAllCategories();
       }
     },(error)=>{
-      Toast.fire({
-        icon: 'error',
-        title: error.error.message
-      })
+      // Toast.fire({
+      //   icon: 'error',
+      //   title: error.error.message
+      // })
+      this.post.showerror(error.error.message,'Error')
       this.getAllCategories();
     })
   }

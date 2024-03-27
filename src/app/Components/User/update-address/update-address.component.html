@@ -6,38 +6,34 @@
 
         <form [formGroup]="myForm">
 
-
-
-
-
-
-
-
             <label for="name"> Name</label>
             <input type="text" id="name" [(ngModel)]="address.name" name="name" formControlName="name">
             <h6 *ngIf="myForm.get('name')!.hasError('required') && myForm.get('name')!.touched" style="color: red;">
-           Requried </h6>
+                Requried </h6>
 
             <label for="email">Pincode</label>
             <input type="number" id="pincode" [(ngModel)]="address.pincode" name="pincode" formControlName="pincode">
-            <h6 *ngIf="myForm.get('pincode')!.hasError('required') && myForm.get('pincode')!.touched" style="color: red;">
+            <h6 *ngIf="myForm.get('pincode')!.hasError('required') && myForm.get('pincode')!.touched"
+                style="color: red;">
                 Requried </h6>
 
 
             <label for="message">Mobile No</label>
-            <input type="number" id="name" [(ngModel)]="address.mobile" name="mobile"  formControlName="mobile">
+            <input type="number" id="name" [(ngModel)]="address.mobile" name="mobile" formControlName="mobile">
             <h6 *ngIf="myForm.get('mobile')!.hasError('required') && myForm.get('mobile')!.touched" style="color: red;">
                 Requried </h6>
 
             <label for="message">Alt. Mobile No</label>
-            <input type="number" id="name" [(ngModel)]="address.alternateMobile" name="alternateMobile"  formControlName="alternateMobile">
-  <h6 *ngIf="myForm.get('alternateMobile')!.hasError('required') && myForm.get('alternateMobile')!.touched" style="color: red;">
-           Requried </h6> 
+            <input type="number" id="name" [(ngModel)]="address.alternateMobile" name="alternateMobile"
+                formControlName="alternateMobile">
+            <h6 *ngIf="myForm.get('alternateMobile')!.hasError('required') && myForm.get('alternateMobile')!.touched"
+                style="color: red;">
+                Requried </h6>
 
             <label for="message">City</label>
-            <input type="text" id="name" [(ngModel)]="address.city" name="city"  formControlName="city">
-  <h6 *ngIf="myForm.get('city')!.hasError('required') && myForm.get('city')!.touched" style="color: red;">
-           Requried </h6>
+            <input type="text" id="name" [(ngModel)]="address.city" name="city" formControlName="city">
+            <h6 *ngIf="myForm.get('city')!.hasError('required') && myForm.get('city')!.touched" style="color: red;">
+                Requried </h6>
 
             <label for="message">State</label>
             <input type="text" id="name" [(ngModel)]="address.state" name="state" formControlName="state">
@@ -46,20 +42,24 @@
 
 
             <label for="message">Locality</label>
-            <input type="text" id="name" name="locality" [(ngModel)]="address.locality"  formControlName="locality">
-  <h6 *ngIf="myForm.get('locality')!.hasError('required') && myForm.get('locality')!.touched" style="color: red;">
-           Requried </h6>
+            <input type="text" id="name" name="locality" [(ngModel)]="address.locality" formControlName="locality">
+            <h6 *ngIf="myForm.get('locality')!.hasError('required') && myForm.get('locality')!.touched"
+                style="color: red;">
+                Requried </h6>
 
             <label for="message">LandMark</label>
-            <input type="text" id="name" name="landMark" [(ngModel)]="address.landMark"  formControlName="landmark">
+            <input type="text" id="name" name="landMark" [(ngModel)]="address.landMark" formControlName="landmark">
 
-            <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched" style="color: red;">
+            <h6 *ngIf="myForm.get('landmark')!.hasError('required') && myForm.get('landmark')!.touched"
+                style="color: red;">
                 Requried </h6>
 
             <label for="message">AddressType</label>
-            <input type="text" id="name" name="addressType" [(ngModel)]="address.addressType"  formControlName="addressType">
-  <h6 *ngIf="myForm.get('addressType')!.hasError('required') && myForm.get('addressType')!.touched" style="color: red;">
-           Requried </h6>
+            <input type="text" id="name" name="addressType" [(ngModel)]="address.addressType"
+                formControlName="addressType">
+            <h6 *ngIf="myForm.get('addressType')!.hasError('required') && myForm.get('addressType')!.touched"
+                style="color: red;">
+                Requried </h6>
 
             <button type="submit" (click)="updateAddress()">Submit</button>
         </form>

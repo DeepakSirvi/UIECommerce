@@ -71,7 +71,7 @@ import { UpdateAddressComponent } from './Components/User/update-address/update-
 import { HomeVendorComponent } from './Components/Vendor/home-vendor/home-vendor.component';
 
 import { AddBrandComponent } from './Components/Admin/add-brand/add-brand.component';
-import { UpdateBrandComponent } from './Components/update-brand/update-brand.component';
+import { UpdateBrandComponent } from './Components/Admin/update-brand/update-brand.component';
 
 
 const routes: Routes = [
@@ -387,10 +387,10 @@ const routes: Routes = [
 
   {
     path: "vendor",
-    component: VendorDashboardComponent,
+    component: HomeVendorComponent,
     canActivate: [vendorGuard],
-   
     children:[
+
 
       {
         path:"",

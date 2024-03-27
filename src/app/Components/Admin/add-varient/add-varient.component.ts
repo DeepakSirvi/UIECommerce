@@ -7,8 +7,9 @@ import { VarientAttribute } from 'src/app/Model/varient-attribute';
 import { VarientCategoryJoin } from 'src/app/Model/varient-category-join';
 import { VarientCategoryJoinRequest } from 'src/app/RequestPayload/varient-category-join-request';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import Toast from 'src/app/Util/helper';
+//import Toast from 'src/app/Util/helper';
 import { VarientAttributeRequest } from 'src/app/RequestPayload/varient-attribute-request';
+import { PostService } from 'src/app/Service/post.service';
 
 @Component({
   selector: 'app-add-varient',
@@ -23,7 +24,7 @@ export class AddVarientComponent {
   selectedValues: { category: string, attribute: string, attributeId: string }[] = [];
   newVarientCategory!: VarientCategory;
 
-  constructor(private varientService: VarientService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private varientService: VarientService, private route: ActivatedRoute,private post: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.varientRequest.productId = this.route.snapshot.params['id'];
@@ -62,18 +63,21 @@ export class AddVarientComponent {
 
     this.varientService.addVarient(formData, headers).subscribe(
       (data: any) => {
-        Toast.fire({
-          icon: 'success',
-          title: data.response.message
-        }).then(e => {
+        // Toast.fire({
+        //   icon: 'success',
+        //   title: data.response.message
+        // })
+        this.post.showSuccess(data.response.message,'Success')
+        .then((e: any) => {
           this.router.navigate(['/admin/productDetails/' + this.varientRequest.productId]);
         })
       },
       (error) => {
-        Toast.fire({
-          icon: 'error',
-          title: error.error.message
-        })
+        // Toast.fire({
+        //   icon: 'error',
+        //   title: error.error.message
+        // })
+        this.post.showerror(error.error.message,'Error')
       }
     );
   }
